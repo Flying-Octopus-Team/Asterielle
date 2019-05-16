@@ -5,7 +5,7 @@ export(float) var next_arrow_wait_time
 
 var fire_point : Node2D
 var Arrow = load("res://Scenes/Arrow.tscn")
-var next_arrow_timer
+var next_arrow_timer : float
 
 func _ready():
 	restart_arrow_timer()

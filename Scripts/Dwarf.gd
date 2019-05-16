@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+signal died
+
 export(float) var move_speed
 export(float) var hp
 
@@ -11,15 +13,17 @@ func _ready():
 func _physics_process(delta):
 	var collision = move_and_collide(velocity * delta)
 	
-	# Because of collision layer and mask dwarf collided with arrow
 	if collision:
 		on_collision_hit(collision)
 	
 func on_collision_hit(collision):
+	# Because of collision layer and mask dwarf collided with arrow
+	# So we can remove it
 	collision.collider.queue_free()
 	
 	hp -= 1
 	if hp <= 0:
+		emit_signal("died")
 		queue_free()
 	
 func _on_DwarfSpace_area_entered(area):
