@@ -4,13 +4,14 @@
 [ext_resource path="res://Textures/OnePixel.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 43.763, 32.4856 )
+extents = Vector2( 90.2814, 32.4856 )
 
 [node name="Elf" type="KinematicBody2D"]
 collision_layer = 8
 collision_mask = 16
 script = ExtResource( 1 )
 arrow_speed = 200.0
+next_arrow_wait_time = 1.0
 
 [node name="Sprite" type="Sprite" parent="."]
 modulate = Color( 0, 0.356863, 1, 1 )
@@ -20,10 +21,10 @@ texture = ExtResource( 2 )
 [node name="FirePoint" type="Node2D" parent="."]
 position = Vector2( 32, 0 )
 
-[node name="NextArrowTimer" type="Timer" parent="."]
-autostart = true
+[node name="Space" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 16
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Space"]
 shape = SubResource( 1 )
 
-[connection signal="timeout" from="NextArrowTimer" to="." method="_on_NextArrowTimer_timeout"]

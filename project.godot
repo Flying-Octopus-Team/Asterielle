@@ -21,6 +21,7 @@ config/icon="res://icon.png"
 
 [layer_names]
 
+2d_physics/layer_1="default"
 2d_physics/layer_2="dwarves"
 2d_physics/layer_3="arrows"
 2d_physics/layer_4="elf"

@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
-export(float) var move_speed = 50.0
-export(int) var hp = 10
+export(float) var move_speed
+export(float) var hp
 
 var velocity : Vector2
 
@@ -22,13 +22,8 @@ func on_collision_hit(collision):
 	if hp <= 0:
 		queue_free()
 	
-
-func _on_DwarfSpace_body_entered(body):
-	velocity = Vector2.ZERO
-
 func _on_DwarfSpace_area_entered(area):
-	if area.name == "DwarfSpace":
-		velocity = Vector2.ZERO
+	velocity = Vector2.ZERO
 
 func _on_DwarfSpace_area_exited(area):
 	go_forward()
