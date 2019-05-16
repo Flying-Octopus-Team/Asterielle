@@ -17,6 +17,11 @@ func _process(delta):
 	if next_arrow_timer <= 0:
 		shot_arrow()
 
+func _input(event):
+	if event is InputEventMouseButton:
+		if Input.get_mouse_button_mask() == 1:
+			next_arrow_timer -= 0.1
+		
 func shot_arrow():
 	restart_arrow_timer()
 	
