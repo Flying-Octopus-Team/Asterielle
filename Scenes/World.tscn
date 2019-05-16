@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scripts/World.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Elf.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/DwarvesSpawner.tscn" type="PackedScene" id=3]
+
+[node name="World" type="Node2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [  ]
+}
+
+[node name="Elf" parent="." instance=ExtResource( 2 )]
+position = Vector2( 119.7, 500.65 )
+
+[node name="DwarvesSpawner" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1080.61, 501.055 )
+
