@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends Node2D
 
 export(float) var arrow_speed;
 export(float) var next_arrow_wait_time
