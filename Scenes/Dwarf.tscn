@@ -14,7 +14,7 @@ collision_layer = 2
 collision_mask = 4
 script = ExtResource( 1 )
 move_speed = 100.0
-hp = 10.0
+max_hp = 10.0
 
 [node name="Sprite" type="Sprite" parent="."]
 modulate = Color( 0.839216, 0.0156863, 0.0156863, 1 )
@@ -48,6 +48,13 @@ margin_bottom = -51.0
 rect_scale = Vector2( 96, 8 )
 value = 70.0
 texture_progress = ExtResource( 2 )
+
+[node name="HPLabel" type="Label" parent="."]
+margin_left = -10.453
+margin_top = -54.3557
+margin_right = 29.547
+margin_bottom = -40.3557
+text = "10"
 
 [connection signal="area_entered" from="DwarfSpace" to="." method="_on_DwarfSpace_area_entered"]
 [connection signal="area_exited" from="DwarfSpace" to="." method="_on_DwarfSpace_area_exited"]
