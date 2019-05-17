@@ -8,6 +8,8 @@ export(float) var hp
 var velocity : Vector2
 
 func _ready():
+	$HPBar/HP.max_value = hp
+	$HPBar/HP.value = hp
 	go_forward()
 	
 func _physics_process(delta):
@@ -17,15 +19,17 @@ func _physics_process(delta):
 		on_collision_hit(collision)
 	
 func on_collision_hit(collision):
-	# Because of collision layer and mask dwarf collided with arrow
-	# So we can remove it
+	# Because of collision layer and mask, dwarf definitly 
+	# collided with arrow so we can remove it
 	collision.collider.queue_free()
 	
 	hp -= 1
 	if hp <= 0:
 		emit_signal("died")
 		queue_free()
-	
+	else:
+		$HPBar/HP.value = hp
+		
 func _on_DwarfSpace_area_entered(area):
 	velocity = Vector2.ZERO
 
