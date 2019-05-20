@@ -4,7 +4,7 @@
 [ext_resource path="res://Textures/Arrow1.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 12, 4 )
+extents = Vector2( 18, 3 )
 
 [node name="Arrow" type="KinematicBody2D"]
 collision_layer = 4
@@ -13,8 +13,10 @@ script = ExtResource( 1 )
 force = 1.0
 
 [node name="Sprite2" type="Sprite" parent="."]
-position = Vector2( 8, -1 )
+position = Vector2( 1, 1 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -1, 0 )
 shape = SubResource( 1 )
+
