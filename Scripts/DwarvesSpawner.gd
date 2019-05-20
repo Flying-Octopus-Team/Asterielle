@@ -36,6 +36,5 @@ func spawn_boss():
 	boss.connect("died", level_manager, "on_Boss_died")
 	
 func on_next_level(current_level):
-	print("Current level " + str(current_level))
 	#current_dwarf_max_hp += current_dwarf_max_hp * current_level * 0.1
 	current_dwarf_max_hp += 1

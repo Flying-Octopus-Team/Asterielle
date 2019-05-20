@@ -36,8 +36,6 @@ func on_Dwarf_died():
 	
 	if killed_dwarves >= dwarves_per_level:
 		if current_level % 10 == 0:
-			# Spawn boss
-			print('The Boss is coming...')
 			emit_signal("spawn_boss")
 		else:
 			emit_signal("spawn_dwarf")
