@@ -26,8 +26,8 @@ func _physics_process(delta):
 	$HPBar/HPLabel.text = str(hp)
 	
 func on_collision_hit(collision):
-	# Because of collision layer and mask, dwarf definitly arrow
-	# collided with so we can remove it
+	# Because of collision layer and mask, dwarf definitly
+	# collided with arrow so we can remove it
 	var arrow = collision.collider
 	arrow.queue_free()
 	
