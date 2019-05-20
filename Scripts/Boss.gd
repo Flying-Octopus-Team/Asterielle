@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 signal died
+signal boss_kill_timeout
 
 export(float) var move_speed
 
@@ -24,6 +25,7 @@ func _physics_process(delta):
 		on_collision_hit(collision)
 	
 	$HPBar/HPLabel.text = str(hp)
+	$TimeToKillLabel.text = str($TimeToKill.time_left)
 	
 func on_collision_hit(collision):
 	# Because of collision layer and mask, dwarf definitly
@@ -44,3 +46,6 @@ func _on_DwarfSpace_area_entered(area):
 func go_forward():
 	velocity = Vector2(-move_speed, 0)
 	
+func _on_TimeToKill_timeout():
+	queue_free()
+	emit_signal("boss_kill_timeout")	
