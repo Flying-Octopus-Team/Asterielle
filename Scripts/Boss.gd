@@ -43,9 +43,6 @@ func on_collision_hit(collision):
 	else:
 		$HPBar/HP.value = hp
 		
-func _on_DwarfSpace_area_entered(area):
-	velocity = Vector2.ZERO
-
 func go_forward():
 	velocity = Vector2(-move_speed, 0)
 	

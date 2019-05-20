@@ -10,7 +10,7 @@ extents = Vector2( 64, 64.2514 )
 collision_layer = 2
 collision_mask = 4
 script = ExtResource( 1 )
-move_speed = 30.0
+move_speed = 60.0
 
 [node name="Sprite" type="Sprite" parent="."]
 modulate = Color( 0.254902, 0, 0, 1 )
@@ -22,6 +22,7 @@ shape = SubResource( 1 )
 
 [node name="ElfRayCast" type="RayCast2D" parent="."]
 enabled = true
+cast_to = Vector2( -80, 0 )
 collision_mask = 8
 collide_with_areas = true
 collide_with_bodies = false
