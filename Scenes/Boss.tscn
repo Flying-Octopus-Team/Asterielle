@@ -52,4 +52,17 @@ margin_top = -7.0
 margin_right = 8.0
 margin_bottom = 7.0
 text = "10"
+
+[node name="TimeToKill" type="Timer" parent="."]
+wait_time = 30.0
+one_shot = true
+autostart = true
+
+[node name="TimeToKillLabel" type="Label" parent="."]
+margin_left = -9.0
+margin_top = -7.0
+margin_right = 31.0
+margin_bottom = 7.0
+text = "30"
 [connection signal="area_entered" from="DwarfSpace" to="." method="_on_DwarfSpace_area_entered"]
+[connection signal="timeout" from="TimeToKill" to="." method="_on_TimeToKill_timeout"]

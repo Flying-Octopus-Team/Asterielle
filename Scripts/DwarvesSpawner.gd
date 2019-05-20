@@ -34,6 +34,7 @@ func spawn_boss():
 	boss.global_position = global_position
 	boss.set_max_hp(current_boss_max_hp)
 	boss.connect("died", level_manager, "on_Boss_died")
+	boss.connect("boss_kill_timeout", level_manager, "on_Boss_Kill_Timeout")
 	
 func on_next_level(current_level):
 	#current_dwarf_max_hp += current_dwarf_max_hp * current_level * 0.1
