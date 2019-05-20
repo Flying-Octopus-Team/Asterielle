@@ -23,6 +23,9 @@ func _physics_process(delta):
 	
 	if collision:
 		on_collision_hit(collision)
+		
+	if $ElfRayCast.get_collider():
+		velocity = Vector2.ZERO
 	
 	$HPBar/HPLabel.text = str(hp)
 	$TimeToKillLabel.text = str($TimeToKill.time_left)

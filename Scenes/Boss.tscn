@@ -1,13 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scripts/Boss.gd" type="Script" id=1]
 [ext_resource path="res://Textures/OnePixel.png" type="Texture" id=2]
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 64, 64.2514 )
-
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 155, 56 )
+extents = Vector2( 64, 64.2514 )
 
 [node name="Boss" type="KinematicBody2D"]
 collision_layer = 2
@@ -21,12 +18,13 @@ scale = Vector2( 128, 128 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 2 )
-
-[node name="DwarfSpace" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DwarfSpace"]
 shape = SubResource( 1 )
+
+[node name="ElfRayCast" type="RayCast2D" parent="."]
+enabled = true
+collision_mask = 8
+collide_with_areas = true
+collide_with_bodies = false
 
 [node name="HPBar" type="Node2D" parent="."]
 position = Vector2( 0, -96 )
@@ -64,5 +62,5 @@ margin_top = -7.0
 margin_right = 31.0
 margin_bottom = 7.0
 text = "30"
-[connection signal="area_entered" from="DwarfSpace" to="." method="_on_DwarfSpace_area_entered"]
+
 [connection signal="timeout" from="TimeToKill" to="." method="_on_TimeToKill_timeout"]
