@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/Boss.gd" type="Script" id=1]
-[ext_resource path="res://Textures/OnePixel.png" type="Texture" id=2]
+[ext_resource path="res://Textures/krasnalpix.png" type="Texture" id=2]
+[ext_resource path="res://Textures/OnePixel.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 64, 64.2514 )
@@ -15,7 +16,7 @@ move_speed = 60.0
 [node name="Sprite" type="Sprite" parent="."]
 modulate = Color( 0.254902, 0, 0, 1 )
 position = Vector2( 0, -64 )
-scale = Vector2( 128, 128 )
+scale = Vector2( 2.3, 2.3 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -36,7 +37,7 @@ position = Vector2( 0, -160 )
 [node name="Background" type="Sprite" parent="HPBar"]
 modulate = Color( 0.00392157, 0.0862745, 0, 1 )
 scale = Vector2( 142, 10 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
 [node name="HP" type="TextureProgress" parent="HPBar"]
 modulate = Color( 1, 0.435294, 0, 1 )
@@ -46,7 +47,7 @@ margin_right = -69.0
 margin_bottom = -3.0
 rect_scale = Vector2( 140, 8 )
 value = 100.0
-texture_progress = ExtResource( 2 )
+texture_progress = ExtResource( 3 )
 
 [node name="HPLabel" type="Label" parent="HPBar"]
 margin_left = -9.0
