@@ -16,10 +16,10 @@ script = ExtResource( 2 )
 dwarves_per_level = 1
 
 [node name="Elf" parent="." instance=ExtResource( 3 )]
-position = Vector2( 119.7, 500.65 )
+position = Vector2( 121.06, 544.182 )
 
 [node name="DwarvesSpawner" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1080.61, 501.055 )
+position = Vector2( 1081.97, 544.587 )
 
 [node name="UI" type="Control" parent="."]
 anchor_right = 1.0

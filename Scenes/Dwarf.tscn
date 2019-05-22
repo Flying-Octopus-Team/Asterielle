@@ -17,13 +17,16 @@ move_speed = 100.0
 
 [node name="Sprite" type="Sprite" parent="."]
 modulate = Color( 0.839216, 0.0156863, 0.0156863, 1 )
+position = Vector2( 0, -32 )
 scale = Vector2( 64, 64 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -32 )
 shape = SubResource( 1 )
 
 [node name="DwarfSpace" type="Area2D" parent="."]
+position = Vector2( 0, -32 )
 collision_layer = 16
 collision_mask = 24
 
@@ -31,6 +34,7 @@ collision_mask = 24
 shape = SubResource( 2 )
 
 [node name="HPBar" type="Node2D" parent="."]
+position = Vector2( 0, -32 )
 
 [node name="Background" type="Sprite" parent="HPBar"]
 modulate = Color( 0.0235294, 0.117647, 0.00784314, 1 )
