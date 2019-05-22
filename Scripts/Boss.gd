@@ -9,6 +9,8 @@ var velocity : Vector2
 var max_hp
 var hp
 
+onready var timeToKillLabel = $CanvasLayer/MarginContainer/CenterContainer/TimeToKillLabel
+
 func _ready():
 	go_forward()
 	
@@ -28,7 +30,7 @@ func _physics_process(delta):
 		velocity = Vector2.ZERO
 	
 	$HPBar/HPLabel.text = str(hp)
-	$TimeToKillLabel.text = str($TimeToKill.time_left)
+	timeToKillLabel.text = str("Do zabicia bossa pozostalo ", floor($TimeToKill.time_left), " sekund")
 	
 func on_collision_hit(collision):
 	# Because of collision layer and mask, dwarf definitly
