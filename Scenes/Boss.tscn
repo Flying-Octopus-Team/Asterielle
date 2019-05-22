@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scripts/Boss.gd" type="Script" id=1]
 [ext_resource path="res://Textures/OnePixel.png" type="Texture" id=2]
@@ -6,14 +6,11 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 64, 64.2514 )
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 155, 56 )
-
 [node name="Boss" type="KinematicBody2D"]
 collision_layer = 2
 collision_mask = 4
 script = ExtResource( 1 )
-move_speed = 30.0
+move_speed = 60.0
 
 [node name="Sprite" type="Sprite" parent="."]
 modulate = Color( 0.254902, 0, 0, 1 )
@@ -22,14 +19,14 @@ scale = Vector2( 128, 128 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -64 )
 shape = SubResource( 1 )
 
-[node name="DwarfSpace" type="Area2D" parent="."]
-position = Vector2( 0, -64 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DwarfSpace"]
-shape = SubResource( 2 )
+[node name="ElfRayCast" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( -80, 0 )
+collision_mask = 8
+collide_with_areas = true
+collide_with_bodies = false
 
 [node name="HPBar" type="Node2D" parent="."]
 position = Vector2( 0, -160 )
@@ -67,5 +64,5 @@ margin_top = -71.0
 margin_right = 31.0
 margin_bottom = -57.0
 text = "30"
-[connection signal="area_entered" from="DwarfSpace" to="." method="_on_DwarfSpace_area_entered"]
+
 [connection signal="timeout" from="TimeToKill" to="." method="_on_TimeToKill_timeout"]

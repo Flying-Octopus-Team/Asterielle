@@ -4,7 +4,7 @@
 [ext_resource path="res://Textures/Elf1.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 73, 38 )
+extents = Vector2( 84.9043, 32.4856 )
 
 [node name="Elf" type="Node2D"]
 script = ExtResource( 1 )
@@ -22,7 +22,7 @@ position = Vector2( 32, -50.8732 )
 [node name="Space" type="Area2D" parent="."]
 position = Vector2( 0, -50.8732 )
 collision_layer = 8
-collision_mask = 16
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Space"]
 position = Vector2( 0, 12.8732 )

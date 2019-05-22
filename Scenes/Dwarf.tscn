@@ -1,13 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scripts/Dwarf.gd" type="Script" id=1]
 [ext_resource path="res://Textures/OnePixel.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 32 )
-
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 40, 19 )
 
 [node name="Dwarf" type="KinematicBody2D"]
 collision_layer = 2
@@ -25,13 +22,12 @@ texture = ExtResource( 2 )
 position = Vector2( 0, -32 )
 shape = SubResource( 1 )
 
-[node name="DwarfSpace" type="Area2D" parent="."]
-position = Vector2( 0, -32 )
-collision_layer = 16
-collision_mask = 24
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DwarfSpace"]
-shape = SubResource( 2 )
+[node name="ElfRayCast" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( -50, 0 )
+collision_mask = 8
+collide_with_areas = true
+collide_with_bodies = false
 
 [node name="HPBar" type="Node2D" parent="."]
 position = Vector2( 0, -32 )
@@ -58,4 +54,4 @@ margin_top = -54.3557
 margin_right = 29.547
 margin_bottom = -40.3557
 text = "10"
-[connection signal="area_entered" from="DwarfSpace" to="." method="_on_DwarfSpace_area_entered"]
+
