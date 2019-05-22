@@ -14,7 +14,7 @@ script = ExtResource( 1 )
 move_speed = 60.0
 
 [node name="Sprite" type="Sprite" parent="."]
-modulate = Color( 0.254902, 0, 0, 1 )
+modulate = Color( 1, 0.819608, 0.819608, 1 )
 position = Vector2( 0, -64 )
 scale = Vector2( 2.3, 2.3 )
 texture = ExtResource( 2 )
@@ -51,9 +51,10 @@ texture_progress = ExtResource( 3 )
 
 [node name="HPLabel" type="Label" parent="HPBar"]
 margin_left = -9.0
-margin_top = -7.0
+margin_top = -22.0
 margin_right = 8.0
-margin_bottom = 7.0
+margin_bottom = -8.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "10"
 
 [node name="TimeToKill" type="Timer" parent="."]
@@ -61,10 +62,20 @@ wait_time = 30.0
 one_shot = true
 autostart = true
 
-[node name="TimeToKillLabel" type="Label" parent="."]
-margin_left = -9.0
-margin_top = -71.0
-margin_right = 31.0
-margin_bottom = -57.0
-text = "30"
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+margin_left = 390.0
+margin_top = 100.0
+margin_right = 633.0
+margin_bottom = 114.0
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/MarginContainer"]
+margin_right = 243.0
+margin_bottom = 14.0
+
+[node name="TimeToKillLabel" type="Label" parent="CanvasLayer/MarginContainer/CenterContainer"]
+margin_right = 243.0
+margin_bottom = 14.0
+text = "Do zabicia bossa pozostalo 30 sekund"
 [connection signal="timeout" from="TimeToKill" to="." method="_on_TimeToKill_timeout"]
