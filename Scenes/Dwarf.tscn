@@ -23,6 +23,7 @@ position = Vector2( 0, -32 )
 shape = SubResource( 1 )
 
 [node name="ElfRayCast" type="RayCast2D" parent="."]
+position = Vector2( 0, -32 )
 enabled = true
 cast_to = Vector2( -50, 0 )
 collision_mask = 8
@@ -54,4 +55,3 @@ margin_top = -54.3557
 margin_right = 29.547
 margin_bottom = -40.3557
 text = "10"
-

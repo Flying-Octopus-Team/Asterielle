@@ -38,8 +38,8 @@ func on_Dwarf_died():
 		if current_level % 10 == 0:
 			emit_signal("spawn_boss")
 		else:
-			emit_signal("spawn_dwarf")
 			increase_level()
+			emit_signal("spawn_dwarf")
 	else:
 		emit_signal("spawn_dwarf")
 	

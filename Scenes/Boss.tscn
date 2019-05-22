@@ -19,9 +19,11 @@ scale = Vector2( 128, 128 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -64 )
 shape = SubResource( 1 )
 
 [node name="ElfRayCast" type="RayCast2D" parent="."]
+position = Vector2( 0, -64 )
 enabled = true
 cast_to = Vector2( -80, 0 )
 collision_mask = 8
@@ -64,5 +66,4 @@ margin_top = -71.0
 margin_right = 31.0
 margin_bottom = -57.0
 text = "30"
-
 [connection signal="timeout" from="TimeToKill" to="." method="_on_TimeToKill_timeout"]
