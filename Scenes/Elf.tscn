@@ -8,7 +8,7 @@ extents = Vector2( 62, 38 )
 
 [node name="Elf" type="Node2D"]
 script = ExtResource( 1 )
-arrow_speed = 200.0
+min_arrow_speed = 100.0
 next_arrow_wait_time = 1.0
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -27,3 +27,9 @@ shape = SubResource( 1 )
 
 [node name="FirePoint" type="Node2D" parent="."]
 position = Vector2( 32, -46 )
+
+[node name="DwarfRayCast" type="RayCast2D" parent="."]
+position = Vector2( 0, -38 )
+enabled = true
+cast_to = Vector2( 800, 0 )
+collision_mask = 2

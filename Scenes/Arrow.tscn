@@ -11,6 +11,7 @@ collision_layer = 4
 collision_mask = 2
 script = ExtResource( 1 )
 force = 1.0
+gravity = 40.0
 
 [node name="Sprite2" type="Sprite" parent="."]
 position = Vector2( 1, 1 )
