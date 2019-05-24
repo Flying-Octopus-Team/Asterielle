@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/World.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/GameData.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Scenes/Elf.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/DwarvesSpawner.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scripts/Shop.gd" type="Script" id=6]
+[ext_resource path="res://Scenes/Item.tscn" type="PackedScene" id=7]
 
 [node name="World" type="Node2D"]
 script = ExtResource( 1 )
@@ -38,7 +39,7 @@ margin_bottom = 73.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer"]
 margin_right = 1025.0
-margin_bottom = 96.0
+margin_bottom = 86.0
 custom_constants/separation = 10
 
 [node name="CenterContainer" type="CenterContainer" parent="UI/MarginContainer/VBoxContainer"]
@@ -63,24 +64,22 @@ margin_bottom = 14.0
 text = "2 / 10"
 
 [node name="MarginContainer" type="MarginContainer" parent="UI/MarginContainer/VBoxContainer"]
-margin_left = 40.0
 margin_top = 48.0
 margin_right = 1025.0
 margin_bottom = 62.0
 
 [node name="GoldLabel" type="Label" parent="UI/MarginContainer/VBoxContainer/MarginContainer"]
-margin_right = 985.0
+margin_right = 1025.0
 margin_bottom = 14.0
 text = "Zloto: 100"
 
 [node name="MarginContainer2" type="MarginContainer" parent="UI/MarginContainer/VBoxContainer"]
-margin_left = 40.0
 margin_top = 72.0
 margin_right = 1025.0
 margin_bottom = 86.0
 
 [node name="XpLabel" type="Label" parent="UI/MarginContainer/VBoxContainer/MarginContainer2"]
-margin_right = 985.0
+margin_right = 1025.0
 margin_bottom = 14.0
 text = "Doswiadczenie: 100"
 
@@ -96,58 +95,41 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -100.0
-margin_top = 40.0
+margin_top = 60.0
 margin_bottom = 40.0
 text = "SKLEP"
 
-[node name="MarginContainer" type="MarginContainer" parent="UI/Shop"]
+[node name="ShopPanel" type="MarginContainer" parent="UI/Shop"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 200.0
+margin_right = 300.0
+margin_bottom = 240.0
 
-[node name="ColorRect" type="ColorRect" parent="UI/Shop/MarginContainer"]
-margin_right = 200.0
+[node name="ColorRect" type="ColorRect" parent="UI/Shop/ShopPanel"]
+margin_right = 300.0
 margin_bottom = 200.0
 color = Color( 0, 0, 0, 0.286275 )
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/Shop/MarginContainer"]
-margin_right = 200.0
-margin_bottom = 160.0
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Shop/ShopPanel"]
+margin_right = 300.0
+margin_bottom = 200.0
 custom_constants/separation = 10
 
-[node name="ShopLabel" type="Label" parent="UI/Shop/MarginContainer/VBoxContainer"]
-margin_right = 200.0
+[node name="ShopLabel" type="Label" parent="UI/Shop/ShopPanel/VBoxContainer"]
+margin_right = 300.0
 margin_bottom = 14.0
 text = "Sklep"
 align = 1
 
-[node name="Item" type="HBoxContainer" parent="UI/Shop/MarginContainer/VBoxContainer"]
+[node name="Items" type="VBoxContainer" parent="UI/Shop/ShopPanel/VBoxContainer"]
 margin_top = 24.0
-margin_right = 200.0
+margin_right = 300.0
 margin_bottom = 44.0
-grow_horizontal = 0
-custom_constants/separation = 10
-alignment = 1
 
-[node name="Name" type="Label" parent="UI/Shop/MarginContainer/VBoxContainer/Item"]
-margin_left = 8.0
-margin_top = 3.0
-margin_right = 119.0
-margin_bottom = 17.0
-text = "Obrazenia strzaly"
-
-[node name="Price" type="Label" parent="UI/Shop/MarginContainer/VBoxContainer/Item"]
-margin_left = 129.0
-margin_top = 3.0
-margin_right = 145.0
-margin_bottom = 17.0
-text = "20"
-
-[node name="ArrowDmgBuyBtn" type="Button" parent="UI/Shop/MarginContainer/VBoxContainer/Item"]
-margin_left = 155.0
-margin_right = 191.0
-margin_bottom = 20.0
-text = "Kup"
+[node name="ArrowDmgItem" parent="UI/Shop/ShopPanel/VBoxContainer/Items" instance=ExtResource( 7 )]
+margin_right = 300.0
+item_name = "Obrazenia Strzaly"
+price = 10.0
 [connection signal="pressed" from="UI/Shop/ShopOpenCloseBtn" to="UI/Shop" method="_on_ShopOpenCloseBtn_pressed"]
+[connection signal="bought" from="UI/Shop/ShopPanel/VBoxContainer/Items/ArrowDmgItem" to="UI/Shop" method="_on_ArrowDmgItem_bought"]

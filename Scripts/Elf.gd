@@ -2,6 +2,7 @@ extends Node2D
 
 export(float) var min_arrow_speed;
 export(float) var next_arrow_wait_time
+export(float) var arrow_damage = 1.0
 
 var fire_point : Node2D
 var Arrow = load("res://Scenes/Arrow.tscn")
@@ -38,6 +39,7 @@ func shot_arrow(force):
 	get_parent().add_child(arrow);
 	arrow.global_position = fire_point.global_position
 	arrow.velocity = Vector2(force, 0)
+	arrow.damage = arrow_damage
 
 func restart_arrow_timer():
 	next_arrow_timer = next_arrow_wait_time

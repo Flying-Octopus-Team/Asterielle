@@ -1,5 +1,7 @@
 extends Node
 
+signal gold_changed
+
 var gold : float = 0.0
 var xp : float = 0.0
 
@@ -31,6 +33,7 @@ func get_gold_to_add():
 
 func add_gold(additional_gold):
 	gold += additional_gold
+	emit_signal("gold_changed")
 	update_gold_label()
 	
 func add_xp(additional_xp):

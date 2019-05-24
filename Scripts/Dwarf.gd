@@ -34,7 +34,7 @@ func on_collision_hit(collision):
 	var arrow = collision.collider
 	arrow.queue_free()
 	
-	hp -= arrow.force
+	hp -= arrow.damage
 	if hp <= 0:
 		emit_signal("died")
 		queue_free()
