@@ -9,7 +9,7 @@ var velocity : Vector2
 var max_hp
 var hp
 
-onready var timeToKillLabel = $CanvasLayer/MarginContainer/CenterContainer/TimeToKillLabel
+onready var timeToKillLabel = find_node("TimeToKillLabel")
 
 func _ready():
 	go_forward()

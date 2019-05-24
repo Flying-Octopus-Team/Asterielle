@@ -1,5 +1,7 @@
 extends Node
 
+signal dwarf_died
+signal boss_died
 signal next_level
 signal spawn_dwarf
 signal spawn_boss
@@ -34,6 +36,8 @@ func increase_level():
 func on_Dwarf_died():
 	killed_dwarves += 1
 	
+	emit_signal("dwarf_died")
+	
 	if killed_dwarves >= dwarves_per_level:
 		if current_level % 10 == 0:
 			emit_signal("spawn_boss")
@@ -46,6 +50,7 @@ func on_Dwarf_died():
 	set_killed_dwarves_label()
 	
 func on_Boss_died():
+	emit_signal("boss_died")
 	increase_level()
 	emit_signal("spawn_dwarf")
 	set_killed_dwarves_label()

@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/World.gd" type="Script" id=1]
-[ext_resource path="res://Scripts/LevelManager.gd" type="Script" id=2]
-[ext_resource path="res://Scenes/Elf.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/DwarvesSpawner.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scripts/GameData.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/LevelManager.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Elf.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/DwarvesSpawner.tscn" type="PackedScene" id=5]
 
 [node name="World" type="Node2D"]
 script = ExtResource( 1 )
@@ -11,14 +12,17 @@ __meta__ = {
 "_edit_horizontal_guides_": [  ]
 }
 
-[node name="LevelManager" type="Node" parent="."]
+[node name="GameData" type="Node" parent="."]
 script = ExtResource( 2 )
+
+[node name="LevelManager" type="Node" parent="."]
+script = ExtResource( 3 )
 dwarves_per_level = 1
 
-[node name="Elf" parent="." instance=ExtResource( 3 )]
+[node name="Elf" parent="." instance=ExtResource( 4 )]
 position = Vector2( 121.06, 544.182 )
 
-[node name="DwarvesSpawner" parent="." instance=ExtResource( 4 )]
+[node name="DwarvesSpawner" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1081.97, 544.587 )
 
 [node name="UI" type="Control" parent="."]
@@ -33,7 +37,7 @@ margin_bottom = 73.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer"]
 margin_right = 1025.0
-margin_bottom = 33.0
+margin_bottom = 72.0
 
 [node name="CenterContainer" type="CenterContainer" parent="UI/MarginContainer/VBoxContainer"]
 margin_right = 1025.0
@@ -55,3 +59,24 @@ margin_left = 494.0
 margin_right = 531.0
 margin_bottom = 14.0
 text = "2 / 10"
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/MarginContainer/VBoxContainer"]
+margin_left = 40.0
+margin_top = 36.0
+margin_right = 1025.0
+margin_bottom = 68.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer/VBoxContainer/MarginContainer"]
+margin_right = 985.0
+margin_bottom = 32.0
+
+[node name="GoldLabel" type="Label" parent="UI/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+margin_right = 985.0
+margin_bottom = 14.0
+text = "Zloto: 100"
+
+[node name="XpLabel" type="Label" parent="UI/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+margin_top = 18.0
+margin_right = 985.0
+margin_bottom = 32.0
+text = "Doswiadczenie: 100"
