@@ -55,8 +55,7 @@ func on_Boss_died():
 	emit_signal("spawn_dwarf")
 	set_killed_dwarves_label()
 
-func on_Boss_Kill_Timeout():
-	print("Game over")
+func on_Boss_kill_timeout():
 	killed_dwarves = 0
 	emit_signal("spawn_dwarf")
 	set_killed_dwarves_label()
