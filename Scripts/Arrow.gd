@@ -1,11 +1,17 @@
 extends KinematicBody2D
 
-export(float) var gravity
-export(float) var damage
+export(float) var damping
 
+var gravity
 var velocity : Vector2
+
+var damage
 
 func _physics_process(delta):
 	velocity.y += gravity * delta
-	var collision = move_and_collide(velocity * delta)
+	velocity.x *= damping
+	
+	rotation = atan2(velocity.y, velocity.x)
+	
+	move_and_slide(velocity)
 	
