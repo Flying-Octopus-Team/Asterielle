@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Elf1.png-9bfb81b291a97859e7ad041d83e7aab5.stex"
+path="res://.import/dwarf.png-ccdb8a3e5d465760dc5df2a770b8f0f8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Elf1.png"
-dest_files=[ "res://.import/Elf1.png-9bfb81b291a97859e7ad041d83e7aab5.stex" ]
+source_file="res://Textures/dwarf.png"
+dest_files=[ "res://.import/dwarf.png-ccdb8a3e5d465760dc5df2a770b8f0f8.stex" ]
 
 [params]
 

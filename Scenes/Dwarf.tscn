@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/Dwarf.gd" type="Script" id=1]
-[ext_resource path="res://Textures/krasnalpix.png" type="Texture" id=2]
+[ext_resource path="res://Textures/dwarf.png" type="Texture" id=2]
 [ext_resource path="res://Textures/OnePixel.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -14,7 +14,8 @@ script = ExtResource( 1 )
 move_speed = 100.0
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 0, -32 )
+position = Vector2( 0, -25 )
+scale = Vector2( 1.28, 1.28 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

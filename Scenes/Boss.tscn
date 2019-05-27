@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/Boss.gd" type="Script" id=1]
-[ext_resource path="res://Textures/krasnalpix.png" type="Texture" id=2]
+[ext_resource path="res://Textures/dwarf.png" type="Texture" id=2]
 [ext_resource path="res://Textures/OnePixel.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -15,8 +15,8 @@ move_speed = 60.0
 
 [node name="Sprite" type="Sprite" parent="."]
 modulate = Color( 1, 0.819608, 0.819608, 1 )
-position = Vector2( 0, -64 )
-scale = Vector2( 2.3, 2.3 )
+position = Vector2( 0, -50 )
+scale = Vector2( 2.5, 2.5 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

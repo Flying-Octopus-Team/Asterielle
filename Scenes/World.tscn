@@ -97,6 +97,7 @@ anchor_bottom = 1.0
 margin_left = -100.0
 margin_top = 60.0
 margin_bottom = 40.0
+mouse_default_cursor_shape = 2
 text = "SKLEP"
 
 [node name="ShopPanel" type="MarginContainer" parent="UI/Shop"]
