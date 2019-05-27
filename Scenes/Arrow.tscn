@@ -6,11 +6,11 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 18, 3 )
 
-[node name="Arrow" type="KinematicBody2D"]
+[node name="Arrow" type="Area2D"]
 collision_layer = 4
 collision_mask = 2
 script = ExtResource( 1 )
-damping = 0.995
+damping = 1.0
 
 [node name="Sprite2" type="Sprite" parent="."]
 position = Vector2( 1, 1 )
@@ -19,3 +19,4 @@ texture = ExtResource( 2 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -1, 0 )
 shape = SubResource( 1 )
+[connection signal="body_entered" from="." to="." method="_on_Arrow_body_entered"]

@@ -24,8 +24,10 @@ func _process(delta):
 	if not dwarf:
 		return
 		
-	var diff_x = dwarf.position.x - position.x - abs(dwarf.velocity.x)
-	var flying_time = diff_x / arrow_speed
+	var proportion = abs(arrow_speed) / (abs(arrow_speed) + abs(dwarf.velocity.x))
+	var diff_x = dwarf.position.x - position.x - 32
+	var path_x = proportion * diff_x
+	var flying_time = path_x / arrow_speed
 	var arrow_velocity = Vector2(arrow_speed, -arrow_gravity * flying_time * 0.5)
 	
 	shot_arrow(arrow_velocity)
