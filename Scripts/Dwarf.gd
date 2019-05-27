@@ -25,6 +25,7 @@ func _physics_process(delta):
 	
 func on_arrow_hit(arrow):
 	hp -= arrow.damage
+	arrow.queue_free()
 	
 	if hp <= 0:
 		emit_signal("died")

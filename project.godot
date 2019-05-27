@@ -38,6 +38,7 @@ faster_shot={
 2d_physics/layer_3="arrows"
 2d_physics/layer_4="elf"
 2d_physics/layer_5="dwarves_space"
+2d_physics/layer_6="ground"
 
 [rendering]
 

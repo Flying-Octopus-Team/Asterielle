@@ -16,5 +16,8 @@ func _physics_process(delta):
 	
 func _on_Arrow_body_entered(body):
 	# because of collision mas we're shure that body is dwarf
-	queue_free()
 	body.on_arrow_hit(self)
+
+func _on_Arrow_area_entered(area):
+	if area.name == "Ground":
+		queue_free()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/World.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/GameData.gd" type="Script" id=2]
@@ -7,6 +7,9 @@
 [ext_resource path="res://Scenes/DwarvesSpawner.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scripts/Shop.gd" type="Script" id=6]
 [ext_resource path="res://Scenes/Item.tscn" type="PackedScene" id=7]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 537.558, 30.0002 )
 
 [node name="World" type="Node2D"]
 script = ExtResource( 1 )
@@ -26,6 +29,17 @@ position = Vector2( 121.06, 544.182 )
 
 [node name="DwarvesSpawner" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1081.97, 544.587 )
+
+[node name="Ground" type="Area2D" parent="."]
+position = Vector2( 569.18, 577.345 )
+collision_layer = 32
+collision_mask = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+shape = SubResource( 1 )
 
 [node name="UI" type="Control" parent="."]
 anchor_right = 1.0
