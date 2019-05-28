@@ -1,6 +1,6 @@
 extends Node2D
 
-signal died
+signal game_over
 
 export(float) var arrow_speed
 export(float) var arrow_gravity
@@ -21,6 +21,9 @@ func _ready():
 	hp_bar.max_value = hp
 	hp_bar.value = hp
 	hp_label.text = str(hp)
+	
+	var level_manager = get_parent().get_node("LevelManager")
+	connect("game_over", level_manager, "on_Game_Over")
 	
 func _process(delta):
 	next_arrow_timer -= delta
@@ -55,16 +58,17 @@ func shot_arrow(arrow_velocity):
 	arrow.velocity = arrow_velocity
 	arrow.damage = arrow_damage
 
-func on_dwarf_hit(dmg):
+func on_dwarf_hit(dmg) -> bool:
 	hp -= dmg
 	
+	hp_label.text = str(hp)
+	
 	if hp <= 0:
-		emit_signal("died")
-		queue_free()
+		emit_signal("game_over")
+		return false
 	else:
 		hp_bar.value = hp
-		
-	hp_label.text = str(hp)
+		return true
 
 func restart_arrow_timer():
 	next_arrow_timer = next_arrow_wait_time

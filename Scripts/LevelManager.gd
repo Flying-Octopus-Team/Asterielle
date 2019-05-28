@@ -3,8 +3,6 @@ extends Node
 signal dwarf_died
 signal boss_died
 signal next_level
-signal spawn_dwarf
-signal spawn_boss
 
 export(int) var dwarves_per_level : int = 10
 
@@ -25,7 +23,7 @@ func _ready():
 	set_level_label()
 	set_killed_dwarves_label()
 	
-	self.connect("next_level", dwarves_spawner, "on_next_level")
+	connect("next_level", dwarves_spawner, "on_next_level")
 	
 func increase_level():
 	current_level += 1
@@ -40,25 +38,28 @@ func on_Dwarf_died():
 	
 	if killed_dwarves >= dwarves_per_level:
 		if current_level % 10 == 0:
-			emit_signal("spawn_boss")
+			dwarves_spawner.spawn_boss()
 		else:
 			increase_level()
-			emit_signal("spawn_dwarf")
+			dwarves_spawner.spawn_dwarf()
 	else:
-		emit_signal("spawn_dwarf")
+		dwarves_spawner.spawn_dwarf()
 	
 	set_killed_dwarves_label()
 	
 func on_Boss_died():
 	emit_signal("boss_died")
 	increase_level()
-	emit_signal("spawn_dwarf")
+	dwarves_spawner.spawn_dwarf()
 	set_killed_dwarves_label()
 
 func on_Boss_kill_timeout():
 	killed_dwarves = 0
-	emit_signal("spawn_dwarf")
+	dwarves_spawner.spawn_dwarf()
 	set_killed_dwarves_label()
+	
+func on_Game_Over():
+	dwarves_spawner.reset_to_base()
 
 func set_killed_dwarves_label():
 	killed_dwarves_label.text = str(killed_dwarves, " / ", dwarves_per_level)
