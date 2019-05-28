@@ -4,11 +4,10 @@
 
 [node name="DwarvesSpawner" type="Node2D"]
 script = ExtResource( 1 )
-current_dwarf_max_hp = 1.0
+current_dwarf_max_hp = 5.0
 current_boss_max_hp = 40.0
 
 [node name="FirstDwarfTimer" type="Timer" parent="."]
 one_shot = true
 autostart = true
-
 [connection signal="timeout" from="FirstDwarfTimer" to="." method="_on_FirstDwarfTimer_timeout"]

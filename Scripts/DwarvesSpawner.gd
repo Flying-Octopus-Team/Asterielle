@@ -23,9 +23,10 @@ func on_Spawn_Boss():
 	
 func spawn_dwarf():
 	var dwarf = Dwarf.instance()
-	get_parent().add_child(dwarf)
+	#get_parent().add_child(dwarf)
+	get_parent().call_deferred("add_child", dwarf)
 	dwarf.global_position = global_position
-	dwarf.set_max_hp(current_dwarf_max_hp)
+	dwarf.set_hp(current_dwarf_max_hp)
 	dwarf.connect("died", level_manager, "on_Dwarf_died")
 	
 func spawn_boss():
@@ -37,5 +38,5 @@ func spawn_boss():
 	boss.connect("boss_kill_timeout", level_manager, "on_Boss_kill_timeout")
 	
 func on_next_level(current_level):
-	#current_dwarf_max_hp += current_dwarf_max_hp * current_level * 0.1
-	current_dwarf_max_hp += 1
+	current_dwarf_max_hp += current_dwarf_max_hp * current_level * 0.1
+	#current_dwarf_max_hp += 1

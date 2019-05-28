@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/Elf.gd" type="Script" id=1]
 [ext_resource path="res://Textures/elf.png" type="Texture" id=2]
+[ext_resource path="res://Textures/OnePixel.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 62, 42 )
@@ -11,6 +12,7 @@ script = ExtResource( 1 )
 arrow_speed = 700.0
 arrow_gravity = 500.0
 next_arrow_wait_time = 1.0
+hp = 10.0
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -39 )
@@ -34,3 +36,35 @@ position = Vector2( 0, -38 )
 enabled = true
 cast_to = Vector2( 800, 0 )
 collision_mask = 2
+
+[node name="HP" type="Node2D" parent="."]
+position = Vector2( 0, -104 )
+
+[node name="Background" type="ColorRect" parent="HP"]
+margin_left = -51.0
+margin_top = -5.0
+margin_right = 51.0
+margin_bottom = 5.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="HPBar" type="TextureProgress" parent="HP"]
+modulate = Color( 0.72549, 0.0117647, 0.0117647, 1 )
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -0.999992
+margin_right = 7.62939e-006
+margin_bottom = 1.0
+rect_scale = Vector2( 100, 8 )
+rect_pivot_offset = Vector2( 0.5, 0.5 )
+value = 73.0
+texture_progress = ExtResource( 3 )
+
+[node name="HPLabel" type="Label" parent="HP"]
+margin_left = -20.0
+margin_top = -21.0
+margin_right = 20.0
+margin_bottom = -7.0
+text = "10"
+align = 1

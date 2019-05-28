@@ -19,6 +19,7 @@ func set_max_hp(new_max_hp):
 	hp = max_hp
 	$HPBar/HP.max_value = max_hp
 	$HPBar/HP.value = hp
+	$HPBar/HPLabel.text = str(hp)
 	
 func _physics_process(delta):
 	position += velocity * delta

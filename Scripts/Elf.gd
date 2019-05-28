@@ -1,17 +1,26 @@
 extends Node2D
 
+signal died
+
 export(float) var arrow_speed
 export(float) var arrow_gravity
 export(float) var next_arrow_wait_time
 export(float) var arrow_damage = 1.0
+export(float) var hp
 
 var fire_point : Node2D
 var Arrow = load("res://Scenes/Arrow.tscn")
 var next_arrow_timer : float
 
+onready var hp_bar = find_node("HPBar")
+onready var hp_label = find_node("HPLabel")
+
 func _ready():
 	restart_arrow_timer()
 	fire_point = find_node("FirePoint")
+	hp_bar.max_value = hp
+	hp_bar.value = hp
+	hp_label.text = str(hp)
 	
 func _process(delta):
 	next_arrow_timer -= delta
@@ -45,6 +54,17 @@ func shot_arrow(arrow_velocity):
 	arrow.gravity = arrow_gravity
 	arrow.velocity = arrow_velocity
 	arrow.damage = arrow_damage
+
+func on_dwarf_hit(dmg):
+	hp -= dmg
+	
+	if hp <= 0:
+		emit_signal("died")
+		queue_free()
+	else:
+		hp_bar.value = hp
+		
+	hp_label.text = str(hp)
 
 func restart_arrow_timer():
 	next_arrow_timer = next_arrow_wait_time
