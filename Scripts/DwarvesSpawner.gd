@@ -7,8 +7,8 @@ export(float) var dwarf_max_hp : float = 10.0
 export(float) var dwarf_damage : float = 1.0
 export(float) var boss_max_hp : float = 40.0
 
-var base_dwarf_hp = dwarf_max_hp
-var base_dwarf_damage = dwarf_damage
+onready var base_dwarf_hp = dwarf_max_hp
+onready var base_dwarf_damage = dwarf_damage
 
 onready var level_manager = get_parent().get_node("LevelManager")
 

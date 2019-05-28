@@ -1,13 +1,12 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/World.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/GameData.gd" type="Script" id=2]
 [ext_resource path="res://Scripts/LevelManager.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/Elf.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/DwarvesSpawner.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/GameOverScreen.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scripts/Shop.gd" type="Script" id=7]
-[ext_resource path="res://Scenes/Item.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scripts/Shop.gd" type="Script" id=6]
+[ext_resource path="res://Scenes/Item.tscn" type="PackedScene" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 537.558, 30.0002 )
@@ -30,8 +29,6 @@ position = Vector2( 121.06, 544.182 )
 
 [node name="DwarvesSpawner" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1081.97, 544.587 )
-
-[node name="GameOverScreen" parent="." instance=ExtResource( 6 )]
 
 [node name="Ground" type="Area2D" parent="."]
 position = Vector2( 569.18, 577.345 )
@@ -105,7 +102,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 1024.0
 margin_right = 1024.0
-script = ExtResource( 7 )
+script = ExtResource( 6 )
 
 [node name="ShopOpenCloseBtn" type="Button" parent="UI/Shop"]
 anchor_top = 1.0
@@ -145,7 +142,7 @@ margin_top = 24.0
 margin_right = 300.0
 margin_bottom = 44.0
 
-[node name="ArrowDmgItem" parent="UI/Shop/ShopPanel/VBoxContainer/Items" instance=ExtResource( 8 )]
+[node name="ArrowDmgItem" parent="UI/Shop/ShopPanel/VBoxContainer/Items" instance=ExtResource( 7 )]
 margin_right = 300.0
 item_name = "Obrazenia Strzaly"
 price = 10.0

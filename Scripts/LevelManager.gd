@@ -1,5 +1,6 @@
 extends Node
 
+signal reset_to_base
 signal dwarf_died
 signal boss_died
 signal next_level
@@ -12,6 +13,8 @@ var killed_dwarves : int = 0
 
 onready var dwarves_spawner = get_parent().get_node("DwarvesSpawner") 
 
+var game_over_screen = load("res://Scenes/GameOverScreen.tscn")
+
 var level_label
 var killed_dwarves_label
 
@@ -23,7 +26,11 @@ func _ready():
 	set_level_label()
 	set_killed_dwarves_label()
 	
+	var elf = get_parent().get_node("Elf")
+	elf.connect("game_over", self, "on_Game_Over")
 	connect("next_level", dwarves_spawner, "on_next_level")
+	connect("reset_to_base", dwarves_spawner, "reset_to_base")
+	connect("reset_to_base", elf, "reset_to_base")
 	
 func increase_level():
 	current_level += 1
@@ -59,7 +66,16 @@ func on_Boss_kill_timeout():
 	set_killed_dwarves_label()
 	
 func on_Game_Over():
-	dwarves_spawner.reset_to_base()
+	var gos = game_over_screen.instance()
+	get_parent().call_deferred("add_child", gos)
+	gos.connect("timeout", self, "reset_to_base")
+
+func reset_to_base():
+	current_level = floor((current_level-1) / 10) * 10 + 1
+	killed_dwarves = 0
+	set_level_label()
+	set_killed_dwarves_label()
+	emit_signal("reset_to_base")
 
 func set_killed_dwarves_label():
 	killed_dwarves_label.text = str(killed_dwarves, " / ", dwarves_per_level)

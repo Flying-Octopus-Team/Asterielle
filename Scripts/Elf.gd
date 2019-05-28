@@ -22,9 +22,6 @@ func _ready():
 	hp_bar.value = hp
 	hp_label.text = str(hp)
 	
-	var level_manager = get_parent().get_node("LevelManager")
-	connect("game_over", level_manager, "on_Game_Over")
-	
 func _process(delta):
 	next_arrow_timer -= delta
 	
@@ -69,6 +66,11 @@ func on_dwarf_hit(dmg) -> bool:
 	else:
 		hp_bar.value = hp
 		return true
+		
+func reset_to_base():
+	hp = hp_bar.max_value
+	hp_bar.value = hp
+	hp_label.text = str(hp)
 
 func restart_arrow_timer():
 	next_arrow_timer = next_arrow_wait_time

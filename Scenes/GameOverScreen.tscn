@@ -43,6 +43,7 @@ margin_right = 0.5
 margin_bottom = 0.5
 rect_scale = Vector2( 700, 4 )
 rect_pivot_offset = Vector2( 0.5, 0.5 )
+step = 0.001
 value = 100.0
 texture_progress = ExtResource( 2 )
 

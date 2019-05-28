@@ -15,7 +15,8 @@ func _process(delta):
 	
 func update_label_and_bar():
 	game_over_label.text = str(ceil(timer.time_left))
-	left_time_bar.value = ceil(timer.time_left)
+	left_time_bar.value = timer.time_left
 
 func _on_RestartTimer_timeout():
+	queue_free()
 	emit_signal("timeout")
