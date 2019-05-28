@@ -12,6 +12,7 @@ var current_level : int  = 1
 var killed_dwarves : int = 0
 
 onready var dwarves_spawner = get_parent().get_node("DwarvesSpawner") 
+onready var game_data = get_parent().get_node("GameData") 
 
 var game_over_screen = load("res://Scenes/GameOverScreen.tscn")
 
@@ -31,6 +32,7 @@ func _ready():
 	connect("next_level", dwarves_spawner, "on_next_level")
 	connect("reset_to_base", dwarves_spawner, "reset_to_base")
 	connect("reset_to_base", elf, "reset_to_base")
+	connect("reset_to_base", game_data, "on_game_over")
 	
 func increase_level():
 	current_level += 1

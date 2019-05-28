@@ -6,6 +6,7 @@ var Boss = load("res://Scenes/Boss.tscn")
 export(float) var dwarf_max_hp : float = 10.0
 export(float) var dwarf_damage : float = 1.0
 export(float) var boss_max_hp : float = 40.0
+export(float) var boss_damage : float = 3.0
 
 onready var base_dwarf_hp = dwarf_max_hp
 onready var base_dwarf_damage = dwarf_damage
@@ -27,6 +28,7 @@ func spawn_boss():
 	var boss = Boss.instance()
 	get_parent().call_deferred("add_child", boss)
 	boss.global_position = global_position
+	boss.damage = boss_damage
 	boss.set_max_hp(boss_max_hp)
 	boss.connect("died", level_manager, "on_Boss_died")
 	boss.connect("boss_kill_timeout", level_manager, "on_Boss_kill_timeout")

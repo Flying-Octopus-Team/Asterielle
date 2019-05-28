@@ -8,6 +8,9 @@ export(float) var move_speed
 var velocity : Vector2
 var max_hp
 var hp
+var damage
+
+var elf
 
 onready var timeToKillLabel = find_node("TimeToKillLabel")
 
@@ -25,7 +28,10 @@ func _physics_process(delta):
 	position += velocity * delta
 		
 	if $ElfRayCast.get_collider():
+		elf = $ElfRayCast.get_collider().get_parent()
 		velocity = Vector2.ZERO
+		$NextAttackTimer.start()
+		set_physics_process(false)
 	
 	timeToKillLabel.text = str("Do zabicia bossa pozostalo ", floor($TimeToKill.time_left), " sekund")
 	
@@ -46,4 +52,8 @@ func go_forward():
 	
 func _on_TimeToKill_timeout():
 	queue_free()
-	emit_signal("boss_kill_timeout")	
+	emit_signal("boss_kill_timeout")
+
+func _on_NextAttackTimer_timeout():
+	if not elf.on_dwarf_hit(damage):
+		queue_free()

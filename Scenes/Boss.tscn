@@ -78,4 +78,8 @@ margin_bottom = 14.0
 margin_right = 243.0
 margin_bottom = 14.0
 text = "Do zabicia bossa pozostalo 30 sekund"
+
+[node name="NextAttackTimer" type="Timer" parent="."]
+wait_time = 2.0
 [connection signal="timeout" from="TimeToKill" to="." method="_on_TimeToKill_timeout"]
+[connection signal="timeout" from="NextAttackTimer" to="." method="_on_NextAttackTimer_timeout"]
