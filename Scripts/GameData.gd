@@ -43,6 +43,8 @@ func add_xp(additional_xp):
 func on_game_over():
 	gold *= 0.2
 	xp *= .7
+	update_gold_label()
+	update_xp_label()
 	emit_signal("gold_changed")	
 	
 func update_gold_label():
