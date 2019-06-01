@@ -8,18 +8,17 @@ export(float) var next_arrow_wait_time
 export(float) var arrow_damage = 1.0
 export(float) var hp
 
-var fire_point : Node2D
 var Arrow = load("res://Scenes/Arrow.tscn")
 var next_arrow_timer : float
 var next_arrow_velocity : Vector2
 
+onready var fire_point = find_node("FirePoint")
 onready var hp_bar = find_node("HPBar")
 onready var hp_label = find_node("HPLabel")
 onready var animation_player = find_node("AnimationPlayer")
 
 func _ready():
 	restart_arrow_timer()
-	fire_point = find_node("FirePoint")
 	hp_bar.max_value = hp
 	hp_bar.value = hp
 	hp_label.text = str(hp)
@@ -42,9 +41,7 @@ func _input(event):
 				
 func shot_arrow():
 	restart_arrow_timer()
-	
 	animation_player.play("Shot")
-	#animation_player.clear_queue()
 	
 func spawn_arrow():
 	var dwarf = $DwarfRayCast.get_collider()

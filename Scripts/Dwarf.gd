@@ -5,8 +5,8 @@ signal died
 export(float) var move_speed
 
 var velocity : Vector2
-var hp
-var damage
+var hp : float
+var damage : float
 
 var elf
 

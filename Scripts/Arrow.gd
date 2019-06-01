@@ -4,7 +4,7 @@ export(float) var damping
 
 var velocity : Vector2
 
-var damage
+var damage : float
 
 func _physics_process(delta):
 	velocity.y += gravity * delta

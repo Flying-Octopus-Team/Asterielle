@@ -6,9 +6,8 @@ signal boss_kill_timeout
 export(float) var move_speed
 
 var velocity : Vector2
-var max_hp
-var hp
-var damage
+var hp : float
+var damage : float
 
 var elf
 
@@ -18,9 +17,8 @@ func _ready():
 	go_forward()
 	
 func set_max_hp(new_max_hp):
-	max_hp = new_max_hp
-	hp = max_hp
-	$HPBar/HP.max_value = max_hp
+	hp = new_max_hp
+	$HPBar/HP.max_value = new_max_hp
 	$HPBar/HP.value = hp
 	$HPBar/HPLabel.text = str(hp)
 	
