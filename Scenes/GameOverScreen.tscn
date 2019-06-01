@@ -20,7 +20,7 @@ color = Color( 0.168627, 0.168627, 0.168627, 1 )
 anchor_right = 1.0
 margin_top = 150.0
 margin_bottom = 114.0
-text = "Game Over"
+text = "Straciłlas przytomnosc"
 align = 1
 
 [node name="RestartLeftTimer" type="Label" parent="CanvasLayer"]
