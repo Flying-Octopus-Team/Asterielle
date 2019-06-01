@@ -30,19 +30,10 @@ func _process(delta):
 	if next_arrow_timer > 0:
 		return
 		
-	var dwarf = $DwarfRayCast.get_collider()
-	
-	if not dwarf:
+	if not $DwarfRayCast.get_collider():
 		animation_player.stop()
 		return
-		
-	var proportion = abs(arrow_speed) / (abs(arrow_speed) + abs(dwarf.velocity.x))
-	var diff_x = dwarf.position.x - position.x - 32
-	var path_x = proportion * diff_x
-	var flying_time = path_x / arrow_speed
-	var arrow_velocity = Vector2(arrow_speed, -arrow_gravity * flying_time * 0.5)
 	
-	next_arrow_velocity = arrow_velocity
 	shot_arrow()
 
 func _input(event):
@@ -56,12 +47,23 @@ func shot_arrow():
 	#animation_player.clear_queue()
 	
 func spawn_arrow():
+	var dwarf = $DwarfRayCast.get_collider()
+	
+	if not dwarf:
+		return
+		
+	var proportion = abs(arrow_speed) / (abs(arrow_speed) + abs(dwarf.velocity.x))
+	var diff_x = dwarf.position.x - position.x - 32
+	var path_x = proportion * diff_x
+	var flying_time = path_x / arrow_speed
+	var arrow_velocity = Vector2(arrow_speed, -arrow_gravity * flying_time * 0.5)
+	
 	var arrow = Arrow.instance()
 	get_parent().add_child(arrow);
 	arrow.global_position = fire_point.global_position
 	arrow.gravity = arrow_gravity
-	arrow.velocity = next_arrow_velocity
-	arrow.damage = arrow_damage	
+	arrow.velocity = arrow_velocity
+	arrow.damage = arrow_damage
 	
 func on_dwarf_hit(dmg) -> bool:
 	hp -= dmg
