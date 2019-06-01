@@ -11,9 +11,11 @@ export(float) var hp
 var fire_point : Node2D
 var Arrow = load("res://Scenes/Arrow.tscn")
 var next_arrow_timer : float
+var next_arrow_velocity : Vector2
 
 onready var hp_bar = find_node("HPBar")
 onready var hp_label = find_node("HPLabel")
+onready var animation_player = find_node("AnimationPlayer")
 
 func _ready():
 	restart_arrow_timer()
@@ -31,6 +33,7 @@ func _process(delta):
 	var dwarf = $DwarfRayCast.get_collider()
 	
 	if not dwarf:
+		animation_player.stop()
 		return
 		
 	var proportion = abs(arrow_speed) / (abs(arrow_speed) + abs(dwarf.velocity.x))
@@ -39,22 +42,27 @@ func _process(delta):
 	var flying_time = path_x / arrow_speed
 	var arrow_velocity = Vector2(arrow_speed, -arrow_gravity * flying_time * 0.5)
 	
-	shot_arrow(arrow_velocity)
+	next_arrow_velocity = arrow_velocity
+	shot_arrow()
 
 func _input(event):
 	if Input.is_action_just_pressed("faster_shot"):
 		next_arrow_timer -= 0.1
 				
-func shot_arrow(arrow_velocity):
+func shot_arrow():
 	restart_arrow_timer()
 	
+	animation_player.play("Shot")
+	#animation_player.clear_queue()
+	
+func spawn_arrow():
 	var arrow = Arrow.instance()
 	get_parent().add_child(arrow);
 	arrow.global_position = fire_point.global_position
 	arrow.gravity = arrow_gravity
-	arrow.velocity = arrow_velocity
-	arrow.damage = arrow_damage
-
+	arrow.velocity = next_arrow_velocity
+	arrow.damage = arrow_damage	
+	
 func on_dwarf_hit(dmg) -> bool:
 	hp -= dmg
 	

@@ -1,8 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/Elf.gd" type="Script" id=1]
-[ext_resource path="res://Textures/elf.png" type="Texture" id=2]
-[ext_resource path="res://Textures/OnePixel.png" type="Texture" id=3]
+[ext_resource path="res://Textures/efl_shot.png" type="Texture" id=2]
+[ext_resource path="res://Animations/ElfShot.tres" type="Animation" id=3]
+[ext_resource path="res://Textures/HP/HPBar_Under.png" type="Texture" id=4]
+[ext_resource path="res://Textures/HP/HPBar_bar.png" type="Texture" id=5]
+[ext_resource path="res://Textures/HP/HPBar_Over.png" type="Texture" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 62, 42 )
@@ -18,6 +21,12 @@ hp = 10.0
 position = Vector2( 0, -39 )
 scale = Vector2( 1.23796, 1.32713 )
 texture = ExtResource( 2 )
+vframes = 4
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
+pause_mode = 2
+anims/Shot = ExtResource( 3 )
 
 [node name="Space" type="Area2D" parent="."]
 position = Vector2( 0, -50.8732 )
@@ -40,26 +49,23 @@ collision_mask = 2
 [node name="HP" type="Node2D" parent="."]
 position = Vector2( 0, -104 )
 
-[node name="Background" type="ColorRect" parent="HP"]
-margin_left = -51.0
-margin_top = -5.0
-margin_right = 51.0
-margin_bottom = 5.0
-color = Color( 0, 0, 0, 1 )
+[node name="HPBar_Under" type="Sprite" parent="HP"]
+texture = ExtResource( 4 )
 
 [node name="HPBar" type="TextureProgress" parent="HP"]
-modulate = Color( 0.72549, 0.0117647, 0.0117647, 1 )
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -0.999992
-margin_right = 7.62939e-006
-margin_bottom = 1.0
-rect_scale = Vector2( 100, 8 )
-rect_pivot_offset = Vector2( 0.5, 0.5 )
-value = 73.0
-texture_progress = ExtResource( 3 )
+margin_left = -18.0
+margin_top = -2.0
+margin_right = 22.0
+margin_bottom = 2.0
+value = 100.0
+texture_progress = ExtResource( 5 )
+
+[node name="HPBar_over" type="Sprite" parent="HP"]
+texture = ExtResource( 6 )
 
 [node name="HPLabel" type="Label" parent="HP"]
 margin_left = -20.0
