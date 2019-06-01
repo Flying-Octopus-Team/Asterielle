@@ -17,21 +17,20 @@ func _on_FirstDwarfTimer_timeout():
 	spawn_dwarf()
 	
 func spawn_dwarf():
-	var dwarf = Dwarf.instance()
-	get_parent().call_deferred("add_child", dwarf)
-	dwarf.global_position = global_position
-	dwarf.damage = dwarf_damage
-	dwarf.set_hp(dwarf_max_hp)
-	dwarf.connect("died", level_manager, "on_Dwarf_died")
+	create_dwarf(Dwarf, dwarf_damage, dwarf_max_hp, "on_Dwarf_died")
 	
 func spawn_boss():
-	var boss = Boss.instance()
-	get_parent().call_deferred("add_child", boss)
-	boss.global_position = global_position
-	boss.damage = boss_damage
-	boss.set_max_hp(boss_max_hp)
-	boss.connect("died", level_manager, "on_Boss_died")
+	var boss = create_dwarf(Boss, boss_damage, boss_max_hp, "on_Boss_died")
 	boss.connect("boss_kill_timeout", level_manager, "on_Boss_kill_timeout")
+	
+func create_dwarf(DwarfScene, damage:float, hp:float, on_died_func:String):
+	var dwarf = DwarfScene.instance()
+	get_parent().call_deferred("add_child", dwarf)
+	dwarf.global_position = global_position
+	dwarf.damage = damage
+	dwarf.set_hp(hp)
+	dwarf.connect("died", level_manager, on_died_func)
+	return dwarf
 	
 func on_next_level(level : int):
 	dwarf_max_hp += dwarf_max_hp * level * 0.1

@@ -5,7 +5,7 @@
 [ext_resource path="res://Textures/OnePixel.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 32, 32 )
+extents = Vector2( 20, 31 )
 
 [node name="Dwarf" type="KinematicBody2D"]
 collision_layer = 2
@@ -19,7 +19,7 @@ scale = Vector2( 1.28, 1.28 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -32 )
+position = Vector2( 7, -32 )
 shape = SubResource( 1 )
 
 [node name="ElfRayCast" type="RayCast2D" parent="."]

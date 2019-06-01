@@ -1,58 +1,23 @@
-extends KinematicBody2D
+extends "res://Scripts/Dwarf.gd"
 
-signal died
 signal boss_kill_timeout
-
-export(float) var move_speed
-
-var velocity : Vector2
-var hp : float
-var damage : float
-
-var elf
 
 onready var timeToKillLabel = find_node("TimeToKillLabel")
 
 func _ready():
-	go_forward()
-	
-func set_max_hp(new_max_hp):
-	hp = new_max_hp
-	$HPBar/HP.max_value = new_max_hp
-	$HPBar/HP.value = hp
-	$HPBar/HPLabel.text = str(hp)
+	update_label()
 	
 func _process(delta):
+	update_label()
+	
+func update_label():
 	timeToKillLabel.text = str("Do zabicia bossa pozostalo ", floor($TimeToKill.time_left), " sekund")
-	
-func _physics_process(delta):
-	position += velocity * delta
 		
-	if $ElfRayCast.is_colliding():
-		elf = $ElfRayCast.get_collider().get_parent()
-		velocity = Vector2.ZERO
-		$NextAttackTimer.start()
-		set_physics_process(false)
-	
-func on_arrow_hit(arrow):
-	arrow.queue_free()
-	
-	hp -= arrow.damage
-	if hp <= 0:
-		emit_signal("died")
-		queue_free()
-	else:
-		$HPBar/HP.value = hp
-		
-	$HPBar/HPLabel.text = str(hp)
-		
-func go_forward():
-	velocity = Vector2(-move_speed, 0)
-	
 func _on_TimeToKill_timeout():
 	queue_free()
 	emit_signal("boss_kill_timeout")
 
+# TODO - move to another method
 func _on_NextAttackTimer_timeout():
 	if not elf.on_dwarf_hit(damage):
 		queue_free()

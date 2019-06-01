@@ -1,85 +1,47 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Scripts/Boss.gd" type="Script" id=1]
-[ext_resource path="res://Textures/dwarf.png" type="Texture" id=2]
-[ext_resource path="res://Textures/OnePixel.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/Dwarf.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/Boss.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/BossTimeToKillCanvas.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 64, 64.2514 )
+extents = Vector2( 36, 59 )
 
-[node name="Boss" type="KinematicBody2D"]
-collision_layer = 2
-collision_mask = 4
-script = ExtResource( 1 )
+[node name="Boss" index="0" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
 move_speed = 60.0
 
-[node name="Sprite" type="Sprite" parent="."]
-modulate = Color( 1, 0.819608, 0.819608, 1 )
-position = Vector2( 0, -50 )
+[node name="Sprite" parent="." index="0"]
+position = Vector2( -1, -48 )
 scale = Vector2( 2.5, 2.5 )
-texture = ExtResource( 2 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -64 )
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2( 12, -66 )
+disabled = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." index="2"]
+position = Vector2( 13, -63 )
 shape = SubResource( 1 )
 
-[node name="ElfRayCast" type="RayCast2D" parent="."]
-position = Vector2( 0, -64 )
-enabled = true
-cast_to = Vector2( -80, 0 )
-collision_mask = 8
-collide_with_areas = true
-collide_with_bodies = false
+[node name="HP" parent="." index="4"]
+position = Vector2( 0, -103 )
 
-[node name="HPBar" type="Node2D" parent="."]
-position = Vector2( 0, -160 )
-
-[node name="Background" type="Sprite" parent="HPBar"]
-modulate = Color( 0.00392157, 0.0862745, 0, 1 )
+[node name="Background" parent="HP" index="0"]
 scale = Vector2( 142, 10 )
-texture = ExtResource( 3 )
 
-[node name="HP" type="TextureProgress" parent="HPBar"]
-modulate = Color( 1, 0.435294, 0, 1 )
+[node name="HPBar" parent="HP" index="1"]
+modulate = Color( 0.854902, 0.411765, 0.0901961, 1 )
 margin_left = -70.0
-margin_top = -4.0
 margin_right = -69.0
-margin_bottom = -3.0
 rect_scale = Vector2( 140, 8 )
-value = 100.0
-texture_progress = ExtResource( 3 )
 
-[node name="HPLabel" type="Label" parent="HPBar"]
-margin_left = -9.0
-margin_top = -22.0
-margin_right = 8.0
-margin_bottom = -8.0
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "10"
+[node name="NextAttackTimer" parent="." index="5"]
+wait_time = 3.0
 
-[node name="TimeToKill" type="Timer" parent="."]
+[node name="TimeToKill" type="Timer" parent="." index="6"]
 wait_time = 30.0
 one_shot = true
 autostart = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
-margin_left = 390.0
-margin_top = 100.0
-margin_right = 633.0
-margin_bottom = 114.0
-
-[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/MarginContainer"]
-margin_right = 243.0
-margin_bottom = 14.0
-
-[node name="TimeToKillLabel" type="Label" parent="CanvasLayer/MarginContainer/CenterContainer"]
-margin_right = 243.0
-margin_bottom = 14.0
-text = "Do zabicia bossa pozostalo 30 sekund"
-
-[node name="NextAttackTimer" type="Timer" parent="."]
-wait_time = 2.0
+[node name="CanvasLayer" parent="." index="7" instance=ExtResource( 3 )]
 [connection signal="timeout" from="TimeToKill" to="." method="_on_TimeToKill_timeout"]
-[connection signal="timeout" from="NextAttackTimer" to="." method="_on_NextAttackTimer_timeout"]
