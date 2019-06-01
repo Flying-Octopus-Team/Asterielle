@@ -16,6 +16,7 @@ position = Vector2( -1, -48 )
 scale = Vector2( 2.5, 2.5 )
 
 [node name="CollisionShape2D" parent="." index="1"]
+visible = false
 position = Vector2( 12, -66 )
 disabled = true
 
