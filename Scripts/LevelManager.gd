@@ -5,7 +5,7 @@ signal dwarf_died
 signal boss_died
 signal next_level
 
-export(int) var dwarves_per_level : int = 10
+export(int) var dwarves_per_level : int = 5
 
 var current_level : int  = 1
 

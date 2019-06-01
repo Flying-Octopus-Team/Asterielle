@@ -10,12 +10,10 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 62, 42 )
 
-[node name="Elf" type="Node2D"]
+[node name="Elf" type="Area2D"]
+collision_layer = 8
+collision_mask = 0
 script = ExtResource( 1 )
-arrow_speed = 700.0
-arrow_gravity = 500.0
-next_arrow_wait_time = 1.0
-hp = 10.0
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -39 )
@@ -28,13 +26,8 @@ hframes = 4
 pause_mode = 2
 anims/Shot = ExtResource( 3 )
 
-[node name="Space" type="Area2D" parent="."]
-position = Vector2( 0, -50.8732 )
-collision_layer = 8
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Space"]
-position = Vector2( 0, 12.8732 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -38 )
 shape = SubResource( 1 )
 
 [node name="FirePoint" type="Position2D" parent="."]
@@ -45,6 +38,8 @@ position = Vector2( 0, -38 )
 enabled = true
 cast_to = Vector2( 800, 0 )
 collision_mask = 2
+collide_with_areas = true
+collide_with_bodies = false
 
 [node name="HP" type="Node2D" parent="."]
 position = Vector2( 0, -104 )

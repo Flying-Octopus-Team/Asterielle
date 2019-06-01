@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends Area2D
 
 signal died
 
@@ -7,8 +7,6 @@ export(float) var move_speed
 var velocity : Vector2
 var hp : float
 var damage : float
-
-var elf
 
 onready var hp_bar
 onready var hp_label
@@ -29,7 +27,6 @@ func _physics_process(delta):
 	position += velocity * delta
 		
 	if $ElfRayCast.is_colliding():
-		elf = $ElfRayCast.get_collider().get_parent()
 		velocity = Vector2.ZERO
 		$NextAttackTimer.start()
 		set_physics_process(false)
@@ -50,5 +47,13 @@ func go_forward():
 	velocity = Vector2(-move_speed, 0)
 	
 func _on_NextAttackTimer_timeout():
+	attack()
+	
+func attack():
+	var elf = $ElfRayCast.get_collider()
 	if not elf.on_dwarf_hit(damage):
 		queue_free()
+
+func _on_Dwarf_area_entered(area):
+	# Because of collision masks this area is Arrow
+	on_arrow_hit(area) 

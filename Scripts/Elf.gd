@@ -2,11 +2,11 @@ extends Node2D
 
 signal game_over
 
-export(float) var arrow_speed
-export(float) var arrow_gravity
-export(float) var next_arrow_wait_time
+export(float) var arrow_speed = 700
+export(float) var arrow_gravity = 500
+export(float) var next_arrow_wait_time = 1.0
 export(float) var arrow_damage = 1.0
-export(float) var hp
+export(float) var hp = 10.0
 
 var Arrow = load("res://Scenes/Arrow.tscn")
 var next_arrow_timer : float

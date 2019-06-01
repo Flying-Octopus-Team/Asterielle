@@ -6,6 +6,8 @@ var velocity : Vector2
 
 var damage : float
 
+var Dwarf = load("res://Scripts/Dwarf.gd")
+
 func _physics_process(delta):
 	velocity.y += gravity * delta
 	velocity.x *= damping
@@ -13,10 +15,6 @@ func _physics_process(delta):
 	rotation = atan2(velocity.y, velocity.x)
 	
 	position += velocity * delta
-	
-func _on_Arrow_body_entered(body):
-	# because of collision mas we're shure that body is dwarf
-	body.on_arrow_hit(self)
 
 func _on_Arrow_area_entered(area):
 	if area.name == "Ground":

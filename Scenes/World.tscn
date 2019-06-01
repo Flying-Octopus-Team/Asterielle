@@ -22,7 +22,6 @@ script = ExtResource( 2 )
 
 [node name="LevelManager" type="Node" parent="."]
 script = ExtResource( 3 )
-dwarves_per_level = 1
 
 [node name="Elf" parent="." instance=ExtResource( 4 )]
 position = Vector2( 121.06, 544.182 )
