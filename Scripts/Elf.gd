@@ -29,7 +29,7 @@ func _process(delta):
 	if next_arrow_timer > 0:
 		return
 		
-	if not $DwarfRayCast.get_collider():
+	if not $DwarfRayCast.is_colliding():
 		animation_player.stop()
 		return
 	

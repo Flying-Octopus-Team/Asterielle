@@ -28,7 +28,7 @@ func set_hp(new_hp):
 func _physics_process(delta):
 	position += velocity * delta
 		
-	if $ElfRayCast.get_collider():
+	if $ElfRayCast.is_colliding():
 		elf = $ElfRayCast.get_collider().get_parent()
 		velocity = Vector2.ZERO
 		$NextAttackTimer.start()

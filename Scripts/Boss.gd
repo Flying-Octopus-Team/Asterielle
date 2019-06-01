@@ -22,16 +22,17 @@ func set_max_hp(new_max_hp):
 	$HPBar/HP.value = hp
 	$HPBar/HPLabel.text = str(hp)
 	
+func _process(delta):
+	timeToKillLabel.text = str("Do zabicia bossa pozostalo ", floor($TimeToKill.time_left), " sekund")
+	
 func _physics_process(delta):
 	position += velocity * delta
 		
-	if $ElfRayCast.get_collider():
+	if $ElfRayCast.is_colliding():
 		elf = $ElfRayCast.get_collider().get_parent()
 		velocity = Vector2.ZERO
 		$NextAttackTimer.start()
 		set_physics_process(false)
-	
-	timeToKillLabel.text = str("Do zabicia bossa pozostalo ", floor($TimeToKill.time_left), " sekund")
 	
 func on_arrow_hit(arrow):
 	arrow.queue_free()

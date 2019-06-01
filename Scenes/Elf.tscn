@@ -15,7 +15,8 @@ script = ExtResource( 1 )
 arrow_speed = 700.0
 arrow_gravity = 500.0
 next_arrow_wait_time = 1.0
-hp = 10.0
+arrow_damage = 22.38
+hp = 100000.0
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -39 )
