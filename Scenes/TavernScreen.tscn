@@ -1,0 +1,51 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/TavernScreen.gd" type="Script" id=1]
+
+[node name="TavernScreen" type="CanvasLayer"]
+script = ExtResource( 1 )
+
+[node name="Control" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.360784, 0.286275, 0.286275, 1 )
+
+[node name="ExitDoorBtn" type="Button" parent="Control"]
+margin_left = 39.8366
+margin_top = 449.432
+margin_right = 112.837
+margin_bottom = 470.432
+text = "Drzwi"
+
+[node name="Button2" type="Button" parent="Control"]
+margin_left = 813.194
+margin_top = 176.812
+margin_right = 883.194
+margin_bottom = 196.812
+text = "Pokoj"
+
+[node name="Button3" type="Button" parent="Control"]
+margin_left = 212.0
+margin_top = 234.0
+margin_right = 281.0
+margin_bottom = 256.0
+text = "Kupiec"
+
+[node name="Button4" type="Button" parent="Control"]
+margin_left = 478.671
+margin_top = 146.26
+margin_right = 563.671
+margin_bottom = 166.26
+text = "Karczmarka"
+
+[node name="Button5" type="Button" parent="Control"]
+margin_left = 844.322
+margin_top = 435.457
+margin_right = 929.322
+margin_bottom = 455.457
+text = "Mag"
+[connection signal="pressed" from="Control/ExitDoorBtn" to="." method="_on_ExitDoorBtn_pressed"]
