@@ -1,14 +1,11 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/World.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/GameData.gd" type="Script" id=2]
 [ext_resource path="res://Scripts/LevelManager.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/Elf.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/DwarvesSpawner.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/Tavern.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scripts/Shop.gd" type="Script" id=7]
-[ext_resource path="res://Scenes/Item.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Scenes/TavernScreen.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/TavernScreen.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 537.558, 30.0002 )
@@ -31,9 +28,6 @@ position = Vector2( 121.06, 544.182 )
 [node name="DwarvesSpawner" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1081.97, 544.587 )
 
-[node name="Tavern" parent="." instance=ExtResource( 6 )]
-position = Vector2( 479.779, 547.369 )
-
 [node name="Ground" type="Area2D" parent="."]
 editor/display_folded = true
 position = Vector2( 569.18, 577.345 )
@@ -47,7 +41,6 @@ __meta__ = {
 shape = SubResource( 1 )
 
 [node name="UI" type="Control" parent="."]
-editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 
@@ -103,59 +96,20 @@ margin_right = 1025.0
 margin_bottom = 14.0
 text = "Doswiadczenie: 100"
 
-[node name="Shop" type="Control" parent="UI"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 1024.0
-margin_right = 1024.0
-script = ExtResource( 7 )
-
-[node name="ShopOpenCloseBtn" type="Button" parent="UI/Shop"]
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -100.0
+[node name="TavernEnterBtn" type="CheckButton" parent="UI"]
+margin_left = 924.0
 margin_top = 60.0
-margin_bottom = 40.0
-mouse_default_cursor_shape = 2
-text = "SKLEP"
+margin_right = 1000.0
+margin_bottom = 100.0
 
-[node name="ShopPanel" type="MarginContainer" parent="UI/Shop"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = 40.0
-margin_right = 300.0
-margin_bottom = 240.0
+[node name="TavernScreen" parent="." instance=ExtResource( 6 )]
 
-[node name="ColorRect" type="ColorRect" parent="UI/Shop/ShopPanel"]
-margin_right = 300.0
-margin_bottom = 200.0
-color = Color( 0, 0, 0, 0.286275 )
+[node name="Control" parent="TavernScreen" index="0"]
+visible = false
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/Shop/ShopPanel"]
-margin_right = 300.0
-margin_bottom = 200.0
-custom_constants/separation = 10
-
-[node name="ShopLabel" type="Label" parent="UI/Shop/ShopPanel/VBoxContainer"]
-margin_right = 300.0
-margin_bottom = 14.0
-text = "Sklep"
-align = 1
-
-[node name="Items" type="VBoxContainer" parent="UI/Shop/ShopPanel/VBoxContainer"]
-margin_top = 24.0
-margin_right = 300.0
-margin_bottom = 44.0
-
-[node name="ArrowDmgItem" parent="UI/Shop/ShopPanel/VBoxContainer/Items" instance=ExtResource( 8 )]
-margin_right = 300.0
-item_name = "Obrazenia Strzaly"
-price = 10.0
-
-[node name="TavernScreen" parent="." instance=ExtResource( 9 )]
-editor/display_folded = true
-[connection signal="pressed" from="UI/Shop/ShopOpenCloseBtn" to="UI/Shop" method="_on_ShopOpenCloseBtn_pressed"]
-[connection signal="bought" from="UI/Shop/ShopPanel/VBoxContainer/Items/ArrowDmgItem" to="UI/Shop" method="_on_ArrowDmgItem_bought"]
+[node name="ColorRect" parent="TavernScreen/Control" index="0"]
+visible = false
+color = Color( 0.360784, 0.286275, 0.286275, 1 )
+[connection signal="toggled" from="UI/TavernEnterBtn" to="LevelManager" method="_on_TavernEnterBtn_toggled"]
 
 [editable path="TavernScreen"]

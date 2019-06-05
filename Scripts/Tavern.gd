@@ -12,5 +12,5 @@ func _physics_process(delta):
 
 func _on_Tavern_area_entered(area):
 	# Because of collision masks area is Elf
-	#get_tree().call_deferred("change_scene", "res://Scenes/TavernScreen.tscn")
 	tavern_screen.enter_tavern()
+	queue_free()

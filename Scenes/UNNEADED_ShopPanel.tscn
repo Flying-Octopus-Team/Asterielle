@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Item.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/Item.gd" type="Script" id=2]
+
+[node name="ShopPanel" type="MarginContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 40.0
+margin_right = 300.0
+margin_bottom = 240.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 300.0
+margin_bottom = 200.0
+color = Color( 0, 0, 0, 0.286275 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_right = 300.0
+margin_bottom = 200.0
+custom_constants/separation = 10
+
+[node name="ShopLabel" type="Label" parent="VBoxContainer"]
+margin_right = 300.0
+margin_bottom = 14.0
+text = "Sklep"
+align = 1
+
+[node name="Items" type="VBoxContainer" parent="VBoxContainer"]
+margin_top = 24.0
+margin_right = 300.0
+margin_bottom = 44.0
+
+[node name="ArrowDmgItem" type="HBoxContainer" parent="VBoxContainer/Items" instance=ExtResource( 1 )]
+margin_right = 300.0
+margin_bottom = 20.0
+grow_horizontal = 0
+custom_constants/separation = 10
+alignment = 1
+script = ExtResource( 2 )
+item_name = "Obrazenia Strzaly"
+price = 10.0
+price_mod = 0.2
