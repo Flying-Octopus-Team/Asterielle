@@ -114,9 +114,6 @@ align = 1
 
 [node name="Control" parent="TavernScreen" index="0"]
 visible = false
-
-[node name="ColorRect" parent="TavernScreen/Control" index="0"]
-color = Color( 0.360784, 0.286275, 0.286275, 1 )
 [connection signal="toggled" from="UI/TavernEnterBtn" to="LevelManager" method="_on_TavernEnterBtn_toggled"]
 
 [editable path="TavernScreen"]

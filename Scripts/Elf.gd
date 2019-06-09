@@ -35,10 +35,6 @@ func _process(delta):
 	
 	shot_arrow()
 
-func _input(event):
-	if Input.is_action_just_pressed("faster_shot"):
-		next_arrow_timer -= 0.1
-				
 func shot_arrow():
 	restart_arrow_timer()
 	animation_player.play("Shot")
