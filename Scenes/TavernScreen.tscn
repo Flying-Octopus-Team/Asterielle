@@ -63,10 +63,14 @@ text = "Karczmarka"
 screen_name = "PublicanScreen"
 
 [node name="RoomScreen" parent="." instance=ExtResource( 4 )]
+visible = false
 
 [node name="WizardScreen" parent="." instance=ExtResource( 5 )]
+visible = false
 
 [node name="TradesmanScreen" parent="." instance=ExtResource( 6 )]
+visible = false
 
 [node name="PublicanScreen" parent="." instance=ExtResource( 7 )]
+visible = false
 [connection signal="pressed" from="MainHall/ExitDoorBtn" to="." method="_on_ExitDoorBtn_pressed"]

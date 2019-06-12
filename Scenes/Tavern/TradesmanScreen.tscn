@@ -4,6 +4,7 @@
 
 [node name="TradesmanScreen" index="0" instance=ExtResource( 1 )]
 
-[node name="NameLabel" parent="." index="0"]
+[node name="NameLabel" parent="VBoxContainer" index="0"]
 text = "Handlarz
+
 "
