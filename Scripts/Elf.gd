@@ -7,7 +7,7 @@ export(float) var arrow_gravity = 500
 export(float) var next_arrow_wait_time = 1.0
 export(float) var arrow_damage = 1.0
 export(float) var hp = 10.0
-export(float) var dodge_chance = 0.5
+export(float) var dodge_chance = 0.1
 
 var Arrow = load("res://Scenes/Arrow.tscn")
 var next_arrow_timer : float

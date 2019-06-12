@@ -113,4 +113,3 @@ text = "Wejdz do tawerny"
 align = 1
 
 [node name="TavernScreen" parent="." instance=ExtResource( 6 )]
-[connection signal="toggled" from="UI/TavernEnterBtn" to="LevelManager" method="_on_TavernEnterBtn_toggled"]

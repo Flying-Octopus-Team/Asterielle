@@ -49,8 +49,7 @@ func on_next_level(level : int):
 		
 func reset_to_base():
 	reset_dwarf_data()
-	spawn_dwarf()
-		
+
 func reset_dwarf_data():
 	dwarf_max_hp = base_dwarf_hp
 	dwarf_damage = base_dwarf_damage

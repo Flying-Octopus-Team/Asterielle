@@ -14,13 +14,12 @@ var killed_dwarves : int = 0
 onready var dwarves_spawner = get_parent().get_node("DwarvesSpawner") 
 onready var game_data = get_parent().get_node("GameData") 
 onready var tavern_enter_btn = get_parent().find_node("TavernEnterBtn")
+onready var tavern_screen = get_parent().get_node("TavernScreen")
 
 var game_over_screen = load("res://Scenes/GameOverScreen.tscn")
 
 var level_label
 var killed_dwarves_label
-
-var want_enter_tavern : bool = false
 
 func _ready():
 	var ui = get_parent().get_node("UI")
@@ -48,7 +47,7 @@ func on_Dwarf_died():
 	
 	emit_signal("dwarf_died")
 	
-	if want_enter_tavern:
+	if tavern_enter_btn.pressed:
 		dwarves_spawner.spawn_tavern()
 	else:
 		spawn_next_dwarf()
@@ -56,7 +55,6 @@ func on_Dwarf_died():
 	set_killed_dwarves_label()
 	
 func _on_Tavern_exited():
-	want_enter_tavern = false
 	tavern_enter_btn.pressed = false
 	spawn_next_dwarf()
 		
@@ -84,20 +82,23 @@ func on_Boss_kill_timeout():
 func on_Game_Over():
 	var gos = game_over_screen.instance()
 	get_parent().call_deferred("add_child", gos)
+	gos.find_node("RespawnInTavern").pressed = tavern_enter_btn.pressed
 	gos.connect("timeout", self, "reset_to_base")
 
-func reset_to_base():
+func reset_to_base(enter_tavern):
 	current_level = floor((current_level-1) / 10) * 10 + 1
 	killed_dwarves = 0
 	set_level_label()
 	set_killed_dwarves_label()
 	emit_signal("reset_to_base")
+	
+	if enter_tavern:
+		tavern_screen.enter_tavern()
+	else:
+		dwarves_spawner.spawn_dwarf()
 
 func set_killed_dwarves_label():
 	killed_dwarves_label.text = str(killed_dwarves, " / ", dwarves_per_level)
 
 func set_level_label():
 	level_label.text = str("Poziom ", current_level)
-
-func _on_TavernEnterBtn_toggled(button_pressed):
-	want_enter_tavern = button_pressed
