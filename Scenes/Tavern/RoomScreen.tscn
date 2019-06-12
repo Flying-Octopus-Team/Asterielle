@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scenes/Tavern/OneTavernScreen.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/RoomShop.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Tavern/ItemBtn.tscn" type="PackedScene" id=3]
 
 [node name="RoomScreen" index="0" instance=ExtResource( 1 )]
 
@@ -11,10 +13,29 @@ text = "Pokoj
 
 "
 
-[node name="Offers" parent="VBoxContainer" index="1"]
+[node name="Shop" parent="VBoxContainer" index="1"]
 margin_top = 69.0
-margin_bottom = 69.0
+margin_bottom = 113.0
+script = ExtResource( 2 )
+
+[node name="BowsKnowledge" parent="VBoxContainer/Shop" index="0" instance=ExtResource( 3 )]
+margin_right = 1024.0
+item_name = "Znajomosc lukow"
+price = 2.0
+price_mod = 0.2
+price_type = 1
+
+[node name="Agility" parent="VBoxContainer/Shop" index="1" instance=ExtResource( 3 )]
+margin_top = 24.0
+margin_right = 1024.0
+margin_bottom = 44.0
+item_name = "Zrecznosc"
+price = 1.0
+price_mod = 0.2
+price_type = 1
 
 [node name="CenterContainer" parent="VBoxContainer" index="2"]
-margin_top = 73.0
-margin_bottom = 93.0
+margin_top = 117.0
+margin_bottom = 137.0
+[connection signal="bought" from="VBoxContainer/Shop/BowsKnowledge" to="VBoxContainer/Shop" method="_on_BowsKnowledge_bought"]
+[connection signal="bought" from="VBoxContainer/Shop/Agility" to="VBoxContainer/Shop" method="_on_Agility_bought"]

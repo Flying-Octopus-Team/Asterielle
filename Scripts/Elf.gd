@@ -7,6 +7,7 @@ export(float) var arrow_gravity = 500
 export(float) var next_arrow_wait_time = 1.0
 export(float) var arrow_damage = 1.0
 export(float) var hp = 10.0
+export(float) var dodge_chance = 0.5
 
 var Arrow = load("res://Scenes/Arrow.tscn")
 var next_arrow_timer : float
@@ -59,6 +60,10 @@ func spawn_arrow():
 	arrow.damage = arrow_damage
 	
 func on_dwarf_hit(dmg) -> bool:
+	if randf() < dodge_chance:
+		print("dodged!")
+		return true
+		
 	hp -= dmg
 	
 	hp_label.text = str(hp)
