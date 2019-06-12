@@ -45,6 +45,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="MarginContainer" type="MarginContainer" parent="UI"]
+editor/display_folded = true
 anchor_right = 1.0
 margin_top = 40.0
 margin_right = 1025.0
@@ -97,6 +98,7 @@ margin_bottom = 14.0
 text = "Doswiadczenie: 100"
 
 [node name="TavernEnterBtn" type="CheckButton" parent="UI"]
+editor/display_folded = true
 margin_left = 924.0
 margin_top = 60.0
 margin_right = 1000.0
@@ -111,9 +113,4 @@ text = "Wejdz do tawerny"
 align = 1
 
 [node name="TavernScreen" parent="." instance=ExtResource( 6 )]
-
-[node name="Control" parent="TavernScreen" index="0"]
-visible = false
 [connection signal="toggled" from="UI/TavernEnterBtn" to="LevelManager" method="_on_TavernEnterBtn_toggled"]
-
-[editable path="TavernScreen"]
