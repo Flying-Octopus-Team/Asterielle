@@ -45,7 +45,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="MarginContainer" type="MarginContainer" parent="UI"]
-editor/display_folded = true
 anchor_right = 1.0
 margin_top = 40.0
 margin_right = 1025.0
@@ -57,6 +56,7 @@ margin_bottom = 86.0
 custom_constants/separation = 10
 
 [node name="CenterContainer" type="CenterContainer" parent="UI/MarginContainer/VBoxContainer"]
+editor/display_folded = true
 margin_right = 1025.0
 margin_bottom = 14.0
 
@@ -67,6 +67,7 @@ margin_bottom = 14.0
 text = "Poziom 10"
 
 [node name="CenterContainer2" type="CenterContainer" parent="UI/MarginContainer/VBoxContainer"]
+editor/display_folded = true
 margin_top = 24.0
 margin_right = 1025.0
 margin_bottom = 38.0
@@ -78,6 +79,7 @@ margin_bottom = 14.0
 text = "2 / 10"
 
 [node name="MarginContainer" type="MarginContainer" parent="UI/MarginContainer/VBoxContainer"]
+editor/display_folded = true
 margin_top = 48.0
 margin_right = 1025.0
 margin_bottom = 62.0

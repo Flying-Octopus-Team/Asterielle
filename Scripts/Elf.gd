@@ -82,3 +82,9 @@ func reset_to_base():
 
 func restart_arrow_timer():
 	next_arrow_timer = next_arrow_wait_time
+	
+func increase_max_hp(additional_hp:float):
+	hp += additional_hp
+	hp_bar.max_value = hp_bar.max_value + additional_hp
+	hp_bar.value = hp
+	hp_label.text = str(hp)
