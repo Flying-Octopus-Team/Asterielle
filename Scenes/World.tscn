@@ -1,12 +1,13 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/World.gd" type="Script" id=1]
-[ext_resource path="res://Scripts/GameData.gd" type="Script" id=2]
-[ext_resource path="res://Scripts/LevelManager.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/LevelManager.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/GameData.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/Elf.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/DwarvesSpawner.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scripts/Shop.gd" type="Script" id=6]
 [ext_resource path="res://Scenes/Item.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scripts/GameSaver.gd" type="Script" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 537.558, 30.0002 )
@@ -17,10 +18,10 @@ __meta__ = {
 "_edit_horizontal_guides_": [  ]
 }
 
-[node name="GameData" type="Node" parent="."]
+[node name="LevelManager" type="Node" parent="."]
 script = ExtResource( 2 )
 
-[node name="LevelManager" type="Node" parent="."]
+[node name="GameData" type="Node" parent="."]
 script = ExtResource( 3 )
 
 [node name="Elf" parent="." instance=ExtResource( 4 )]
@@ -41,6 +42,7 @@ __meta__ = {
 shape = SubResource( 1 )
 
 [node name="UI" type="Control" parent="."]
+editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 
@@ -145,5 +147,8 @@ margin_bottom = 44.0
 margin_right = 300.0
 item_name = "Obrazenia Strzaly"
 price = 10.0
+
+[node name="GameSaver" type="Node" parent="."]
+script = ExtResource( 8 )
 [connection signal="pressed" from="UI/Shop/ShopOpenCloseBtn" to="UI/Shop" method="_on_ShopOpenCloseBtn_pressed"]
 [connection signal="bought" from="UI/Shop/ShopPanel/VBoxContainer/Items/ArrowDmgItem" to="UI/Shop" method="_on_ArrowDmgItem_bought"]

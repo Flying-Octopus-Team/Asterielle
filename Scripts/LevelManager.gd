@@ -20,6 +20,7 @@ var level_label
 var killed_dwarves_label
 
 func _ready():
+	add_to_group('IHaveSthToSave')
 	var ui = get_parent().get_node("UI")
 	level_label = ui.find_node("LevelLabel")
 	killed_dwarves_label = ui.find_node("KilledDwarvesLabel")
@@ -84,3 +85,9 @@ func set_killed_dwarves_label():
 
 func set_level_label():
 	level_label.text = str("Poziom ", current_level)
+
+func save():
+	var save_dict = {
+		_current_level = current_level
+	}
+	return save_dict

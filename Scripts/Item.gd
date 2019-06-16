@@ -9,6 +9,7 @@ export(float) var price_mod
 onready var game_data = get_tree().get_current_scene().find_node("GameData")
 
 func _ready():
+	add_to_group('IHaveSthToSave')
 	$Name.text = item_name
 	update_price_label()
 
@@ -22,4 +23,9 @@ func _on_BuyBtn_pressed():
 
 func update_price_label():
 	$Price.text = str(price)
-	
+
+func save():
+	var save_dict = {
+		_price = price
+	}
+	return save_dict
