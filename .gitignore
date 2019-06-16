@@ -1,3 +1,4 @@
-.save.json
-.EvD.csproj
-.EvD.sln
+*save.json
+
+*EvD.csproj
+*EvD.sln

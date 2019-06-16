@@ -9,7 +9,6 @@ const offine_bonus_xp_ratio : float = 0.2
 
 
 func _ready():
-	add_to_group('IHaveSthToSave')
 	LoadGame()
 	pass
 
