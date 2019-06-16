@@ -11,6 +11,8 @@ var last_golds : Array = [0.0,0.0]
 var last_xp : Array = [0.0,0.0]
 
 var offine_time : int
+var offine_gold_reward : float
+var offine_xp_reward : float
 
 export(float) var next_wait_time = 1.0
 var next_timer : float
