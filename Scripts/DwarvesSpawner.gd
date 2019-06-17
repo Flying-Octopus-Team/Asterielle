@@ -7,7 +7,7 @@ export(float) var boss_damage : float = 3.0
 
 var Dwarf = load("res://Scenes/Dwarf.tscn")
 var Boss = load("res://Scenes/Boss.tscn")
-var Tavern = load("res://Scenes/Tavern.tscn")
+var Tavern = load("res://Scenes/Tavern/Tavern.tscn")
 
 onready var base_dwarf_hp = dwarf_max_hp
 onready var base_dwarf_damage = dwarf_damage
