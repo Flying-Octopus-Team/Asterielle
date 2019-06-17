@@ -5,7 +5,7 @@
 [ext_resource path="res://Scripts/LevelManager.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/Elf.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/DwarvesSpawner.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/TavernScreen.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Tavern/TavernScreen.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 537.558, 30.0002 )
