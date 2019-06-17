@@ -6,11 +6,13 @@ signal room_exited
 
 onready var world = get_parent()
 onready var main_hall = $MainHall
+onready var resources = $Resources
 
 func _ready():
 	connect("tavern_exited", world.find_node("LevelManager"), "_on_Tavern_exited")
 	connect("room_exited", main_hall, "_on_Room_exited")
 	connect_node("MainHall")
+	connect_node("Resources")
 	
 func connect_node(node_name):
 	var node = world.find_node(node_name)
