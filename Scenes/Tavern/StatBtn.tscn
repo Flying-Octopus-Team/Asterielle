@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://Scripts/ShopItem.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/StatBtn.gd" type="Script" id=1]
 
-[node name="ItemBtn" type="HBoxContainer"]
+[node name="StatBtn" type="HBoxContainer"]
 margin_right = 300.0
 margin_bottom = 20.0
 alignment = 1
