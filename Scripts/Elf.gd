@@ -18,6 +18,7 @@ onready var hp_label = find_node("HPLabel")
 onready var animation_player = find_node("AnimationPlayer")
 
 func _ready():
+	add_to_group('IHaveSthToSave')
 	restart_arrow_timer()
 	hp_bar.max_value = hp
 	hp_bar.value = hp
@@ -81,3 +82,9 @@ func reset_to_base():
 
 func restart_arrow_timer():
 	next_arrow_timer = next_arrow_wait_time
+
+func save():
+	var save_dict = {
+		_arrow_damage = arrow_damage
+	}
+	return save_dict

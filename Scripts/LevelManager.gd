@@ -14,12 +14,15 @@ var killed_dwarves : int = 0
 onready var dwarves_spawner = get_parent().get_node("DwarvesSpawner") 
 onready var game_data = get_parent().get_node("GameData") 
 
-var game_over_screen = load("res://Scenes/GameOverScreen.tscn")
+var Game_over_screen = load("res://Scenes/GameOverScreen.tscn")
+var Offline_screen = load("res://Scenes/OfflineScreen.tscn")
+
 
 var level_label
 var killed_dwarves_label
 
 func _ready():
+	add_to_group('IHaveSthToSave')
 	var ui = get_parent().get_node("UI")
 	level_label = ui.find_node("LevelLabel")
 	killed_dwarves_label = ui.find_node("KilledDwarvesLabel")
@@ -33,6 +36,7 @@ func _ready():
 	connect("reset_to_base", dwarves_spawner, "reset_to_base")
 	connect("reset_to_base", elf, "reset_to_base")
 	connect("reset_to_base", game_data, "on_game_over")
+	show_offline_screen()
 	
 func increase_level():
 	current_level += 1
@@ -68,9 +72,13 @@ func on_Boss_kill_timeout():
 	set_killed_dwarves_label()
 	
 func on_Game_Over():
-	var gos = game_over_screen.instance()
+	var gos = Game_over_screen.instance()
 	get_parent().call_deferred("add_child", gos)
 	gos.connect("timeout", self, "reset_to_base")
+
+func show_offline_screen():
+	var gos = Offline_screen.instance()
+	get_parent().call_deferred("add_child", gos)
 
 func reset_to_base():
 	current_level = floor((current_level-1) / 10) * 10 + 1
@@ -84,3 +92,9 @@ func set_killed_dwarves_label():
 
 func set_level_label():
 	level_label.text = str("Poziom ", current_level)
+
+func save():
+	var save_dict = {
+		_current_level = current_level
+	}
+	return save_dict
