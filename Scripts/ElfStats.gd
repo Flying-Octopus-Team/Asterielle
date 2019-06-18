@@ -9,7 +9,7 @@ class Stat:
 	var default_value : float = 0
 	var value : float = 0 setget set_value
 	
-	func _init(n:String, dv:float=default_value):
+	func _init(n:String, dv:float=0):
 		name = n
 		default_value = dv
 		set_value(dv)
@@ -29,11 +29,11 @@ var stats = [
 	Stat.new("agility", 0.5),
 	Stat.new("vitality", 10),
 	Stat.new("charisma", 0),
-	Stat.new("sensinitive_points", 1),
-	Stat.new("eagle_eye", 0),
-	Stat.new("strength", 0),
+	Stat.new("sensinitive_points", 0),
+	Stat.new("eagle_eye", 0.1),
+	Stat.new("strength", 1),
 	Stat.new("magic", 0),
-	Stat.new("lucky", 0.1),
+	Stat.new("lucky", 0),
 	Stat.new("stamina", 10)
 ]
 
@@ -48,3 +48,11 @@ func get_stat(stat_name:String) -> Stat:
 	
 	printerr("nonexist stat with name: \"" + stat_name + "\"")
 	return null
+	
+func get_stat_value(stat_name:String) -> float:
+	var stat = get_stat(stat_name)
+	
+	if stat:
+		return stat.value
+	
+	return 0.0

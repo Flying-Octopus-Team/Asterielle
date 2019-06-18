@@ -40,7 +40,7 @@ price = 1.0
 price_mod = 1.2
 price_type = 1
 stat_name = "agility"
-multiply_stat = 1.01
+add_to_stat = 0.01
 
 [node name="Vitality" parent="VBoxContainer/Shop" index="2" instance=ExtResource( 2 )]
 margin_top = 48.0
@@ -84,7 +84,7 @@ price = 10.0
 price_mod = 1.2
 price_type = 1
 stat_name = "eagle_eye"
-add_to_stat = 1.0
+add_to_stat = 0.01
 
 [node name="Strength" parent="VBoxContainer/Shop" index="6" instance=ExtResource( 2 )]
 margin_top = 144.0

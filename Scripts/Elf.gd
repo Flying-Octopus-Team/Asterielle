@@ -20,7 +20,7 @@ onready var hp_label = find_node("HPLabel")
 onready var animation_player = find_node("AnimationPlayer")
 
 func _ready():
-	stats.restore_to_default()
+	stats.get_stat("vitality").connect("value_changed", self, "_on_vitality_change")
 	restart_arrow_timer()
 	reset_to_base()
 	
@@ -57,7 +57,7 @@ func spawn_arrow():
 	arrow.global_position = fire_point.global_position
 	arrow.gravity = arrow_gravity
 	arrow.velocity = arrow_velocity
-	arrow.damage = stats.get_stat("bows_knowledge").value
+	arrow.damage = stats.get_stat_value("bows_knowledge")
 	
 func on_dwarf_hit(dmg) -> bool:
 	if randf() < stats.get_stat("agility").value:
@@ -76,11 +76,14 @@ func on_dwarf_hit(dmg) -> bool:
 		return true
 		
 func reset_to_base():
-	hp = stats.get_stat("vitality").value
+	hp = stats.get_stat_value("vitality")
 	hp_bar.max_value = hp
 	hp_bar.value = hp
 	hp_label.text = str(hp)
 
 func restart_arrow_timer():
 	next_arrow_timer = next_arrow_wait_time
+	
+func _on_vitality_change(vitality_stat):
+	hp_bar.max_value = vitality_stat.value
 	
