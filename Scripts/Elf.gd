@@ -5,13 +5,14 @@ signal game_over
 export(float) var arrow_speed = 700
 export(float) var arrow_gravity = 500
 export(float) var next_arrow_wait_time = 1.0
-export(float) var arrow_damage = 1.0
-export(float) var hp = 10.0
-export(float) var dodge_chance = 0.1
 
 var Arrow = load("res://Scenes/Arrow.tscn")
 var next_arrow_timer : float
 var next_arrow_velocity : Vector2
+
+var stats = load("res://Resources/ElfStats.tres")
+
+var hp : float
 
 onready var fire_point = find_node("FirePoint")
 onready var hp_bar = find_node("HPBar")
@@ -19,10 +20,9 @@ onready var hp_label = find_node("HPLabel")
 onready var animation_player = find_node("AnimationPlayer")
 
 func _ready():
+	stats.restore_to_default()
 	restart_arrow_timer()
-	hp_bar.max_value = hp
-	hp_bar.value = hp
-	hp_label.text = str(hp)
+	reset_to_base()
 	
 func _process(delta):
 	next_arrow_timer -= delta
@@ -57,13 +57,13 @@ func spawn_arrow():
 	arrow.global_position = fire_point.global_position
 	arrow.gravity = arrow_gravity
 	arrow.velocity = arrow_velocity
-	arrow.damage = arrow_damage
+	arrow.damage = stats.get_stat("bows_knowledge").value
 	
 func on_dwarf_hit(dmg) -> bool:
-	if randf() < dodge_chance:
+	if randf() < stats.get_stat("agility").value:
 		print("dodged!")
 		return true
-		
+	
 	hp -= dmg
 	
 	hp_label.text = str(hp)
@@ -76,15 +76,11 @@ func on_dwarf_hit(dmg) -> bool:
 		return true
 		
 func reset_to_base():
-	hp = hp_bar.max_value
+	hp = stats.get_stat("vitality").value
+	hp_bar.max_value = hp
 	hp_bar.value = hp
 	hp_label.text = str(hp)
 
 func restart_arrow_timer():
 	next_arrow_timer = next_arrow_wait_time
 	
-func increase_max_hp(additional_hp:float):
-	hp += additional_hp
-	hp_bar.max_value = hp_bar.max_value + additional_hp
-	hp_bar.value = hp
-	hp_label.text = str(hp)

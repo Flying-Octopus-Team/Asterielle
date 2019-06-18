@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/TavernScreen.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/MainHall.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Scenes/Tavern/TradesmanScreen.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Tavern/PublicanScreen.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scripts/TavernResources.gd" type="Script" id=8]
+[ext_resource path="res://Scenes/StatsPanel.tscn" type="PackedScene" id=9]
 
 [node name="TavernScreen" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -32,18 +33,18 @@ margin_bottom = 470.432
 text = "Drzwi"
 
 [node name="EnterWizardBtn" parent="MainHall" instance=ExtResource( 3 )]
-margin_left = 760.108
-margin_top = 407.02
-margin_right = 830.108
-margin_bottom = 427.02
+margin_left = 592.795
+margin_top = 420.316
+margin_right = 662.795
+margin_bottom = 440.316
 text = "Mag"
 screen_name = "WizardScreen"
 
 [node name="EnterRoomBtn" parent="MainHall" instance=ExtResource( 3 )]
-margin_left = 782.108
-margin_top = 241.02
-margin_right = 852.108
-margin_bottom = 261.02
+margin_left = 587.094
+margin_top = 272.045
+margin_right = 657.094
+margin_bottom = 292.045
 text = "Pokoj"
 screen_name = "RoomScreen"
 
@@ -76,7 +77,6 @@ visible = false
 visible = false
 
 [node name="Resources" type="Control" parent="."]
-editor/display_folded = true
 visible = false
 margin_right = 40.0
 margin_bottom = 40.0
@@ -100,4 +100,10 @@ margin_top = 18.0
 margin_right = 128.0
 margin_bottom = 32.0
 text = "Doswiadczenie: 100"
+
+[node name="StatsPanel" parent="." instance=ExtResource( 9 )]
+margin_left = 763.436
+margin_top = 202.77
+margin_right = 763.436
+margin_bottom = 202.77
 [connection signal="pressed" from="MainHall/ExitDoorBtn" to="." method="_on_ExitDoorBtn_pressed"]

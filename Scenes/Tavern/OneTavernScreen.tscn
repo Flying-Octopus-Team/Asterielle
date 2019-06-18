@@ -22,8 +22,9 @@ text = "Ekran
 align = 1
 
 [node name="Shop" type="VBoxContainer" parent="VBoxContainer"]
+margin_left = 362.0
 margin_top = 52.0
-margin_right = 1024.0
+margin_right = 662.0
 margin_bottom = 52.0
 script = ExtResource( 2 )
 
