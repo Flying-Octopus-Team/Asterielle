@@ -10,9 +10,9 @@ var xp_on_second : float = 0.0
 var last_golds : Array = [0.0,0.0]
 var last_xp : Array = [0.0,0.0]
 
-var offine_time : int
-var offine_gold_reward : float
-var offine_xp_reward : float
+var offline_time : int
+var offline_gold_reward : float
+var offline_xp_reward : float
 
 var next_wait_time = 1.0
 var next_timer : float
@@ -37,7 +37,6 @@ func _process(delta):
 	
 	check_item_time_on_second()
 	restart_time_to_save()
-	pass
 
 var i : int = 0
 func check_item_time_on_second():
@@ -55,7 +54,6 @@ func check_item_time_on_second():
 				golds_on_second = stepify(float((last_golds[1] - last_golds[0])/60.0), 0.01)
 				xp_on_second = stepify(float((last_xp[1] - last_xp[0])/60.0), 0.01)
 	i += 1
-	pass
 
 func restart_time_to_save():
 	next_timer = next_wait_time
@@ -100,7 +98,7 @@ func update_xp_label():
 func save():
 	var time = OS.get_unix_time()
 	var save_dict = {
-		_time = time,
+		__time = time,
 		_golds_on_second = golds_on_second,
 		_xp_on_second = xp_on_second,
 		_gold = gold,
