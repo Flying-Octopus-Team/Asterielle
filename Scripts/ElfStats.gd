@@ -26,7 +26,7 @@ class Stat:
 
 var stats = [
 	Stat.new("bows_knowledge", 1),
-	Stat.new("agility", 0.5),
+	Stat.new("agility", 0.1),
 	Stat.new("vitality", 10),
 	Stat.new("charisma", 0),
 	Stat.new("sensinitive_points", 0),
