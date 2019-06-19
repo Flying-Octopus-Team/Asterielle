@@ -55,13 +55,9 @@ var stats = [
 	Stat.new("stamina", 10)
 ]
 
-export(Array, Resource) var items
-
 func restore_to_default() -> void:
 	for s in stats:
 		s.reset()
-		
-	items.clear()
 		
 func get_stat(stat_name:String) -> Stat:
 	for s in stats:
@@ -78,10 +74,9 @@ func get_stat_value(stat_name:String) -> float:
 		return stat.value
 	
 	return 0.0
-	
-func add_item(item:Resource):
-	items.push_back(item)
-	
+
+# requires optimisation
+func add_item(item:Resource) -> void:
 	for s in stats:
 		for c in item.stat_changers:
 			if s.named(c.stat_name):
