@@ -20,6 +20,7 @@ class Stat:
 		
 	func set_value(v:float) -> void:
 		value = v
+		calculate_changed_value()
 		emit_signal("value_changed", self)
 		
 	func get_value() -> float:
@@ -39,6 +40,11 @@ class Stat:
 	func add_changer(changer) -> void:
 		changers.push_back(changer)
 		
+		calculate_changed_value()
+		
+		emit_signal("value_changed", self)
+		
+	func calculate_changed_value():
 		changed_value = value
 		
 		for c in changers:
@@ -46,8 +52,6 @@ class Stat:
 		
 		for c in changers:
 			changed_value = c.get_added_value(changed_value)
-			
-		emit_signal("value_changed", self)
 		
 ##################################################
 
@@ -62,7 +66,7 @@ var stats = [
 	Stat.new("magic", 0),
 	Stat.new("lucky", 0),
 	Stat.new("stamina", 10)
-]
+] setget set_stats
 
 func restore_to_default() -> void:
 	for s in stats:
@@ -98,5 +102,8 @@ func add_item(item:Resource) -> void:
 		for c in item.stat_changers:
 			if s.named(c.stat_name):
 				s.add_changer(c)
+				
+func set_stats(v):
+	printerr("stats should not be modified!")
 	
 	
