@@ -4,6 +4,6 @@
 
 [resource]
 script = ExtResource( 1 )
-stat_name = ""
+stat_name = "eagle_eye"
 add_to_stat = 0.0
 multiply_stat = 1.0
