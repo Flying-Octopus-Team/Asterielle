@@ -14,6 +14,8 @@ export(PriceType) var price_type
 
 onready var game_data = get_tree().get_current_scene().find_node("GameData")
 
+var elf_stats = load("res://Resources/ElfStats.tres")
+
 func _ready():
 	$Name.text = item_name
 	update_price_label()

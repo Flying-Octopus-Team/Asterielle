@@ -13,9 +13,27 @@ _global_script_classes=[ {
 "class": "ElfStats",
 "language": "GDScript",
 "path": "res://Scripts/ElfStats.gd"
+}, {
+"base": "Resource",
+"class": "Item",
+"language": "GDScript",
+"path": "res://Scripts/Item.gd"
+}, {
+"base": "Resource",
+"class": "ItemType",
+"language": "GDScript",
+"path": "res://Scripts/ItemType.gd"
+}, {
+"base": "Resource",
+"class": "StatChanger",
+"language": "GDScript",
+"path": "res://Scripts/StatChanger.gd"
 } ]
 _global_script_class_icons={
-"ElfStats": ""
+"ElfStats": "",
+"Item": "",
+"ItemType": "",
+"StatChanger": ""
 }
 
 [application]
