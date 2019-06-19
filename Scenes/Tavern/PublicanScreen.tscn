@@ -4,8 +4,7 @@
 [ext_resource path="res://Scripts/PublicanShop.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/Tavern/TavernBtn.tscn" type="PackedScene" id=3]
 
-
-[node name="PublicanScreen" index="0" instance=ExtResource( 1 )]
+[node name="PublicanScreen" instance=ExtResource( 1 )]
 
 [node name="NameLabel" parent="VBoxContainer" index="0"]
 text = "Karczmarka
@@ -18,7 +17,7 @@ margin_right = 1024.0
 margin_bottom = 72.0
 script = ExtResource( 2 )
 
-[node name="TavernBtn" parent="VBoxContainer/Shop" index="0" instance=ExtResource( 3 )]
+[node name="VineBtn" parent="VBoxContainer/Shop" index="0" instance=ExtResource( 3 )]
 margin_right = 1024.0
 item_name = "Leczace wino"
 price = 2.0
@@ -26,4 +25,4 @@ price = 2.0
 [node name="CenterContainer" parent="VBoxContainer" index="2"]
 margin_top = 76.0
 margin_bottom = 96.0
-[connection signal="bought" from="VBoxContainer/Shop/TavernBtn" to="VBoxContainer/Shop" method="_on_TavernBtn_bought"]
+[connection signal="bought" from="VBoxContainer/Shop/VineBtn" to="VBoxContainer/Shop" method="_on_VinenBtn_bought"]

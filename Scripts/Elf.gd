@@ -60,8 +60,7 @@ func spawn_arrow():
 	arrow.damage = stats.get_stat_value("bows_knowledge")
 	
 func on_dwarf_hit(dmg) -> bool:
-	if randf() < stats.get_stat("agility").value:
-		print("dodged!")
+	if randf() < stats.get_stat_value("agility"):
 		return true
 	
 	hp -= dmg

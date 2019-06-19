@@ -27,6 +27,6 @@ func disable_valid_buttons():
 		var price = float(item.get_node("Price").text)
 		match item.price_type:
 			item.PriceType.GOLD:
-				item.find_node("BuyBtn").set_disabled(price > game_data.gold)
+				item.get_node("BuyBtn").set_disabled(price > game_data.gold)
 			item.PriceType.XP:
-				item.find_node("BuyBtn").set_disabled(price > game_data.xp)
+				item.get_node("BuyBtn").set_disabled(price > game_data.xp)

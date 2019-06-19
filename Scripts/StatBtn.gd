@@ -5,7 +5,8 @@ export(float) var add_to_stat = 0.0
 export(float) var multiply_stat = 1.0
 
 func _on_BuyBtn_pressed():
-	elf_stats.get_stat(stat_name).value *= multiply_stat
-	elf_stats.get_stat(stat_name).value += add_to_stat
+	var v = elf_stats.get_stat(stat_name).get_unchanged_value()
+	v = v*multiply_stat + add_to_stat
+	elf_stats.get_stat(stat_name).value = v
 	
 	._on_BuyBtn_pressed()

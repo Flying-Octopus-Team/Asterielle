@@ -4,9 +4,6 @@ export(float) var move_speed = 100
 
 onready var tavern_screen = get_parent().find_node("TavernScreen")
 
-func _ready():
-	pass
-	
 func _physics_process(delta):
 	position.x -= move_speed * delta
 

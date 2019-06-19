@@ -22,12 +22,21 @@ class Stat:
 		emit_signal("value_changed", self)
 		
 	func get_value() -> float:
+		if changers.size() == 0:
+			return value
+			
 		var changed_value = value
 		
 		for c in changers:
-			changed_value = c.get_changed_value(changed_value)
+			changed_value = c.get_multiplayed_value(changed_value)
+		
+		for c in changers:
+			changed_value = c.get_added_value(changed_value)
 		
 		return changed_value
+	
+	func get_unchanged_value() -> float:
+		return value
 	
 	func reset() -> void:
 		value = default_value
@@ -72,6 +81,14 @@ func get_stat_value(stat_name:String) -> float:
 	
 	if stat:
 		return stat.value
+	
+	return 0.0
+	
+func get_stat_unchanged_value(stat_name:String) -> float:
+	var stat = get_stat(stat_name)
+	
+	if stat:
+		return stat.get_unchanged_value()
 	
 	return 0.0
 
