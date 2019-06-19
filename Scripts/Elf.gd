@@ -20,6 +20,7 @@ onready var hp_label = find_node("HPLabel")
 onready var animation_player = find_node("AnimationPlayer")
 
 func _ready():
+	stats.create_default_items()
 	stats.get_stat("vitality").connect("value_changed", self, "_on_vitality_change")
 	restart_arrow_timer()
 	reset_to_base()

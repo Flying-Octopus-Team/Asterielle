@@ -4,7 +4,7 @@
 [ext_resource path="res://Scripts/PublicanShop.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/Tavern/TavernBtn.tscn" type="PackedScene" id=3]
 
-[node name="PublicanScreen" instance=ExtResource( 1 )]
+[node name="PublicanScreen" index="0" instance=ExtResource( 1 )]
 
 [node name="NameLabel" parent="VBoxContainer" index="0"]
 text = "Karczmarka

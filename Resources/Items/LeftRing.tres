@@ -1,10 +1,9 @@
-[gd_resource type="Resource" load_steps=4 format=2]
+[gd_resource type="Resource" load_steps=3 format=2]
 
 [ext_resource path="res://Scripts/Item.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Items/StatChangers/VitalityChanger.tres" type="Resource" id=2]
-[ext_resource path="res://Resources/Items/ItemTypes/TypeUpgraded.tres" type="Resource" id=3]
 
 [resource]
 script = ExtResource( 1 )
-type = ExtResource( 3 )
+name = "LeftRing"
 stat_changers = [ ExtResource( 2 ) ]
