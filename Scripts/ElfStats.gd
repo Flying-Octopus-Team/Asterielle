@@ -37,7 +37,7 @@ class Stat:
 	func named(n:String) -> bool:
 		return name == n
 		
-	func add_changer(changer) -> void:
+	func add_changer(changer:Resource) -> void:
 		changers.push_back(changer)
 		
 		calculate_changed_value()

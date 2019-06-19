@@ -4,6 +4,6 @@
 
 [resource]
 script = ExtResource( 1 )
-stat_name = "bows_knowledge"
+stat_name = ""
 add_to_stat = 0.0
-multiply_stat = 2.0
+multiply_stat = 1.0
