@@ -84,6 +84,12 @@ func reset_to_base():
 func restart_arrow_timer():
 	next_arrow_timer = next_arrow_wait_time
 	
+func set_current_hp(new_hp):
+	hp = new_hp
+	hp_bar.value = hp
+	hp_label.text = str(hp)
+	
+	
 func _on_vitality_change(vitality_stat):
 	hp_bar.max_value = vitality_stat.value
 	
