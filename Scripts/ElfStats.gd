@@ -10,6 +10,7 @@ class Stat:
 	var name : String
 	var default_value : float = 0
 	var value : float = 0 setget set_value, get_value
+	var changed_value : float = value
 	var changers : Array = []
 	
 	func _init(n:String, dv:float=0):
@@ -22,17 +23,6 @@ class Stat:
 		emit_signal("value_changed", self)
 		
 	func get_value() -> float:
-		if changers.size() == 0:
-			return value
-			
-		var changed_value = value
-		
-		for c in changers:
-			changed_value = c.get_multiplayed_value(changed_value)
-		
-		for c in changers:
-			changed_value = c.get_added_value(changed_value)
-		
 		return changed_value
 	
 	func get_unchanged_value() -> float:
@@ -40,6 +30,7 @@ class Stat:
 	
 	func reset() -> void:
 		value = default_value
+		changed_value = value
 		changers.clear()
 	
 	func named(n:String) -> bool:
@@ -47,6 +38,15 @@ class Stat:
 		
 	func add_changer(changer) -> void:
 		changers.push_back(changer)
+		
+		changed_value = value
+		
+		for c in changers:
+			changed_value = c.get_multiplayed_value(changed_value)
+		
+		for c in changers:
+			changed_value = c.get_added_value(changed_value)
+			
 		emit_signal("value_changed", self)
 		
 ##################################################
