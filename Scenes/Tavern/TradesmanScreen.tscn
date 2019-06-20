@@ -88,3 +88,7 @@ item = ExtResource( 10 )
 [node name="CenterContainer" parent="VBoxContainer" index="2"]
 margin_top = 220.0
 margin_bottom = 240.0
+
+[node name="ResetItemsTimer" type="Timer" parent="." index="1"]
+wait_time = 300.0
+[connection signal="timeout" from="ResetItemsTimer" to="." method="_on_ResetItemsTimer_timeout"]

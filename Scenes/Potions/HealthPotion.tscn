@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/Potions/Potion.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Textures/potion.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/HealthPotion.gd" type="Script" id=3]
+
+[node name="HealthPotion" instance=ExtResource( 1 )]
+margin_right = 0.0
+margin_bottom = 0.0
+rect_scale = Vector2( 4, 4 )
+texture_normal = ExtResource( 2 )
+stretch_mode = 2
+script = ExtResource( 3 )
+strength = 4.0

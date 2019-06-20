@@ -27,10 +27,13 @@ func _on_BuyBtn_pressed():
 		PriceType.XP:
 			game_data.add_xp(-price)
 	
-	price *= price_mod
-	update_price_label()
+	set_price(price * price_mod)
 	
 	emit_signal("bought")
+
+func set_price(new_price:float):
+	price = new_price
+	update_price_label()
 
 func update_price_label():
 	$Price.text = str(price)

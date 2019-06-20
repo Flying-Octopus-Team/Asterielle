@@ -10,6 +10,8 @@ export(Resource) var quality
 # Should be array of StatChangers
 export(Array, Resource) var stat_changers
 
+export(float) var price
+
 var elf_stats = load("res://Resources/ElfStats.tres")
 
 var QUALITY : Array
@@ -50,10 +52,13 @@ func reset() -> void:
 	setup()
 	quality = QUALITY[0]
 	stat_changers.clear()
+	price = 1
 	
 func generate_random() -> void:
 	quality = get_random_element(QUALITY).duplicate()
 	stat_changers.clear()
+	
+	price = rand_range(1, 3) 
 	
 	var no_changers = randi()%3 + 1
 	for i in range(no_changers):

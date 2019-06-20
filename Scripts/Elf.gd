@@ -89,6 +89,8 @@ func set_current_hp(new_hp):
 	hp_bar.value = hp
 	hp_label.text = str(hp)
 	
+func add_hp(additional_hp):
+	set_current_hp(min(hp + additional_hp, hp_bar.max_value))
 	
 func _on_vitality_change(vitality_stat):
 	hp_bar.max_value = vitality_stat.value
