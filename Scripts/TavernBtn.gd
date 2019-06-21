@@ -23,9 +23,9 @@ func _ready():
 func _on_BuyBtn_pressed():
 	match price_type:
 		PriceType.GOLD:
-			game_data.add_gold(-price)
+			game_data.add_gold(-get_lower_price())
 		PriceType.XP:
-			game_data.add_xp(-price)
+			game_data.add_xp(-get_lower_price())
 	
 	set_price(price * price_mod)
 	
@@ -35,6 +35,13 @@ func set_price(new_price:float):
 	price = new_price
 	update_price_label()
 
+func get_lower_price() -> float:
+	if price_type == PriceType.XP:
+		return price
+		
+	return max(max(price - elf_stats.get_stat_value("charisma"), price * 0.5), 0)
+
 func update_price_label():
-	$Price.text = str(price)
+	print(price)
+	$Price.text = str(get_lower_price())
 	

@@ -10,6 +10,7 @@ onready var amount_label = $AmountLabel
 var amount : int = 0
 
 func _ready():
+	add_to_group("IHaveSthToSave")
 	update_amount_label()
 	connect("used", self, "_on_potion_used")
 
@@ -27,3 +28,18 @@ func update_amount_label():
 	
 func _on_potion_used():
 	pass
+	
+func save():
+	var save_dict = {
+		_helth_potion = {
+			_strength = strength,
+			_amount = amount
+		}
+	}
+	
+	return save_dict
+
+func load_data(data):
+	strength = data["_strength"]
+	amount = data["_amount"]
+	update_amount_label()

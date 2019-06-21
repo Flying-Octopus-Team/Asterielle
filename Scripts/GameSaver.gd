@@ -85,6 +85,9 @@ func load_game():
 					elf_stats.load_data(data[node_path]['_elf_stats'])
 					elf.reset_to_base()
 			
+				"_helth_potion":
+					get_parent().find_node("HealthPotion").load_data(data[node_path]['_helth_potion'])
+			
 				"_price":
 					var items = get_parent().find_node("Items") 
 					for i in range(items.get_child_count()):
