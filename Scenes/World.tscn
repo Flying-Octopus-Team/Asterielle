@@ -5,9 +5,9 @@
 [ext_resource path="res://Scripts/GameData.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/Elf.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/DwarvesSpawner.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/Potions/HealthPotion.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/Tavern/TavernScreen.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scripts/GameSaver.gd" type="Script" id=8]
+[ext_resource path="res://Scenes/Tavern/TavernScreen.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scripts/GameSaver.gd" type="Script" id=7]
+[ext_resource path="res://Scenes/Potions/HealthPotion.tscn" type="PackedScene" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 537.558, 30.0002 )
@@ -109,31 +109,35 @@ margin_right = 985.0
 margin_bottom = 120.0
 
 [node name="TavernLabel" type="Label" parent="UI/TavernEnterBtn"]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -114.0
-margin_bottom = 14.0
-text = "Wejdz do tawerny"
-align = 1
-
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
+margin_left = -135.97
+margin_top = -74.2068
+margin_right = 1002.03
+margin_bottom = -42.2068
+text = "Wejdz do tawerny"
+align = 1
+
+[node name="TavernScreen" parent="." instance=ExtResource( 6 )]
+
+[node name="GameSaver" type="Node" parent="."]
+script = ExtResource( 7 )
+
+[node name="PotionsContainer" type="HBoxContainer" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 margin_top = 550.0
 margin_right = 1024.0
 margin_bottom = 582.0
-custom_constants/separation = 4
 alignment = 1
 
-[node name="HealthPotion" parent="UI/PotionsContainer" instance=ExtResource( 6 )]
+[node name="HealthPotion" parent="PotionsContainer" instance=ExtResource( 8 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 504.0
-margin_right = 520.0
+margin_left = 496.0
+margin_right = 528.0
 margin_bottom = 32.0
 rect_scale = Vector2( 1, 1 )
-mouse_default_cursor_shape = 0
-stretch_mode = 0
-
-[node name="TavernScreen" parent="." instance=ExtResource( 7 )]

@@ -98,6 +98,6 @@ func _on_vitality_change(vitality_stat):
 	
 func save():
 	var save_dict = {
-		_arrow_damage = arrow_damage
+		_hp = hp
 	}
 	return save_dict

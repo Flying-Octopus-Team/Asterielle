@@ -19,11 +19,6 @@ var CHANGERS : Array
 
 var setuped : bool = false
 
-func _ready():
-	add_to_group('IHaveSthToSave')
-	$Name.text = item_name
-	update_price_label()
-
 func setup():
 	if setuped: 
 		return
@@ -74,8 +69,3 @@ func generate_random() -> void:
 func get_random_element(from:Array):
 	return from[randi() % from.size()]
 	
-func save():
-	var save_dict = {
-		_price = price
-	}
-	return save_dict
