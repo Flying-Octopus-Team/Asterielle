@@ -22,4 +22,5 @@ func _on_ResetItemsTimer_timeout():
 func generate_random_items():
 	for btn in shop.get_children():
 		btn.generate_random()
+	shop.disable_valid_buttons()
 	

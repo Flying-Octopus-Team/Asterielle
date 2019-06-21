@@ -42,6 +42,5 @@ func get_lower_price() -> float:
 	return max(max(price - elf_stats.get_stat_value("charisma"), price * 0.5), 0)
 
 func update_price_label():
-	print(price)
 	$Price.text = str(get_lower_price())
 	
