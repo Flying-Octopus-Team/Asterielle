@@ -22,6 +22,7 @@ onready var animation_player = find_node("AnimationPlayer")
 func _ready():
 	stats.create_default_items()
 	stats.get_stat("vitality").connect("value_changed", self, "_on_vitality_change")
+	add_to_group('IHaveSthToSave')
 	restart_arrow_timer()
 	reset_to_base()
 	
@@ -95,3 +96,8 @@ func add_hp(additional_hp):
 func _on_vitality_change(vitality_stat):
 	hp_bar.max_value = vitality_stat.value
 	
+func save():
+	var save_dict = {
+		_arrow_damage = arrow_damage
+	}
+	return save_dict
