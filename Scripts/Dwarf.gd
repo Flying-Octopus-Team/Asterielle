@@ -8,7 +8,7 @@ var velocity : Vector2
 var hp : float
 var damage : float
 
-var elf_stats = load("res://Resources/ElfStats.tres")
+onready var elf_stats = get_node("/root/World/ElfStats")
 
 onready var hp_bar
 onready var hp_label

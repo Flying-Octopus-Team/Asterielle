@@ -12,8 +12,6 @@ export(Array, Resource) var stat_changers
 
 export(float) var price
 
-var elf_stats = load("res://Resources/ElfStats.tres")
-
 var QUALITY : Array
 var CHANGERS : Array
 
@@ -27,6 +25,16 @@ func setup():
 	
 	randomize()
 	
+	fill_quality_array()
+	fill_changers_array()
+
+func reset() -> void:
+	setup()
+	quality = QUALITY[0]
+	stat_changers.clear()
+	price = 1
+	
+func fill_quality_array() -> void:
 	QUALITY = [
 		load("res://Resources/Items/ItemQuality/TypeRegular.tres"),
 		load("res://Resources/Items/ItemQuality/TypeUpgraded.tres"),
@@ -35,6 +43,7 @@ func setup():
 		load("res://Resources/Items/ItemQuality/TypeLegendary.tres")
 	]
 	
+func fill_changers_array() -> void:
 	CHANGERS = [
 		load("res://Resources/Items/StatChangers/BowsKnowledgeChanger.tres"),
 		load("res://Resources/Items/StatChangers/AgilityChanger.tres"),
@@ -47,14 +56,12 @@ func setup():
 		load("res://Resources/Items/StatChangers/StaminaChanger.tres"),
 	]
 	
-
-func reset() -> void:
-	setup()
-	quality = QUALITY[0]
-	stat_changers.clear()
-	price = 1
-	
-func generate_random() -> void:
+func generate_random(lucky:float) -> void:
+	if QUALITY.empty():
+		fill_quality_array()
+	if CHANGERS.empty():
+		fill_changers_array()
+		
 	quality = get_random_element(QUALITY).duplicate()
 	stat_changers.clear()
 	
@@ -69,3 +76,33 @@ func generate_random() -> void:
 func get_random_element(from:Array):
 	return from[randi() % from.size()]
 	
+func get_changer(stat_name:String) -> Resource:
+	for c in CHANGERS:
+		if c.stat_name == stat_name:
+			return c
+			
+	return null
+	
+func save():
+	var save_dict = {
+		_changers = {}
+	}
+	
+	var i : int = 0
+	for c in stat_changers:
+		save_dict["_changers"][str("changer", i)] = c.save()
+		i += 1
+	
+	return save_dict
+	
+func load_data(data):
+	var changers = data["_changers"]
+	
+	if not changers:
+		return
+		
+	for key in changers:
+		var changer_data = changers[key] 
+		var new_changer = get_changer(changer_data["_stat_name"]).duplicate()
+		new_changer.load_data(changer_data)
+		stat_changers.push_back(new_changer)

@@ -20,3 +20,18 @@ func get_added_value(stat_value:float) -> float:
 func generate_random() -> void:
 	add_to_stat = randf() * 2 - 0.5
 	multiply_stat = 1 + randf() * 0.5
+	
+func save():
+	var save_dict = {
+		_stat_name = stat_name,
+		_item_name = item_name,
+		_add_to_stat = add_to_stat,
+		_multiply_stat = multiply_stat
+	}
+	
+	return save_dict
+	
+func load_data(data): 
+	item_name = data["_item_name"]
+	add_to_stat = data["_add_to_stat"]
+	multiply_stat = data["_multiply_stat"]

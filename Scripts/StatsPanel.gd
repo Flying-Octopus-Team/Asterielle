@@ -3,7 +3,7 @@ extends Control
 onready var panel = $Panel/MarginContainer/VBoxContainer
 
 var Stat = load("res://Scenes/Stat.tscn")
-var elf_stats = load("res://Resources/ElfStats.tres")
+onready var elf_stats = get_node("/root/World/ElfStats")
 
 func _ready():
 	call_deferred("create_stat_panel")

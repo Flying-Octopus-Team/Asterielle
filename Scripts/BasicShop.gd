@@ -6,7 +6,7 @@ onready var root_node = get_tree().get_current_scene()
 onready var game_data = root_node.find_node("GameData")
 onready var elf = root_node.find_node("Elf")
 
-var elf_stats = load("res://Resources/ElfStats.tres")
+onready var elf_stats = get_node("/root/World/ElfStats")
 
 func _ready():
 	game_data.connect("gold_changed", self, "on_Gold_changed")

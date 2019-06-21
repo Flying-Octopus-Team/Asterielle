@@ -14,7 +14,7 @@ export(PriceType) var price_type
 
 onready var game_data = get_tree().get_current_scene().find_node("GameData")
 
-var elf_stats = load("res://Resources/ElfStats.tres")
+onready var elf_stats = get_node("/root/World/ElfStats")
 
 func _ready():
 	$Name.text = item_name

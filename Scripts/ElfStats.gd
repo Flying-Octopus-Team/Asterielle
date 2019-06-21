@@ -1,4 +1,4 @@
-extends Resource
+extends Node
 
 class_name ElfStats
 
@@ -13,10 +13,17 @@ class Stat:
 	var changed_value : float = value
 	var changers : Array = []
 	
-	func _init(n:String, dv:float=0):
+	func _init(n:String, dv:float=0, v:float=0):
 		name = n
+		setup(dv, v)
+	
+	func setup(dv:float, v:float):
 		default_value = dv
-		set_value(dv)
+		if v:
+			set_value(v)
+		else:
+			set_value(dv)
+		emit_signal("value_changed", self)
 		
 	func set_value(v:float) -> void:
 		value = v
@@ -73,6 +80,9 @@ var stats = [
 
 var items = {}
 
+func _ready():
+	add_to_group("IHaveSthToSave")
+
 func create_default_items() -> void:
 	items = {
 		"Bow": load("res://Resources/Items/Bow.tres"),
@@ -85,6 +95,7 @@ func create_default_items() -> void:
 	}
 
 	for key in items:
+		items[key] = items[key].duplicate()
 		items[key].reset()
 
 func restore_to_default() -> void:
@@ -136,3 +147,34 @@ func add_item(item) -> void:
 func set_stats(v):
 	printerr("stats array should not be modified!")
 	
+func save():
+	var save_dict = {
+		_elf_stats = {
+			_stats = {},
+			_items = {}
+		},
+	}
+	
+	for s in stats:
+		save_dict["_elf_stats"]["_stats"][s.name] = {
+			_default_value = s.default_value,
+			_value = s.get_unchanged_value()
+		}
+		
+	for key in items:
+		save_dict["_elf_stats"]["_items"][key] = items[key].save()
+	
+	return save_dict
+	
+func load_data(data):
+	var _stats = data["_stats"]
+	var _items = data["_items"]
+	
+	for key in _stats:
+		var new_stat = _stats[key]
+		var stat = get_stat(key)
+		stat.setup(new_stat["_default_value"], new_stat["_value"])
+		
+	for key in _items:
+		items[key].load_data(_items[key])
+		add_item(items[key])

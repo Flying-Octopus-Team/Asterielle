@@ -19,7 +19,6 @@ onready var tavern_screen = get_parent().get_node("TavernScreen")
 var Game_over_screen = load("res://Scenes/GameOverScreen.tscn")
 var Offline_screen = load("res://Scenes/OfflineScreen.tscn")
 
-
 var level_label
 var killed_dwarves_label
 
@@ -110,7 +109,7 @@ func set_killed_dwarves_label():
 
 func set_level_label():
 	level_label.text = str("Poziom ", current_level)
-
+	
 func save():
 	var save_dict = {
 		_current_level = current_level
