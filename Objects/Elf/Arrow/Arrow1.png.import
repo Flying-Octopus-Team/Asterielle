@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/HPBar_Over.png-3e6198d13140ec9e0d03863789d65ee4.stex"
+path="res://.import/Arrow1.png-76a9a1f5278ba433e344b65de367117b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/HP/HPBar_Over.png"
-dest_files=[ "res://.import/HPBar_Over.png-3e6198d13140ec9e0d03863789d65ee4.stex" ]
+source_file="res://Objects/Elf/Arrow/Arrow1.png"
+dest_files=[ "res://.import/Arrow1.png-76a9a1f5278ba433e344b65de367117b.stex" ]
 
 [params]
 

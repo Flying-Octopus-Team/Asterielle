@@ -1,7 +1,8 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scenes/GameOverScreen/GameOverScreen.gd" type="Script" id=1]
-[ext_resource path="res://Textures/OnePixel.png" type="Texture" id=2]
+[ext_resource path="res://OnePixel.png" type="Texture" id=2]
+
 
 
 [node name="GameOverScreen" type="Control"]

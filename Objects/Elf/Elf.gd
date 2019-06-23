@@ -6,7 +6,7 @@ export(float) var arrow_speed = 700
 export(float) var arrow_gravity = 500
 export(float) var next_arrow_wait_time = 1.0
 
-var Arrow = load("res://Scenes/Arrow.tscn")
+var Arrow = load("res://Objects/Elf/Arrow/Arrow.tscn")
 var next_arrow_timer : float
 var next_arrow_velocity : Vector2
 

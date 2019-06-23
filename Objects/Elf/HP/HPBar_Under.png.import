@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/potion.png-b88fb7887a621d00cb1b310699425ce1.stex"
+path="res://.import/HPBar_Under.png-1180cbe76492ab4f4531939280332d9d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/potion.png"
-dest_files=[ "res://.import/potion.png-b88fb7887a621d00cb1b310699425ce1.stex" ]
+source_file="res://Objects/Elf/HP/HPBar_Under.png"
+dest_files=[ "res://.import/HPBar_Under.png-1180cbe76492ab4f4531939280332d9d.stex" ]
 
 [params]
 

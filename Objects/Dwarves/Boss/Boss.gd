@@ -1,4 +1,4 @@
-extends "res://Scripts/Dwarf.gd"
+extends "res://Objects/Dwarves/Dwarf/Dwarf.gd"
 
 signal boss_kill_timeout
 

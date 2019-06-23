@@ -6,8 +6,6 @@ var velocity : Vector2
 
 var damage : float
 
-var Dwarf = load("res://Scripts/Dwarf.gd")
-
 func _physics_process(delta):
 	velocity.y += gravity * delta
 	velocity.x *= damping
