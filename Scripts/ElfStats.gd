@@ -61,6 +61,8 @@ class Stat:
 		for c in changers:
 			changed_value = c.get_added_value(changed_value)
 			
+		changed_value = max(changed_value, 0)
+		
 		emit_signal("value_changed", self)
 		
 ##################################################
