@@ -16,8 +16,8 @@ onready var game_data = get_parent().get_node("GameData")
 onready var tavern_enter_btn = get_parent().find_node("TavernEnterBtn")
 onready var tavern_screen = get_parent().get_node("TavernScreen")
 
-var Game_over_screen = load("res://Scenes/GameOverScreen.tscn")
-var Offline_screen = load("res://Scenes/OfflineScreen.tscn")
+var Game_over_screen = load("res://Scenes/GameOverScreen/GameOverScreen.tscn")
+var Offline_screen = load("res://Scenes/OfflineScreen/OfflineScreen.tscn")
 
 var level_label
 var killed_dwarves_label

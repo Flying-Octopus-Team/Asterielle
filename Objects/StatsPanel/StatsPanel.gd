@@ -2,7 +2,7 @@ extends Control
 
 onready var panel = $Panel/MarginContainer/VBoxContainer
 
-var Stat = load("res://Scenes/Stat.tscn")
+var Stat = load("res://Objects/StatsPanel/Stat.tscn")
 onready var elf_stats = get_node("/root/World/ElfStats")
 
 func _ready():

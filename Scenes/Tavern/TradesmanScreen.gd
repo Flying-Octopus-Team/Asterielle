@@ -1,4 +1,4 @@
-extends "res://Scripts/OneTavernScreen.gd"
+extends "res://Scenes/Tavern/OneTavernScreen.gd"
 
 onready var shop = find_node("Shop")
 onready var reset_items_timer = $ResetItemsTimer

@@ -1,4 +1,4 @@
-extends "res://Scripts/TavernBtn.gd"
+extends "res://Scenes/Tavern/Buttons/TavernBtn.gd"
 
 export(String) var stat_name
 export(float) var add_to_stat = 0.0

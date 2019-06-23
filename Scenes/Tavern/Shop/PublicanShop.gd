@@ -1,4 +1,4 @@
-extends "res://Scripts/BasicShop.gd"
+extends "res://Scenes/Tavern/Shop/BasicShop.gd"
 
 onready var potions_container = get_node("/root/World").find_node("PotionsContainer")
 

@@ -1,4 +1,4 @@
-extends "res://Scripts/TavernBtn.gd"
+extends "res://Scenes/Tavern/Buttons/TavernBtn.gd"
 
 export(Resource) var item
 

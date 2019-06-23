@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scenes/Tavern/OneTavernScreen.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Scripts/TradesmanScreen.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Tavern/TradesmanScreen.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/Tavern/Buttons/ItemBtn.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Resources/Items/Bow.tres" type="Resource" id=4]
 [ext_resource path="res://Resources/Items/LeftRing.tres" type="Resource" id=5]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Resources/Items/Armor.tres" type="Resource" id=8]
 [ext_resource path="res://Resources/Items/Gloves.tres" type="Resource" id=9]
 [ext_resource path="res://Resources/Items/Boots.tres" type="Resource" id=10]
+
 
 
 [node name="TradesmanScreen" index="0" instance=ExtResource( 1 )]
