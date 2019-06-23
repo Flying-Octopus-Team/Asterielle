@@ -1,11 +1,9 @@
-[gd_resource type="Resource" load_steps=3 format=2]
+[gd_resource type="Resource" load_steps=2 format=2]
 
-[ext_resource path="res://Scripts/Item.gd" type="Script" id=1]
-[ext_resource path="res://Resources/Items/StatChangers/VitalityChanger.tres" type="Resource" id=2]
+[ext_resource path="res://Resources/Items/Item.gd" type="Script" id=1]
 
 [resource]
 script = ExtResource( 1 )
 name = "LeftRing"
-stat_changers = [ ExtResource( 2 ) ]
+stat_changers = [  ]
 price = 0.0
-

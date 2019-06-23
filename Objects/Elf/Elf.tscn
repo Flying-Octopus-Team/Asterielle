@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://Scripts/Elf.gd" type="Script" id=1]
+[ext_resource path="res://Objects/Elf/Elf.gd" type="Script" id=1]
 [ext_resource path="res://Textures/efl_shot.png" type="Texture" id=2]
 [ext_resource path="res://Animations/ElfShot.tres" type="Animation" id=3]
 [ext_resource path="res://Textures/HP/HPBar_Under.png" type="Texture" id=4]
@@ -69,3 +69,4 @@ margin_right = 20.0
 margin_bottom = -7.0
 text = "10"
 align = 1
+

@@ -3,8 +3,8 @@
 [ext_resource path="res://Scenes/World/World.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/LevelManager.gd" type="Script" id=2]
 [ext_resource path="res://Scripts/GameData.gd" type="Script" id=3]
-[ext_resource path="res://Scripts/ElfStats.gd" type="Script" id=4]
-[ext_resource path="res://Scenes/Elf.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Resources/ElfStats.gd" type="Script" id=4]
+[ext_resource path="res://Objects/Elf/Elf.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/DwarvesSpawner.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Tavern/TavernScreen.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Potions/HealthPotion.tscn" type="PackedScene" id=8]
@@ -142,4 +142,3 @@ rect_scale = Vector2( 1, 1 )
 
 [node name="GameSaver" type="Node" parent="."]
 script = ExtResource( 9 )
-
