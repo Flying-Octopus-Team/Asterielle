@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/StatChanger.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+stat_name = "eagle_eye"
+add_to_stat = 0.0
+multiply_stat = 1.0

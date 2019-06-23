@@ -5,24 +5,25 @@ signal game_over
 export(float) var arrow_speed = 700
 export(float) var arrow_gravity = 500
 export(float) var next_arrow_wait_time = 1.0
-export(float) var arrow_damage = 1.0
-export(float) var hp = 10.0
 
 var Arrow = load("res://Scenes/Arrow.tscn")
 var next_arrow_timer : float
 var next_arrow_velocity : Vector2
 
+var hp : float
+
+onready var stats = get_node("/root/World/ElfStats")
 onready var fire_point = find_node("FirePoint")
 onready var hp_bar = find_node("HPBar")
 onready var hp_label = find_node("HPLabel")
 onready var animation_player = find_node("AnimationPlayer")
 
 func _ready():
+	stats.create_default_items()
+	stats.get_stat("vitality").connect("value_changed", self, "_on_vitality_change")
 	add_to_group('IHaveSthToSave')
 	restart_arrow_timer()
-	hp_bar.max_value = hp
-	hp_bar.value = hp
-	hp_label.text = str(hp)
+	reset_to_base()
 	
 func _process(delta):
 	next_arrow_timer -= delta
@@ -36,10 +37,6 @@ func _process(delta):
 	
 	shot_arrow()
 
-func _input(event):
-	if Input.is_action_just_pressed("faster_shot"):
-		next_arrow_timer -= 0.1
-				
 func shot_arrow():
 	restart_arrow_timer()
 	animation_player.play("Shot")
@@ -61,9 +58,12 @@ func spawn_arrow():
 	arrow.global_position = fire_point.global_position
 	arrow.gravity = arrow_gravity
 	arrow.velocity = arrow_velocity
-	arrow.damage = arrow_damage
+	arrow.damage = stats.get_stat_value("bows_knowledge")
 	
 func on_dwarf_hit(dmg) -> bool:
+	if randf() < stats.get_stat_value("agility"):
+		return true
+	
 	hp -= dmg
 	
 	hp_label.text = str(hp)
@@ -76,15 +76,27 @@ func on_dwarf_hit(dmg) -> bool:
 		return true
 		
 func reset_to_base():
-	hp = hp_bar.max_value
+	hp = stats.get_stat_value("vitality")
+	hp_bar.max_value = hp
 	hp_bar.value = hp
 	hp_label.text = str(hp)
 
 func restart_arrow_timer():
 	next_arrow_timer = next_arrow_wait_time
-
+	
+func set_current_hp(new_hp):
+	hp = new_hp
+	hp_bar.value = hp
+	hp_label.text = str(hp)
+	
+func add_hp(additional_hp):
+	set_current_hp(min(hp + additional_hp, hp_bar.max_value))
+	
+func _on_vitality_change(vitality_stat):
+	hp_bar.max_value = vitality_stat.value
+	
 func save():
 	var save_dict = {
-		_arrow_damage = arrow_damage
+		_hp = hp
 	}
 	return save_dict

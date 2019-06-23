@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/EnterScreenBtn.gd" type="Script" id=1]
+
+[node name="EnterScreenBtn" type="Button"]
+margin_left = 484.108
+margin_top = 302.02
+margin_right = 554.108
+margin_bottom = 322.02
+text = "Ekran"
+script = ExtResource( 1 )

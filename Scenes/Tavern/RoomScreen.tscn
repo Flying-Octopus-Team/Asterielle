@@ -1,0 +1,135 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Tavern/OneTavernScreen.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Tavern/StatBtn.tscn" type="PackedScene" id=2]
+
+[node name="RoomScreen" instance=ExtResource( 1 )]
+
+[node name="VBoxContainer" parent="." index="0"]
+margin_left = -1.22766
+margin_right = -1.22766
+
+[node name="NameLabel" parent="VBoxContainer" index="0"]
+margin_bottom = 65.0
+text = "Pokoj
+
+
+"
+
+[node name="Shop" parent="VBoxContainer" index="1"]
+margin_left = 0.0
+margin_top = 69.0
+margin_right = 1024.0
+margin_bottom = 305.0
+
+[node name="BowsKnowledge" parent="VBoxContainer/Shop" index="0" instance=ExtResource( 2 )]
+margin_right = 1024.0
+item_name = "Znajomosc lukow"
+price = 3.0
+price_mod = 1.2
+price_type = 1
+stat_name = "bows_knowledge"
+multiply_stat = 1.2
+
+[node name="Agility" parent="VBoxContainer/Shop" index="1" instance=ExtResource( 2 )]
+margin_top = 24.0
+margin_right = 1024.0
+margin_bottom = 44.0
+item_name = "Zrecznosc"
+price = 1.0
+price_mod = 1.2
+price_type = 1
+stat_name = "agility"
+add_to_stat = 0.01
+
+[node name="Vitality" parent="VBoxContainer/Shop" index="2" instance=ExtResource( 2 )]
+margin_top = 48.0
+margin_right = 1024.0
+margin_bottom = 68.0
+item_name = "Witalnosc"
+price = 2.0
+price_mod = 1.2
+price_type = 1
+stat_name = "vitality"
+add_to_stat = 1.0
+
+[node name="Charisma" parent="VBoxContainer/Shop" index="3" instance=ExtResource( 2 )]
+margin_top = 72.0
+margin_right = 1024.0
+margin_bottom = 92.0
+item_name = "Charyzma"
+price = 5.0
+price_mod = 1.25
+price_type = 1
+stat_name = "charisma"
+add_to_stat = 1.0
+
+[node name="SensinitivePoints" parent="VBoxContainer/Shop" index="4" instance=ExtResource( 2 )]
+margin_top = 96.0
+margin_right = 1024.0
+margin_bottom = 116.0
+item_name = "Czule punkty"
+price = 10.0
+price_mod = 1.2
+price_type = 1
+stat_name = "sensinitive_points"
+add_to_stat = 1.0
+
+[node name="EagleEye" parent="VBoxContainer/Shop" index="5" instance=ExtResource( 2 )]
+margin_top = 120.0
+margin_right = 1024.0
+margin_bottom = 140.0
+item_name = "Sokole oko"
+price = 10.0
+price_mod = 1.2
+price_type = 1
+stat_name = "eagle_eye"
+add_to_stat = 0.01
+
+[node name="Strength" parent="VBoxContainer/Shop" index="6" instance=ExtResource( 2 )]
+margin_top = 144.0
+margin_right = 1024.0
+margin_bottom = 164.0
+item_name = "Sila"
+price = 5.0
+price_mod = 1.2
+price_type = 1
+stat_name = "strength"
+add_to_stat = 1.0
+
+[node name="Magic" parent="VBoxContainer/Shop" index="7" instance=ExtResource( 2 )]
+margin_top = 168.0
+margin_right = 1024.0
+margin_bottom = 188.0
+item_name = "Magia"
+price = 10.0
+price_mod = 1.2
+price_type = 1
+stat_name = "magic"
+add_to_stat = 1.0
+
+[node name="Lucky" parent="VBoxContainer/Shop" index="8" instance=ExtResource( 2 )]
+margin_top = 192.0
+margin_right = 1024.0
+margin_bottom = 212.0
+item_name = "Szczescie"
+price = 10.0
+price_mod = 1.2
+price_type = 1
+stat_name = "lucky"
+add_to_stat = 1.0
+
+[node name="Stamina" parent="VBoxContainer/Shop" index="9" instance=ExtResource( 2 )]
+margin_top = 216.0
+margin_right = 1024.0
+margin_bottom = 236.0
+item_name = "Wytrzymalosc"
+price = 10.0
+price_mod = 1.2
+price_type = 1
+stat_name = "stamina"
+add_to_stat = 0.2
+
+[node name="CenterContainer" parent="VBoxContainer" index="2"]
+margin_top = 309.0
+margin_bottom = 329.0

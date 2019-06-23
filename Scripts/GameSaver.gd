@@ -10,6 +10,8 @@ const Offline_bonus_gold_ratio : float = 0.3
 const Offline_bonus_xp_ratio : float = 0.2
 
 onready var game_data = get_parent().get_node("GameData")
+onready var elf_stats = get_parent().get_node("ElfStats")
+onready var elf = get_parent().get_node("Elf")
 
 func _ready():
 	load_game()
@@ -71,13 +73,20 @@ func load_game():
 					game_data.offline_xp_reward = float(data[node_path]['_xp_on_second']) * Offline_bonus_xp_ratio * game_data.offline_time
 					game_data.xp = float(data[node_path]['_xp']) + game_data.offline_xp_reward
 			
-				"_arrow_damage":
-					get_parent().get_node("Elf").arrow_damage = float(data[node_path]['_arrow_damage'])
+				"_hp":
+					elf.set_current_hp(float(data[node_path]['_hp']))
 			
 				"_current_level":
 					var level_manager = get_parent().get_node("LevelManager")
 					level_manager.current_level = int(data[node_path]['_current_level'])
 					level_manager.set_level_label()
+					
+				"_elf_stats":
+					elf_stats.load_data(data[node_path]['_elf_stats'])
+					elf.reset_to_base()
+			
+				"_helth_potion":
+					get_parent().find_node("HealthPotion").load_data(data[node_path]['_helth_potion'])
 			
 				"_price":
 					var items = get_parent().find_node("Items") 

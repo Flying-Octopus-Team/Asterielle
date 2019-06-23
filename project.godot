@@ -8,9 +8,32 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Node",
+"class": "ElfStats",
+"language": "GDScript",
+"path": "res://Scripts/ElfStats.gd"
+}, {
+"base": "Resource",
+"class": "Item",
+"language": "GDScript",
+"path": "res://Scripts/Item.gd"
+}, {
+"base": "Resource",
+"class": "ItemType",
+"language": "GDScript",
+"path": "res://Scripts/ItemType.gd"
+}, {
+"base": "Resource",
+"class": "StatChanger",
+"language": "GDScript",
+"path": "res://Scripts/StatChanger.gd"
+} ]
 _global_script_class_icons={
-
+"ElfStats": "",
+"Item": "",
+"ItemType": "",
+"StatChanger": ""
 }
 
 [application]
@@ -23,14 +46,6 @@ config/icon="res://icon.png"
 
 window/size/resizable=false
 
-[input]
-
-faster_shot={
-"deadzone": 0.5,
-"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
- ]
-}
-
 [layer_names]
 
 2d_physics/layer_1="default"
@@ -39,6 +54,12 @@ faster_shot={
 2d_physics/layer_4="elf"
 2d_physics/layer_5="dwarves_space"
 2d_physics/layer_6="ground"
+2d_physics/layer_7="tavern"
+
+[network]
+
+limits/debugger_stdout/max_messages_per_frame=60
+limits/debugger_stdout/max_errors_per_frame=60
 
 [rendering]
 
