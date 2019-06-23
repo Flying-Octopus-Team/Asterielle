@@ -17,6 +17,7 @@ onready var game_data = get_tree().get_current_scene().find_node("GameData")
 onready var elf_stats = get_node("/root/World/ElfStats")
 
 func _ready():
+	elf_stats.get_stat("charisma").connect("value_changed", self, "_on_Charisma_value_changed")
 	$Name.text = item_name
 	update_price_label()
 
@@ -33,6 +34,9 @@ func _on_BuyBtn_pressed():
 
 func set_price(new_price:float):
 	price = new_price
+	update_price_label()
+
+func _on_Charisma_value_changed(charisma_stat) -> void:
 	update_price_label()
 
 func get_lower_price() -> float:

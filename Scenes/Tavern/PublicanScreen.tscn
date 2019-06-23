@@ -32,5 +32,6 @@ price = 1.0
 [node name="CenterContainer" parent="VBoxContainer" index="2"]
 margin_top = 100.0
 margin_bottom = 120.0
+
 [connection signal="bought" from="VBoxContainer/Shop/VineBtn" to="VBoxContainer/Shop" method="_on_VinenBtn_bought"]
 [connection signal="bought" from="VBoxContainer/Shop/HealthPotionBtn" to="VBoxContainer/Shop" method="_on_HealthPotionBtn_bought"]

@@ -7,3 +7,4 @@ script = ExtResource( 1 )
 name = "Boots"
 stat_changers = [  ]
 price = 0.0
+

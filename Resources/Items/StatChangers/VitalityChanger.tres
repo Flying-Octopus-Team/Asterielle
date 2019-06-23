@@ -7,3 +7,4 @@ script = ExtResource( 1 )
 stat_name = "vitality"
 add_to_stat = 0.0
 multiply_stat = 2.0
+
