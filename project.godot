@@ -12,34 +12,34 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "ElfStats",
 "language": "GDScript",
-"path": "res://Scripts/ElfStats.gd"
+"path": "res://Resources/ElfStats.gd"
 }, {
 "base": "Resource",
 "class": "Item",
 "language": "GDScript",
-"path": "res://Scripts/Item.gd"
+"path": "res://Resources/Items/Item.gd"
 }, {
 "base": "Resource",
-"class": "ItemType",
+"class": "ItemQuality",
 "language": "GDScript",
-"path": "res://Scripts/ItemType.gd"
+"path": "res://Resources/Items/ItemQuality/ItemQuality.gd"
 }, {
 "base": "Resource",
 "class": "StatChanger",
 "language": "GDScript",
-"path": "res://Scripts/StatChanger.gd"
+"path": "res://Resources/Items/StatChangers/StatChanger.gd"
 } ]
 _global_script_class_icons={
 "ElfStats": "",
 "Item": "",
-"ItemType": "",
+"ItemQuality": "",
 "StatChanger": ""
 }
 
 [application]
 
 config/name="EvD"
-run/main_scene="res://Scenes/World.tscn"
+run/main_scene="res://Scenes/World/World.tscn"
 config/icon="res://icon.png"
 
 [display]

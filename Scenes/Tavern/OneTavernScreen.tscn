@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Scripts/OneTavernScreen.gd" type="Script" id=1]
-[ext_resource path="res://Scripts/BasicShop.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Tavern/OneTavernScreen.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Tavern/Shop/BasicShop.gd" type="Script" id=2]
 
 [node name="OneTavernScreen" type="Control"]
 anchor_right = 1.0
@@ -22,9 +22,8 @@ text = "Ekran
 align = 1
 
 [node name="Shop" type="VBoxContainer" parent="VBoxContainer"]
-margin_left = 362.0
 margin_top = 52.0
-margin_right = 662.0
+margin_right = 1024.0
 margin_bottom = 52.0
 script = ExtResource( 2 )
 
@@ -38,4 +37,5 @@ margin_left = 489.0
 margin_right = 534.0
 margin_bottom = 20.0
 text = "Wroc"
+
 [connection signal="pressed" from="VBoxContainer/CenterContainer/ExitBtn" to="." method="_on_ExitBtn_pressed"]

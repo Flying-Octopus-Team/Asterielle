@@ -1,0 +1,144 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Scenes/World/World.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/LevelManager.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/GameData.gd" type="Script" id=3]
+[ext_resource path="res://Resources/ElfStats.gd" type="Script" id=4]
+[ext_resource path="res://Objects/Elf/Elf.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Objects/Dwarves/DwarvesSpawner/DwarvesSpawner.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Tavern/TavernScreen.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Objects/Potions/Health/HealthPotion.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scripts/GameSaver.gd" type="Script" id=9]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 537.558, 30.0002 )
+
+[node name="World" type="Node2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [  ]
+}
+
+[node name="LevelManager" type="Node" parent="."]
+script = ExtResource( 2 )
+
+[node name="GameData" type="Node" parent="."]
+script = ExtResource( 3 )
+
+[node name="ElfStats" type="Node" parent="."]
+script = ExtResource( 4 )
+
+[node name="Elf" parent="." instance=ExtResource( 5 )]
+position = Vector2( 121.06, 544.182 )
+
+[node name="DwarvesSpawner" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1081.97, 544.587 )
+
+[node name="Ground" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 569.18, 577.345 )
+collision_layer = 32
+collision_mask = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+shape = SubResource( 1 )
+
+[node name="UI" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="MarginContainer" type="MarginContainer" parent="UI"]
+anchor_right = 1.0
+margin_left = 40.0
+margin_top = 40.0
+margin_right = 985.0
+margin_bottom = 120.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer"]
+margin_right = 945.0
+margin_bottom = 80.0
+custom_constants/separation = 10
+
+[node name="CenterContainer" type="CenterContainer" parent="UI/MarginContainer/VBoxContainer"]
+margin_right = 945.0
+margin_bottom = 14.0
+
+[node name="LevelLabel" type="Label" parent="UI/MarginContainer/VBoxContainer/CenterContainer"]
+margin_left = 438.0
+margin_right = 506.0
+margin_bottom = 14.0
+text = "Poziom 10"
+
+[node name="CenterContainer2" type="CenterContainer" parent="UI/MarginContainer/VBoxContainer"]
+margin_top = 24.0
+margin_right = 945.0
+margin_bottom = 38.0
+
+[node name="KilledDwarvesLabel" type="Label" parent="UI/MarginContainer/VBoxContainer/CenterContainer2"]
+margin_left = 454.0
+margin_right = 491.0
+margin_bottom = 14.0
+text = "2 / 10"
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/MarginContainer/VBoxContainer"]
+margin_top = 48.0
+margin_right = 945.0
+margin_bottom = 80.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer/VBoxContainer/MarginContainer"]
+margin_right = 945.0
+margin_bottom = 32.0
+
+[node name="GoldLabel" type="Label" parent="UI/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+margin_right = 945.0
+margin_bottom = 14.0
+text = "Zloto: 100"
+
+[node name="XpLabel" type="Label" parent="UI/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+margin_top = 18.0
+margin_right = 945.0
+margin_bottom = 32.0
+text = "Doswiadczenie: 100"
+
+[node name="TavernEnterBtn" type="CheckButton" parent="UI"]
+margin_left = 40.0
+margin_top = 40.0
+margin_right = 985.0
+margin_bottom = 120.0
+
+[node name="TavernLabel" type="Label" parent="UI/TavernEnterBtn"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -135.97
+margin_top = -74.2068
+margin_right = 1002.03
+margin_bottom = -42.2068
+text = "Wejdz do tawerny"
+align = 1
+
+[node name="TavernScreen" parent="." instance=ExtResource( 7 )]
+
+[node name="PotionsContainer" type="HBoxContainer" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 550.0
+margin_right = 1024.0
+margin_bottom = 582.0
+alignment = 1
+
+[node name="HealthPotion" parent="PotionsContainer" instance=ExtResource( 8 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 496.0
+margin_right = 528.0
+margin_bottom = 32.0
+rect_scale = Vector2( 1, 1 )
+
+[node name="GameSaver" type="Node" parent="."]
+script = ExtResource( 9 )

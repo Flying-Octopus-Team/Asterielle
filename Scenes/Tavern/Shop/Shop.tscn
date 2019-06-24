@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/Tavern/Shop/BasicShop.gd" type="Script" id=1]
+
+
+[node name="Shop" type="VBoxContainer"]
+margin_top = 52.0
+margin_right = 1024.0
+margin_bottom = 52.0
+script = ExtResource( 1 )
+
