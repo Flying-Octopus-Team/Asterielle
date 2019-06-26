@@ -18,7 +18,7 @@ onready var tavern_screen = get_parent().get_node("TavernScreen")
 
 var Game_over_screen = load("res://Scenes/GameOverScreen/GameOverScreen.tscn")
 var Offline_screen = load("res://Scenes/OfflineScreen/OfflineScreen.tscn")
-var Silver_moon_label = load("res://Scenes/SilverMoonLabel/SilverMoonLabel.tscn")
+var Silver_moon_screen = load("res://Scenes/SilverMoonScreen/SilverMoonScreen.tscn")
 
 var level_label
 var killed_dwarves_label
@@ -91,12 +91,12 @@ func on_Game_Over():
 	gos.connect("timeout", self, "reset_to_base")
 
 func show_offline_screen():
-	var gos = Offline_screen.instance()
-	get_parent().call_deferred("add_child", gos)
+	var os = Offline_screen.instance()
+	get_parent().call_deferred("add_child", os)
 
 func show_silver_moon_label():
-	var gos = Silver_moon_label.instance()
-	get_parent().call_deferred("add_child", gos)
+	var sms = Silver_moon_screen.instance()
+	get_parent().call_deferred("add_child", sms)
 
 func reset_to_base(enter_tavern):
 	current_level = floor((current_level-1) / 10) * 10 + 1

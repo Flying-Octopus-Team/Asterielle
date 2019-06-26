@@ -92,14 +92,14 @@ func add_xp(additional_xp):
 
 func add_silver_moon():
 	var lvl = level_manager.current_level
-	var reward = int(float(lvl) / 100.0) + 1
-	
+	var reward = lvl / 100 + 1
+	print(reward)
 	if lvl < 50:
 		return
 	
 	if lvl == 50:
 		silver_moon += 1
-		emit_signal("get_first_silver_moon") #TODO: wyświetlić informacje co to srebrne księżyce
+		emit_signal("get_first_silver_moon")
 		update_silver_moon_label()
 		return
 	
