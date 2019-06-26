@@ -2,9 +2,11 @@ extends Node
 
 signal gold_changed
 signal xp_changed
+signal get_first_silver_moon
 
 var gold : float = 0.0
 var xp : float = 0.0
+var silver_moon : int = 0
 
 var golds_on_second : float = 0.0
 var xp_on_second : float = 0.0
@@ -23,6 +25,8 @@ onready var level_manager = get_parent().get_node("LevelManager")
 
 onready var gold_label = get_parent().find_node("GoldLabel")
 onready var xp_label = get_parent().find_node("XpLabel")
+onready var silver_moon_label = get_parent().find_node("SilverMoonLabel")
+
 
 func _ready():
 	add_to_group('IHaveSthToSave')
@@ -30,6 +34,7 @@ func _ready():
 	level_manager.connect("boss_died", self, "on_Boss_died")
 	update_gold_label()
 	update_xp_label()
+	update_silver_moon_label()
 
 func _process(delta):
 	next_timer -= delta
@@ -68,6 +73,7 @@ func on_Boss_died():
 	var value = get_gold_to_add() * 3
 	add_gold(value)
 	add_xp(value * 10)
+	add_silver_moon()
 	
 func get_gold_to_add():
 	var lvl = level_manager.current_level
@@ -83,6 +89,26 @@ func add_xp(additional_xp):
 	xp += additional_xp
 	update_xp_label()
 	emit_signal("xp_changed")
+
+func add_silver_moon():
+	var lvl = level_manager.current_level
+	var reward = lvl / 100 + 1
+	print(reward)
+	if lvl < 50:
+		return
+	
+	if lvl == 50:
+		silver_moon += 1
+		emit_signal("get_first_silver_moon")
+		update_silver_moon_label()
+		return
+	
+	if rand_range(1,100) > 15:
+		return
+	
+	silver_moon += reward
+	update_silver_moon_label()
+	
 	
 func on_game_over():
 	gold *= 0.4
@@ -98,6 +124,12 @@ func update_gold_label():
 func update_xp_label():
 	xp_label.text = str("Doswiadczenie: ", xp)
 
+func update_silver_moon_label():
+	if silver_moon > 0:
+		silver_moon_label.text = str("Srebrne ksiezyce: ", silver_moon)
+	else:
+		silver_moon_label.text = ""
+
 func save():
 	var time = OS.get_unix_time()
 	var save_dict = {
@@ -105,6 +137,7 @@ func save():
 		_golds_on_second = golds_on_second,
 		_xp_on_second = xp_on_second,
 		_gold = gold,
-		_xp = xp
+		_xp = xp,
+		_silver_moon = silver_moon
 	}
 	return save_dict

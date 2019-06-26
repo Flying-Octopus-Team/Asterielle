@@ -65,13 +65,15 @@ func load_game():
 					game_data.xp_on_second = float(data[node_path]['_xp_on_second'])
 			
 				"_gold":
-					print(game_data.offline_time)
 					game_data.offline_gold_reward = float(data[node_path]['_golds_on_second']) * Offline_bonus_gold_ratio * game_data.offline_time
 					game_data.gold = float(data[node_path]['_gold']) + game_data.offline_gold_reward
 				
 				"_xp":
 					game_data.offline_xp_reward = float(data[node_path]['_xp_on_second']) * Offline_bonus_xp_ratio * game_data.offline_time
 					game_data.xp = float(data[node_path]['_xp']) + game_data.offline_xp_reward
+				
+				"_silver_moon":
+					game_data.silver_moon = int(data[node_path]['_silver_moon'])
 			
 				"_hp":
 					elf.set_current_hp(float(data[node_path]['_hp']))
@@ -100,3 +102,4 @@ func load_game():
 	
 	game_data.update_gold_label()
 	game_data.update_xp_label()
+	game_data.update_silver_moon_label()
