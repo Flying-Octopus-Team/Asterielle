@@ -4,26 +4,11 @@ const offline_time_text : String = "Nie byles w grze "
 const reward_text : String = "Otrzymales "
 var offline_time_text_end : String
 
-onready var offline_time_label = find_node("OfflineTimeLabel")
-onready var reward_label = find_node("OfflineRewardLabel")
-onready var game_data = get_parent().get_node("GameData")
 
 var time_to_end = 5.0
 
-func _ready():
-	if game_data.offline_time == 0:
-		queue_free()
-		pass
-	update_labels()
-
-func _process(delta):
-	time_to_end -= delta
-	if time_to_end > 0:
-		return
-	queue_free()
-
-func update_labels():
-	var time : float = game_data.offline_time
+func offline_text(Offline_time):
+	var time : float = Offline_time
 	
 	if time < 60:
 		offline_time_text_end = " sekund"
@@ -36,8 +21,7 @@ func update_labels():
 		
 	stepify(time,2)
 	
-	offline_time_label.text = offline_time_text + String(time) + offline_time_text_end
-	reward_label.text = reward_text + String(game_data.offline_gold_reward) + " golda i " + String(game_data.offline_xp_reward) + " xp"
+	return String(offline_time_text + String(time) + offline_time_text_end)
 
-func _on_Button_pressed():
-	queue_free()
+func reward_text(Offline_gold_reward, Offline_xp_reward):
+	return String(reward_text + String(Offline_gold_reward) + " golda i " + String(Offline_xp_reward) + " xp")

@@ -38,6 +38,15 @@ func save():
 	}
 	
 	return save_dict
+func reset():
+	var save_dict = {
+		_helth_potion = {
+			_strength = 0,	#TODO: nie jestem pewny
+			_amount = 0
+		}
+	}
+	
+	return save_dict
 
 func load_data(data):
 	strength = data["_strength"]

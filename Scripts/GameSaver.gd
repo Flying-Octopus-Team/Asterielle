@@ -1,5 +1,7 @@
 extends Node
 
+signal save_data_was_loaded
+
 const SAVE_PATH = "res://save.json"
 var timer : float
 
@@ -10,6 +12,7 @@ const Offline_bonus_gold_ratio : float = 0.3
 const Offline_bonus_xp_ratio : float = 0.2
 
 onready var game_data = get_parent().get_node("GameData")
+onready var level_manager = get_parent().get_node("LevelManager")
 onready var elf_stats = get_parent().get_node("ElfStats")
 onready var elf = get_parent().get_node("Elf")
 
@@ -100,6 +103,23 @@ func load_game():
 						ArrowDmgItem.price = price
 						ArrowDmgItem.update_price_label()
 	
-	game_data.update_gold_label()
-	game_data.update_xp_label()
-	game_data.update_silver_moon_label()
+	emit_signal("save_data_was_loaded")
+
+func normal_reset():
+	return
+	var save_dict = {}
+	var nodes_to_save = get_tree().get_nodes_in_group('IHaveSthToSave')
+	for node in nodes_to_save:
+		if node.reset() != null:
+			save_dict[node.get_path()] = node.reset()
+	
+	var save_file = File.new()
+	save_file.open(SAVE_PATH, File.WRITE)
+	
+	save_file.store_line(to_json(save_dict))
+	
+	save_file.close()
+	pass
+
+func hard_reset():
+	pass

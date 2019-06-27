@@ -7,6 +7,7 @@ signal get_first_silver_moon
 var gold : float = 0.0
 var xp : float = 0.0
 var silver_moon : int = 0
+var last_revival_level : int = 0
 
 var golds_on_second : float = 0.0
 var xp_on_second : float = 0.0
@@ -22,16 +23,24 @@ var next_timer : float
 
 
 onready var level_manager = get_parent().get_node("LevelManager")
+onready var game_saver = get_parent().get_node("GameSaver")
 
 onready var gold_label = get_parent().find_node("GoldLabel")
 onready var xp_label = get_parent().find_node("XpLabel")
 onready var silver_moon_label = get_parent().find_node("SilverMoonLabel")
+
+onready var revival_btn = get_parent().find_node("RevivalBtn")
+
 
 
 func _ready():
 	add_to_group('IHaveSthToSave')
 	level_manager.connect("dwarf_died", self, "on_Dwarf_died")
 	level_manager.connect("boss_died", self, "on_Boss_died")
+	game_saver.connect("save_data_was_loaded", self, "update_gold_label")
+	game_saver.connect("save_data_was_loaded", self, "update_xp_label")
+	game_saver.connect("save_data_was_loaded", self, "update_silver_moon_label")
+	
 	update_gold_label()
 	update_xp_label()
 	update_silver_moon_label()
@@ -108,7 +117,17 @@ func add_silver_moon():
 	
 	silver_moon += reward
 	update_silver_moon_label()
+
+func revival():
+	if level_manager.current_level < 100:
+		pass
+	if last_revival_level == 0:
+		silver_moon += 50
+	else:
+		silver_moon = level_manager.current_level - last_revival_level
 	
+	last_revival_level = level_manager.current_level
+	game_saver.normal_reset()
 	
 func on_game_over():
 	gold *= 0.4
@@ -141,3 +160,16 @@ func save():
 		_silver_moon = silver_moon
 	}
 	return save_dict
+func reset():
+	var time = 0
+	var save_dict = {
+		__time = 0,
+		_golds_on_second = 0.0,
+		_xp_on_second = 0.0,
+		_gold = 0.0,
+		_xp = 0.0,
+		_silver_moon = 0
+	}
+
+func _on_RevivalBtn_pressed():
+	revival()

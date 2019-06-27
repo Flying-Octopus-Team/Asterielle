@@ -167,7 +167,26 @@ func save():
 		save_dict["_elf_stats"]["_items"][key] = items[key].save()
 	
 	return save_dict
+
+func reset():
+	var save_dict = {	#TODO: nazwy do poprawy
+		_elf_stats = {
+			_stats = {},
+			_items = {}
+		},
+	}
+	return	#nie mam pojęcia o co tu chodzi
+	for s in stats:
+		save_dict["_elf_stats"]["_stats"][s.name] = {
+			_default_value = s.default_value,
+			_value = s.get_unchanged_value()
+		}
+		
+	for key in items:
+		save_dict["_elf_stats"]["_items"][key] = items[key].save()
 	
+	return save_dict
+
 func load_data(data):
 	var _stats = data["_stats"]
 	var _items = data["_items"]

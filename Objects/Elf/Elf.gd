@@ -100,3 +100,9 @@ func save():
 		_hp = hp
 	}
 	return save_dict
+
+func reset():
+	var save_dict = {
+		_hp = 0
+	}
+	return save_dict

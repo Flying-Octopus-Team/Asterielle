@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://Scenes/OfflineScreen/OfflineScreen.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Screens/NegligibleInform/NegligibleInform.gd" type="Script" id=1]
 
-[node name="OfflineScreen" type="Control"]
+[node name="NegligibleInformScreen" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -1.05261
@@ -19,25 +19,25 @@ margin_top = 174.0
 margin_bottom = -243.0
 color = Color( 0.168627, 0.168627, 0.168627, 0.717647 )
 
-[node name="OfflineTimeLabel" type="Label" parent="CanvasLayer"]
+[node name="TopText" type="Label" parent="CanvasLayer"]
 anchor_right = 1.0
 margin_top = 188.38
 margin_bottom = 202.38
-text = "Nie byles w grze: 30s"
+text = "First text"
 align = 1
 
-[node name="OfflineRewardLabel" type="Label" parent="CanvasLayer"]
+[node name="CenterText" type="Label" parent="CanvasLayer"]
 anchor_right = 1.0
 margin_top = 225.66
 margin_right = -0.00012207
 margin_bottom = 239.66
-text = "Otrzymales: 10 000 golda"
+text = "Second text"
 align = 1
 
-[node name="Button" type="Button" parent="CanvasLayer"]
+[node name="ExitButton" type="Button" parent="CanvasLayer"]
 margin_left = 354.133
 margin_top = 273.759
 margin_right = 666.133
 margin_bottom = 341.759
 text = "OK!"
-[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="CanvasLayer/ExitButton" to="." method="_on_ExitButton_pressed"]
