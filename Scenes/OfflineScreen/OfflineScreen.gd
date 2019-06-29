@@ -1,5 +1,3 @@
-extends Control
-
 const offline_time_text : String = "Nie byles w grze "
 const reward_text : String = "Otrzymales "
 var offline_time_text_end : String

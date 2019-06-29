@@ -7,6 +7,7 @@ signal get_first_silver_moon
 var gold : float = 0.0
 var xp : float = 0.0
 var silver_moon : int = 0
+var all_silver_moon : int = 0
 var last_revival_level : int = 0
 
 var golds_on_second : float = 0.0
@@ -21,6 +22,9 @@ var offline_xp_reward : float
 var next_wait_time = 1.0
 var next_timer : float
 
+const FIRST_REVIVAL_LEVEL : int = 100
+const MY_FIRST_REVIVAL_LEVEL : int = 0
+const REVIVAL_SILVER_MOON_REWARD : int = 50
 
 onready var level_manager = get_parent().get_node("LevelManager")
 onready var game_saver = get_parent().get_node("GameSaver")
@@ -119,13 +123,14 @@ func add_silver_moon():
 	update_silver_moon_label()
 
 func revival():
-	if level_manager.current_level < 100:
+	if level_manager.current_level < FIRST_REVIVAL_LEVEL:
 		pass
-	if last_revival_level == 0:
-		silver_moon += 50
+	if last_revival_level == MY_FIRST_REVIVAL_LEVEL:
+		silver_moon += REVIVAL_SILVER_MOON_REWARD
+		all_silver_moon += REVIVAL_SILVER_MOON_REWARD
 	else:
-		silver_moon = level_manager.current_level - last_revival_level
-	
+		silver_moon += level_manager.current_level - last_revival_level
+		all_silver_moon += level_manager.current_level - last_revival_level
 	last_revival_level = level_manager.current_level
 	game_saver.normal_reset()
 	
@@ -160,16 +165,6 @@ func save():
 		_silver_moon = silver_moon
 	}
 	return save_dict
-func reset():
-	var time = 0
-	var save_dict = {
-		__time = 0,
-		_golds_on_second = 0.0,
-		_xp_on_second = 0.0,
-		_gold = 0.0,
-		_xp = 0.0,
-		_silver_moon = 0
-	}
 
 func _on_RevivalBtn_pressed():
 	revival()

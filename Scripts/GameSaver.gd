@@ -106,7 +106,7 @@ func load_game():
 	emit_signal("save_data_was_loaded")
 
 func normal_reset():
-	return
+	return	#TODO: usunąć tą linijkę albo zrobić to w inny sposób
 	var save_dict = {}
 	var nodes_to_save = get_tree().get_nodes_in_group('IHaveSthToSave')
 	for node in nodes_to_save:
