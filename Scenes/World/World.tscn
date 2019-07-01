@@ -148,3 +148,4 @@ rect_scale = Vector2( 1, 1 )
 
 [node name="GameSaver" type="Node" parent="."]
 script = ExtResource( 9 )
+
