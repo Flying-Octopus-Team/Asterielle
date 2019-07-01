@@ -17,10 +17,9 @@ onready var game_saver = get_parent().get_node("GameSaver")
 onready var tavern_enter_btn = get_parent().find_node("TavernEnterBtn")
 onready var tavern_screen = get_parent().get_node("TavernScreen")
 
-var Game_over_screen = load("res://Scenes/GameOverScreen/GameOverScreen.tscn")
+var GameOverScreen = load("res://Scenes/GameOverScreen/GameOverScreen.tscn")
 #var Offline_screen = load("res://Scenes/OfflineScreen/OfflineScreen.tscn")
-var Negligible_Inform_screen = load("res://Scenes/Screens/NegligibleInform/NegligibleInform.tscn")
-var Silver_moon_screen = load("res://Scenes/SilverMoonScreen/SilverMoonScreen.tscn")
+var NegligibleInformScreen = load("res://Scenes/Screens/NegligibleInform/NegligibleInform.tscn")
 
 const OffineScreen = preload("res://Scenes/OfflineScreen/OfflineScreen.gd")
 
@@ -88,7 +87,7 @@ func on_Boss_kill_timeout():
 	set_killed_dwarves_label()
 	
 func on_Game_Over():
-	var gos = Game_over_screen.instance()
+	var gos = GameOverScreen.instance()
 	get_parent().call_deferred("add_child", gos)
 	gos.find_node("RespawnInTavern").pressed = tavern_enter_btn.pressed
 	gos.connect("timeout", self, "reset_to_base")
@@ -98,7 +97,7 @@ func show_offline_screen():
 		queue_free()
 		pass
 	
-	var nis = Negligible_Inform_screen.instance()
+	var nis = NegligibleInformScreen.instance()
 	var offline_screen = OffineScreen.new()
 	var offine_text = offline_screen.offline_text(game_data.offline_time)
 	var offline_gold_reward = offline_screen.reward_text(game_data.offline_gold_reward, game_data.offline_xp_reward)
@@ -108,9 +107,7 @@ func show_offline_screen():
 	get_parent().call_deferred("add_child", nis)
 
 func show_silver_moon_screen():
-	#var sms = Silver_moon_screen.instance()
-	#get_parent().call_deferred("add_child", sms)
-	var nis = Negligible_Inform_screen.instance()
+	var nis = NegligibleInformScreen.instance()
 	nis.init(3,"Informacja o srebrnych ksiezycach","i o tym czym jest odrodzenie")
 	get_parent().call_deferred("add_child", nis)
 
