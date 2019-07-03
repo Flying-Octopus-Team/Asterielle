@@ -134,10 +134,3 @@ func save():
 		_current_level = current_level
 	}
 	return save_dict
-	
-func reset():
-	var save_dict = {
-		_current_level = 0
-	}
-	return save_dict
-

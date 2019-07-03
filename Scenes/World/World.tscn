@@ -14,7 +14,6 @@
 extents = Vector2( 537.558, 30.0002 )
 
 [node name="World" type="Node2D"]
-editor/display_folded = true
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_horizontal_guides_": [  ]
@@ -52,6 +51,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="MarginContainer" type="MarginContainer" parent="UI"]
+editor/display_folded = true
 anchor_right = 1.0
 margin_left = 40.0
 margin_top = 40.0
@@ -127,6 +127,13 @@ margin_bottom = -42.2068
 text = "Wejdz do tawerny"
 align = 1
 
+[node name="RevivalBtn" type="Button" parent="UI"]
+margin_left = 40.0
+margin_top = 17.0
+margin_right = 168.0
+margin_bottom = 55.0
+text = "Odrodzenie"
+
 [node name="TavernScreen" parent="." instance=ExtResource( 7 )]
 
 [node name="PotionsContainer" type="HBoxContainer" parent="."]
@@ -148,3 +155,4 @@ rect_scale = Vector2( 1, 1 )
 
 [node name="GameSaver" type="Node" parent="."]
 script = ExtResource( 9 )
+[connection signal="pressed" from="UI/RevivalBtn" to="GameData" method="_on_RevivalBtn_pressed"]

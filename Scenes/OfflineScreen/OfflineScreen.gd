@@ -1,5 +1,5 @@
-const offline_time_text : String = "Nie byles w grze "
-const reward_text : String = "Otrzymales "
+const OFFFINE_TIME_TEXT : String = "Nie byles w grze "
+const REWARD_TEXT : String = "Otrzymales "
 var offline_time_text_end : String
 
 
@@ -19,7 +19,7 @@ func offline_text(Offline_time):
 		
 	stepify(time,2)
 	
-	return String(offline_time_text + String(time) + offline_time_text_end)
+	return String(OFFFINE_TIME_TEXT + String(time) + offline_time_text_end)
 
 func reward_text(Offline_gold_reward, Offline_xp_reward):
-	return String(reward_text + String(Offline_gold_reward) + " golda i " + String(Offline_xp_reward) + " xp")
+	return String(REWARD_TEXT + String(Offline_gold_reward) + " golda i " + String(Offline_xp_reward) + " xp")

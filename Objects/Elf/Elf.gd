@@ -100,9 +100,3 @@ func save():
 		_hp = hp
 	}
 	return save_dict
-
-func reset():	#TODO: czy napewno się w to bawić?
-	var save_dict = {
-		_hp = 0
-	}
-	return save_dict

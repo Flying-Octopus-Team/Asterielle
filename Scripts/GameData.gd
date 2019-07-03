@@ -132,7 +132,7 @@ func revival():
 		silver_moon += level_manager.current_level - last_revival_level
 		all_silver_moon += level_manager.current_level - last_revival_level
 	last_revival_level = level_manager.current_level
-	game_saver.normal_reset()
+	game_saver.revival_reset()
 	
 func on_game_over():
 	gold *= 0.4

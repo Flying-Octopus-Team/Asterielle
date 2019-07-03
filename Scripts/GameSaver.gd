@@ -3,13 +3,12 @@ extends Node
 signal save_data_was_loaded
 
 const SAVE_PATH = "res://save.json"
-var timer : float
 
-const offline_limit : bool = false
-var offline_limit_time : int = 7200 
+const OFFINE_LIMIT : bool = false
+const OFFINE_LIMIT_TIME : int = 7200 
 
-const Offline_bonus_gold_ratio : float = 0.3 
-const Offline_bonus_xp_ratio : float = 0.2
+const OFFINE_BONUS_GOLD_RATIO : float = 0.3 
+const OFFINE_BONUS_XP_RATIO : float = 0.2
 
 onready var game_data = get_parent().get_node("GameData")
 onready var level_manager = get_parent().get_node("LevelManager")
@@ -19,6 +18,7 @@ onready var elf = get_parent().get_node("Elf")
 func _ready():
 	load_game()
 
+var timer : float = 0
 func _process(delta):
 	timer -= delta
 	
@@ -29,17 +29,18 @@ func _process(delta):
 	timer = 1
 
 func save_game():
+	var save_dict = load_player_data()
+	var save_file = File.new()
+	save_file.open(SAVE_PATH, File.WRITE)
+	save_file.store_line(to_json(save_dict))
+	save_file.close()
+
+func load_player_data():
 	var save_dict = {}
 	var nodes_to_save = get_tree().get_nodes_in_group('IHaveSthToSave')
 	for node in nodes_to_save:
 		save_dict[node.get_path()] = node.save()
-	
-	var save_file = File.new()
-	save_file.open(SAVE_PATH, File.WRITE)
-	
-	save_file.store_line(to_json(save_dict))
-	
-	save_file.close()
+	return save_dict
 
 func load_game():
 	var save_file = File.new()
@@ -55,71 +56,101 @@ func load_game():
 		for attribure in data[node_path]:
 			match attribure:	#Odczytywane są w kolejności alfabetycznej
 				"__time":
-					var offline_time = OS.get_unix_time() - int(data[node_path]['__time'])
-					if offline_limit:
-						if offline_time > offline_limit_time:
-							offline_time = offline_limit_time
-					game_data.offline_time = offline_time
-				
+					load_offline_time(int(data[node_path]['__time']))
 				"_golds_on_second":
-					game_data.golds_on_second = float(data[node_path]['_golds_on_second'])
-				
+					load_golds_on_second(float(data[node_path]['_golds_on_second']))
 				"_xp_on_second":
-					game_data.xp_on_second = float(data[node_path]['_xp_on_second'])
-			
+					load_xp_on_second(float(data[node_path]['_xp_on_second']))
 				"_gold":
-					game_data.offline_gold_reward = float(data[node_path]['_golds_on_second']) * Offline_bonus_gold_ratio * game_data.offline_time
-					game_data.gold = float(data[node_path]['_gold']) + game_data.offline_gold_reward
-				
+					load_gold_and_reward(float(data[node_path]['_gold']), float(data[node_path]['_golds_on_second']))
 				"_xp":
-					game_data.offline_xp_reward = float(data[node_path]['_xp_on_second']) * Offline_bonus_xp_ratio * game_data.offline_time
-					game_data.xp = float(data[node_path]['_xp']) + game_data.offline_xp_reward
-				
+					load_xp_and_reward(float(data[node_path]['_xp']), float(data[node_path]['_xp_on_second']))
 				"_silver_moon":
-					game_data.silver_moon = int(data[node_path]['_silver_moon'])
-			
+					load_silver_moon(int(data[node_path]['_silver_moon']))
 				"_hp":
-					elf.set_current_hp(float(data[node_path]['_hp']))
-			
+					load_hp(float(data[node_path]['_hp']))
 				"_current_level":
-					var level_manager = get_parent().get_node("LevelManager")
-					level_manager.current_level = int(data[node_path]['_current_level'])
-					level_manager.set_level_label()
-					
+					load_level(int(data[node_path]['_current_level']))
 				"_elf_stats":
-					elf_stats.load_data(data[node_path]['_elf_stats'])
-					elf.reset_to_base()
-			
-				"_helth_potion":
-					get_parent().find_node("HealthPotion").load_data(data[node_path]['_helth_potion'])
-			
+					load_elf_stats(data[node_path]['_elf_stats'])
+				"_amount":
+					load_helth_potion(data[node_path]['_amount'])
 				"_price":
-					var items = get_parent().find_node("Items") 
-					for i in range(items.get_child_count()):
-						var item = items.get_child(i)	
-						var price = float(data[node_path]['_price'])
-						item.find_node("*BuyBtn").set_disabled(price > game_data.gold)
-						var ArrowDmgItem = get_parent().find_node("ArrowDmgItem")
-						ArrowDmgItem.price = price
-						ArrowDmgItem.update_price_label()
-	
+					load_price(float(data[node_path]['_price']))
 	emit_signal("save_data_was_loaded")
 
-func normal_reset():
-	return	#TODO: usunąć tą linijkę albo zrobić to w inny sposób
-	var save_dict = {}
-	var nodes_to_save = get_tree().get_nodes_in_group('IHaveSthToSave')
-	for node in nodes_to_save:
-		if node.reset() != null:
-			save_dict[node.get_path()] = node.reset()
-	
-	var save_file = File.new()
-	save_file.open(SAVE_PATH, File.WRITE)
-	
-	save_file.store_line(to_json(save_dict))
-	
-	save_file.close()
-	pass
+func load_offline_time(time):
+	var offline_time = OS.get_unix_time() - time
+	if OFFINE_LIMIT:
+		if offline_time > OFFINE_LIMIT_TIME:
+			offline_time = OFFINE_LIMIT_TIME
+	game_data.offline_time = offline_time
+
+func load_golds_on_second(gold_on_second):
+	game_data.golds_on_second = gold_on_second
+
+func load_xp_on_second(xp_on_second):
+	game_data.xp_on_second = xp_on_second
+
+func load_gold(gold):
+	game_data.gold = gold
+	game_data.update_gold_label()
+
+func load_gold_and_reward(gold, gold_on_second):
+	game_data.offline_gold_reward = gold_on_second * OFFINE_BONUS_GOLD_RATIO * game_data.offline_time
+	game_data.gold = gold + game_data.offline_gold_reward
+	game_data.update_gold_label()
+
+func load_xp(xp):
+	game_data.xp = xp
+	game_data.update_xp_label()
+
+func load_xp_and_reward(xp, xp_on_second):
+	game_data.offline_xp_reward = xp_on_second * OFFINE_BONUS_XP_RATIO * game_data.offline_time
+	game_data.xp = xp + game_data.offline_xp_reward
+	game_data.update_xp_label()
+
+func load_silver_moon(silver_moon):
+	game_data.silver_moon = silver_moon
+	game_data.update_silver_moon_label()
+
+func load_hp(hp):
+	elf.set_current_hp(hp)
+
+func load_level(level):
+	var level_manager = get_parent().get_node("LevelManager")
+	level_manager.current_level = level
+	level_manager.set_level_label()
+
+func load_elf_stats(elf_stat):
+	elf_stats.load_data(elf_stat)
+	elf.reset_to_base()
+
+func load_helth_potion(helth_potion):
+	get_parent().find_node("HealthPotion").set_amount(helth_potion)
+
+func load_price(price):
+	var items = get_parent().find_node("Items") 
+	for i in range(items.get_child_count()):
+		var item = items.get_child(i)	
+		item.find_node("*BuyBtn").set_disabled(price > game_data.gold)
+		var ArrowDmgItem = get_parent().find_node("ArrowDmgItem")
+		ArrowDmgItem.price = price
+		ArrowDmgItem.update_price_label()
+
+func revival_reset():
+	load_offline_time(0)
+	load_golds_on_second(0)
+	load_xp_on_second(0)
+	load_gold(0)
+	load_xp(0)
+	load_hp(10)
+	load_level(1)
+	elf_stats.restore_to_default()
+	load_helth_potion(0)
+	save_game()
 
 func hard_reset():
-	pass
+	revival_reset()
+	load_silver_moon(0)
+	save_game()

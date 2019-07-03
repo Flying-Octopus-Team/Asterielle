@@ -31,15 +31,10 @@ func _on_potion_used():
 	
 func save():
 	var save_dict = {
-		_helth_potion = {
-			_strength = strength,
-			_amount = amount
-		}
+		_amount = amount
 	}
-	
 	return save_dict
 
-func load_data(data):
-	strength = data["_strength"]
-	amount = data["_amount"]
+func set_amount(potion_amount):	#dawiniej load_data
+	amount = potion_amount
 	update_amount_label()
