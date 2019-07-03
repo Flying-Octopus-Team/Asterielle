@@ -124,7 +124,7 @@ func add_silver_moon():
 
 func revival():
 	if level_manager.current_level < FIRST_REVIVAL_LEVEL:
-		pass
+		return
 	if last_revival_level == MY_FIRST_REVIVAL_LEVEL:
 		silver_moon += REVIVAL_SILVER_MOON_REWARD
 		all_silver_moon += REVIVAL_SILVER_MOON_REWARD

@@ -140,13 +140,13 @@ func load_price(price):
 
 func revival_reset():
 	load_offline_time(0)
-	load_golds_on_second(0)
-	load_xp_on_second(0)
-	load_gold(0)
-	load_xp(0)
-	load_hp(10)
+	load_golds_on_second(0.0)
+	load_xp_on_second(0.0)
+	load_gold(0.0)
+	load_xp(0.0)
+	load_hp(10.0)
 	load_level(1)
-	elf_stats.restore_to_default()
+	#elf_stats.restore_to_default() #TODO: Wywala błąd (coś z metodą)
 	load_helth_potion(0)
 	save_game()
 
