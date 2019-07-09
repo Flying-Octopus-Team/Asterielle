@@ -94,25 +94,25 @@ func load_xp_on_second(xp_on_second):
 
 func load_gold(gold):
 	game_data.gold = gold
-	game_data.update_gold_label()
+	#game_data.update_gold_label()
 
 func load_gold_and_reward(gold, gold_on_second):
 	game_data.offline_gold_reward = gold_on_second * OFFINE_BONUS_GOLD_RATIO * game_data.offline_time
 	game_data.gold = gold + game_data.offline_gold_reward
-	game_data.update_gold_label()
+	#game_data.update_gold_label()
 
 func load_xp(xp):
 	game_data.xp = xp
-	game_data.update_xp_label()
+	#game_data.update_xp_label()
 
 func load_xp_and_reward(xp, xp_on_second):
 	game_data.offline_xp_reward = xp_on_second * OFFINE_BONUS_XP_RATIO * game_data.offline_time
 	game_data.xp = xp + game_data.offline_xp_reward
-	game_data.update_xp_label()
+	#game_data.update_xp_label()
 
 func load_silver_moon(silver_moon):
 	game_data.silver_moon = silver_moon
-	game_data.update_silver_moon_label()
+	#game_data.update_silver_moon_label()
 
 func load_hp(hp):
 	elf.set_current_hp(hp)
@@ -146,7 +146,7 @@ func revival_reset():
 	load_xp(0.0)
 	load_hp(10.0)
 	load_level(1)
-	#elf_stats.restore_to_default() #TODO: Wywala błąd (coś z metodą)
+	#elf_stats.restore_to_default() #TODO: nadal wywala błąd (coś z metodą)
 	load_helth_potion(0)
 	save_game()
 
