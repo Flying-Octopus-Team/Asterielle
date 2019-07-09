@@ -31,10 +31,12 @@ func _on_potion_used():
 	
 func save():
 	var save_dict = {
-		_amount = amount
+			helth_potion = {
+				_amount = amount
+			}
 	}
 	return save_dict
 
-func set_amount(potion_amount):	#dawiniej load_data
+func set_amount(potion_amount):
 	amount = potion_amount
 	update_amount_label()

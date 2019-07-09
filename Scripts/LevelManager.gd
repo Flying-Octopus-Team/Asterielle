@@ -18,10 +18,12 @@ onready var tavern_enter_btn = get_parent().find_node("TavernEnterBtn")
 onready var tavern_screen = get_parent().get_node("TavernScreen")
 
 var GameOverScreen = load("res://Scenes/GameOverScreen/GameOverScreen.tscn")
-#var Offline_screen = load("res://Scenes/OfflineScreen/OfflineScreen.tscn")
 var NegligibleInformScreen = load("res://Scenes/Screens/NegligibleInform/NegligibleInform.tscn")
+var EssentialInformScreen = load("res://Scenes/Screens/EssentialInform/EssentialInform.tscn")
+var RevivalShoop = load("res://Scenes/Screens/RevivalShoop/RevivalShoop.tscn")
 
-const OffineScreen = preload("res://Scenes/OfflineScreen/OfflineScreen.gd")
+
+const OffineScreen = preload("res://Scenes/Screens/OfflineScreen/OfflineScreen.gd")
 
 var level_label
 var killed_dwarves_label
@@ -87,10 +89,11 @@ func on_Boss_kill_timeout():
 	set_killed_dwarves_label()
 	
 func on_Game_Over():
-	var gos = GameOverScreen.instance()
-	get_parent().call_deferred("add_child", gos)
-	gos.find_node("RespawnInTavern").pressed = tavern_enter_btn.pressed
-	gos.connect("timeout", self, "reset_to_base")
+	var eis = EssentialInformScreen.instance()
+	eis.init(3,"Game Over","Spraciles przytomnosc\n Teraz mozesz odrodzic sie na polu walki albo w tawernie","skull")
+	eis.connect("timeout", self, "reset_to_base")
+	get_parent().call_deferred("add_child", eis)
+	#TODO: Automatycznie respawnuj sie w tawernie
 
 func show_offline_screen():
 	if game_data.offline_time == 0:
@@ -106,10 +109,27 @@ func show_offline_screen():
 	
 	get_parent().call_deferred("add_child", nis)
 
-func show_silver_moon_screen():
-	var nis = NegligibleInformScreen.instance()
-	nis.init(3,"Informacja o srebrnych ksiezycach","i o tym czym jest odrodzenie")
-	get_parent().call_deferred("add_child", nis)
+###Do skryptu Revival.gd###
+#func show_silver_moon_screen():
+#	var eis = EssentialInformScreen.instance()
+#	eis.init(3,
+#	"Otrzymałeś 1 Srebrny Ksiezyc!",
+#	"Srebrne Ksiezyce beda dodatkowa waluta wykorzystywana podczas odrodzenia \n do zakupu dodatkowych i stalych ( nie znikających po odrodzeniu ) ulepszen.\n Czym jest odrozenie?\n Odrozenie pozwala elfce rozpoczac swoja przygode prawie calkowice od nowa",
+#	"moon")
+#	get_parent().call_deferred("add_child", eis)
+#
+#func show_revival_screen():
+#	var eis = EssentialInformScreen.instance()
+#	eis.init(3,
+#	"Odrodzilas sie!",
+#	"Znowu zaczynasz rozgrywke od nowa lecz posiadasz wiedze",
+#	"skull")
+#	eis.connect("timeout", self, "show_revival_shoop")
+#	get_parent().call_deferred("add_child", eis)
+#
+#func show_revival_shoop():
+#	var rss = RevivalShoop.instance()
+#	get_parent().call_deferred("add_child", rss)
 
 func reset_to_base(enter_tavern):
 	current_level = floor((current_level-1) / 10) * 10 + 1
@@ -118,16 +138,20 @@ func reset_to_base(enter_tavern):
 	set_killed_dwarves_label()
 	emit_signal("reset_to_base")
 	
-	if enter_tavern:
-		tavern_screen.enter_tavern()
-	else:
-		dwarves_spawner.spawn_dwarf()
+	tavern_screen.enter_tavern()
+	#if enter_tavern:
+	#	tavern_screen.enter_tavern()
+	#Bardziej logiczne będzie odradzanie się od razu w tawernie
+	#else:
+	#	dwarves_spawner.spawn_dwarf()
 
 func set_killed_dwarves_label():
 	killed_dwarves_label.text = str(killed_dwarves, " / ", dwarves_per_level)
 
 func set_level_label():
 	level_label.text = str("Poziom ", current_level)
+	
+
 	
 func save():
 	var save_dict = {

@@ -4,6 +4,7 @@ export(float) var dwarf_max_hp : float = 10.0
 export(float) var dwarf_damage : float = 1.0
 export(float) var boss_max_hp : float = 40.0
 export(float) var boss_damage : float = 3.0
+export(bool) var spawn : bool = true
 
 var Dwarf = load("res://Objects/Dwarves/Dwarf/Dwarf.tscn")
 var Boss = load("res://Objects/Dwarves/Boss/Boss.tscn")
@@ -19,11 +20,13 @@ func _on_FirstDwarfTimer_timeout():
 	spawn_dwarf()
 	
 func spawn_dwarf():
-	create_dwarf(Dwarf, dwarf_damage, dwarf_max_hp, "on_Dwarf_died")
+	if spawn:
+		create_dwarf(Dwarf, dwarf_damage, dwarf_max_hp, "on_Dwarf_died")
 	
 func spawn_boss():
-	var boss = create_dwarf(Boss, boss_damage, boss_max_hp, "on_Boss_died")
-	boss.connect("boss_kill_timeout", level_manager, "on_Boss_kill_timeout")
+	if spawn:
+		var boss = create_dwarf(Boss, boss_damage, boss_max_hp, "on_Boss_died")
+		boss.connect("boss_kill_timeout", level_manager, "on_Boss_kill_timeout")
 	
 func spawn_tavern():
 	var tavern = Tavern.instance()
