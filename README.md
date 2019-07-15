@@ -1,6 +1,6 @@
 # Elf vs Dwarves
 
-'EvD' is a game created by _____
+'EvD' is a game created by Flying Octopus
 
 | [:fire:Play](#Play) | [:camera:Screenshots](#screenshots) | [:wrench:Credits](#credits) | [:star:Resources](#resources) |
 | ----- | ----------- | ----------- | ----------- |
