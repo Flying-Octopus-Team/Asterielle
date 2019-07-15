@@ -11,6 +11,7 @@ var all_silver_moon : int = 0
 var last_revival_level : int = 0
 
 var golds_on_second : float = 0.0
+var additional_gold_multipler : float = 1.0
 var xp_on_second : float = 0.0
 var last_golds : Array = [0.0,0.0]
 var last_xp : Array = [0.0,0.0]
@@ -55,14 +56,6 @@ func _ready():
 	add_to_group('IHaveSthToSave')
 	level_manager.connect("dwarf_died", self, "on_Dwarf_died")
 	level_manager.connect("boss_died", self, "on_Boss_died")
-	#game_saver.connect("save_data_was_loaded", self, "update_gold_label")
-	#game_saver.connect("save_data_was_loaded", self, "update_xp_label")
-	#game_saver.connect("save_data_was_loaded", self, "update_silver_moon_label")
-	
-	#Propery powinno wystarczyc
-	#update_gold_label()
-	#update_silver_moon_label()
-	#update_xp_label()
 
 func _process(delta):
 	next_timer -= delta
@@ -109,7 +102,7 @@ func get_gold_to_add():
 	return lvl + dwarf_mod
 
 func add_gold(additional_gold):
-	set_gold(gold + additional_gold)
+	set_gold(gold + additional_gold * additional_gold_multipler )
 	
 func add_xp(additional_xp):
 	set_xp(xp + additional_xp)
@@ -123,48 +116,18 @@ func add_silver_moon():
 	if lvl == 50:
 		silver_moon += 1
 		emit_signal("get_first_silver_moon")
-		#update_silver_moon_label()
 		return
 	
 	if rand_range(1,100) > 15:
 		return
 	
 	silver_moon += reward
-	#update_silver_moon_label()
-
-#func revival():
-##	if level_manager.current_level < FIRST_REVIVAL_LEVEL:
-##		return
-##	if last_revival_level == MY_FIRST_REVIVAL_LEVEL:
-##		silver_moon += REVIVAL_SILVER_MOON_REWARD
-##		all_silver_moon += REVIVAL_SILVER_MOON_REWARD
-##	else:
-##		silver_moon += level_manager.current_level - last_revival_level
-##		all_silver_moon += level_manager.current_level - last_revival_level
-##	last_revival_level = level_manager.current_level
-#	level_manager.show_revival_screen()
-#	game_saver.revival_reset()
 	
 func on_game_over():
 	gold *= 0.4
 	xp *= 0.7
-	#update_gold_label()
-	#update_xp_label()
 	emit_signal("gold_changed")
 	emit_signal("xp_changed")
-
-## Do property ###
-#func update_gold_label():
-#	gold_label.text = str("Zloto: ", gold)
-#
-#func update_xp_label():
-#	xp_label.text = str("Doswiadczenie: ", xp)
-#
-#func update_silver_moon_label():
-#	if silver_moon > 0:
-#		silver_moon_label.text = str("Srebrne ksiezyce: ", silver_moon)
-#	else:
-#		silver_moon_label.text = ""
 
 func save():
 	var time = OS.get_unix_time()

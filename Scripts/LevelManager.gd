@@ -109,28 +109,6 @@ func show_offline_screen():
 	
 	get_parent().call_deferred("add_child", nis)
 
-###Do skryptu Revival.gd###
-#func show_silver_moon_screen():
-#	var eis = EssentialInformScreen.instance()
-#	eis.init(3,
-#	"Otrzymałeś 1 Srebrny Ksiezyc!",
-#	"Srebrne Ksiezyce beda dodatkowa waluta wykorzystywana podczas odrodzenia \n do zakupu dodatkowych i stalych ( nie znikających po odrodzeniu ) ulepszen.\n Czym jest odrozenie?\n Odrozenie pozwala elfce rozpoczac swoja przygode prawie calkowice od nowa",
-#	"moon")
-#	get_parent().call_deferred("add_child", eis)
-#
-#func show_revival_screen():
-#	var eis = EssentialInformScreen.instance()
-#	eis.init(3,
-#	"Odrodzilas sie!",
-#	"Znowu zaczynasz rozgrywke od nowa lecz posiadasz wiedze",
-#	"skull")
-#	eis.connect("timeout", self, "show_revival_shoop")
-#	get_parent().call_deferred("add_child", eis)
-#
-#func show_revival_shoop():
-#	var rss = RevivalShoop.instance()
-#	get_parent().call_deferred("add_child", rss)
-
 func reset_to_base(enter_tavern):
 	current_level = floor((current_level-1) / 10) * 10 + 1
 	killed_dwarves = 0
@@ -150,9 +128,7 @@ func set_killed_dwarves_label():
 
 func set_level_label():
 	level_label.text = str("Poziom ", current_level)
-	
 
-	
 func save():
 	var save_dict = {
 		_current_level = current_level

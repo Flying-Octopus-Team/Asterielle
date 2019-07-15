@@ -24,7 +24,6 @@ func init(Time_to_left = 0, Top_text : String = "", Center_text : String = "", I
 	icon_anim_name = Icon_anim_name
 
 func _ready():
-	#TODO: Zatrzymaj grę! najlepiej w levelManager
 	game_manager.stop_gameplay();
 	anim.play("FadedIn")
 	top_text_label.text = top_text
