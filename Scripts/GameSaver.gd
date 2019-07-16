@@ -146,7 +146,7 @@ func revival_reset():
 	load_xp(0.0)
 	load_hp(10.0)
 	load_level(1)
-	#elf_stats.restore_to_default() #TODO: nadal wywala błąd (coś z metodą)
+	elf_stats.restore_to_default() #TODO: nadal wywala błąd (coś z metodą)
 	load_helth_potion(0)
 	save_game()
 

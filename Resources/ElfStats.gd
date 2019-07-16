@@ -101,8 +101,8 @@ func create_default_items() -> void:
 		items[key].reset()
 
 func restore_to_default() -> void:
-	for i in items:
-		i.reset()
+	for key in items:
+		items[key].reset()
 
 	for s in stats:
 		s.reset()
