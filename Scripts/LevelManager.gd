@@ -17,7 +17,7 @@ onready var game_saver = get_parent().get_node("GameSaver")
 onready var tavern_enter_btn = get_parent().find_node("TavernEnterBtn")
 onready var tavern_screen = get_parent().get_node("TavernScreen")
 
-var GameOverScreen = load("res://Scenes/GameOverScreen/GameOverScreen.tscn")
+var GameOverScreen = load("res://Scenes/Screens/GameOverScreen/GameOverScreen.tscn")
 var NegligibleInformScreen = load("res://Scenes/Screens/NegligibleInform/NegligibleInform.tscn")
 var EssentialInformScreen = load("res://Scenes/Screens/EssentialInform/EssentialInform.tscn")
 var RevivalShoop = load("res://Scenes/Screens/RevivalShoop/RevivalShoop.tscn")
