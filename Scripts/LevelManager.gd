@@ -109,7 +109,7 @@ func show_offline_screen():
 	
 	get_parent().call_deferred("add_child", nis)
 
-func reset_to_base(enter_tavern):
+func reset_to_base():
 	current_level = floor((current_level-1) / 10) * 10 + 1
 	killed_dwarves = 0
 	set_level_label()

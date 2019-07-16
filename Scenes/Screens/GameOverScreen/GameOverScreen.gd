@@ -19,4 +19,4 @@ func update_label_and_bar():
 
 func _on_RestartTimer_timeout():
 	queue_free()
-	emit_signal("timeout", find_node("RespawnInTavern").pressed)
+	emit_signal("timeout")
