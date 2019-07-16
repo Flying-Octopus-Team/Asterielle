@@ -3,8 +3,6 @@
 [ext_resource path="res://Scenes/GameOverScreen/GameOverScreen.gd" type="Script" id=1]
 [ext_resource path="res://OnePixel.png" type="Texture" id=2]
 
-
-
 [node name="GameOverScreen" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -50,10 +48,10 @@ value = 100.0
 texture_progress = ExtResource( 2 )
 
 [node name="RespawnInTavern" type="CheckButton" parent="CanvasLayer"]
-margin_left = 402.0
-margin_top = 460.0
-margin_right = 628.0
-margin_bottom = 500.0
+margin_left = 527.154
+margin_top = 461.36
+margin_right = 753.154
+margin_bottom = 501.36
 text = "Odrodz sie w karczmie"
 align = 1
 

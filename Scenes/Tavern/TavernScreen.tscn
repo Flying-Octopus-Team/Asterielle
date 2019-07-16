@@ -10,12 +10,6 @@
 [ext_resource path="res://Scenes/Tavern/Resources/TavernResources.gd" type="Script" id=8]
 [ext_resource path="res://Objects/StatsPanel/StatsPanel.tscn" type="PackedScene" id=9]
 
-
-
-
-
-
-
 [node name="TavernScreen" type="CanvasLayer"]
 script = ExtResource( 1 )
 
@@ -108,8 +102,4 @@ margin_bottom = 32.0
 text = "Doswiadczenie: 100"
 
 [node name="StatsPanel" parent="." instance=ExtResource( 9 )]
-margin_left = 763.436
-margin_top = 202.77
-margin_right = 763.436
-margin_bottom = 202.77
 [connection signal="pressed" from="MainHall/ExitDoorBtn" to="." method="_on_ExitDoorBtn_pressed"]

@@ -28,9 +28,9 @@ oraz czym jest odrodzenie"
 align = 1
 
 [node name="Button" type="Button" parent="CanvasLayer"]
-margin_left = 354.133
-margin_top = 273.759
-margin_right = 666.133
-margin_bottom = 341.759
+margin_left = 483.368
+margin_top = 286.002
+margin_right = 795.368
+margin_bottom = 354.002
 text = "OK!"
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_Button_pressed"]

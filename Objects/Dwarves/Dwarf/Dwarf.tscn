@@ -4,14 +4,11 @@
 [ext_resource path="res://Objects/Dwarves/Dwarf/dwarf.png" type="Texture" id=2]
 [ext_resource path="res://OnePixel.png" type="Texture" id=3]
 
-
-
-
-
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 20, 31 )
 
 [node name="Dwarf" type="Area2D"]
+scale = Vector2( 1.5, 1.5 )
 collision_layer = 2
 collision_mask = 4
 script = ExtResource( 1 )
