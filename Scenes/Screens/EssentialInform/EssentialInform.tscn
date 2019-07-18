@@ -1,8 +1,9 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/Screens/EssentialInform/EssentialInform.gd" type="Script" id=1]
-[ext_resource path="res://SilverMoon.png" type="Texture" id=2]
-[ext_resource path="res://Skull.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/Screens/EssentialInform/SilverMoon.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Screens/EssentialInform/Skull.png" type="Texture" id=3]
+
 
 [sub_resource type="Animation" id=1]
 resource_name = "FadedIn"

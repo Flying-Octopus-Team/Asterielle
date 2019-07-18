@@ -40,4 +40,4 @@ margin_top = 273.759
 margin_right = 666.133
 margin_bottom = 341.759
 text = "OK!"
-[connection signal="pressed" from="CanvasLayer/ExitButton" to="." method="_on_ExitButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/ExitButton" to="." method="exit"]

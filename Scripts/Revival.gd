@@ -1,9 +1,8 @@
 extends Node
 
-#Scenes
 var EssentialInformScreen = load("res://Scenes/Screens/EssentialInform/EssentialInform.tscn")
 var RevivalShoop = load("res://Scenes/Screens/RevivalShoop/RevivalShoop.tscn")
-#Scripts
+
 const OffineScreen = preload("res://Scenes/Screens/OfflineScreen/OfflineScreen.gd")
 
 

@@ -93,7 +93,6 @@ func on_Game_Over():
 	eis.init(3,"Game Over","Spraciles przytomnosc\n Teraz mozesz odrodzic sie na polu walki albo w tawernie","skull")
 	eis.connect("timeout", self, "reset_to_base")
 	get_parent().call_deferred("add_child", eis)
-	#TODO: Automatycznie respawnuj sie w tawernie
 
 func show_offline_screen():
 	if game_data.offline_time == 0:

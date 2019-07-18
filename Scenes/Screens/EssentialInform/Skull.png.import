@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/SilverMoon.png-c2de29bd47d97b7b35351f347106547c.stex"
+path="res://.import/Skull.png-340a14abb1edd1abd80ad5126b72f0e1.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://SilverMoon.png"
-dest_files=[ "res://.import/SilverMoon.png-c2de29bd47d97b7b35351f347106547c.stex" ]
+source_file="res://Scenes/Screens/EssentialInform/Skull.png"
+dest_files=[ "res://.import/Skull.png-340a14abb1edd1abd80ad5126b72f0e1.stex" ]
 
 [params]
 
