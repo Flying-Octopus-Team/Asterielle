@@ -53,7 +53,10 @@ func on_Dwarf_died():
 	killed_dwarves += 1
 	emit_signal("dwarf_died")
 	
-	spawn_next_dwarf()
+	if tavern_enter_btn.pressed:
+		dwarves_spawner.spawn_tavern()
+	else:
+		spawn_next_dwarf()
 	
 	ui.set_killed_dwarves_label(killed_dwarves, dwarves_per_level)
 	
