@@ -12,16 +12,17 @@ var center_text: String = ""
 var icon_anim_name = "moon"
 
 var time_to_left: float = 0
-
+var timeout_resume_game: bool = false
 onready var anim = get_node("AnimationPlayer")
 
 
 
-func init(Time_to_left = 0, Top_text : String = "", Center_text : String = "", Icon_anim_name = "skull"):
+func init(Time_to_left = 0, Top_text : String = "", Center_text : String = "", Icon_anim_name: String = "skull", Timeout_resume_game: bool = true):
 	time_to_left = Time_to_left
 	top_text = Top_text
 	center_text = Center_text
 	icon_anim_name = Icon_anim_name
+	timeout_resume_game = Timeout_resume_game
 
 func _ready():
 	game_manager.stop_gameplay();
@@ -36,6 +37,10 @@ func _on_ExitButton_pressed():
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "FadedOut":
-		game_manager.resume_gameplay();
-		emit_signal("timeout")
-		queue_free()
+		if timeout_resume_game:
+			game_manager.resume_gameplay();
+		exit()
+
+func exit():
+	emit_signal("timeout")
+	queue_free()

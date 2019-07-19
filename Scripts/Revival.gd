@@ -20,7 +20,7 @@ func show_revival_screen():
 	eis.init(3,
 	"Odrodzilas sie!",
 	"Znowu zaczynasz rozgrywke od nowa lecz posiadasz wiedze",
-	"skull")
+	"skull", false)
 	eis.connect("timeout", self, "show_revival_shoop")
 	get_parent().call_deferred("add_child", eis)
 	

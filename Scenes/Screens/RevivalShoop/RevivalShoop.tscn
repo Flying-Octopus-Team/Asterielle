@@ -10,16 +10,16 @@ margin_right = 1024.0
 margin_bottom = 600.0
 color = Color( 0.145098, 0.2, 0.247059, 1 )
 
-[node name="Item_1" type="Node" parent="ColorRect"]
+[node name="Item_enemies_per_level" type="Node" parent="ColorRect"]
 
-[node name="Panel" type="Panel" parent="ColorRect/Item_1"]
+[node name="Panel" type="Panel" parent="ColorRect/Item_enemies_per_level"]
 modulate = Color( 0.690196, 0.690196, 0.690196, 1 )
 margin_left = 319.0
 margin_top = 240.0
 margin_right = 712.0
 margin_bottom = 265.0
 
-[node name="Info" type="Label" parent="ColorRect/Item_1/Panel"]
+[node name="Info" type="Label" parent="ColorRect/Item_enemies_per_level/Panel"]
 margin_left = -76.0
 margin_top = 2.0
 margin_right = 305.0
@@ -28,7 +28,7 @@ text = "zmniejszenie ilości przeciwników na poziom:"
 align = 2
 valign = 1
 
-[node name="Count" type="Label" parent="ColorRect/Item_1/Panel"]
+[node name="Count" type="Label" parent="ColorRect/Item_enemies_per_level/Panel"]
 margin_left = 307.0
 margin_top = 2.0
 margin_right = 343.0
@@ -39,13 +39,13 @@ text = "1"
 align = 1
 valign = 1
 
-[node name="Button1" type="Button" parent="ColorRect/Item_1"]
+[node name="Button" type="Button" parent="ColorRect/Item_enemies_per_level"]
 margin_left = 681.14
 margin_top = 242.0
 margin_right = 703.14
 margin_bottom = 262.0
 
-[node name="Label" type="Label" parent="ColorRect/Item_1/Button1"]
+[node name="Label" type="Label" parent="ColorRect/Item_enemies_per_level/Button"]
 margin_left = -8.35962
 margin_top = -3.25937
 margin_right = 11.6404
@@ -55,16 +55,16 @@ text = "+"
 align = 1
 valign = 1
 
-[node name="Item_2" type="Node" parent="ColorRect"]
+[node name="Item_earn_gold" type="Node" parent="ColorRect"]
 
-[node name="Panel" type="Panel" parent="ColorRect/Item_2"]
+[node name="Panel" type="Panel" parent="ColorRect/Item_earn_gold"]
 modulate = Color( 0.690196, 0.690196, 0.690196, 1 )
 margin_left = 319.0
 margin_top = 275.8
 margin_right = 712.0
 margin_bottom = 300.8
 
-[node name="Info" type="Label" parent="ColorRect/Item_2/Panel"]
+[node name="Info" type="Label" parent="ColorRect/Item_earn_gold/Panel"]
 margin_left = -76.0
 margin_top = 2.0
 margin_right = 305.0
@@ -73,7 +73,7 @@ text = "zwiększenie ilości zdobywanego złota:"
 align = 2
 valign = 1
 
-[node name="Count" type="Label" parent="ColorRect/Item_2/Panel"]
+[node name="Count" type="Label" parent="ColorRect/Item_earn_gold/Panel"]
 margin_left = 307.0
 margin_top = 2.0
 margin_right = 343.0
@@ -84,14 +84,14 @@ text = "1"
 align = 1
 valign = 1
 
-[node name="Button2" type="Button" parent="ColorRect/Item_2"]
+[node name="Button" type="Button" parent="ColorRect/Item_earn_gold"]
 editor/display_folded = true
 margin_left = 681.14
 margin_top = 275.8
 margin_right = 703.14
 margin_bottom = 295.8
 
-[node name="Label" type="Label" parent="ColorRect/Item_2/Button2"]
+[node name="Label" type="Label" parent="ColorRect/Item_earn_gold/Button"]
 margin_left = -8.35962
 margin_top = -3.25937
 margin_right = 11.6404
@@ -296,6 +296,6 @@ margin_top = 483.45
 margin_right = 579.549
 margin_bottom = 522.45
 text = "EXIT"
-[connection signal="pressed" from="ColorRect/Item_1/Button1" to="." method="upgrade_enemies_per_level"]
-[connection signal="pressed" from="ColorRect/Item_2/Button2" to="." method="upgrade_earn_gold"]
+[connection signal="pressed" from="ColorRect/Item_enemies_per_level/Button" to="." method="upgrade_enemies_per_level"]
+[connection signal="pressed" from="ColorRect/Item_earn_gold/Button" to="." method="upgrade_earn_gold"]
 [connection signal="pressed" from="ColorRect/Button" to="." method="_on_Button_pressed"]

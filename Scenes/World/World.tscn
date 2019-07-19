@@ -1,14 +1,14 @@
 [gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scenes/World/World.gd" type="Script" id=1]
-[ext_resource path="res://Scripts/GameManager.gd" type="Script" id=2]
-[ext_resource path="res://Scripts/LevelManager.gd" type="Script" id=3]
-[ext_resource path="res://Scripts/GameData.gd" type="Script" id=4]
-[ext_resource path="res://Resources/ElfStats.gd" type="Script" id=5]
-[ext_resource path="res://Scripts/Revival.gd" type="Script" id=6]
-[ext_resource path="res://Objects/Elf/Elf.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Objects/Dwarves/DwarvesSpawner/DwarvesSpawner.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Scenes/World/UI.gd" type="Script" id=9]
+[ext_resource path="res://Scenes/World/UI.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/GameManager.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/LevelManager.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/GameData.gd" type="Script" id=5]
+[ext_resource path="res://Resources/ElfStats.gd" type="Script" id=6]
+[ext_resource path="res://Scripts/Revival.gd" type="Script" id=7]
+[ext_resource path="res://Objects/Elf/Elf.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Objects/Dwarves/DwarvesSpawner/DwarvesSpawner.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Tavern/TavernScreen.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Objects/Potions/Health/HealthPotion.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scripts/GameSaver.gd" type="Script" id=12]
@@ -22,46 +22,13 @@ __meta__ = {
 "_edit_horizontal_guides_": [  ]
 }
 
-[node name="GameManager" type="Node" parent="."]
-script = ExtResource( 2 )
-
-[node name="LevelManager" type="Node" parent="."]
-script = ExtResource( 3 )
-
-[node name="GameData" type="Node" parent="."]
-script = ExtResource( 4 )
-
-[node name="ElfStats" type="Node" parent="."]
-script = ExtResource( 5 )
-
-[node name="Revival" type="Node" parent="."]
-script = ExtResource( 6 )
-
-[node name="Elf" parent="." instance=ExtResource( 7 )]
-position = Vector2( 121.06, 544.182 )
-
-[node name="DwarvesSpawner" parent="." instance=ExtResource( 8 )]
-position = Vector2( 1081.97, 544.587 )
-
-[node name="Ground" type="Area2D" parent="."]
-editor/display_folded = true
-position = Vector2( 569.18, 577.345 )
-collision_layer = 32
-collision_mask = 0
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
-shape = SubResource( 1 )
-
 [node name="UI" type="Control" parent="."]
+editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 9 )
+script = ExtResource( 2 )
 
 [node name="MarginContainer" type="MarginContainer" parent="UI"]
-editor/display_folded = true
 anchor_right = 1.0
 margin_left = 40.0
 margin_top = 40.0
@@ -143,6 +110,39 @@ margin_top = 17.0
 margin_right = 168.0
 margin_bottom = 55.0
 text = "Odrodzenie"
+
+[node name="GameManager" type="Node" parent="."]
+script = ExtResource( 3 )
+
+[node name="LevelManager" type="Node" parent="."]
+script = ExtResource( 4 )
+
+[node name="GameData" type="Node" parent="."]
+script = ExtResource( 5 )
+
+[node name="ElfStats" type="Node" parent="."]
+script = ExtResource( 6 )
+
+[node name="Revival" type="Node" parent="."]
+script = ExtResource( 7 )
+
+[node name="Elf" parent="." instance=ExtResource( 8 )]
+position = Vector2( 121.06, 544.182 )
+
+[node name="DwarvesSpawner" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1081.97, 544.587 )
+
+[node name="Ground" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 569.18, 577.345 )
+collision_layer = 32
+collision_mask = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+shape = SubResource( 1 )
 
 [node name="TavernScreen" parent="." instance=ExtResource( 10 )]
 

@@ -5,15 +5,14 @@ onready var game_manager = get_parent().get_node("GameManager")
 const ENEMIES_PER_LEVEL_PRICE = 0
 const EARN_GOLD_PRIVE = 0
 
-func _ready():
-	game_manager.stop_gameplay()
+
 
 func _process(delta):
 	set_enemies_per_level_button()
 
 
 func set_enemies_per_level_button():
-	get_node("ColorRect/Item_1/Button1").disabled = return_enemies_per_level_access(); #TODO: lepsza nazwa button
+	get_node("ColorRect/Item_enemies_per_level/Button").disabled = return_enemies_per_level_access(); #TODO: lepsza nazwa button
 
 func return_enemies_per_level_access() -> bool:
 	if get_parent().find_node("LevelManager").dwarves_per_level <= 0:
@@ -22,11 +21,14 @@ func return_enemies_per_level_access() -> bool:
 	return result;
 
 func upgrade_enemies_per_level():
-	get_parent().find_node("LevelManager").dwarves_per_level -= 1
+	var level_manager = get_parent().find_node("LevelManager")
+	
+	level_manager.dwarves_per_level -= 1
+	get_parent().find_node("UI").set_killed_dwarves_label(level_manager.killed_dwarves, level_manager.dwarves_per_level)
 
 
 func set_earn_gold_button():
-	get_node("ColorRect/Item_2/Button2").disabled = return_earn_gold_access();#TODO: lepsza nazwa button
+	get_node("ColorRect/Item_earn_gold/Button").disabled = return_earn_gold_access();#TODO: lepsza nazwa button
 
 func return_earn_gold_access() -> bool:
 	var result: bool = get_parent().find_node("GameData").silver_moon < EARN_GOLD_PRIVE

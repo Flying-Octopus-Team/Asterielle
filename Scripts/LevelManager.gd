@@ -16,6 +16,7 @@ onready var game_data = get_parent().get_node("GameData")
 onready var game_saver = get_parent().get_node("GameSaver") 
 onready var tavern_enter_btn = get_parent().find_node("TavernEnterBtn")
 onready var tavern_screen = get_parent().get_node("TavernScreen")
+onready var ui = get_parent().get_node("UI")
 
 var GameOverScreen = load("res://Scenes/Screens/GameOverScreen/GameOverScreen.tscn")
 var NegligibleInformScreen = load("res://Scenes/Screens/NegligibleInform/NegligibleInform.tscn")
@@ -25,17 +26,13 @@ var RevivalShoop = load("res://Scenes/Screens/RevivalShoop/RevivalShoop.tscn")
 
 const OffineScreen = preload("res://Scenes/Screens/OfflineScreen/OfflineScreen.gd")
 
-var level_label
-var killed_dwarves_label
+
 
 func _ready():
 	add_to_group('IHaveSthToSave')
-	var ui = get_parent().get_node("UI")
-	level_label = ui.find_node("LevelLabel")
-	killed_dwarves_label = ui.find_node("KilledDwarvesLabel")
 	
-	set_level_label()
-	set_killed_dwarves_label()
+	ui.set_level_label(String(current_level))
+	ui.set_killed_dwarves_label(killed_dwarves, dwarves_per_level)
 	
 	var elf = get_parent().get_node("Elf")
 	elf.connect("game_over", self, "on_Game_Over")
@@ -49,7 +46,7 @@ func _ready():
 func increase_level():
 	current_level += 1
 	killed_dwarves = 0
-	set_level_label()
+	ui.set_level_label(String(current_level))
 	emit_signal("next_level", current_level)
 	
 func on_Dwarf_died():
@@ -61,7 +58,7 @@ func on_Dwarf_died():
 	else:
 		spawn_next_dwarf()
 	
-	set_killed_dwarves_label()
+	ui.set_killed_dwarves_label(killed_dwarves, dwarves_per_level)
 	
 func _on_Tavern_exited():
 	tavern_enter_btn.pressed = false
@@ -81,12 +78,12 @@ func on_Boss_died():
 	emit_signal("boss_died")
 	increase_level()
 	dwarves_spawner.spawn_dwarf()
-	set_killed_dwarves_label()
+	ui.set_killed_dwarves_label(killed_dwarves, dwarves_per_level)
 
 func on_Boss_kill_timeout():
 	killed_dwarves = 0
 	dwarves_spawner.spawn_dwarf()
-	set_killed_dwarves_label()
+	ui.set_killed_dwarves_label(killed_dwarves, dwarves_per_level)
 	
 func on_Game_Over():
 	var eis = EssentialInformScreen.instance()
@@ -111,8 +108,8 @@ func show_offline_screen():
 func reset_to_base():
 	current_level = floor((current_level-1) / 10) * 10 + 1
 	killed_dwarves = 0
-	set_level_label()
-	set_killed_dwarves_label()
+	ui.set_level_label(String(current_level))
+	ui.set_killed_dwarves_label(killed_dwarves, dwarves_per_level)
 	emit_signal("reset_to_base")
 	
 	tavern_screen.enter_tavern()
@@ -121,12 +118,6 @@ func reset_to_base():
 	#Bardziej logiczne będzie odradzanie się od razu w tawernie
 	#else:
 	#	dwarves_spawner.spawn_dwarf()
-
-func set_killed_dwarves_label():
-	killed_dwarves_label.text = str(killed_dwarves, " / ", dwarves_per_level)
-
-func set_level_label():
-	level_label.text = str("Poziom ", current_level)
 
 func save():
 	var save_dict = {

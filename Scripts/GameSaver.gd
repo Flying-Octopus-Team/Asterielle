@@ -109,7 +109,6 @@ func load_hp(hp):
 func load_level(level):
 	var level_manager = get_parent().get_node("LevelManager")
 	level_manager.current_level = level
-	level_manager.set_level_label()
 
 func load_elf_stats(elf_stat):
 	elf_stats.load_data(elf_stat)
