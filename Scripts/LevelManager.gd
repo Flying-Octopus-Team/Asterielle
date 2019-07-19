@@ -53,10 +53,7 @@ func on_Dwarf_died():
 	killed_dwarves += 1
 	emit_signal("dwarf_died")
 	
-	if tavern_enter_btn.pressed:
-		dwarves_spawner.spawn_tavern()
-	else:
-		spawn_next_dwarf()
+	spawn_next_dwarf()
 	
 	ui.set_killed_dwarves_label(killed_dwarves, dwarves_per_level)
 	
@@ -113,11 +110,6 @@ func reset_to_base():
 	emit_signal("reset_to_base")
 	
 	tavern_screen.enter_tavern()
-	#if enter_tavern:
-	#	tavern_screen.enter_tavern()
-	#Bardziej logiczne będzie odradzanie się od razu w tawernie
-	#else:
-	#	dwarves_spawner.spawn_dwarf()
 
 func save():
 	var save_dict = {

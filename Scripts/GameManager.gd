@@ -1,12 +1,13 @@
 extends Node
 
+onready var dwarves_spawner = get_parent().find_node("DwarvesSpawner")
 
 func stop_gameplay():
-	get_parent().find_node("DwarvesSpawner").spawn = false
-	#TODO: Usunąć wszystkie boty który są w tym momencie zrespione
-	pass
-	
+	dwarves_spawner.spawn = false
+	#TODO: zabić wszystkie boty 
+	#var dwarf = find_node("Dwarf")
+	#dwarf.death()
+
 func resume_gameplay():
-	get_parent().find_node("DwarvesSpawner").spawn = true
-	get_parent().find_node("DwarvesSpawner").spawn_dwarf()
-	pass
+	dwarves_spawner.spawn = true
+	dwarves_spawner.spawn_dwarf()
