@@ -101,8 +101,8 @@ func create_default_items() -> void:
 		items[key].reset()
 
 func restore_to_default() -> void:
-	for i in items:
-		i.reset()
+	for key in items:
+		items[key].reset()
 
 	for s in stats:
 		s.reset()
@@ -167,7 +167,7 @@ func save():
 		save_dict["_elf_stats"]["_items"][key] = items[key].save()
 	
 	return save_dict
-	
+
 func load_data(data):
 	var _stats = data["_stats"]
 	var _items = data["_items"]

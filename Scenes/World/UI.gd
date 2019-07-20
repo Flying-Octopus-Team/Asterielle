@@ -1,0 +1,28 @@
+extends Control
+
+onready var gold_label = find_node("GoldLabel")
+onready var xp_label = find_node("XpLabel")
+onready var silver_moon_label = find_node("SilverMoonLabel")
+onready var level_label = find_node("LevelLabel")
+onready var killed_dwarves_label = find_node("KilledDwarvesLabel")
+onready var game_data = get_node("GameData")
+
+
+
+func set_gold_label(gold: float):
+	gold_label.text = str("Zloto: ", gold)
+	
+func set_xp_label(xp):
+	xp_label.text = str("Doswiadczenie: ", xp)
+
+func set_silver_moon_label(silver_moon):
+	if silver_moon > 0:
+		silver_moon_label.text = str("Srebrne ksiezyce: ", silver_moon)
+	else:
+		silver_moon_label.text = ""
+
+func set_level_label(var current_level: String):
+	level_label.text = str("Poziom ", current_level)
+
+func set_killed_dwarves_label(killed_dwarves, dwarves_per_level):
+	killed_dwarves_label.text = str(killed_dwarves, " / ", dwarves_per_level)

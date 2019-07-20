@@ -41,8 +41,7 @@ func on_arrow_hit(arrow):
 	arrow.queue_free()
 	
 	if hp <= 0:
-		emit_signal("died")
-		queue_free()
+		death()
 	else:
 		hp_bar.value = hp
 		
@@ -61,4 +60,8 @@ func attack():
 
 func _on_Dwarf_area_entered(area):
 	# Because of collision masks this area is Arrow
-	on_arrow_hit(area) 
+	on_arrow_hit(area)
+
+func death():
+	emit_signal("died")
+	queue_free()
