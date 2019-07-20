@@ -20,15 +20,15 @@ you can play in EvD for free or if you want to support us:
 ## Screenshots
 
 <p align="center">
-  <img src="https://trello-attachments.s3.amazonaws.com/5c8a521ec756192d5892143e/200x120/07993f38de8a11f981b328b3316b6fd5/topornik1_11.jpg" />
+  <img src="https://trello-attachments.s3.amazonaws.com/5d32cabb934e9a0d529f37dc/600x367/05589121fa70566eba6fca33904f8b25/obraz.png" />
 </p>
 
 <p align="center">
-  <img src="https://trello-attachments.s3.amazonaws.com/5ce2f43fbd2c7e6b8dc32a5f/70x70/9a1ca53572b38e8d018f6914079eff73/krasnoludpix2.png" />
+  <img src="https://trello-attachments.s3.amazonaws.com/5d32cabb934e9a0d529f37dc/600x368/e633e9d4c8f34e2fbcd3f3e1f749f389/obraz.png" />
 </p>
 
 <p align="center">
-  <img src="https://trello-attachments.s3.amazonaws.com/5d07e3c187b6c478bfabee03/70x70/daf9c9f79664f42da9f49155b3951209/kransoludtarcz_kopia.png" />
+  <img src="https://trello-attachments.s3.amazonaws.com/5d32cabb934e9a0d529f37dc/600x366/a3f46e8f0290c5952995dcff40ede485/obraz.png" />
 </p>
 
 ## Credits
