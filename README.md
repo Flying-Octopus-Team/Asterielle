@@ -39,4 +39,4 @@ you can play in EvD for free:
 ## Resources
 [:skull: Website](http://elf-vs-dwarves.pl/)
 
-[:ghost: Discord](https://discord.gg/EFXXkr)
+[:ghost: Discord](https://discord.gg/D29mBe4)
