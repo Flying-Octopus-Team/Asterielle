@@ -11,10 +11,9 @@
 
 ## Play
 
-you can play in EvD for free or if you want to support us:
+you can play in EvD for free:
 
-- [:sparkles: Play In -----](----)
-- [:fire: Download from -----](----)
+- [:fire: Play in your browser](https://ajver.github.io/EvD/Export/)
 
 
 ## Screenshots
@@ -38,8 +37,6 @@ you can play in EvD for free or if you want to support us:
 - Project manager: [GitHub](http://github.com/)
 
 ## Resources
-[:skull: Website](---)
+[:skull: Website](http://elf-vs-dwarves.pl/)
 
-[:blue_heart: Fanpage](---)
-
-[:ghost: Discord](---)
+[:ghost: Discord](https://discord.gg/EFXXkr)
