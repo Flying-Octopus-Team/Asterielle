@@ -8,7 +8,7 @@ const EARN_XP_PRICE = 0
 const TIME_TO_KILL_BOSS_PRICE = 0
 
 onready var enemies_per_level_count = get_node("ColorRect/Item_enemies_per_level/Panel/Count")
-onready var earn_gold_count
+onready var earn_gold_count = get_node("ColorRect/Item_earn_gold/Panel/Count")
 onready var earn_xp_count
 onready var time_to_kill_boss_count
 
@@ -18,10 +18,11 @@ func _process(delta):
 	set_enemies_per_level_button()
 	set_enemies_per_level_count()
 	set_earn_gold_button()
+	set_earn_gold_count()
 	set_earn_xp_button()
 	set_time_to_kill_boss()
 
-func exit(): #TODO: Dać lepszą nazwę
+func exit():
 	game_manager.resume_gameplay()
 	queue_free()
 
@@ -36,7 +37,7 @@ func return_enemies_per_level_access() -> bool:
 	return result;
 
 func set_enemies_per_level_count():
-	enemies_per_level_count.text = "x"+String(get_parent().find_node("LevelManager").dwarves_per_level)
+	enemies_per_level_count.text = String(get_parent().find_node("LevelManager").dwarves_per_level)
 
 func upgrade_enemies_per_level():
 	var level_manager = get_parent().find_node("LevelManager")
@@ -50,6 +51,10 @@ func set_earn_gold_button():
 func return_earn_gold_access() -> bool:
 	var result: bool = get_parent().find_node("GameData").silver_moon < EARN_GOLD_PRICE
 	return result
+
+func set_earn_gold_count():
+	earn_gold_count.text = "x" + String(get_parent().find_node("GameData").additional_gold_multipler)
+	pass
 
 func upgrade_earn_gold():
 	get_parent().find_node("GameData").additional_gold_multipler += 0.1
