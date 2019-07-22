@@ -7,10 +7,16 @@ const EARN_GOLD_PRICE = 0
 const EARN_XP_PRICE = 0
 const TIME_TO_KILL_BOSS_PRICE = 0
 
+onready var enemies_per_level_count = get_node("ColorRect/Item_enemies_per_level/Panel/Count")
+onready var earn_gold_count
+onready var earn_xp_count
+onready var time_to_kill_boss_count
+
 
 
 func _process(delta):
 	set_enemies_per_level_button()
+	set_enemies_per_level_count()
 	set_earn_gold_button()
 	set_earn_xp_button()
 	set_time_to_kill_boss()
@@ -28,6 +34,9 @@ func return_enemies_per_level_access() -> bool:
 		return true #Ulepszono do maximum
 	var result : bool = get_parent().find_node("GameData").silver_moon < ENEMIES_PER_LEVEL_PRICE
 	return result;
+
+func set_enemies_per_level_count():
+	enemies_per_level_count.text = "x"+String(get_parent().find_node("LevelManager").dwarves_per_level)
 
 func upgrade_enemies_per_level():
 	var level_manager = get_parent().find_node("LevelManager")

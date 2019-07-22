@@ -11,7 +11,6 @@ margin_bottom = 600.0
 color = Color( 0.145098, 0.2, 0.247059, 1 )
 
 [node name="Item_enemies_per_level" type="Node" parent="ColorRect"]
-editor/display_folded = true
 
 [node name="Panel" type="Panel" parent="ColorRect/Item_enemies_per_level"]
 modulate = Color( 0.690196, 0.690196, 0.690196, 1 )
@@ -36,7 +35,7 @@ margin_right = 343.0
 margin_bottom = 17.0
 rect_scale = Vector2( 1.5, 1.5 )
 custom_colors/font_color = Color( 0.243137, 1, 0, 1 )
-text = "1"
+text = "4"
 align = 1
 valign = 1
 
@@ -57,7 +56,6 @@ align = 1
 valign = 1
 
 [node name="Item_earn_gold" type="Node" parent="ColorRect"]
-editor/display_folded = true
 
 [node name="Panel" type="Panel" parent="ColorRect/Item_earn_gold"]
 modulate = Color( 0.690196, 0.690196, 0.690196, 1 )
@@ -82,16 +80,15 @@ margin_right = 343.0
 margin_bottom = 17.0
 rect_scale = Vector2( 1.5, 1.5 )
 custom_colors/font_color = Color( 0.243137, 1, 0, 1 )
-text = "1"
+text = "x1.2"
 align = 1
 valign = 1
 
 [node name="Button" type="Button" parent="ColorRect/Item_earn_gold"]
-editor/display_folded = true
 margin_left = 681.14
-margin_top = 275.8
+margin_top = 278.441
 margin_right = 703.14
-margin_bottom = 295.8
+margin_bottom = 298.441
 
 [node name="Label" type="Label" parent="ColorRect/Item_earn_gold/Button"]
 margin_left = -8.35962
@@ -106,7 +103,6 @@ valign = 1
 [node name="Item_earn_xp" type="Node" parent="ColorRect"]
 
 [node name="Panel" type="Panel" parent="ColorRect/Item_earn_xp"]
-editor/display_folded = true
 modulate = Color( 0.690196, 0.690196, 0.690196, 1 )
 margin_left = 319.0
 margin_top = 313.69
@@ -129,16 +125,15 @@ margin_right = 343.0
 margin_bottom = 17.0
 rect_scale = Vector2( 1.5, 1.5 )
 custom_colors/font_color = Color( 0.243137, 1, 0, 1 )
-text = "1"
+text = "x1.1"
 align = 1
 valign = 1
 
 [node name="Button" type="Button" parent="ColorRect/Item_earn_xp"]
-editor/display_folded = true
 margin_left = 681.14
-margin_top = 313.69
+margin_top = 316.331
 margin_right = 703.14
-margin_bottom = 333.69
+margin_bottom = 336.331
 
 [node name="Label" type="Label" parent="ColorRect/Item_earn_xp/Button"]
 margin_left = -8.35962
@@ -153,7 +148,6 @@ valign = 1
 [node name="Item_time_to_kill_boss" type="Node" parent="ColorRect"]
 
 [node name="Panel" type="Panel" parent="ColorRect/Item_time_to_kill_boss"]
-editor/display_folded = true
 modulate = Color( 0.690196, 0.690196, 0.690196, 1 )
 margin_left = 319.0
 margin_top = 351.31
@@ -175,16 +169,16 @@ margin_top = 2.0
 margin_right = 343.0
 margin_bottom = 17.0
 rect_scale = Vector2( 1.5, 1.5 )
-custom_colors/font_color = Color( 0.243137, 1, 0, 1 )
-text = "1"
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+text = "30s"
 align = 1
 valign = 1
 
 [node name="Button" type="Button" parent="ColorRect/Item_time_to_kill_boss"]
 margin_left = 681.14
-margin_top = 351.31
+margin_top = 353.511
 margin_right = 703.14
-margin_bottom = 371.31
+margin_bottom = 373.511
 disabled = true
 
 [node name="Label" type="Label" parent="ColorRect/Item_time_to_kill_boss/Button"]
@@ -197,69 +191,22 @@ text = "+"
 align = 1
 valign = 1
 
-[node name="Item_5" type="Node" parent="ColorRect"]
-editor/display_folded = true
-
-[node name="Panel" type="Panel" parent="ColorRect/Item_5"]
-modulate = Color( 0.690196, 0.690196, 0.690196, 1 )
-margin_left = 319.0
-margin_top = 388.17
-margin_right = 712.0
-margin_bottom = 413.17
-
-[node name="Info" type="Label" parent="ColorRect/Item_5/Panel"]
-margin_left = -76.0
-margin_top = 2.0
-margin_right = 305.0
-margin_bottom = 23.0
-text = "skrócenie czasu omdlenia:"
-align = 2
-valign = 1
-
-[node name="Count" type="Label" parent="ColorRect/Item_5/Panel"]
-margin_left = 307.0
-margin_top = 2.0
-margin_right = 343.0
-margin_bottom = 17.0
-rect_scale = Vector2( 1.5, 1.5 )
-custom_colors/font_color = Color( 0.243137, 1, 0, 1 )
-text = "1"
-align = 1
-valign = 1
-
-[node name="Button" type="Button" parent="ColorRect/Item_5"]
-editor/display_folded = true
-margin_left = 681.14
-margin_top = 388.17
-margin_right = 703.14
-margin_bottom = 408.17
-
-[node name="Label" type="Label" parent="ColorRect/Item_5/Button"]
-margin_left = -8.35962
-margin_top = -3.25937
-margin_right = 11.6404
-margin_bottom = 10.7406
-rect_scale = Vector2( 2, 2 )
-text = "+"
-align = 1
-valign = 1
-
 [node name="Item_6" type="Node" parent="ColorRect"]
-editor/display_folded = true
 
 [node name="Panel" type="Panel" parent="ColorRect/Item_6"]
+editor/display_folded = true
 modulate = Color( 0.690196, 0.690196, 0.690196, 1 )
-margin_left = 319.0
-margin_top = 425.57
-margin_right = 712.0
-margin_bottom = 450.57
+margin_left = 317.371
+margin_top = 391.361
+margin_right = 710.371
+margin_bottom = 416.361
 
 [node name="Info" type="Label" parent="ColorRect/Item_6/Panel"]
-margin_left = -76.0
+margin_left = -75.976
 margin_top = 2.0
-margin_right = 305.0
+margin_right = 305.024
 margin_bottom = 23.0
-text = "zwiększenie szanse zdobycia srebrnych księżyców:"
+text = "szanse zdobycia srebrnych ksiezyców:"
 align = 2
 valign = 1
 
@@ -269,17 +216,17 @@ margin_top = 2.0
 margin_right = 343.0
 margin_bottom = 17.0
 rect_scale = Vector2( 1.5, 1.5 )
-custom_colors/font_color = Color( 0.243137, 1, 0, 1 )
-text = "1"
+custom_colors/font_color = Color( 1, 0.945098, 0, 1 )
+text = "15%"
 align = 1
 valign = 1
 
 [node name="Button" type="Button" parent="ColorRect/Item_6"]
 editor/display_folded = true
-margin_left = 681.14
-margin_top = 425.57
-margin_right = 703.14
-margin_bottom = 445.57
+margin_left = 679.511
+margin_top = 391.361
+margin_right = 701.511
+margin_bottom = 411.361
 
 [node name="Label" type="Label" parent="ColorRect/Item_6/Button"]
 margin_left = -8.35962
