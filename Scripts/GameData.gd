@@ -100,6 +100,8 @@ func on_Boss_died():
 	
 func get_gold_to_add():
 	var lvl = level_manager.current_level
+	if level_manager.dwarves_per_level == 0:
+		return lvl
 	var dwarf_mod = level_manager.killed_dwarves / level_manager.dwarves_per_level
 	return lvl + dwarf_mod
 

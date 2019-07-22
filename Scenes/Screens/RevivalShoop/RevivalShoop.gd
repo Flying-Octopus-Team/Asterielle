@@ -24,8 +24,8 @@ func set_enemies_per_level_button():
 	get_node("ColorRect/Item_enemies_per_level/Button").disabled = return_enemies_per_level_access();
 
 func return_enemies_per_level_access() -> bool:
-	if get_parent().find_node("LevelManager").dwarves_per_level <= 0:
-		return false #Ulepszono do maximum
+	if get_parent().find_node("LevelManager").dwarves_per_level <= 1:
+		return true #Ulepszono do maximum
 	var result : bool = get_parent().find_node("GameData").silver_moon < ENEMIES_PER_LEVEL_PRICE
 	return result;
 
@@ -61,8 +61,6 @@ func set_time_to_kill_boss():
 	get_node("ColorRect/Item_time_to_kill_boss/Button").disabled = return_time_to_kill_boss_access();
 
 func return_time_to_kill_boss_access() -> bool:
-	if get_parent().find_node("GameData").time_to_kill_boss <= 0:
-		return false #Ulepszono do maximum
 	var result: bool = get_parent().find_node("GameData").silver_moon < TIME_TO_KILL_BOSS_PRICE
 	return result
 
