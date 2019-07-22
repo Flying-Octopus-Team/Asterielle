@@ -9,7 +9,7 @@ const TIME_TO_KILL_BOSS_PRICE = 0
 
 onready var enemies_per_level_count = get_node("ColorRect/Item_enemies_per_level/Panel/Count")
 onready var earn_gold_count = get_node("ColorRect/Item_earn_gold/Panel/Count")
-onready var earn_xp_count
+onready var earn_xp_count = get_node("ColorRect/Item_earn_xp/Panel/Count")
 onready var time_to_kill_boss_count
 
 
@@ -20,6 +20,7 @@ func _process(delta):
 	set_earn_gold_button()
 	set_earn_gold_count()
 	set_earn_xp_button()
+	set_earn_xp_count()
 	set_time_to_kill_boss()
 
 func exit():
@@ -54,7 +55,6 @@ func return_earn_gold_access() -> bool:
 
 func set_earn_gold_count():
 	earn_gold_count.text = "x" + String(get_parent().find_node("GameData").additional_gold_multipler)
-	pass
 
 func upgrade_earn_gold():
 	get_parent().find_node("GameData").additional_gold_multipler += 0.1
@@ -66,6 +66,9 @@ func set_earn_xp_button():
 func return_earn_xp_access() -> bool:
 	var result: bool = get_parent().find_node("GameData").silver_moon < EARN_XP_PRICE
 	return result
+
+func set_earn_xp_count():
+	earn_xp_count.text = "x" + String(get_parent().find_node("GameData").additional_xp_multipler)
 
 func upgrade_earn_xp():
 	get_parent().find_node("GameData").additional_xp_multipler += 0.1
