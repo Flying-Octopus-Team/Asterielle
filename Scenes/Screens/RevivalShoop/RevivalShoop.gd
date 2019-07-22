@@ -4,6 +4,7 @@ onready var game_manager = get_parent().get_node("GameManager")
 
 const ENEMIES_PER_LEVEL_PRICE = 0
 const EARN_GOLD_PRIVE = 0
+const EARN_XP_PRIVE = 0
 
 
 
@@ -37,6 +38,17 @@ func upgrade_earn_gold():
 	get_parent().find_node("GameData").additional_gold_multipler += 0.1
 
 
-func _on_Button_pressed():
+func set_earn_xp_button():
+	get_node("ColorRect/Item_earn_xp/Button").disabled = return_earn_xp_access();
+
+func return_earn_xp_access() -> bool:
+	var result: bool = get_parent().find_node("GameData").silver_moon < EARN_XP_PRIVE
+	return result
+
+func upgrade_earn_xp():
+	get_parent().find_node("GameData").additional_xp_multipler += 0.1
+
+
+func _on_Button_pressed(): #TODO: Dać lepszą nazwę
 	game_manager.resume_gameplay()
 	queue_free()

@@ -12,6 +12,7 @@ var last_revival_level : int = 0
 
 var golds_on_second : float = 0.0
 var additional_gold_multipler : float = 1.0
+var additional_xp_multipler : float = 1.0
 var xp_on_second : float = 0.0
 var last_golds : Array = [0.0,0.0]
 var last_xp : Array = [0.0,0.0]
@@ -105,7 +106,7 @@ func add_gold(additional_gold):
 	set_gold(gold + additional_gold * additional_gold_multipler )
 	
 func add_xp(additional_xp):
-	set_xp(xp + additional_xp)
+	set_xp(xp + additional_xp * additional_xp_multipler)
 
 func add_silver_moon():
 	var lvl = level_manager.current_level

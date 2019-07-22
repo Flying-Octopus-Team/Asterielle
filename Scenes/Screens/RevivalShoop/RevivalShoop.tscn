@@ -101,17 +101,17 @@ text = "+"
 align = 1
 valign = 1
 
-[node name="Item_3" type="Node" parent="ColorRect"]
+[node name="Item_earn_xp" type="Node" parent="ColorRect"]
 editor/display_folded = true
 
-[node name="Panel" type="Panel" parent="ColorRect/Item_3"]
+[node name="Panel" type="Panel" parent="ColorRect/Item_earn_xp"]
 modulate = Color( 0.690196, 0.690196, 0.690196, 1 )
 margin_left = 319.0
 margin_top = 313.69
 margin_right = 712.0
 margin_bottom = 338.69
 
-[node name="Info" type="Label" parent="ColorRect/Item_3/Panel"]
+[node name="Info" type="Label" parent="ColorRect/Item_earn_xp/Panel"]
 margin_left = -76.0
 margin_top = 2.0
 margin_right = 305.0
@@ -120,7 +120,7 @@ text = "zwiększenie ilości zdobywanego doświadczenia:"
 align = 2
 valign = 1
 
-[node name="Count" type="Label" parent="ColorRect/Item_3/Panel"]
+[node name="Count" type="Label" parent="ColorRect/Item_earn_xp/Panel"]
 margin_left = 307.0
 margin_top = 2.0
 margin_right = 343.0
@@ -131,14 +131,14 @@ text = "1"
 align = 1
 valign = 1
 
-[node name="Button" type="Button" parent="ColorRect/Item_3"]
+[node name="Button" type="Button" parent="ColorRect/Item_earn_xp"]
 editor/display_folded = true
 margin_left = 681.14
 margin_top = 313.69
 margin_right = 703.14
 margin_bottom = 333.69
 
-[node name="Label" type="Label" parent="ColorRect/Item_3/Button"]
+[node name="Label" type="Label" parent="ColorRect/Item_earn_xp/Button"]
 margin_left = -8.35962
 margin_top = -3.25937
 margin_right = 11.6404
