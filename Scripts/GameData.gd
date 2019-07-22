@@ -21,6 +21,7 @@ var offline_time : int
 var offline_gold_reward : float
 var offline_xp_reward : float
 
+var time_to_kill_boss: int = 30
 var next_wait_time = 1.0
 var next_timer : float
 

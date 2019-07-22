@@ -11,6 +11,7 @@ margin_bottom = 600.0
 color = Color( 0.145098, 0.2, 0.247059, 1 )
 
 [node name="Item_enemies_per_level" type="Node" parent="ColorRect"]
+editor/display_folded = true
 
 [node name="Panel" type="Panel" parent="ColorRect/Item_enemies_per_level"]
 modulate = Color( 0.690196, 0.690196, 0.690196, 1 )
@@ -56,6 +57,7 @@ align = 1
 valign = 1
 
 [node name="Item_earn_gold" type="Node" parent="ColorRect"]
+editor/display_folded = true
 
 [node name="Panel" type="Panel" parent="ColorRect/Item_earn_gold"]
 modulate = Color( 0.690196, 0.690196, 0.690196, 1 )
@@ -102,9 +104,9 @@ align = 1
 valign = 1
 
 [node name="Item_earn_xp" type="Node" parent="ColorRect"]
-editor/display_folded = true
 
 [node name="Panel" type="Panel" parent="ColorRect/Item_earn_xp"]
+editor/display_folded = true
 modulate = Color( 0.690196, 0.690196, 0.690196, 1 )
 margin_left = 319.0
 margin_top = 313.69
@@ -148,9 +150,9 @@ text = "+"
 align = 1
 valign = 1
 
-[node name="Item_4" type="Node" parent="ColorRect"]
+[node name="Item_time_to_kill_boss" type="Node" parent="ColorRect"]
 
-[node name="Panel" type="Panel" parent="ColorRect/Item_4"]
+[node name="Panel" type="Panel" parent="ColorRect/Item_time_to_kill_boss"]
 editor/display_folded = true
 modulate = Color( 0.690196, 0.690196, 0.690196, 1 )
 margin_left = 319.0
@@ -158,7 +160,7 @@ margin_top = 351.31
 margin_right = 712.0
 margin_bottom = 376.31
 
-[node name="Info" type="Label" parent="ColorRect/Item_4/Panel"]
+[node name="Info" type="Label" parent="ColorRect/Item_time_to_kill_boss/Panel"]
 margin_left = -76.0
 margin_top = 2.0
 margin_right = 305.0
@@ -167,7 +169,7 @@ text = "zwiększenie timera na bossach:"
 align = 2
 valign = 1
 
-[node name="Count" type="Label" parent="ColorRect/Item_4/Panel"]
+[node name="Count" type="Label" parent="ColorRect/Item_time_to_kill_boss/Panel"]
 margin_left = 307.0
 margin_top = 2.0
 margin_right = 343.0
@@ -178,15 +180,14 @@ text = "1"
 align = 1
 valign = 1
 
-[node name="Button" type="Button" parent="ColorRect/Item_4"]
-editor/display_folded = true
+[node name="Button" type="Button" parent="ColorRect/Item_time_to_kill_boss"]
 margin_left = 681.14
 margin_top = 351.31
 margin_right = 703.14
 margin_bottom = 371.31
 disabled = true
 
-[node name="Label" type="Label" parent="ColorRect/Item_4/Button"]
+[node name="Label" type="Label" parent="ColorRect/Item_time_to_kill_boss/Button"]
 margin_left = -8.35962
 margin_top = -3.25937
 margin_right = 11.6404
@@ -298,4 +299,6 @@ margin_bottom = 522.45
 text = "EXIT"
 [connection signal="pressed" from="ColorRect/Item_enemies_per_level/Button" to="." method="upgrade_enemies_per_level"]
 [connection signal="pressed" from="ColorRect/Item_earn_gold/Button" to="." method="upgrade_earn_gold"]
-[connection signal="pressed" from="ColorRect/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="ColorRect/Item_earn_xp/Button" to="." method="upgrade_earn_xp"]
+[connection signal="pressed" from="ColorRect/Item_time_to_kill_boss/Button" to="." method="upgrade_time_to_kill_boss"]
+[connection signal="pressed" from="ColorRect/Button" to="." method="exit"]
