@@ -9,6 +9,7 @@ var xp : float = 0.0 setget set_xp
 var silver_moon : int = 0 setget set_silver_moon
 var all_silver_moon : int = 0
 var last_revival_level : int = 0
+var probability_to_get_silver_moon_in_percent: int = 15
 
 var golds_on_second : float = 0.0
 var additional_gold_multipler : float = 1.0
@@ -122,7 +123,7 @@ func add_silver_moon():
 		emit_signal("get_first_silver_moon")
 		return
 	
-	if rand_range(1,100) > 15:
+	if rand_range(1,100) > probability_to_get_silver_moon_in_percent:
 		return
 	
 	silver_moon += reward
@@ -141,6 +142,10 @@ func save():
 		_xp_on_second = xp_on_second,
 		_gold = gold,
 		_xp = xp,
-		_silver_moon = silver_moon
+		_silver_moon = silver_moon,
+		_additional_gold_multipler = additional_gold_multipler,
+		_additional_xp_multipler = additional_xp_multipler,
+		_time_to_kill_boss = time_to_kill_boss,
+		_probability_to_get_silver_moon_in_percent = probability_to_get_silver_moon_in_percent
 	}
 	return save_dict

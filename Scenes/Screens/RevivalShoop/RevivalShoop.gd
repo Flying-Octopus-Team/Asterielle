@@ -6,11 +6,15 @@ const ENEMIES_PER_LEVEL_PRICE = 0
 const EARN_GOLD_PRICE = 0
 const EARN_XP_PRICE = 0
 const TIME_TO_KILL_BOSS_PRICE = 0
+const SILVER_MOON_PROBABILITY = 0
 
 onready var enemies_per_level_count = get_node("ColorRect/Item_enemies_per_level/Panel/Count")
 onready var earn_gold_count = get_node("ColorRect/Item_earn_gold/Panel/Count")
 onready var earn_xp_count = get_node("ColorRect/Item_earn_xp/Panel/Count")
 onready var time_to_kill_boss_count = get_node("ColorRect/Item_time_to_kill_boss/Panel/Count")
+onready var silver_moon_probability_count = get_node("ColorRect/Item_silver_moon_probability/Panel/Count")
+
+onready var game_data = get_parent().find_node("GameData")
 
 
 
@@ -23,6 +27,8 @@ func _process(delta):
 	set_earn_xp_count()
 	set_time_to_kill_boss_button()
 	set_time_to_kill_boss_count()
+	set_silver_moon_probability_button()
+	set_silver_moon_probability_count()
 
 func exit():
 	game_manager.resume_gameplay()
@@ -35,7 +41,7 @@ func set_enemies_per_level_button():
 func return_enemies_per_level_access() -> bool:
 	if get_parent().find_node("LevelManager").dwarves_per_level <= 1:
 		return true #Ulepszono do maximum
-	var result : bool = get_parent().find_node("GameData").silver_moon < ENEMIES_PER_LEVEL_PRICE
+	var result : bool = game_data.silver_moon < ENEMIES_PER_LEVEL_PRICE
 	return result;
 
 func set_enemies_per_level_count():
@@ -51,39 +57,59 @@ func set_earn_gold_button():
 	get_node("ColorRect/Item_earn_gold/Button").disabled = return_earn_gold_access();
 
 func return_earn_gold_access() -> bool:
-	var result: bool = get_parent().find_node("GameData").silver_moon < EARN_GOLD_PRICE
+	var result: bool = game_data.silver_moon < EARN_GOLD_PRICE
 	return result
 
 func set_earn_gold_count():
-	earn_gold_count.text = "x" + String(get_parent().find_node("GameData").additional_gold_multipler)
+	earn_gold_count.text = "x" + String(game_data.additional_gold_multipler)
 
 func upgrade_earn_gold():
-	get_parent().find_node("GameData").additional_gold_multipler += 0.1
+	game_data.additional_gold_multipler += 0.1
 
 
 func set_earn_xp_button():
 	get_node("ColorRect/Item_earn_xp/Button").disabled = return_earn_xp_access();
 
 func return_earn_xp_access() -> bool:
-	var result: bool = get_parent().find_node("GameData").silver_moon < EARN_XP_PRICE
+	var result: bool = game_data.silver_moon < EARN_XP_PRICE
 	return result
 
 func set_earn_xp_count():
-	earn_xp_count.text = "x" + String(get_parent().find_node("GameData").additional_xp_multipler)
+	earn_xp_count.text = "x" + String(game_data.additional_xp_multipler)
 
 func upgrade_earn_xp():
-	get_parent().find_node("GameData").additional_xp_multipler += 0.1
+	game_data.additional_xp_multipler += 0.1
 
 
 func set_time_to_kill_boss_button():
 	get_node("ColorRect/Item_time_to_kill_boss/Button").disabled = return_time_to_kill_boss_access();
 
 func return_time_to_kill_boss_access() -> bool:
-	var result: bool = get_parent().find_node("GameData").silver_moon < TIME_TO_KILL_BOSS_PRICE
+	var result: bool = game_data.silver_moon < TIME_TO_KILL_BOSS_PRICE
 	return result
 
 func set_time_to_kill_boss_count():
-	time_to_kill_boss_count.text = String(get_parent().find_node("GameData").time_to_kill_boss) + "s"
+	time_to_kill_boss_count.text = String(game_data.time_to_kill_boss) + "s"
 
 func upgrade_time_to_kill_boss():
-	get_parent().find_node("GameData").time_to_kill_boss += 5
+	game_data.time_to_kill_boss += 5
+
+
+func set_silver_moon_probability_button():
+	get_node("ColorRect/Item_silver_moon_probability/Button").disabled = return_silver_moon_probability_access();
+
+func return_silver_moon_probability_access() -> bool:
+	if game_data.probability_to_get_silver_moon_in_percent >= 100:
+		return true #Ulepszono do maximum
+	var result: bool = game_data.silver_moon < SILVER_MOON_PROBABILITY
+	return result
+
+func set_silver_moon_probability_count():
+	silver_moon_probability_count.text = String(game_data.probability_to_get_silver_moon_in_percent) + "%" 
+
+func upgrade_silver_moon_probability():
+	game_data.probability_to_get_silver_moon_in_percent += 5
+
+
+
+

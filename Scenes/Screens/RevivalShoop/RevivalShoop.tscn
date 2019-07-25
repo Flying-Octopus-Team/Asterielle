@@ -191,17 +191,16 @@ text = "+"
 align = 1
 valign = 1
 
-[node name="Item_6" type="Node" parent="ColorRect"]
+[node name="Item_silver_moon_probability" type="Node" parent="ColorRect"]
 
-[node name="Panel" type="Panel" parent="ColorRect/Item_6"]
-editor/display_folded = true
+[node name="Panel" type="Panel" parent="ColorRect/Item_silver_moon_probability"]
 modulate = Color( 0.690196, 0.690196, 0.690196, 1 )
 margin_left = 317.371
 margin_top = 391.361
 margin_right = 710.371
 margin_bottom = 416.361
 
-[node name="Info" type="Label" parent="ColorRect/Item_6/Panel"]
+[node name="Info" type="Label" parent="ColorRect/Item_silver_moon_probability/Panel"]
 margin_left = -75.976
 margin_top = 2.0
 margin_right = 305.024
@@ -210,7 +209,7 @@ text = "szanse zdobycia srebrnych ksiezyców:"
 align = 2
 valign = 1
 
-[node name="Count" type="Label" parent="ColorRect/Item_6/Panel"]
+[node name="Count" type="Label" parent="ColorRect/Item_silver_moon_probability/Panel"]
 margin_left = 307.0
 margin_top = 2.0
 margin_right = 343.0
@@ -221,14 +220,13 @@ text = "15%"
 align = 1
 valign = 1
 
-[node name="Button" type="Button" parent="ColorRect/Item_6"]
-editor/display_folded = true
+[node name="Button" type="Button" parent="ColorRect/Item_silver_moon_probability"]
 margin_left = 679.511
-margin_top = 391.361
+margin_top = 394.512
 margin_right = 701.511
-margin_bottom = 411.361
+margin_bottom = 414.512
 
-[node name="Label" type="Label" parent="ColorRect/Item_6/Button"]
+[node name="Label" type="Label" parent="ColorRect/Item_silver_moon_probability/Button"]
 margin_left = -8.35962
 margin_top = -3.25937
 margin_right = 11.6404
@@ -248,4 +246,5 @@ text = "EXIT"
 [connection signal="pressed" from="ColorRect/Item_earn_gold/Button" to="." method="upgrade_earn_gold"]
 [connection signal="pressed" from="ColorRect/Item_earn_xp/Button" to="." method="upgrade_earn_xp"]
 [connection signal="pressed" from="ColorRect/Item_time_to_kill_boss/Button" to="." method="upgrade_time_to_kill_boss"]
+[connection signal="pressed" from="ColorRect/Item_silver_moon_probability/Button" to="." method="upgrade_silver_moon_probability"]
 [connection signal="pressed" from="ColorRect/Button" to="." method="exit"]

@@ -116,6 +116,7 @@ func reset_to_base():
 
 func save():
 	var save_dict = {
-		_current_level = current_level
+		_current_level = current_level,
+		_dwarves_per_level = dwarves_per_level
 	}
 	return save_dict

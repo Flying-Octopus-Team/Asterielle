@@ -77,6 +77,17 @@ func load_game():
 					load_helth_potion(data[node_path]['_amount'])
 				"_price":
 					load_price(float(data[node_path]['_price']))
+				"_dwarves_per_level":
+					load_dwarves_per_level(int(data[node_path]['_dwarves_per_level']))
+				"_additional_gold_multipler":
+					load_additional_gold_multipler(float(data[node_path]['_additional_gold_multipler']))
+				"_additional_xp_multipler":
+					load_additional_xp_multipler(float(data[node_path]['_additional_xp_multipler']))
+				"_time_to_kill_boss":
+					load_time_to_kill_boss(int(data[node_path]['_time_to_kill_boss']))
+				"_probability_to_get_silver_moon_in_percent":
+					load_probability_to_get_silver_moon_in_percent(int(data[node_path]['_probability_to_get_silver_moon_in_percent']))
+				
 	emit_signal("save_data_was_loaded")
 
 func load_offline_time(time):
@@ -125,6 +136,21 @@ func load_price(price):
 		var ArrowDmgItem = get_parent().find_node("ArrowDmgItem")
 		ArrowDmgItem.price = price
 		ArrowDmgItem.update_price_label()
+
+func load_dwarves_per_level(count):
+	level_manager.dwarves_per_level = count
+
+func load_additional_gold_multipler(value):
+	game_data.additional_gold_multipler = value
+
+func load_additional_xp_multipler(value):
+	game_data.additional_xp_multipler = value
+
+func load_time_to_kill_boss(time):
+	game_data.time_to_kill_boss = time
+
+func load_probability_to_get_silver_moon_in_percent(value):
+	game_data.probability_to_get_silver_moon_in_percent = value
 
 func revival_reset():
 	load_offline_time(0)
