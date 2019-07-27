@@ -48,3 +48,6 @@ func get_lower_price() -> float:
 func update_price_label():
 	$Price.text = str(get_lower_price())
 	
+func set_enabled(enabled:bool) -> void:
+	$BuyBtn.set_disabled(!enabled)
+	

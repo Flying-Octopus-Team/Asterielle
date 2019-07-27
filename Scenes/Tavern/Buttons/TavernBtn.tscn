@@ -27,5 +27,4 @@ margin_left = 163.0
 margin_right = 199.0
 margin_bottom = 20.0
 text = "Kup"
-
 [connection signal="pressed" from="BuyBtn" to="." method="_on_BuyBtn_pressed"]
