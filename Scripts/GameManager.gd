@@ -14,9 +14,9 @@ func resume_gameplay():
 	dwarves_spawner.spawn = true
 	dwarves_spawner.spawn_dwarf()
 	
-func create_popup(title:String):
+func create_popup(title:String, parent:Node):
 	var popup = Popup.instance()
-	#get_parent().get_node("PopupsContainer").call_deferred("add_child", popup)
-	#popup.call_deferred("init", title)
+	parent.call_deferred("add_child", popup)
+	popup.call_deferred("init", title)
 	return popup
 	

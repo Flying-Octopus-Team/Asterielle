@@ -65,9 +65,7 @@ func _on_TavernBtn_mouse_exited():
 
 func create_popup():
 	var game_manager = get_node("/root/World").find_node("GameManager")
-	popup = game_manager.create_popup(popup_title)
 	var screen = get_node("/root/World").find_node("TavernScreen")
-	screen.call_deferred("add_child", popup)
-	popup.call_deferred("init", popup_title)
+	popup = game_manager.create_popup(popup_title, screen)
 
 

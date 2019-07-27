@@ -11,7 +11,7 @@
 [ext_resource path="res://Resources/Items/Gloves.tres" type="Resource" id=9]
 [ext_resource path="res://Resources/Items/Boots.tres" type="Resource" id=10]
 
-[node name="TradesmanScreen" index="0" instance=ExtResource( 1 )]
+[node name="TradesmanScreen" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
 [node name="NameLabel" parent="VBoxContainer" index="0"]

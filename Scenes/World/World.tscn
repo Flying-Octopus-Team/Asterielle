@@ -165,8 +165,4 @@ rect_scale = Vector2( 1, 1 )
 
 [node name="GameSaver" type="Node" parent="."]
 script = ExtResource( 12 )
-
-[node name="PopupsContainer" type="Control" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
 [connection signal="pressed" from="UI/RevivalBtn" to="Revival" method="_on_RevivalBtn_pressed"]
