@@ -19,6 +19,7 @@ func _on_VinenBtn_bought() -> void:
 func should_wine_be_access() -> bool:
 	var elf = get_node("/root/World").find_node("Elf")
 	var elf_stats = get_node("/root/World/ElfStats")
+	var game_data = get_node("/root/World/GameData")
 	
-	return elf.hp < elf_stats.get_stat_value("vitality")
+	return elf.hp < elf_stats.get_stat_value("vitality") and vine_btn.price <= game_data.gold
 	

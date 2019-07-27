@@ -31,6 +31,25 @@ class Stat:
 		
 	func get_value() -> float:
 		return changed_value
+		
+	func get_value_replaced_item(item) -> float:
+		var vwc = value
+		
+		for c in changers:
+			if c.item_name != item.name:
+				vwc = c.get_multiplayed_value(vwc)
+				
+		for c in item.stat_changers:
+			vwc = c.get_multiplayed_value(vwc)
+		
+		for c in changers:
+			if c.item_name != item.name:
+				vwc = c.get_added_value(vwc)
+				
+		for c in item.stat_changers:
+			vwc = c.get_added_value(vwc)
+			
+		return max(vwc, 0)
 	
 	func get_unchanged_value() -> float:
 		return value
@@ -43,6 +62,13 @@ class Stat:
 	
 	func named(n:String) -> bool:
 		return name == n
+		
+	func is_changed_by_item(item_name) -> bool:
+		for c in changers:
+			if c.item_name == item_name:
+				return true
+		
+		return false
 		
 	func add_changer(changer:Resource) -> void:
 		changers.push_back(changer)

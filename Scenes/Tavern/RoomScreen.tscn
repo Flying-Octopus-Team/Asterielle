@@ -27,6 +27,7 @@ item_name = "Znajomosc lukow"
 price = 3.0
 price_mod = 1.2
 price_type = 1
+popup_title = "Zadawaj wieksze obrazenia"
 stat_name = "bows_knowledge"
 multiply_stat = 1.2
 
@@ -38,6 +39,7 @@ item_name = "Zrecznosc"
 price = 1.0
 price_mod = 1.2
 price_type = 1
+popup_title = "Unikaj krasnoludzkich ciosow"
 stat_name = "agility"
 add_to_stat = 0.01
 
@@ -50,6 +52,7 @@ item_name = "Witalnosc"
 price = 2.0
 price_mod = 1.2
 price_type = 1
+popup_title = "Wytrzymaj wiecej ran"
 stat_name = "vitality"
 add_to_stat = 1.0
 
@@ -61,6 +64,7 @@ item_name = "Charyzma"
 price = 5.0
 price_mod = 1.25
 price_type = 1
+popup_title = "Targuj nizsze ceny"
 stat_name = "charisma"
 add_to_stat = 1.0
 
@@ -72,6 +76,7 @@ item_name = "Czule punkty"
 price = 10.0
 price_mod = 1.2
 price_type = 1
+popup_title = "Znajdz czule punkty bossow"
 stat_name = "sensinitive_points"
 add_to_stat = 1.0
 
@@ -83,6 +88,7 @@ item_name = "Sokole oko"
 price = 10.0
 price_mod = 1.2
 price_type = 1
+popup_title = "Strzelaj precyzyjniej i zadawaj krytyki"
 stat_name = "eagle_eye"
 add_to_stat = 0.01
 
@@ -94,6 +100,7 @@ item_name = "Sila"
 price = 5.0
 price_mod = 1.2
 price_type = 1
+popup_title = "???"
 stat_name = "strength"
 add_to_stat = 1.0
 
@@ -105,6 +112,7 @@ item_name = "Magia"
 price = 10.0
 price_mod = 1.2
 price_type = 1
+popup_title = "Czaruj"
 stat_name = "magic"
 add_to_stat = 1.0
 
@@ -116,6 +124,7 @@ item_name = "Szczescie"
 price = 10.0
 price_mod = 1.2
 price_type = 1
+popup_title = "Trafiaj na lepsze przedmioty u handlarza"
 stat_name = "lucky"
 add_to_stat = 1.0
 
@@ -127,6 +136,7 @@ item_name = "Wytrzymalosc"
 price = 10.0
 price_mod = 1.2
 price_type = 1
+popup_title = "Strzelaj dluzej"
 stat_name = "stamina"
 add_to_stat = 0.2
 
