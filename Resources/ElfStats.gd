@@ -33,23 +33,23 @@ class Stat:
 		return changed_value
 		
 	func get_value_replaced_item(item) -> float:
-		var vwc = value
+		var re_changed_value = value
 		
-		for c in changers:
-			if c.item_name != item.name:
-				vwc = c.get_multiplayed_value(vwc)
+		for changer in changers:
+			if changer.item_name != item.name:
+				re_changed_value = changer.get_multiplayed_value(re_changed_value)
 				
-		for c in item.stat_changers:
-			vwc = c.get_multiplayed_value(vwc)
+		for changer in item.stat_changers:
+			re_changed_value = changer.get_multiplayed_value(re_changed_value)
 		
-		for c in changers:
-			if c.item_name != item.name:
-				vwc = c.get_added_value(vwc)
+		for changer in changers:
+			if changer.item_name != item.name:
+				re_changed_value = changer.get_added_value(re_changed_value)
 				
-		for c in item.stat_changers:
-			vwc = c.get_added_value(vwc)
+		for changer in item.stat_changers:
+			re_changed_value = changer.get_added_value(re_changed_value)
 			
-		return max(vwc, 0)
+		return max(re_changed_value, 0)
 	
 	func get_unchanged_value() -> float:
 		return value
