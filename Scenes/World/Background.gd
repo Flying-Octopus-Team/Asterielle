@@ -7,6 +7,10 @@ export(float) var tree_seperation
 var Layer = load("res://Objects/Background/Layer.tscn")
 
 func _ready() -> void:
+	var layers : Array = create_layers_array()
+	add_layers_from_back(layers)
+		
+func create_layers_array() -> Array:
 	var layers : Array = []
 	
 	var deepth_scale : float = 1.0
@@ -15,10 +19,8 @@ func _ready() -> void:
 		layers.append(layer)
 		deepth_scale *= 0.75
 		
-	# looping backwards
-	for i in range(layers.size()-1, -1, -1):
-		add_child(layers[i])
-		
+	return layers
+	
 func create_layer(deepth_scale) -> Node2D:
 	var layer = Layer.instance()
 	
@@ -28,4 +30,8 @@ func create_layer(deepth_scale) -> Node2D:
 	
 	return layer
 	
+func add_layers_from_back(layers) -> void:
+	# looping backwards
+	for i in range(layers.size()-1, -1, -1):
+		add_child(layers[i])
 	
