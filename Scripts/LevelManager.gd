@@ -87,7 +87,7 @@ func on_Boss_kill_timeout():
 	
 func on_Game_Over():
 	var eis = EssentialInformScreen.instance()
-	eis.init(3,"Game Over","Spraciles przytomnosc\n Teraz mozesz odrodzic sie na polu walki albo w tawernie","skull")
+	eis.init(3,"Game Over","Spraciles przytomnosc\n Teraz mozesz odrodzic sie na polu walki albo w tawernie","skull",false)
 	eis.connect("timeout", self, "reset_to_base")
 	get_parent().call_deferred("add_child", eis)
 
@@ -106,6 +106,7 @@ func show_offline_screen():
 	get_parent().call_deferred("add_child", nis)
 
 func reset_to_base():
+	print("Raz wykonuje ")
 	current_level = floor((current_level-1) / 10) * 10 + 1
 	killed_dwarves = 0
 	ui.set_level_label(String(current_level))
