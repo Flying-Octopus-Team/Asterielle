@@ -10,10 +10,10 @@ onready var game_data = get_node("GameData")
 
 
 func set_gold_label(gold: float):
-	gold_label.text = str("Zloto: ", gold)
+	gold_label.text = str("Zloto: ", round(gold))
 	
 func set_xp_label(xp):
-	xp_label.text = str("Doswiadczenie: ", xp)
+	xp_label.text = str("Doswiadczenie: ", round(xp))
 
 func set_silver_moon_label(silver_moon):
 	if silver_moon > 0:

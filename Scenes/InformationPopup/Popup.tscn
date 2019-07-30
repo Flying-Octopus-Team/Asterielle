@@ -25,7 +25,7 @@ margin_bottom = -6.0
 grow_vertical = 2
 
 [node name="Label" type="Label" parent="MarginContainer"]
-margin_right = 143.0
+margin_right = 119.0
 margin_bottom = 14.0
 grow_horizontal = 2
 grow_vertical = 2

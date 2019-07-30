@@ -7,8 +7,6 @@
 [ext_resource path="res://Objects/Elf/HP/HPBar_bar.png" type="Texture" id=5]
 [ext_resource path="res://Objects/Elf/HP/HPBar_Over.png" type="Texture" id=6]
 
-
-
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 62, 42 )
 
@@ -71,4 +69,3 @@ margin_right = 20.0
 margin_bottom = -7.0
 text = "10"
 align = 1
-

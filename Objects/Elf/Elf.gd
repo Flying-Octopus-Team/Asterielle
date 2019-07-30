@@ -66,7 +66,7 @@ func on_dwarf_hit(dmg) -> bool:
 	
 	hp -= dmg
 	
-	hp_label.text = str(hp)
+	update_hp_label()
 	
 	if hp <= 0:
 		emit_signal("game_over")
@@ -74,7 +74,10 @@ func on_dwarf_hit(dmg) -> bool:
 	else:
 		hp_bar.value = hp
 		return true
-		
+
+func update_hp_label():
+	hp_label.text = str(stepify(hp,0.01))
+
 func reset_to_base():
 	hp = stats.get_stat_value("vitality")
 	hp_bar.max_value = hp
