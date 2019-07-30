@@ -30,7 +30,6 @@ move_speed = 70.0
 tree_seperation = 250.0
 
 [node name="UI" type="Control" parent="."]
-editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 3 )
@@ -94,20 +93,20 @@ margin_right = 945.0
 margin_bottom = 50.0
 
 [node name="TavernEnterBtn" type="CheckButton" parent="UI"]
-margin_left = 40.0
-margin_top = 40.0
-margin_right = 985.0
-margin_bottom = 120.0
+margin_left = 895.684
+margin_top = 72.6317
+margin_right = 978.684
+margin_bottom = 115.632
 
 [node name="TavernLabel" type="Label" parent="UI/TavernEnterBtn"]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -135.97
-margin_top = -74.2068
-margin_right = 1002.03
-margin_bottom = -42.2068
+margin_left = -81.8158
+margin_top = -55.7368
+margin_right = 81.1842
+margin_bottom = -23.7368
 text = "Wejdz do tawerny"
 align = 1
 
