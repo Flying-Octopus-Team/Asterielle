@@ -2,7 +2,6 @@
 
 [ext_resource path="res://Scenes/Screens/OfflineScreen/OfflineScreen.gd" type="Script" id=1]
 
-
 [node name="OfflineScreen" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -36,9 +35,9 @@ text = "Otrzymales: 10 000 golda"
 align = 1
 
 [node name="Button" type="Button" parent="CanvasLayer"]
-margin_left = 354.133
-margin_top = 273.759
-margin_right = 666.133
-margin_bottom = 341.759
+margin_left = 491.531
+margin_top = 337.697
+margin_right = 803.531
+margin_bottom = 405.697
 text = "OK!"
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_Button_pressed"]

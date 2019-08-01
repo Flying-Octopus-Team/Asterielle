@@ -1,9 +1,8 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/Screens/EssentialInform/EssentialInform.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/Screens/EssentialInform/SilverMoon.png" type="Texture" id=2]
-[ext_resource path="res://Scenes/Screens/EssentialInform/Skull.png" type="Texture" id=3]
-
+[ext_resource path="res://Scenes/Screens/EssentialInform/Skull.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Screens/EssentialInform/SilverMoon.png" type="Texture" id=3]
 
 [sub_resource type="Animation" id=1]
 resource_name = "FadedIn"
@@ -148,12 +147,12 @@ tracks/4/keys = {
 animations = [ {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
-"name": "moon",
+"name": "skull",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
-"name": "skull",
+"name": "moon",
 "speed": 5.0
 } ]
 
@@ -200,17 +199,17 @@ Center Text Center Text Center Text "
 align = 1
 
 [node name="Sprite" type="AnimatedSprite" parent="CanvasLayer"]
-position = Vector2( 511.96, 396.538 )
+position = Vector2( 641.195, 393.817 )
 rotation = -0.00411392
 scale = Vector2( 0.357688, 0.357688 )
 frames = SubResource( 3 )
 animation = "skull"
 
 [node name="ExitButton" type="Button" parent="CanvasLayer"]
-margin_left = 343.35
-margin_top = 661.55
-margin_right = 701.35
-margin_bottom = 717.55
+margin_left = 458.982
+margin_top = 657.469
+margin_right = 816.982
+margin_bottom = 713.469
 text = "OK"
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="pressed" from="CanvasLayer/ExitButton" to="." method="_on_ExitButton_pressed"]

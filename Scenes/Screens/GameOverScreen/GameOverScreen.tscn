@@ -48,10 +48,10 @@ value = 100.0
 texture_progress = ExtResource( 2 )
 
 [node name="RespawnInTavern" type="CheckButton" parent="CanvasLayer"]
-margin_left = 402.0
-margin_top = 460.0
-margin_right = 628.0
-margin_bottom = 500.0
+margin_left = 529.875
+margin_top = 499.451
+margin_right = 755.875
+margin_bottom = 539.451
 text = "Odrodz sie w karczmie"
 align = 1
 
