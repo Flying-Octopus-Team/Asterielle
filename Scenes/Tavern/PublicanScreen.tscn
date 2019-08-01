@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scenes/Tavern/OneTavernScreen.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Tavern/PublicanScreen.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/Tavern/Shop/PublicanShop.gd" type="Script" id=3]
-[ext_resource path="res://Scenes/Tavern/Buttons/TavernBtn.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Tavern/Buttons/VineBtn.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Tavern/Buttons/TavernBtn.tscn" type="PackedScene" id=5]
 
 [node name="PublicanScreen" index="0" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
@@ -19,20 +20,17 @@ script = ExtResource( 3 )
 
 [node name="VineBtn" parent="VBoxContainer/Shop" index="0" instance=ExtResource( 4 )]
 margin_right = 1024.0
-item_name = "Leczace wino"
-price = 2.0
-popup_title = "Ulecz sie do konca"
 
-[node name="HealthPotionBtn" parent="VBoxContainer/Shop" index="1" instance=ExtResource( 4 )]
+[node name="HealthPotionBtn" parent="VBoxContainer/Shop" index="1" instance=ExtResource( 5 )]
 margin_top = 24.0
 margin_right = 1024.0
 margin_bottom = 44.0
 item_name = "Mikstura zycia"
-price = 1.0
+price_gold = 3.0
 popup_title = "Kup miksture zycia na poznie (leczy 4 hp)"
 
 [node name="CenterContainer" parent="VBoxContainer" index="2"]
 margin_top = 100.0
 margin_bottom = 120.0
-[connection signal="bought" from="VBoxContainer/Shop/VineBtn" to="VBoxContainer/Shop" method="_on_VinenBtn_bought"]
+[connection signal="bought" from="VBoxContainer/Shop/VineBtn" to="VBoxContainer/Shop" method="_on_VineBtn_bought"]
 [connection signal="bought" from="VBoxContainer/Shop/HealthPotionBtn" to="VBoxContainer/Shop" method="_on_HealthPotionBtn_bought"]

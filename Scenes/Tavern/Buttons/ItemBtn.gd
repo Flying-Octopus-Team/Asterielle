@@ -9,7 +9,7 @@ func _on_BuyBtn_pressed():
 	
 func generate_random():
 	item.generate_random(elf_stats.get_stat_value("lucky"))
-	set_price(item.price)
+	set_price_gold(item.price)
 	generate_popup_title()
 	
 func generate_popup_title():
