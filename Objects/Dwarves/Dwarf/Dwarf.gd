@@ -14,6 +14,7 @@ onready var hp_bar
 onready var hp_label
 
 func _ready():
+	add_to_group("IDwarf")
 	go_forward()
 	
 func set_hp(new_hp):

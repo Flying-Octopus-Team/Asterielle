@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/BottomBar/Skills/SkillBtn.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/BottomBar/Skills/SpeedupBtn.gd" type="Script" id=2]
+
+[node name="SkillBtn" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="CooldownTimer" parent="." index="1"]
+wait_time = 60.0
+
+[node name="TimeLeftLabel" parent="." index="2"]
+margin_top = 36.0
+margin_bottom = 50.0
