@@ -17,9 +17,6 @@ var tree_scale : float
 var distance_counter : float = 0
 
 onready var WINDOW_WIDTH = get_viewport().size.x
-onready var layers = [
-	$Layer0,
-]
 
 func _ready() -> void:
 	randomize()

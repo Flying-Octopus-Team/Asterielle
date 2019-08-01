@@ -5,8 +5,6 @@ onready var xp_label = find_node("XpLabel")
 onready var silver_moon_label = find_node("SilverMoonLabel")
 onready var level_label = find_node("LevelLabel")
 onready var killed_dwarves_label = find_node("KilledDwarvesLabel")
-onready var game_data = get_node("GameData")
-
 
 
 func set_gold_label(gold: float):
