@@ -10,12 +10,6 @@
 [ext_resource path="res://Scenes/Tavern/Resources/TavernResources.gd" type="Script" id=8]
 [ext_resource path="res://Objects/StatsPanel/StatsPanel.tscn" type="PackedScene" id=9]
 
-
-
-
-
-
-
 [node name="TavernScreen" type="CanvasLayer"]
 script = ExtResource( 1 )
 

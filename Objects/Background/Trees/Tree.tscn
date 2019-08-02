@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Objects/Background/Trees/tree3.png" type="Texture" id=1]
+[ext_resource path="res://Objects/Background/Trees/Tree.gd" type="Script" id=2]
+
+[node name="Tree" type="Sprite"]
+position = Vector2( 157.755, 434.341 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+position = Vector2( -4.91094, 8.59418 )
+scale = Vector2( 13.4002, 13.6457 )
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
