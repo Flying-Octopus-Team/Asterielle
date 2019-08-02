@@ -8,11 +8,11 @@ const EARN_XP_PRICE = 0
 const TIME_TO_KILL_BOSS_PRICE = 0
 const SILVER_MOON_PROBABILITY = 0
 
-onready var enemies_per_level_count = get_node("ColorRect/Item_enemies_per_level/Panel/Count")
-onready var earn_gold_count = get_node("ColorRect/Item_earn_gold/Panel/Count")
-onready var earn_xp_count = get_node("ColorRect/Item_earn_xp/Panel/Count")
-onready var time_to_kill_boss_count = get_node("ColorRect/Item_time_to_kill_boss/Panel/Count")
-onready var silver_moon_probability_count = get_node("ColorRect/Item_silver_moon_probability/Panel/Count")
+onready var enemies_per_level_count = find_node("Item_enemies_per_level").find_node("Count")
+onready var earn_gold_count = find_node("Item_earn_gold").find_node("Count")
+onready var earn_xp_count = find_node("Item_earn_xp").find_node("Count")
+onready var time_to_kill_boss_count = find_node("Item_time_to_kill_boss").find_node("Count")
+onready var silver_moon_probability_count = find_node("Item_silver_moon_probability").find_node("Count")
 
 onready var game_data = get_parent().find_node("GameData")
 
