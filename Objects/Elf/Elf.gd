@@ -10,7 +10,7 @@ var Arrow = load("res://Objects/Elf/Arrow/Arrow.tscn")
 var next_arrow_timer : float
 var next_arrow_velocity : Vector2
 
-var hp : float
+var hp : float setget set_current_hp
 
 onready var stats = get_node("/root/World/ElfStats")
 onready var fire_point = find_node("FirePoint")

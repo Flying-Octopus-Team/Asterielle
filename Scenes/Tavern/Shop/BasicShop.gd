@@ -22,11 +22,14 @@ func on_Xp_changed():
 	disable_valid_buttons()
 		
 func disable_valid_buttons():
-	for i in range(get_child_count()):
-		var item = get_child(i)	
+	for item in get_children():
 		var price = float(item.get_node("Price").text)
+		var gold_or_xp : float
+		
 		match item.price_type:
 			item.PriceType.GOLD:
-				item.get_node("BuyBtn").set_disabled(price > game_data.gold)
+				gold_or_xp = game_data.gold
 			item.PriceType.XP:
-				item.get_node("BuyBtn").set_disabled(price > game_data.xp)
+				gold_or_xp = game_data.xp
+				
+		item.get_node("BuyBtn").set_disabled(price > gold_or_xp)
