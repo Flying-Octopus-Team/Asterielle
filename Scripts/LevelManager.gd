@@ -8,6 +8,7 @@ signal next_level
 export(int) var dwarves_per_level : int = 5
 
 var current_level : int = 1
+var basic_start_level : int = 0
 
 var killed_dwarves : int = 0
 

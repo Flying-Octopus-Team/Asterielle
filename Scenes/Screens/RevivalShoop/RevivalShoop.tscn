@@ -236,6 +236,51 @@ text = "+"
 align = 1
 valign = 1
 
+[node name="Item_basic_start_level" type="Node" parent="ColorRect"]
+
+[node name="Panel" type="Panel" parent="ColorRect/Item_basic_start_level"]
+modulate = Color( 0.690196, 0.690196, 0.690196, 1 )
+margin_left = 317.371
+margin_top = 429.586
+margin_right = 710.371
+margin_bottom = 454.586
+
+[node name="Info" type="Label" parent="ColorRect/Item_basic_start_level/Panel"]
+margin_left = -75.976
+margin_top = 2.0
+margin_right = 305.024
+margin_bottom = 23.0
+text = "rozpoczęcie rozgrywki od poziomu:"
+align = 2
+valign = 1
+
+[node name="Count" type="Label" parent="ColorRect/Item_basic_start_level/Panel"]
+margin_left = 307.0
+margin_top = 2.0
+margin_right = 343.0
+margin_bottom = 17.0
+rect_scale = Vector2( 1.5, 1.5 )
+custom_colors/font_color = Color( 0.0588235, 1, 0, 1 )
+text = "0"
+align = 1
+valign = 1
+
+[node name="Button" type="Button" parent="ColorRect/Item_basic_start_level"]
+margin_left = 679.511
+margin_top = 432.737
+margin_right = 701.511
+margin_bottom = 452.737
+
+[node name="Label" type="Label" parent="ColorRect/Item_basic_start_level/Button"]
+margin_left = -8.35962
+margin_top = -3.25937
+margin_right = 11.6404
+margin_bottom = 10.7406
+rect_scale = Vector2( 2, 2 )
+text = "+"
+align = 1
+valign = 1
+
 [node name="Button" type="Button" parent="ColorRect"]
 margin_left = 462.549
 margin_top = 483.45
@@ -247,4 +292,5 @@ text = "EXIT"
 [connection signal="pressed" from="ColorRect/Item_earn_xp/Button" to="." method="upgrade_earn_xp"]
 [connection signal="pressed" from="ColorRect/Item_time_to_kill_boss/Button" to="." method="upgrade_time_to_kill_boss"]
 [connection signal="pressed" from="ColorRect/Item_silver_moon_probability/Button" to="." method="upgrade_silver_moon_probability"]
+[connection signal="pressed" from="ColorRect/Item_basic_start_level/Button" to="." method="upgrade_basic_start_level"]
 [connection signal="pressed" from="ColorRect/Button" to="." method="exit"]
