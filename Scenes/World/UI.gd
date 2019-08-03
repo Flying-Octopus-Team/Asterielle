@@ -21,8 +21,8 @@ func set_silver_moon_label(silver_moon):
 	else:
 		silver_moon_label.text = ""
 
-func set_level_label(var current_level: String):
-	level_label.text = str("Poziom ", current_level)
+func set_level_label(var current_level):
+	level_label.text = str("Poziom ", String(current_level))
 
 func set_killed_dwarves_label(killed_dwarves, dwarves_per_level):
 	killed_dwarves_label.text = str(killed_dwarves, " / ", dwarves_per_level)

@@ -7,7 +7,8 @@ signal next_level
 
 export(int) var dwarves_per_level : int = 5
 
-var current_level : int = 1
+var current_level : int = 1 setget set_level
+
 var basic_start_level : int = 0
 
 var killed_dwarves : int = 0
@@ -27,7 +28,9 @@ var RevivalShoop = load("res://Scenes/Screens/RevivalShoop/RevivalShoop.tscn")
 
 const OffineScreen = preload("res://Scenes/Screens/OfflineScreen/OfflineScreen.gd")
 
-
+func set_level(value):
+	current_level = value
+	ui.set_level_label(value)
 
 func _ready():
 	add_to_group('IHaveSthToSave')
