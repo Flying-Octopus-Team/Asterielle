@@ -23,7 +23,7 @@ func set_hp(new_hp):
 	
 	hp_bar.max_value = hp
 	hp_bar.value = hp
-	hp_label.text = str(hp)
+	hp_label.text = str(stepify(hp,0.01))
 	
 func _physics_process(delta):
 	position += velocity * delta
@@ -45,7 +45,7 @@ func on_arrow_hit(arrow):
 	else:
 		hp_bar.value = hp
 		
-	hp_label.text = str(hp)
+	hp_label.text = str(stepify(hp,0.01))
 		
 func go_forward():
 	velocity = Vector2(-move_speed, 0)

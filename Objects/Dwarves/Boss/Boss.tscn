@@ -4,10 +4,6 @@
 [ext_resource path="res://Objects/Dwarves/Boss/Boss.gd" type="Script" id=2]
 [ext_resource path="res://Objects/Dwarves/Boss/BossTimeToKillCanvas.tscn" type="PackedScene" id=3]
 
-
-
-
-
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 36, 59 )
 

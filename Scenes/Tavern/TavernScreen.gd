@@ -4,6 +4,7 @@ signal tavern_entered
 signal tavern_exited
 signal room_exited
 
+onready var game_manager = get_parent().get_node("GameManager")
 onready var world = get_parent()
 onready var main_hall = $MainHall
 onready var resources = $Resources
@@ -25,6 +26,7 @@ func enter_tavern():
 
 func _on_ExitDoorBtn_pressed():
 	$Background.visible = false
+	get_parent().find_node("DwarvesSpawner").spawn = true
 	emit_signal("tavern_exited")
 
 func _on_Room_exited():

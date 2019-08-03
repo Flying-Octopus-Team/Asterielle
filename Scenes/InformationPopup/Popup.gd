@@ -39,5 +39,3 @@ func update_position():
 	rect_position = mouse_pos
 	rect_position.x -= rect_size.x * 0.5
 	rect_position.y -= rect_size.y + mouse_y_offset
-	
-	
