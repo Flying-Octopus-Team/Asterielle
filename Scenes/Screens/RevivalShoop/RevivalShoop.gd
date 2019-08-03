@@ -58,7 +58,7 @@ func exit():
 
 
 func set_enemies_per_level_button():
-	find_node("Item_enemies_per_level/Button").disabled = return_enemies_per_level_access();
+	find_node("Item_enemies_per_level").find_node("Button").disabled = return_enemies_per_level_access();
 
 func return_enemies_per_level_access() -> bool:
 	if get_parent().find_node("LevelManager").dwarves_per_level <= 1:
@@ -75,7 +75,7 @@ func upgrade_enemies_per_level():
 
 
 func set_earn_gold_button():
-	find_node("Item_earn_gold/Button").disabled = return_earn_gold_access();
+	find_node("Item_earn_gold").find_node("Button").disabled = return_earn_gold_access();
 
 func return_earn_gold_access() -> bool:
 	var result: bool = game_data.silver_moon < EARN_GOLD_PRICE
@@ -89,7 +89,7 @@ func upgrade_earn_gold():
 
 
 func set_earn_xp_button():
-	find_node("Item_earn_xp/Button").disabled = return_earn_xp_access();
+	find_node("Item_earn_xp").find_node("Button").disabled = return_earn_xp_access();
 
 func return_earn_xp_access() -> bool:
 	var result: bool = game_data.silver_moon < EARN_XP_PRICE
@@ -103,7 +103,7 @@ func upgrade_earn_xp():
 
 
 func set_time_to_kill_boss_button():
-	find_node("Item_time_to_kill_boss/Button").disabled = return_time_to_kill_boss_access();
+	find_node("Item_time_to_kill_boss").find_node("Button").disabled = return_time_to_kill_boss_access();
 
 func return_time_to_kill_boss_access() -> bool:
 	var result: bool = game_data.silver_moon < TIME_TO_KILL_BOSS_PRICE
@@ -117,7 +117,7 @@ func upgrade_time_to_kill_boss():
 
 
 func set_silver_moon_probability_button():
-	find_node("Item_silver_moon_probability/Button").disabled = return_silver_moon_probability_access();
+	find_node("Item_silver_moon_probability").find_node("Button").disabled = return_silver_moon_probability_access();
 
 func return_silver_moon_probability_access() -> bool:
 	if game_data.probability_to_get_silver_moon_in_percent >= 100:
@@ -133,7 +133,7 @@ func upgrade_silver_moon_probability():
 
 
 func set_basic_start_level_button():
-	find_node("Item_silver_moon_probability/Button").disabled = return_basic_start_level_access();
+	find_node("Item_silver_moon_probability").find_node("Button").disabled = return_basic_start_level_access();
 
 func return_basic_start_level_access() -> bool:
 	var result: bool = game_data.silver_moon < BASIC_START_LEVEL_PRCE
@@ -148,7 +148,7 @@ func upgrade_basic_start_level():
 
 
 func set_basic_damage_button():
-	find_node("Item_basic_damage/Button").disabled = return_basic_damage_access();
+	find_node("Item_basic_damage").find_node("Button").disabled = return_basic_damage_access();
 
 func return_basic_damage_access() -> bool:
 	var result: bool = game_data.silver_moon < BASIC_DAMAGE_PRCE
@@ -162,7 +162,7 @@ func upgrade_basic_damage():
 
 
 func set_basic_hp_button():
-	find_node("Item_basic_hp/Button").disabled = return_basic_hp_access();
+	find_node("Item_basic_hp").find_node("Button").disabled = return_basic_hp_access();
 
 func return_basic_hp_access() -> bool:
 	var result: bool = game_data.silver_moon < BASIC_HP_PRCE
@@ -176,7 +176,7 @@ func upgrade_basic_hp():
 
 
 func set_items_price_button():
-	find_node("Item_items_price/Button").disabled = return_items_price_access();
+	find_node("Item_items_price").find_node("Button").disabled = return_items_price_access();
 
 func return_items_price_access() -> bool:
 	var result: bool = game_data.silver_moon < BASIC_ITEMS_PRCE
