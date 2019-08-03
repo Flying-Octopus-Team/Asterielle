@@ -106,7 +106,6 @@ func show_offline_screen():
 	get_parent().call_deferred("add_child", nis)
 
 func reset_to_base():
-	print("Raz wykonuje ")
 	current_level = floor((current_level-1) / 10) * 10 + 1
 	killed_dwarves = 0
 	ui.set_level_label(String(current_level))
