@@ -14,10 +14,10 @@ color = Color( 0.145098, 0.2, 0.247059, 1 )
 
 [node name="Panel" type="Panel" parent="ColorRect/Item_enemies_per_level"]
 modulate = Color( 0.690196, 0.690196, 0.690196, 1 )
-margin_left = 319.0
-margin_top = 240.0
-margin_right = 712.0
-margin_bottom = 265.0
+margin_left = 332.164
+margin_top = 112.914
+margin_right = 725.164
+margin_bottom = 137.914
 
 [node name="Info" type="Label" parent="ColorRect/Item_enemies_per_level/Panel"]
 margin_left = -76.0
@@ -40,10 +40,10 @@ align = 1
 valign = 1
 
 [node name="Button" type="Button" parent="ColorRect/Item_enemies_per_level"]
-margin_left = 681.14
-margin_top = 242.0
-margin_right = 703.14
-margin_bottom = 262.0
+margin_left = 694.304
+margin_top = 114.914
+margin_right = 716.304
+margin_bottom = 134.914
 
 [node name="Label" type="Label" parent="ColorRect/Item_enemies_per_level/Button"]
 margin_left = -8.35962
@@ -59,10 +59,10 @@ valign = 1
 
 [node name="Panel" type="Panel" parent="ColorRect/Item_earn_gold"]
 modulate = Color( 0.690196, 0.690196, 0.690196, 1 )
-margin_left = 319.0
-margin_top = 275.8
-margin_right = 712.0
-margin_bottom = 300.8
+margin_left = 332.164
+margin_top = 148.714
+margin_right = 725.164
+margin_bottom = 173.714
 
 [node name="Info" type="Label" parent="ColorRect/Item_earn_gold/Panel"]
 margin_left = -76.0
@@ -85,10 +85,10 @@ align = 1
 valign = 1
 
 [node name="Button" type="Button" parent="ColorRect/Item_earn_gold"]
-margin_left = 681.14
-margin_top = 278.441
-margin_right = 703.14
-margin_bottom = 298.441
+margin_left = 694.304
+margin_top = 151.355
+margin_right = 716.304
+margin_bottom = 171.355
 
 [node name="Label" type="Label" parent="ColorRect/Item_earn_gold/Button"]
 margin_left = -8.35962
@@ -104,10 +104,10 @@ valign = 1
 
 [node name="Panel" type="Panel" parent="ColorRect/Item_earn_xp"]
 modulate = Color( 0.690196, 0.690196, 0.690196, 1 )
-margin_left = 319.0
-margin_top = 313.69
-margin_right = 712.0
-margin_bottom = 338.69
+margin_left = 332.164
+margin_top = 186.604
+margin_right = 725.164
+margin_bottom = 211.604
 
 [node name="Info" type="Label" parent="ColorRect/Item_earn_xp/Panel"]
 margin_left = -76.0
@@ -130,10 +130,10 @@ align = 1
 valign = 1
 
 [node name="Button" type="Button" parent="ColorRect/Item_earn_xp"]
-margin_left = 681.14
-margin_top = 316.331
-margin_right = 703.14
-margin_bottom = 336.331
+margin_left = 694.304
+margin_top = 189.245
+margin_right = 716.304
+margin_bottom = 209.245
 
 [node name="Label" type="Label" parent="ColorRect/Item_earn_xp/Button"]
 margin_left = -8.35962
@@ -149,10 +149,10 @@ valign = 1
 
 [node name="Panel" type="Panel" parent="ColorRect/Item_time_to_kill_boss"]
 modulate = Color( 0.690196, 0.690196, 0.690196, 1 )
-margin_left = 319.0
-margin_top = 351.31
-margin_right = 712.0
-margin_bottom = 376.31
+margin_left = 332.164
+margin_top = 224.224
+margin_right = 725.164
+margin_bottom = 249.224
 
 [node name="Info" type="Label" parent="ColorRect/Item_time_to_kill_boss/Panel"]
 margin_left = -76.0
@@ -175,10 +175,10 @@ align = 1
 valign = 1
 
 [node name="Button" type="Button" parent="ColorRect/Item_time_to_kill_boss"]
-margin_left = 681.14
-margin_top = 353.511
-margin_right = 703.14
-margin_bottom = 373.511
+margin_left = 694.304
+margin_top = 226.425
+margin_right = 716.304
+margin_bottom = 246.425
 disabled = true
 
 [node name="Label" type="Label" parent="ColorRect/Item_time_to_kill_boss/Button"]
@@ -195,10 +195,10 @@ valign = 1
 
 [node name="Panel" type="Panel" parent="ColorRect/Item_silver_moon_probability"]
 modulate = Color( 0.690196, 0.690196, 0.690196, 1 )
-margin_left = 317.371
-margin_top = 391.361
-margin_right = 710.371
-margin_bottom = 416.361
+margin_left = 330.535
+margin_top = 264.275
+margin_right = 723.535
+margin_bottom = 289.275
 
 [node name="Info" type="Label" parent="ColorRect/Item_silver_moon_probability/Panel"]
 margin_left = -75.976
@@ -221,10 +221,10 @@ align = 1
 valign = 1
 
 [node name="Button" type="Button" parent="ColorRect/Item_silver_moon_probability"]
-margin_left = 679.511
-margin_top = 394.512
-margin_right = 701.511
-margin_bottom = 414.512
+margin_left = 692.675
+margin_top = 267.426
+margin_right = 714.675
+margin_bottom = 287.426
 
 [node name="Label" type="Label" parent="ColorRect/Item_silver_moon_probability/Button"]
 margin_left = -8.35962
@@ -240,10 +240,10 @@ valign = 1
 
 [node name="Panel" type="Panel" parent="ColorRect/Item_basic_start_level"]
 modulate = Color( 0.690196, 0.690196, 0.690196, 1 )
-margin_left = 317.371
-margin_top = 429.586
-margin_right = 710.371
-margin_bottom = 454.586
+margin_left = 330.535
+margin_top = 302.5
+margin_right = 723.535
+margin_bottom = 327.5
 
 [node name="Info" type="Label" parent="ColorRect/Item_basic_start_level/Panel"]
 margin_left = -75.976
@@ -266,12 +266,147 @@ align = 1
 valign = 1
 
 [node name="Button" type="Button" parent="ColorRect/Item_basic_start_level"]
-margin_left = 679.511
-margin_top = 432.737
-margin_right = 701.511
-margin_bottom = 452.737
+margin_left = 692.675
+margin_top = 305.651
+margin_right = 714.675
+margin_bottom = 325.651
 
 [node name="Label" type="Label" parent="ColorRect/Item_basic_start_level/Button"]
+margin_left = -8.35962
+margin_top = -3.25937
+margin_right = 11.6404
+margin_bottom = 10.7406
+rect_scale = Vector2( 2, 2 )
+text = "+"
+align = 1
+valign = 1
+
+[node name="Item_basic_damage" type="Node" parent="ColorRect"]
+
+[node name="Panel" type="Panel" parent="ColorRect/Item_basic_damage"]
+modulate = Color( 0.690196, 0.690196, 0.690196, 1 )
+margin_left = 330.535
+margin_top = 343.51
+margin_right = 723.535
+margin_bottom = 368.51
+
+[node name="Info" type="Label" parent="ColorRect/Item_basic_damage/Panel"]
+margin_left = -75.976
+margin_top = 2.0
+margin_right = 305.024
+margin_bottom = 23.0
+text = "bazowe obrażenia gracza:"
+align = 2
+valign = 1
+
+[node name="Count" type="Label" parent="ColorRect/Item_basic_damage/Panel"]
+margin_left = 307.0
+margin_top = 2.0
+margin_right = 343.0
+margin_bottom = 17.0
+rect_scale = Vector2( 1.5, 1.5 )
+custom_colors/font_color = Color( 0.0588235, 1, 0, 1 )
+text = "0"
+align = 1
+valign = 1
+
+[node name="Button" type="Button" parent="ColorRect/Item_basic_damage"]
+margin_left = 692.675
+margin_top = 346.661
+margin_right = 714.675
+margin_bottom = 366.661
+
+[node name="Label" type="Label" parent="ColorRect/Item_basic_damage/Button"]
+margin_left = -8.35962
+margin_top = -3.25937
+margin_right = 11.6404
+margin_bottom = 10.7406
+rect_scale = Vector2( 2, 2 )
+text = "+"
+align = 1
+valign = 1
+
+[node name="Item_basic_hp" type="Node" parent="ColorRect"]
+
+[node name="Panel" type="Panel" parent="ColorRect/Item_basic_hp"]
+modulate = Color( 0.690196, 0.690196, 0.690196, 1 )
+margin_left = 332.083
+margin_top = 384.521
+margin_right = 725.083
+margin_bottom = 409.521
+
+[node name="Info" type="Label" parent="ColorRect/Item_basic_hp/Panel"]
+margin_left = -75.976
+margin_top = 2.0
+margin_right = 305.024
+margin_bottom = 23.0
+text = "bazowe hp gracza"
+align = 2
+valign = 1
+
+[node name="Count" type="Label" parent="ColorRect/Item_basic_hp/Panel"]
+margin_left = 307.0
+margin_top = 2.0
+margin_right = 343.0
+margin_bottom = 17.0
+rect_scale = Vector2( 1.5, 1.5 )
+custom_colors/font_color = Color( 0.0588235, 1, 0, 1 )
+text = "0"
+align = 1
+valign = 1
+
+[node name="Button" type="Button" parent="ColorRect/Item_basic_hp"]
+margin_left = 694.223
+margin_top = 387.672
+margin_right = 716.223
+margin_bottom = 407.672
+
+[node name="Label" type="Label" parent="ColorRect/Item_basic_hp/Button"]
+margin_left = -8.35962
+margin_top = -3.25937
+margin_right = 11.6404
+margin_bottom = 10.7406
+rect_scale = Vector2( 2, 2 )
+text = "+"
+align = 1
+valign = 1
+
+[node name="Item_items_price" type="Node" parent="ColorRect"]
+
+[node name="Panel" type="Panel" parent="ColorRect/Item_items_price"]
+modulate = Color( 0.690196, 0.690196, 0.690196, 1 )
+margin_left = 332.857
+margin_top = 429.4
+margin_right = 725.857
+margin_bottom = 454.4
+
+[node name="Info" type="Label" parent="ColorRect/Item_items_price/Panel"]
+margin_left = -75.976
+margin_top = 2.0
+margin_right = 305.024
+margin_bottom = 23.0
+text = "zmniejszenie kosztu przedmiotów u kupca o:"
+align = 2
+valign = 1
+
+[node name="Count" type="Label" parent="ColorRect/Item_items_price/Panel"]
+margin_left = 307.0
+margin_top = 2.0
+margin_right = 343.0
+margin_bottom = 17.0
+rect_scale = Vector2( 1.5, 1.5 )
+custom_colors/font_color = Color( 1, 0.937255, 0, 1 )
+text = "10%"
+align = 1
+valign = 1
+
+[node name="Button" type="Button" parent="ColorRect/Item_items_price"]
+margin_left = 694.997
+margin_top = 432.551
+margin_right = 716.997
+margin_bottom = 452.551
+
+[node name="Label" type="Label" parent="ColorRect/Item_items_price/Button"]
 margin_left = -8.35962
 margin_top = -3.25937
 margin_right = 11.6404
@@ -293,4 +428,7 @@ text = "EXIT"
 [connection signal="pressed" from="ColorRect/Item_time_to_kill_boss/Button" to="." method="upgrade_time_to_kill_boss"]
 [connection signal="pressed" from="ColorRect/Item_silver_moon_probability/Button" to="." method="upgrade_silver_moon_probability"]
 [connection signal="pressed" from="ColorRect/Item_basic_start_level/Button" to="." method="upgrade_basic_start_level"]
+[connection signal="pressed" from="ColorRect/Item_basic_damage/Button" to="." method="upgrade_basic_start_level"]
+[connection signal="pressed" from="ColorRect/Item_basic_hp/Button" to="." method="upgrade_basic_start_level"]
+[connection signal="pressed" from="ColorRect/Item_items_price/Button" to="." method="upgrade_basic_start_level"]
 [connection signal="pressed" from="ColorRect/Button" to="." method="exit"]
