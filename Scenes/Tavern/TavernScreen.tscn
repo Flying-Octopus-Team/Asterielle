@@ -33,34 +33,34 @@ margin_bottom = 470.432
 text = "Drzwi"
 
 [node name="EnterWizardBtn" parent="MainHall" instance=ExtResource( 3 )]
-margin_left = 858.068
-margin_top = 503.299
-margin_right = 928.068
-margin_bottom = 523.299
+margin_left = 622.86
+margin_top = 375.356
+margin_right = 692.86
+margin_bottom = 395.356
 text = "Mag"
 screen_name = "WizardScreen"
 
 [node name="EnterRoomBtn" parent="MainHall" instance=ExtResource( 3 )]
-margin_left = 880.934
-margin_top = 255.721
-margin_right = 950.934
-margin_bottom = 275.721
+margin_left = 687.081
+margin_top = 215.658
+margin_right = 757.081
+margin_bottom = 235.658
 text = "Pokoj"
 screen_name = "RoomScreen"
 
 [node name="EnterTradesmanBtn" parent="MainHall" instance=ExtResource( 3 )]
-margin_left = 285.847
-margin_top = 268.38
-margin_right = 355.847
-margin_bottom = 288.38
+margin_left = 216.06
+margin_top = 227.025
+margin_right = 286.06
+margin_bottom = 247.025
 text = "Handlarz"
 screen_name = "TradesmanScreen"
 
 [node name="EnterPublicanBtn" parent="MainHall" instance=ExtResource( 3 )]
-margin_left = 596.1
-margin_top = 148.137
-margin_right = 681.1
-margin_bottom = 168.137
+margin_left = 457.0
+margin_top = 103.0
+margin_right = 542.0
+margin_bottom = 128.0
 text = "Karczmarka"
 screen_name = "PublicanScreen"
 
@@ -102,8 +102,8 @@ margin_bottom = 32.0
 text = "Doswiadczenie: 100"
 
 [node name="StatsPanel" parent="." instance=ExtResource( 9 )]
-margin_left = 1005.92
-margin_top = 499.693
-margin_right = 1005.92
-margin_bottom = 499.693
+margin_left = 749.572
+margin_top = 356.025
+margin_right = 749.572
+margin_bottom = 356.025
 [connection signal="pressed" from="MainHall/ExitDoorBtn" to="." method="_on_ExitDoorBtn_pressed"]

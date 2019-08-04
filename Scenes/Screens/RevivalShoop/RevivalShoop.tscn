@@ -8,18 +8,18 @@ script = ExtResource( 1 )
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = 1280.0
-margin_bottom = 720.0
+margin_right = 1024.0
+margin_bottom = 576.0
 color = Color( 0.145098, 0.2, 0.247059, 1 )
 
 [node name="Item_enemies_per_level" type="Node" parent="ColorRect"]
 
 [node name="Panel" type="Panel" parent="ColorRect/Item_enemies_per_level"]
 modulate = Color( 0.690196, 0.690196, 0.690196, 1 )
-margin_left = 463.023
-margin_top = 246.996
-margin_right = 856.023
-margin_bottom = 271.996
+margin_left = 340.589
+margin_top = 157.211
+margin_right = 733.589
+margin_bottom = 182.211
 
 [node name="Info" type="Label" parent="ColorRect/Item_enemies_per_level/Panel"]
 margin_left = -76.0
@@ -42,10 +42,10 @@ align = 1
 valign = 1
 
 [node name="Button" type="Button" parent="ColorRect/Item_enemies_per_level"]
-margin_left = 825.163
-margin_top = 248.996
-margin_right = 847.163
-margin_bottom = 268.996
+margin_left = 702.729
+margin_top = 159.211
+margin_right = 724.729
+margin_bottom = 179.211
 
 [node name="Label" type="Label" parent="ColorRect/Item_enemies_per_level/Button"]
 margin_left = -8.35962
@@ -61,10 +61,10 @@ valign = 1
 
 [node name="Panel" type="Panel" parent="ColorRect/Item_earn_gold"]
 modulate = Color( 0.690196, 0.690196, 0.690196, 1 )
-margin_left = 463.023
-margin_top = 282.796
-margin_right = 856.023
-margin_bottom = 307.796
+margin_left = 340.589
+margin_top = 193.011
+margin_right = 733.589
+margin_bottom = 218.011
 
 [node name="Info" type="Label" parent="ColorRect/Item_earn_gold/Panel"]
 margin_left = -76.0
@@ -88,10 +88,10 @@ valign = 1
 
 [node name="Button" type="Button" parent="ColorRect/Item_earn_gold"]
 editor/display_folded = true
-margin_left = 825.163
-margin_top = 282.796
-margin_right = 847.163
-margin_bottom = 302.796
+margin_left = 702.729
+margin_top = 193.011
+margin_right = 724.729
+margin_bottom = 213.011
 
 [node name="Label" type="Label" parent="ColorRect/Item_earn_gold/Button"]
 margin_left = -8.35962
@@ -107,10 +107,10 @@ valign = 1
 
 [node name="Panel" type="Panel" parent="ColorRect/Item_3"]
 modulate = Color( 0.690196, 0.690196, 0.690196, 1 )
-margin_left = 463.023
-margin_top = 320.686
-margin_right = 856.023
-margin_bottom = 345.686
+margin_left = 340.589
+margin_top = 230.901
+margin_right = 733.589
+margin_bottom = 255.901
 
 [node name="Info" type="Label" parent="ColorRect/Item_3/Panel"]
 margin_left = -76.0
@@ -134,10 +134,10 @@ valign = 1
 
 [node name="Button" type="Button" parent="ColorRect/Item_3"]
 editor/display_folded = true
-margin_left = 825.163
-margin_top = 320.686
-margin_right = 847.163
-margin_bottom = 340.686
+margin_left = 702.729
+margin_top = 230.901
+margin_right = 724.729
+margin_bottom = 250.901
 
 [node name="Label" type="Label" parent="ColorRect/Item_3/Button"]
 margin_left = -8.35962
@@ -154,10 +154,10 @@ valign = 1
 [node name="Panel" type="Panel" parent="ColorRect/Item_4"]
 editor/display_folded = true
 modulate = Color( 0.690196, 0.690196, 0.690196, 1 )
-margin_left = 463.023
-margin_top = 358.306
-margin_right = 856.023
-margin_bottom = 383.306
+margin_left = 340.589
+margin_top = 268.521
+margin_right = 733.589
+margin_bottom = 293.521
 
 [node name="Info" type="Label" parent="ColorRect/Item_4/Panel"]
 margin_left = -76.0
@@ -181,10 +181,10 @@ valign = 1
 
 [node name="Button" type="Button" parent="ColorRect/Item_4"]
 editor/display_folded = true
-margin_left = 825.163
-margin_top = 358.306
-margin_right = 847.163
-margin_bottom = 378.306
+margin_left = 702.729
+margin_top = 268.521
+margin_right = 724.729
+margin_bottom = 288.521
 disabled = true
 
 [node name="Label" type="Label" parent="ColorRect/Item_4/Button"]
@@ -201,10 +201,10 @@ valign = 1
 
 [node name="Panel" type="Panel" parent="ColorRect/Item_5"]
 modulate = Color( 0.690196, 0.690196, 0.690196, 1 )
-margin_left = 463.023
-margin_top = 395.166
-margin_right = 856.023
-margin_bottom = 420.166
+margin_left = 340.589
+margin_top = 305.381
+margin_right = 733.589
+margin_bottom = 330.381
 
 [node name="Info" type="Label" parent="ColorRect/Item_5/Panel"]
 margin_left = -76.0
@@ -228,10 +228,10 @@ valign = 1
 
 [node name="Button" type="Button" parent="ColorRect/Item_5"]
 editor/display_folded = true
-margin_left = 825.163
-margin_top = 395.166
-margin_right = 847.163
-margin_bottom = 415.166
+margin_left = 702.729
+margin_top = 305.381
+margin_right = 724.729
+margin_bottom = 325.381
 
 [node name="Label" type="Label" parent="ColorRect/Item_5/Button"]
 margin_left = -8.35962
@@ -247,10 +247,10 @@ valign = 1
 
 [node name="Panel" type="Panel" parent="ColorRect/Item_6"]
 modulate = Color( 0.690196, 0.690196, 0.690196, 1 )
-margin_left = 463.023
-margin_top = 432.566
-margin_right = 856.023
-margin_bottom = 457.566
+margin_left = 340.589
+margin_top = 342.781
+margin_right = 733.589
+margin_bottom = 367.781
 
 [node name="Info" type="Label" parent="ColorRect/Item_6/Panel"]
 margin_left = -76.0
@@ -274,10 +274,10 @@ valign = 1
 
 [node name="Button" type="Button" parent="ColorRect/Item_6"]
 editor/display_folded = true
-margin_left = 825.163
-margin_top = 432.566
-margin_right = 847.163
-margin_bottom = 452.566
+margin_left = 702.729
+margin_top = 342.781
+margin_right = 724.729
+margin_bottom = 362.781
 
 [node name="Label" type="Label" parent="ColorRect/Item_6/Button"]
 margin_left = -8.35962
@@ -290,10 +290,10 @@ align = 1
 valign = 1
 
 [node name="Button" type="Button" parent="ColorRect"]
-margin_left = 599.947
-margin_top = 491.612
-margin_right = 716.947
-margin_bottom = 530.612
+margin_left = 481.594
+margin_top = 443.999
+margin_right = 598.594
+margin_bottom = 482.999
 text = "EXIT"
 [connection signal="pressed" from="ColorRect/Item_enemies_per_level/Button" to="." method="upgrade_enemies_per_level"]
 [connection signal="pressed" from="ColorRect/Item_earn_gold/Button" to="." method="upgrade_earn_gold"]

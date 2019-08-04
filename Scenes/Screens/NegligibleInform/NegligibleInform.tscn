@@ -35,9 +35,9 @@ text = "Second text"
 align = 1
 
 [node name="ExitButton" type="Button" parent="CanvasLayer"]
-margin_left = 486.089
-margin_top = 302.327
-margin_right = 798.089
-margin_bottom = 370.327
+margin_left = 356.853
+margin_top = 254.714
+margin_right = 668.853
+margin_bottom = 322.714
 text = "OK!"
 [connection signal="pressed" from="CanvasLayer/ExitButton" to="." method="exit"]

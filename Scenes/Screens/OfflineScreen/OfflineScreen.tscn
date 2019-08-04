@@ -35,9 +35,9 @@ text = "Otrzymales: 10 000 golda"
 align = 1
 
 [node name="Button" type="Button" parent="CanvasLayer"]
-margin_left = 491.531
-margin_top = 337.697
-margin_right = 803.531
-margin_bottom = 405.697
+margin_left = 355.494
+margin_top = 258.795
+margin_right = 667.494
+margin_bottom = 326.795
 text = "OK!"
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_Button_pressed"]

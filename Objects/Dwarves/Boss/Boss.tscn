@@ -4,20 +4,16 @@
 [ext_resource path="res://Objects/Dwarves/Boss/Boss.gd" type="Script" id=2]
 [ext_resource path="res://Objects/Dwarves/Boss/BossTimeToKillCanvas.tscn" type="PackedScene" id=3]
 
-
-
-
-
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 36, 59 )
+extents = Vector2( 30, 52 )
 
-[node name="Boss" instance=ExtResource( 1 )]
+[node name="Boss" index="0" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
-move_speed = 60.0
+move_speed = 85.0
 
 [node name="Sprite" parent="." index="0"]
-position = Vector2( -1, -48 )
-scale = Vector2( 2.5, 2.5 )
+position = Vector2( -4, -40 )
+scale = Vector2( 2, 2 )
 
 [node name="CollisionShape2D" parent="." index="1"]
 visible = false
@@ -25,11 +21,11 @@ position = Vector2( 12, -66 )
 disabled = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="." index="2"]
-position = Vector2( 13, -63 )
+position = Vector2( 8, -53 )
 shape = SubResource( 1 )
 
 [node name="HP" parent="." index="4"]
-position = Vector2( 0, -103 )
+position = Vector2( 0, -75 )
 
 [node name="Background" parent="HP" index="0"]
 scale = Vector2( 142, 10 )
