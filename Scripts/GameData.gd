@@ -17,6 +17,7 @@ var additional_xp_multipler : float = 1.0
 var xp_on_second : float = 0.0
 var last_golds : Array = [0.0,0.0]
 var last_xp : Array = [0.0,0.0]
+var tradesman_item_price_multipler : float = 1.0
 
 var offline_time : int
 var offline_gold_reward : float
@@ -146,6 +147,7 @@ func save():
 		_additional_gold_multipler = additional_gold_multipler,
 		_additional_xp_multipler = additional_xp_multipler,
 		_time_to_kill_boss = time_to_kill_boss,
-		_probability_to_get_silver_moon_in_percent = probability_to_get_silver_moon_in_percent
+		_probability_to_get_silver_moon_in_percent = probability_to_get_silver_moon_in_percent,
+		_tradesman_item_price_multipler = tradesman_item_price_multipler
 	}
 	return save_dict

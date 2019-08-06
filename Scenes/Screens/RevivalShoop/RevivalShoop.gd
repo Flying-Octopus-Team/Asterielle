@@ -155,10 +155,13 @@ func return_basic_damage_access() -> bool:
 	return result
 	
 func set_basic_damage_count():
-	basic_damage_count.text = 'value' #TODO
+	basic_damage_count.text = "x" + String(get_parent().find_node("Elf").stats.damage_multiplier)
 
 func upgrade_basic_damage():
-	pass
+	var stats = get_parent().find_node("Elf").stats
+	stats.damage_multiplier += 0.1
+	stats.stats[0].value += stats.damage_multiplier
+	stats.stats[0].calculate_changed_value()
 
 
 func set_basic_hp_button():
@@ -169,10 +172,13 @@ func return_basic_hp_access() -> bool:
 	return result
 	
 func set_basic_hp_count():
-	basic_hp_count.text = 'value' #TODO
+	basic_hp_count.text = "x" + String(get_parent().find_node("Elf").stats.health_multiplier)
 
 func upgrade_basic_hp():
-	pass
+	var stats = get_parent().find_node("Elf").stats
+	stats.health_multiplier += 0.1
+	stats.stats[1].value += stats.health_multiplier
+	stats.stats[1].calculate_changed_value()
 
 
 func set_items_price_button():
@@ -183,7 +189,7 @@ func return_items_price_access() -> bool:
 	return result
 	
 func set_items_price_count():
-	items_price_count.text = 'value' + "%" #TODO
+	items_price_count.text = "x" + String(game_data.tradesman_item_price_multipler)
 	
 func upgrade_items_price():
-	pass
+	game_data.tradesman_item_price_multipler += 0.1

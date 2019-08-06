@@ -175,6 +175,7 @@ align = 1
 valign = 1
 
 [node name="Button" type="Button" parent="ColorRect/Item_time_to_kill_boss"]
+editor/display_folded = true
 margin_left = 694.304
 margin_top = 226.425
 margin_right = 716.304
@@ -428,7 +429,7 @@ text = "EXIT"
 [connection signal="pressed" from="ColorRect/Item_time_to_kill_boss/Button" to="." method="upgrade_time_to_kill_boss"]
 [connection signal="pressed" from="ColorRect/Item_silver_moon_probability/Button" to="." method="upgrade_silver_moon_probability"]
 [connection signal="pressed" from="ColorRect/Item_basic_start_level/Button" to="." method="upgrade_basic_start_level"]
-[connection signal="pressed" from="ColorRect/Item_basic_damage/Button" to="." method="upgrade_basic_start_level"]
-[connection signal="pressed" from="ColorRect/Item_basic_hp/Button" to="." method="upgrade_basic_start_level"]
-[connection signal="pressed" from="ColorRect/Item_items_price/Button" to="." method="upgrade_basic_start_level"]
+[connection signal="pressed" from="ColorRect/Item_basic_damage/Button" to="." method="upgrade_basic_damage"]
+[connection signal="pressed" from="ColorRect/Item_basic_hp/Button" to="." method="upgrade_basic_hp"]
+[connection signal="pressed" from="ColorRect/Item_items_price/Button" to="." method="upgrade_items_price"]
 [connection signal="pressed" from="ColorRect/Button" to="." method="exit"]
