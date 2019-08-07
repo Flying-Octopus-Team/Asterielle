@@ -1,6 +1,6 @@
 extends Area2D
 
-export(float) var move_speed = 100
+export(float) var move_speed = 150
 
 onready var tavern_screen = get_parent().find_node("TavernScreen")
 

@@ -125,7 +125,7 @@ margin_left = -81.8158
 margin_top = -55.7368
 margin_right = 81.1842
 margin_bottom = -23.7368
-text = "Odródź sie:"
+text = "Przywolaj diabla"
 align = 1
 
 [node name="GameManager" type="Node" parent="."]
