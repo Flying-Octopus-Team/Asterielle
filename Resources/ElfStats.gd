@@ -92,10 +92,12 @@ class Stat:
 		emit_signal("value_changed", self)
 		
 ##################################################
+var damage_multiplier: float = 1.0
+var health_multiplier: float = 1.0
 
 var stats = [
-	Stat.new("bows_knowledge", 1),
-	Stat.new("agility", 0.1),
+	Stat.new("bows_knowledge", 1 * damage_multiplier),
+	Stat.new("agility", 0.1 * health_multiplier),
 	Stat.new("vitality", 10),
 	Stat.new("charisma", 0),
 	Stat.new("sensinitive_points", 0),
@@ -107,6 +109,8 @@ var stats = [
 ] setget set_stats
 
 var items = {}
+
+
 
 func _ready():
 	add_to_group("IHaveSthToSave")
@@ -181,6 +185,8 @@ func save():
 			_stats = {},
 			_items = {}
 		},
+		_damage_multiplier = damage_multiplier,
+		_health_multiplier = health_multiplier
 	}
 	
 	for s in stats:
