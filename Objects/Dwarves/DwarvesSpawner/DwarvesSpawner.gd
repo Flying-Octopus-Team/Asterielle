@@ -9,6 +9,7 @@ export(bool) var spawn : bool = true
 var Dwarf = load("res://Objects/Dwarves/Dwarf/Dwarf.tscn")
 var Boss = load("res://Objects/Dwarves/Boss/Boss.tscn")
 var Tavern = load("res://Objects/Tavern/Tavern.tscn")
+var Devil = load("res://Objects/Devil/Devil.tscn")
 
 onready var base_dwarf_hp = dwarf_max_hp
 onready var base_dwarf_damage = dwarf_damage
@@ -32,7 +33,12 @@ func spawn_tavern():
 	var tavern = Tavern.instance()
 	world.call_deferred("add_child", tavern)
 	tavern.global_position = global_position
-	
+
+func spawn_devil():
+	var devil = Devil.instance()
+	world.call_deferred("add_child", devil)
+	devil.global_position = global_position
+
 func create_dwarf(DwarfScene, damage:float, hp:float, on_died_func:String):
 	var dwarf = DwarfScene.instance()
 	world.call_deferred("add_child", dwarf)

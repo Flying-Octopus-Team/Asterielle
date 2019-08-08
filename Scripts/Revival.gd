@@ -41,6 +41,3 @@ func revive():
 #	last_revival_level = level_manager.current_level
 	show_revival_screen()
 	get_parent().find_node("GameSaver").revival_reset()
-
-func _on_RevivalBtn_pressed():
-	revive()

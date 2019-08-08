@@ -1,30 +1,22 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Objects/Tavern/Tavern.gd" type="Script" id=1]
-[ext_resource path="res://Objects/Tavern/karczma5.png" type="Texture" id=2]
+[ext_resource path="res://Objects/Devil/Devil.gd" type="Script" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 493, 64 )
 
-[node name="Tavern" type="Area2D"]
+[node name="Devil" type="Area2D"]
 collision_layer = 64
 collision_mask = 8
 script = ExtResource( 1 )
-move_speed = 70.0
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_left = -64.0
 margin_top = -128.0
 margin_right = 64.0
 rect_pivot_offset = Vector2( 64, 128 )
-color = Color( 1, 1, 1, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -64 )
-scale = Vector2( 0.5, 1 )
 shape = SubResource( 1 )
-
-[node name="karczma5" type="Sprite" parent="."]
-position = Vector2( 0.237823, -137.487 )
-texture = ExtResource( 2 )
 [connection signal="area_entered" from="." to="." method="_on_Tavern_area_entered"]

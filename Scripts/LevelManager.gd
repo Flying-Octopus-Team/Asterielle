@@ -17,6 +17,7 @@ onready var dwarves_spawner = get_parent().get_node("DwarvesSpawner")
 onready var game_data = get_parent().get_node("GameData") 
 onready var game_saver = get_parent().get_node("GameSaver") 
 onready var tavern_enter_btn = get_parent().find_node("TavernEnterBtn")
+onready var revival_enter_btn = get_parent().find_node("RevivalEnterBtn")
 onready var tavern_screen = get_parent().get_node("TavernScreen")
 onready var ui = get_parent().get_node("UI")
 
@@ -59,6 +60,8 @@ func on_Dwarf_died():
 	
 	if tavern_enter_btn.pressed:
 		dwarves_spawner.spawn_tavern()
+	elif revival_enter_btn.pressed:
+		dwarves_spawner.spawn_devil()
 	else:
 		spawn_next_dwarf()
 	

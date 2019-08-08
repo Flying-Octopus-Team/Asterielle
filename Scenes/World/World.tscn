@@ -108,15 +108,26 @@ margin_left = -81.8158
 margin_top = -55.7368
 margin_right = 81.1842
 margin_bottom = -23.7368
-text = "Wejdz do tawerny"
+text = "Wejdz do tawerny:"
 align = 1
 
-[node name="RevivalBtn" type="Button" parent="UI"]
-margin_left = 40.0
-margin_top = 17.0
-margin_right = 168.0
-margin_bottom = 55.0
-text = "Odrodzenie"
+[node name="RevivalEnterBtn" type="CheckButton" parent="UI"]
+margin_left = 755.684
+margin_top = 72.6317
+margin_right = 838.684
+margin_bottom = 115.632
+
+[node name="TavernLabel" type="Label" parent="UI/RevivalEnterBtn"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -81.8158
+margin_top = -55.7368
+margin_right = 81.1842
+margin_bottom = -23.7368
+text = "Przywolaj diabla"
+align = 1
 
 [node name="GameManager" type="Node" parent="."]
 script = ExtResource( 4 )
@@ -172,4 +183,3 @@ rect_scale = Vector2( 1, 1 )
 
 [node name="GameSaver" type="Node" parent="."]
 script = ExtResource( 13 )
-[connection signal="pressed" from="UI/RevivalBtn" to="Revival" method="_on_RevivalBtn_pressed"]

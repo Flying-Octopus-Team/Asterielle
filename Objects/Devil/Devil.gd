@@ -1,13 +1,13 @@
 extends Area2D
 
-export(float) var move_speed = 150
+export(float) var move_speed = 100
 
-onready var tavern_screen = get_parent().find_node("TavernScreen")
+onready var revival = get_parent().find_node("Revival")
 
 func _physics_process(delta):
 	position.x -= move_speed * delta
 
 func _on_Tavern_area_entered(area):
 	# Because of collision masks area is Elf
-	tavern_screen.enter_tavern()
+	revival.revive()
 	queue_free()
