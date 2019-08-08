@@ -26,7 +26,7 @@ func generate_popup_title():
 		else:
 			new_stat_value = c.get_changed_value(stat_value)
 		
-		popup_title += c.stat_name + ": " + str(stat_value) + " -> " + str(new_stat_value) + "\n"
+		popup_title += c.stat_name + ": " + str(stepify(stat_value,0.01)) + " -> " + str(stepify(new_stat_value,0.01)) + "\n"
 	
 	popup_title = popup_title.trim_suffix("\n")
 	

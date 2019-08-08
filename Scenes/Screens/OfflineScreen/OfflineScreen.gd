@@ -14,7 +14,7 @@ func offline_text(Offline_time: float):
 		offline_time_text_end = " godzin"
 		Offline_time /= 3600
 		
-	Offline_time = stepify(Offline_time,2)
+	Offline_time = stepify(Offline_time,0.02)
 	
 	return String(OFFFINE_TIME_TEXT + String(Offline_time) + offline_time_text_end)
 
