@@ -49,10 +49,11 @@ func generate_tree() -> void:
 	add_child(tree)
 	
 	tree.position.x = -position.x + WINDOW_WIDTH + 200
-	tree.position.y = 400
+	tree.position.y = 550
 	
 	var texture = TREE_TEXTURES[randi() % TREE_TEXTURES.size()]
 	tree.texture = texture
 	
-	tree.scale = Vector2(tree_scale, tree_scale)
+	var random_scale: float = rand_range(-0.25,0.25);
+	tree.scale = Vector2(tree_scale + random_scale, tree_scale + random_scale)
 	

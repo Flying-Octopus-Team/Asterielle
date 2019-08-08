@@ -4,8 +4,9 @@
 [ext_resource path="res://Objects/Background/Trees/Tree.gd" type="Script" id=2]
 
 [node name="Tree" type="Sprite"]
-position = Vector2( 157.755, 434.341 )
+position = Vector2( 9.27823, -127.433 )
 texture = ExtResource( 1 )
+offset = Vector2( 0, -120 )
 script = ExtResource( 2 )
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
