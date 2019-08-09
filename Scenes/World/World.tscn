@@ -30,6 +30,7 @@ move_speed = 70.0
 tree_seperation = 250.0
 
 [node name="UI" type="Control" parent="."]
+editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 3 )
