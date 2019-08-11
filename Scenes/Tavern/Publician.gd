@@ -31,7 +31,12 @@ func load_quests():
 	var data = JSON.parse(save_file.get_as_text()).result;
 
 	for index in data.keys():
-		quests.append(QuestKill.new(data[index]["title"],data[index]["gold_reward"], data[index]["gold_reward"], data[index]["count"]))
+		if data[index]["type"] == QuestType.kill_dwarver:
+			quests.append(QuestKill.new(data[index]["count"]))
+		if data[index]["type"] == QuestType.spend_xp:
+			quests.append(QuestSpendXp.new(data[index]["count"]))
+		if data[index]["type"] == QuestType.spend_gold:
+			quests.append(QuestSpendXp.new(data[index]["count"]))
 	
 	load_list_panel()
 
@@ -46,16 +51,18 @@ func save_quests():
 	save_file.close()
 
 func create_default_quests():
-#   quests.append(QuestKill.new("Zabij 4 krasnoludy",100.0,40.0, 4))
-#	quests.append(QuestKill.new("Zabij 10 krasnoludy",100.0,40.0, 10))
-#	quests.append(QuestKill.new("Zabij 5 krasnoludy",100.0,40.0, 5))
-#	quests.append(QuestKill.new("Zabij 1 krasnoludy",100.0,40.0, 1))
-#	quests.append(QuestKill.new("Zabij 9 krasnoludy",100.0,40.0, 9))
-	add_quest()
-	add_quest()
-	add_quest()
-	add_quest()
-	add_quest()
+	add_kill_dwarves_quest()
+	add_spend_gold_quest()
+	add_kill_dwarves_quest()
+	add_spend_xp_quest()
+	add_spend_xp_quest()
+	add_spend_gold_quest()
+	add_kill_dwarves_quest()
+	add_spend_gold_quest()
+	add_kill_dwarves_quest()
+	add_spend_xp_quest()
+	add_spend_xp_quest()
+	add_spend_gold_quest()
 
 func load_list_panel():
 	for index in quests.size():
@@ -67,25 +74,83 @@ class QuestKill:
 		gold_reward = 100.0,
 		xp_reward = 40.0,
 		count = 4,
-		amount = 0
+		amount = 0,
+		type = QuestType.kill_dwarver
 		}
 	
-	func _init(Title, Gold_reward, Xp_reward, Count):
-		data["title"] = Title
-		data["gold_reward"] = Gold_reward
-		data["xp_reward"] = Xp_reward
+	func _init(Count):
 		data["count"] = Count
-		
+		data["title"] = "Zabij krasnale: "+String(Count)	
+		data["gold_reward"] =  stepify(float(Count) * float(Count) * randf()*2,2)
+		data["xp_reward"] = stepify(Count * (randf()*6+1),2)
+
+class QuestSpendXp:
+	var data = {
+		title = "Wydaj x punktow doswiadczenia",
+		gold_reward = 100.0,
+		xp_reward = 40.0,
+		count = 4,
+		amount = 0,
+		type = QuestType.spend_xp
+		}
+	
+	func _init(Count):
+		data["count"] = Count
+		data["title"] = "Wydaj "+String(Count)+" punktow doswiadczenia"
+		data["gold_reward"] =  Count
+		data["xp_reward"] = Count*5
+
+class QuestSpendGold:
+	var data = {
+		title = "Wydaj x golda",
+		gold_reward = 100.0,
+		xp_reward = 40.0,
+		count = 4,
+		amount = 0,
+		type = QuestType.spend_gold
+		}
+	
+	func _init(Count):
+		data["count"] = Count
+		data["title"] = "Wydaj "+String(Count)+" golda"
+		data["gold_reward"] =  Count
+		data["xp_reward"] = Count*5
+
+func on_spend_xp(spent_xp):
+	for index in quests.size():
+		if index == selected_quest:
+			if quests[index].data["type"] == QuestType.spend_xp:
+				quests[index].data["amount"] += spent_xp
+				if quests[index].data["amount"] >= quests[index].data["count"]:
+					give_reward(quests[index].data["gold_reward"], quests[index].data["xp_reward"], index)
+					delete_quest(index)
+					add_spend_xp_quest()
 
 func on_kill_dwarver():
 	for index in quests.size():
 		if index == selected_quest:
-			quests[index].data["amount"] += 1
-			if quests[index].data["amount"] >= quests[index].data["count"]:
-				give_reward(quests[index].data["gold_reward"], quests[index].data["xp_reward"], index)
-				delete_quest(index)
-				add_quest()
+			if quests[index].data["type"] == QuestType.kill_dwarver:
+				quests[index].data["amount"] += 1
+				if quests[index].data["amount"] >= quests[index].data["count"]:
+					give_reward(quests[index].data["gold_reward"], quests[index].data["xp_reward"], index)
+					delete_quest(index)
+					add_kill_dwarves_quest()
 
+func on_spend_gold(spent_gold):
+	for index in quests.size():
+		if index == selected_quest:
+			if quests[index].data["type"] == QuestType.spend_gold:
+				quests[index].data["amount"] += spent_gold
+				if quests[index].data["amount"] >= quests[index].data["count"]:
+					give_reward(quests[index].data["gold_reward"], quests[index].data["xp_reward"], index)
+					delete_quest(index)
+					add_spend_gold_quest()
+
+enum QuestType{
+	kill_dwarver,
+	spend_xp,
+	spend_gold
+}
 
 func give_reward(gold, xp, index):
 	var nis = NegligibleInformScreen.instance()
@@ -98,14 +163,25 @@ func give_reward(gold, xp, index):
 	game_data.gold += gold
 	game_data.xp += xp
 
-func add_quest():
+func add_spend_xp_quest():
+	var xp_to_spend = stepify((get_node("/root/World/GameData").xp + (randi()%5+1)) * (randi()%5+1),2)
+	
+	quests.append(QuestSpendXp.new(xp_to_spend))
+	
+	item_list.add_item(String(quests[quests.size()-1].data["title"]),dwarver_cion)
+
+func add_spend_gold_quest():
+	var gold_to_spend = stepify((get_node("/root/World/GameData").gold + (randi()%5+1)) * (randi()%5+1),2)
+	
+	quests.append(QuestSpendGold.new(gold_to_spend))
+	
+	item_list.add_item(String(quests[quests.size()-1].data["title"]),dwarver_cion)
+
+func add_kill_dwarves_quest():
 	var lvl = get_node("/root/World/LevelManager").current_level
+	var dwarvers_to_kill = int (lvl * (randi()%3+1))
 	
-	var dwarvers_to_kill = int (lvl * randi()%10+1)
-	
-	var title: String = "Zabij krasnoludy : "+String(dwarvers_to_kill)
-	
-	quests.append(QuestKill.new(title,100.0,40.0, dwarvers_to_kill))
+	quests.append(QuestKill.new(dwarvers_to_kill))
 	
 	item_list.add_item(String(quests[quests.size()-1].data["title"]),dwarver_cion)
 

@@ -9,7 +9,6 @@ func _on_BuyBtn_pressed():
 	
 func generate_random():
 	item.generate_random(elf_stats.get_stat_value("lucky"))
-	print(game_data.tradesman_item_price_multipler)
 	set_price(item.price * game_data.tradesman_item_price_multipler)
 	generate_popup_title()
 	

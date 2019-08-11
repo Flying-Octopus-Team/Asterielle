@@ -4,8 +4,8 @@
 [ext_resource path="res://Scenes/World/Background.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/World/UI.gd" type="Script" id=3]
 [ext_resource path="res://Scripts/GameManager.gd" type="Script" id=4]
-[ext_resource path="res://Scripts/LevelManager.gd" type="Script" id=5]
-[ext_resource path="res://Scripts/GameData.gd" type="Script" id=6]
+[ext_resource path="res://Scripts/GameData.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/LevelManager.gd" type="Script" id=6]
 [ext_resource path="res://Resources/ElfStats.gd" type="Script" id=7]
 [ext_resource path="res://Scripts/Revival.gd" type="Script" id=8]
 [ext_resource path="res://Objects/Elf/Elf.tscn" type="PackedScene" id=9]
@@ -132,10 +132,10 @@ align = 1
 [node name="GameManager" type="Node" parent="."]
 script = ExtResource( 4 )
 
-[node name="LevelManager" type="Node" parent="."]
+[node name="GameData" type="Node" parent="."]
 script = ExtResource( 5 )
 
-[node name="GameData" type="Node" parent="."]
+[node name="LevelManager" type="Node" parent="."]
 script = ExtResource( 6 )
 
 [node name="ElfStats" type="Node" parent="."]
