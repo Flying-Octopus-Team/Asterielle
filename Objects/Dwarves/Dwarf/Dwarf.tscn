@@ -16,6 +16,7 @@ move_speed = 100.0
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -25 )
 scale = Vector2( 1.28, 1.28 )
+z_index = 1
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
