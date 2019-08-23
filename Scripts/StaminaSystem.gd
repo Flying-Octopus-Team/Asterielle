@@ -36,7 +36,7 @@ func _process(delta):
 			current_stamina -= delta
 	else:
 		auto_atack = false
-		
+	
 	max_stamina = ElfStats.get_stat("stamina").value
 	var status = String(stepify(current_stamina,0.1))+"s / " + String(max_stamina) + "s"
 
