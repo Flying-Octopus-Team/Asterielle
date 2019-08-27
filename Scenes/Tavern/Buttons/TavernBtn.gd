@@ -15,7 +15,7 @@ export(String) var popup_title
 
 onready var game_data = get_tree().get_current_scene().find_node("GameData")
 onready var elf_stats = get_node("/root/World/ElfStats")
-onready var publician = get_tree().get_current_scene().find_node("Publician")
+onready var publican = get_tree().get_current_scene().find_node("Publician")
 var popup = null
 
 func _ready():
@@ -26,10 +26,10 @@ func _ready():
 func _on_BuyBtn_pressed():
 	match price_type:
 		PriceType.GOLD:
-			publician.on_spend_gold(get_lower_price())
+			publican.on_spend_gold(get_lower_price())
 			game_data.add_gold(-get_lower_price())
 		PriceType.XP:
-			publician.on_spend_xp(get_lower_price())
+			publican.on_spend_xp(get_lower_price())
 			game_data.add_xp(-get_lower_price())
 	
 	set_price(price * price_mod)

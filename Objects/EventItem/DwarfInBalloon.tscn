@@ -6,6 +6,7 @@
 position = Vector2( 110, 400 )
 z_index = 100
 script = ExtResource( 1 )
+move_speed = 0.0
 
 [node name="Item" type="Button" parent="."]
 margin_left = -48.5541
