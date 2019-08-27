@@ -7,6 +7,9 @@ onready var level_label = find_node("LevelLabel")
 onready var killed_dwarves_label = find_node("KilledDwarvesLabel")
 onready var game_data = get_parent().get_node("GameData")
 
+onready var tavern_enter_btn = get_parent().find_node("TavernEnterBtn")
+onready var revival_enter_btn = get_parent().find_node("RevivalEnterBtn")
+
 
 
 func set_gold_label(gold: float):
@@ -26,3 +29,9 @@ func set_level_label(var current_level):
 
 func set_killed_dwarves_label(killed_dwarves, dwarves_per_level):
 	killed_dwarves_label.text = str(killed_dwarves, " / ", dwarves_per_level)
+
+func _on_RevivalEnterBtn_pressed():
+	tavern_enter_btn.pressed = false
+
+func _on_TavernEnterBtn_pressed():
+	revival_enter_btn.pressed = false

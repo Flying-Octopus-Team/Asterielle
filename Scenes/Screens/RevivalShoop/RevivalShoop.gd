@@ -1,6 +1,7 @@
 extends Node2D
 
 onready var game_manager = get_parent().get_node("GameManager")
+onready var ui = get_parent().get_node("UI")
 
 #TODO: Dać nazwy z przerdostkiem pri (od price)
 const ENEMIES_PER_LEVEL_PRICE = 0
@@ -53,6 +54,7 @@ func _process(delta):
 	set_items_price_count()
 
 func exit():
+	ui.revival_enter_btn.pressed = false
 	game_manager.resume_gameplay()
 	queue_free()
 
