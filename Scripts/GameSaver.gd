@@ -87,12 +87,10 @@ func load_game():
 					load_time_to_kill_boss(int(data[node_path]['_time_to_kill_boss']))
 				"_probability_to_get_silver_moon_in_percent":
 					load_probability_to_get_silver_moon_in_percent(int(data[node_path]['_probability_to_get_silver_moon_in_percent']))
-				"_damage_multiplier":
-					print("nope")
-				"_health_multiplier":
-					print("nope")
 				"_tradesman_item_price_multipler":
 					load_tradesman_item_price_multipler(float(data[node_path]['_tradesman_item_price_multipler']))
+				"_selected_quest":
+					load_quest(int(data[node_path]['_selected_quest']))
 				
 	emit_signal("save_data_was_loaded")
 
@@ -160,6 +158,10 @@ func load_probability_to_get_silver_moon_in_percent(value):
 
 func load_tradesman_item_price_multipler(value):
 	game_data.tradesman_item_price_multipler = value
+
+func load_quest(value):
+	get_parent().find_node("Publician").selected_quest = value
+	get_parent().find_node("Publician").item_list.select(value)
 
 func revival_reset():
 	load_offline_time(0)

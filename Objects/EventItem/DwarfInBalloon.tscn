@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Objects/EventItem/DwarfInBalloon.gd" type="Script" id=1]
+
+[node name="DwarfInBalloon" type="Node2D"]
+position = Vector2( 110, 400 )
+z_index = 100
+script = ExtResource( 1 )
+
+[node name="Item" type="Button" parent="."]
+margin_left = -48.5541
+margin_top = -64.876
+margin_right = 40.4459
+margin_bottom = -0.875969
+text = "Krasnolud w balonie"
+[connection signal="pressed" from="Item" to="." method="_on_Item_pressed"]

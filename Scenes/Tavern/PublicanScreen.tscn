@@ -1,12 +1,41 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scenes/Tavern/OneTavernScreen.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Tavern/PublicanScreen.gd" type="Script" id=2]
-[ext_resource path="res://Scenes/Tavern/Shop/PublicanShop.gd" type="Script" id=3]
-[ext_resource path="res://Scenes/Tavern/Buttons/TavernBtn.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Tavern/Publician.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Tavern/Shop/PublicanShop.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/Tavern/Buttons/TavernBtn.tscn" type="PackedScene" id=5]
 
 [node name="PublicanScreen" index="0" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+
+[node name="Publician" type="Node2D" parent="." index="0"]
+script = ExtResource( 3 )
+
+[node name="questsBackground" type="Panel" parent="Publician" index="0"]
+modulate = Color( 1, 1, 1, 0.321569 )
+margin_top = 104.0
+margin_right = 411.0
+margin_bottom = 599.0
+
+[node name="questsLabel" type="Label" parent="Publician" index="1"]
+margin_left = 124.0
+margin_top = 112.0
+margin_right = 278.0
+margin_bottom = 142.0
+text = "Zadania:"
+align = 1
+valign = 1
+
+[node name="ItemList" type="ItemList" parent="Publician" index="2"]
+margin_left = 20.0
+margin_top = 154.0
+margin_right = 395.0
+margin_bottom = 586.0
+
+[node name="VBoxContainer" parent="." index="1"]
+margin_top = 120.0
+margin_bottom = 1.0
 
 [node name="NameLabel" parent="VBoxContainer" index="0"]
 text = "Karczmarka
@@ -15,15 +44,15 @@ text = "Karczmarka
 
 [node name="Shop" parent="VBoxContainer" index="1"]
 margin_bottom = 96.0
-script = ExtResource( 3 )
+script = ExtResource( 4 )
 
-[node name="VineBtn" parent="VBoxContainer/Shop" index="0" instance=ExtResource( 4 )]
+[node name="VineBtn" parent="VBoxContainer/Shop" index="0" instance=ExtResource( 5 )]
 margin_right = 1024.0
 item_name = "Leczace wino"
 price = 2.0
 popup_title = "Ulecz sie do konca"
 
-[node name="HealthPotionBtn" parent="VBoxContainer/Shop" index="1" instance=ExtResource( 4 )]
+[node name="HealthPotionBtn" parent="VBoxContainer/Shop" index="1" instance=ExtResource( 5 )]
 margin_top = 24.0
 margin_right = 1024.0
 margin_bottom = 44.0
