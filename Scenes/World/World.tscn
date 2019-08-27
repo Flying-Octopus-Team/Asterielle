@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Scenes/World/World.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/World/Background.gd" type="Script" id=2]
@@ -11,9 +11,10 @@
 [ext_resource path="res://Scripts/Revival.gd" type="Script" id=9]
 [ext_resource path="res://Objects/Elf/Elf.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Objects/Dwarves/DwarvesSpawner/DwarvesSpawner.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Scenes/Tavern/TavernScreen.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Objects/Potions/Health/HealthPotion.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Scripts/GameSaver.gd" type="Script" id=14]
+[ext_resource path="res://Objects/EventItem/EventItemSpawner.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenes/Tavern/TavernScreen.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Objects/Potions/Health/HealthPotion.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Scripts/GameSaver.gd" type="Script" id=15]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 537.558, 30.0002 )
@@ -164,6 +165,8 @@ position = Vector2( 121.06, 544.182 )
 [node name="DwarvesSpawner" parent="." instance=ExtResource( 11 )]
 position = Vector2( 1081.97, 544.587 )
 
+[node name="EventItemSpawner" parent="." instance=ExtResource( 12 )]
+
 [node name="Ground" type="Area2D" parent="."]
 editor/display_folded = true
 position = Vector2( 569.18, 577.345 )
@@ -176,7 +179,7 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
 shape = SubResource( 1 )
 
-[node name="TavernScreen" parent="." instance=ExtResource( 12 )]
+[node name="TavernScreen" parent="." instance=ExtResource( 13 )]
 
 [node name="PotionsContainer" type="HBoxContainer" parent="."]
 anchor_top = 1.0
@@ -187,7 +190,7 @@ margin_right = 1024.0
 margin_bottom = 582.0
 alignment = 1
 
-[node name="HealthPotion" parent="PotionsContainer" instance=ExtResource( 13 )]
+[node name="HealthPotion" parent="PotionsContainer" instance=ExtResource( 14 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 496.0
@@ -196,6 +199,6 @@ margin_bottom = 32.0
 rect_scale = Vector2( 1, 1 )
 
 [node name="GameSaver" type="Node" parent="."]
-script = ExtResource( 14 )
+script = ExtResource( 15 )
 [connection signal="pressed" from="UI/TavernEnterBtn" to="UI" method="_on_TavernEnterBtn_pressed"]
 [connection signal="pressed" from="UI/RevivalEnterBtn" to="UI" method="_on_RevivalEnterBtn_pressed"]

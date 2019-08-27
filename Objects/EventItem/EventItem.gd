@@ -1,7 +1,7 @@
 extends Node2D
 
 export(int) var gold_reward = 65
-export(float) var move_speed = 100
+export(float) var move_speed = -100
 export(Vector2) var start_position = Vector2()
 
 
@@ -14,14 +14,15 @@ func _process(delta):
 	move(delta)
 	
 func move(delta):
-	position.x -= move_speed * delta
+	position.x += move_speed * delta
 
-func set_start_position(var x, var y):
+func set_start_position(x, y):
 	position.x = x
 	position.y = y
 
 func get_reward():
-	pass
+	var game_data = get_parent().find_node("GameData")
+	game_data.gold += gold_reward
 
 func _on_Item_pressed():
 	get_reward()

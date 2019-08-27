@@ -33,10 +33,10 @@ func load_quests():
 	for index in data.keys():
 		if data[index]["type"] == QuestType.kill_dwarver:
 			quests.append(QuestKill.new(data[index]["count"]))
-		if data[index]["type"] == QuestType.spend_xp:
+		elif data[index]["type"] == QuestType.spend_xp:
 			quests.append(QuestSpendXp.new(data[index]["count"]))
-		if data[index]["type"] == QuestType.spend_gold:
-			quests.append(QuestSpendXp.new(data[index]["count"]))
+		elif data[index]["type"] == QuestType.spend_gold:
+			quests.append(QuestSpendGold.new(data[index]["count"]))
 	
 	load_list_panel()
 
@@ -68,9 +68,9 @@ func load_list_panel():
 	for index in quests.size():
 		item_list.add_item(String(quests[index].data["title"]),dwarver_cion)
 
-class QuestKill:
+class BaseQuest:
 	var data = {
-		title = "Zabij x krasnali",
+		title = "Base Title",
 		gold_reward = 100.0,
 		xp_reward = 40.0,
 		count = 4,
@@ -78,44 +78,37 @@ class QuestKill:
 		type = QuestType.kill_dwarver
 		}
 	
+	func _init():
+		pass
+
+class QuestKill extends BaseQuest:
+	
 	func _init(Count):
 		data["count"] = Count
 		data["title"] = "Zabij krasnale: "+String(Count)	
 		data["gold_reward"] =  stepify(float(Count) * float(Count) * randf()*2,2)
 		data["xp_reward"] = stepify(Count * (randf()*6+1),2)
+		data["type"] =  QuestType.kill_dwarver
 
-class QuestSpendXp:
-	var data = {
-		title = "Wydaj x punktow doswiadczenia",
-		gold_reward = 100.0,
-		xp_reward = 40.0,
-		count = 4,
-		amount = 0,
-		type = QuestType.spend_xp
-		}
+class QuestSpendXp extends BaseQuest:
 	
 	func _init(Count):
 		data["count"] = Count
 		data["title"] = "Wydaj "+String(Count)+" punktow doswiadczenia"
 		data["gold_reward"] =  Count
 		data["xp_reward"] = Count*5
+		data["type"] =  QuestType.spend_xp
 
-class QuestSpendGold:
-	var data = {
-		title = "Wydaj x golda",
-		gold_reward = 100.0,
-		xp_reward = 40.0,
-		count = 4,
-		amount = 0,
-		type = QuestType.spend_gold
-		}
+class QuestSpendGold extends BaseQuest:
 	
 	func _init(Count):
 		data["count"] = Count
 		data["title"] = "Wydaj "+String(Count)+" golda"
 		data["gold_reward"] =  Count
 		data["xp_reward"] = Count*5
+		data["type"] =  QuestType.spend_gold
 
+##TODO: Ten kod się strasznie powtarza!!!!
 func on_spend_xp(spent_xp):
 	for index in quests.size():
 		if index == selected_quest:
