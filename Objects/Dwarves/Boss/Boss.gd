@@ -5,7 +5,7 @@ signal boss_kill_timeout
 onready var timeToKillLabel = find_node("TimeToKillLabel")
 
 func _ready():
-	$TimeToKill.time_left = float(get_parent().find_node("GameData").time_to_kill_boss) 
+	$TimeToKill.wait_time = float(get_parent().find_node("GameData").time_to_kill_boss) 
 	update_label()
 	
 func _process(delta):
