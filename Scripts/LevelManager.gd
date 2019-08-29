@@ -7,7 +7,9 @@ signal next_level
 
 export(int) var dwarves_per_level : int = 5
 
-var current_level : int = 1
+var current_level : int = 1 setget set_level
+
+var basic_start_level : int = 0
 
 var killed_dwarves : int = 0
 
@@ -15,8 +17,10 @@ onready var dwarves_spawner = get_parent().get_node("DwarvesSpawner")
 onready var game_data = get_parent().get_node("GameData") 
 onready var game_saver = get_parent().get_node("GameSaver") 
 onready var tavern_enter_btn = get_parent().find_node("TavernEnterBtn")
+onready var revival_enter_btn = get_parent().find_node("RevivalEnterBtn")
 onready var tavern_screen = get_parent().get_node("TavernScreen")
 onready var ui = get_parent().get_node("UI")
+onready var publician = get_parent().find_node("Publician")
 
 var GameOverScreen = load("res://Scenes/Screens/GameOverScreen/GameOverScreen.tscn")
 var NegligibleInformScreen = load("res://Scenes/Screens/NegligibleInform/NegligibleInform.tscn")
@@ -26,7 +30,9 @@ var RevivalShoop = load("res://Scenes/Screens/RevivalShoop/RevivalShoop.tscn")
 
 const OffineScreen = preload("res://Scenes/Screens/OfflineScreen/OfflineScreen.gd")
 
-
+func set_level(value):
+	current_level = value
+	ui.set_level_label(value)
 
 func _ready():
 	add_to_group('IHaveSthToSave')
@@ -51,10 +57,13 @@ func increase_level():
 	
 func on_Dwarf_died():
 	killed_dwarves += 1
+	publician.on_kill_dwarver()
 	emit_signal("dwarf_died")
 	
 	if tavern_enter_btn.pressed:
 		dwarves_spawner.spawn_tavern()
+	elif revival_enter_btn.pressed:
+		dwarves_spawner.spawn_devil()
 	else:
 		spawn_next_dwarf()
 	
@@ -87,7 +96,7 @@ func on_Boss_kill_timeout():
 	
 func on_Game_Over():
 	var eis = EssentialInformScreen.instance()
-	eis.init(3,"Game Over","Spraciles przytomnosc\n Teraz mozesz odrodzic sie na polu walki albo w tawernie","skull")
+	eis.init(3,"Game Over","Spraciles przytomnosc\n Teraz mozesz odrodzic sie na polu walki albo w tawernie","skull",false)
 	eis.connect("timeout", self, "reset_to_base")
 	get_parent().call_deferred("add_child", eis)
 
@@ -98,8 +107,8 @@ func show_offline_screen():
 	
 	var nis = NegligibleInformScreen.instance()
 	var offline_screen = OffineScreen.new()
-	var offine_text = offline_screen.offline_text(game_data.offline_time)
-	var offline_gold_reward = offline_screen.reward_text(game_data.offline_gold_reward, game_data.offline_xp_reward)
+	var offine_text = offline_screen.offline_text(stepify(game_data.offline_time,0.01))
+	var offline_gold_reward = offline_screen.reward_text(round(game_data.offline_gold_reward), round(game_data.offline_xp_reward))
 	
 	nis.init(3,offine_text,offline_gold_reward)
 	
@@ -116,6 +125,7 @@ func reset_to_base():
 
 func save():
 	var save_dict = {
-		_current_level = current_level
+		_current_level = current_level,
+		_dwarves_per_level = dwarves_per_level
 	}
 	return save_dict

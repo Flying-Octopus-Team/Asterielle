@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Objects/EventItem/EventItemSpawner.gd" type="Script" id=1]
+
+[node name="EventItemSpawner" type="Node"]
+script = ExtResource( 1 )

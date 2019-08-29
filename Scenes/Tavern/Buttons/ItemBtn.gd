@@ -9,7 +9,7 @@ func _on_BuyBtn_pressed():
 	
 func generate_random():
 	item.generate_random(elf_stats.get_stat_value("lucky"))
-	set_price_gold(item.price)
+	set_price_gold(item.price * game_data.tradesman_item_price_multipler)
 	generate_popup_title()
 	
 func generate_popup_title():
@@ -25,7 +25,7 @@ func generate_popup_title():
 		else:
 			new_stat_value = c.get_changed_value(stat_value)
 		
-		popup_title += c.stat_name + ": " + str(stat_value) + " -> " + str(new_stat_value) + "\n"
+		popup_title += c.stat_name + ": " + str(stepify(stat_value,0.01)) + " -> " + str(stepify(new_stat_value,0.01)) + "\n"
 	
 	popup_title = popup_title.trim_suffix("\n")
 	

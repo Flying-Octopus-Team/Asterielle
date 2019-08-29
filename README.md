@@ -19,15 +19,15 @@ you can play in EvD for free:
 ## Screenshots
 
 <p align="center">
-  <img src="https://trello-attachments.s3.amazonaws.com/5d32cabb934e9a0d529f37dc/600x367/05589121fa70566eba6fca33904f8b25/obraz.png" />
+  <img src="https://trello-attachments.s3.amazonaws.com/5d32cabb934e9a0d529f37dc/1024x628/7950ead60664c85b67be53433398e29c/obraz.png" />
 </p>
 
 <p align="center">
-  <img src="https://trello-attachments.s3.amazonaws.com/5d32cabb934e9a0d529f37dc/600x368/e633e9d4c8f34e2fbcd3f3e1f749f389/obraz.png" />
+  <img src="https://trello-attachments.s3.amazonaws.com/5d32cabb934e9a0d529f37dc/1025x634/2dfd124d01cca364be2a640e8fe9e072/obraz.png" />
 </p>
 
 <p align="center">
-  <img src="https://trello-attachments.s3.amazonaws.com/5d32cabb934e9a0d529f37dc/600x366/a3f46e8f0290c5952995dcff40ede485/obraz.png" />
+  <img src="https://trello-attachments.s3.amazonaws.com/5d32cabb934e9a0d529f37dc/1027x633/d1a0d57e83925fa363e9416ef32a35d7/obraz.png" />
 </p>
 
 ## Credits

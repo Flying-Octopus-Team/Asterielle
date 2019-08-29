@@ -12,6 +12,7 @@ var next_arrow_velocity : Vector2
 
 var hp : float setget set_current_hp
 
+onready var StaminaSystem = get_parent().get_node("UI/StaminaLab")
 onready var stats = get_node("/root/World/ElfStats")
 onready var fire_point = find_node("FirePoint")
 onready var hp_bar = find_node("HPBar")
@@ -38,10 +39,13 @@ func _process(delta):
 	shot_arrow()
 
 func shot_arrow():
-	restart_arrow_timer()
-	animation_player.play("Shot")
+	if StaminaSystem.auto_atack:
+		restart_arrow_timer()
+		animation_player.play("Shot")
 	
 func spawn_arrow():
+	if !StaminaSystem.auto_atack:
+		return
 	var dwarf = $DwarfRayCast.get_collider()
 	
 	if not dwarf:
@@ -66,7 +70,7 @@ func on_dwarf_hit(dmg) -> bool:
 	
 	hp -= dmg
 	
-	hp_label.text = str(hp)
+	update_hp_label()
 	
 	if hp <= 0:
 		emit_signal("game_over")
@@ -74,7 +78,10 @@ func on_dwarf_hit(dmg) -> bool:
 	else:
 		hp_bar.value = hp
 		return true
-		
+
+func update_hp_label():
+	hp_label.text = str(stepify(hp,0.01))
+
 func reset_to_base():
 	hp = stats.get_stat_value("vitality")
 	hp_bar.max_value = hp

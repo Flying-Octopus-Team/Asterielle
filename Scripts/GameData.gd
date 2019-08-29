@@ -9,17 +9,21 @@ var xp : float = 0.0 setget set_xp
 var silver_moon : int = 0 setget set_silver_moon
 var all_silver_moon : int = 0
 var last_revival_level : int = 0
+var probability_to_get_silver_moon_in_percent: int = 15
 
 var golds_on_second : float = 0.0
 var additional_gold_multipler : float = 1.0
+var additional_xp_multipler : float = 1.0
 var xp_on_second : float = 0.0
 var last_golds : Array = [0.0,0.0]
 var last_xp : Array = [0.0,0.0]
+var tradesman_item_price_multipler : float = 1.0
 
 var offline_time : int
 var offline_gold_reward : float
 var offline_xp_reward : float
 
+var time_to_kill_boss: int = 30
 var next_wait_time = 1.0
 var next_timer : float
 
@@ -98,6 +102,8 @@ func on_Boss_died():
 	
 func get_gold_to_add():
 	var lvl = level_manager.current_level
+	if level_manager.dwarves_per_level == 0:
+		return lvl     #Dont divide by 0
 	var dwarf_mod = level_manager.killed_dwarves / level_manager.dwarves_per_level
 	return lvl + dwarf_mod
 
@@ -105,7 +111,7 @@ func add_gold(additional_gold):
 	set_gold(gold + additional_gold * additional_gold_multipler )
 	
 func add_xp(additional_xp):
-	set_xp(xp + additional_xp)
+	set_xp(xp + additional_xp * additional_xp_multipler)
 
 func add_silver_moon():
 	var lvl = level_manager.current_level
@@ -118,7 +124,7 @@ func add_silver_moon():
 		emit_signal("get_first_silver_moon")
 		return
 	
-	if rand_range(1,100) > 15:
+	if rand_range(1,100) > probability_to_get_silver_moon_in_percent:
 		return
 	
 	silver_moon += reward
@@ -137,6 +143,11 @@ func save():
 		_xp_on_second = xp_on_second,
 		_gold = gold,
 		_xp = xp,
-		_silver_moon = silver_moon
+		_silver_moon = silver_moon,
+		_additional_gold_multipler = additional_gold_multipler,
+		_additional_xp_multipler = additional_xp_multipler,
+		_time_to_kill_boss = time_to_kill_boss,
+		_probability_to_get_silver_moon_in_percent = probability_to_get_silver_moon_in_percent,
+		_tradesman_item_price_multipler = tradesman_item_price_multipler
 	}
 	return save_dict
