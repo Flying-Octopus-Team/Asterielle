@@ -185,16 +185,16 @@ shape = SubResource( 1 )
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 550.0
+margin_top = 506.842
 margin_right = 1024.0
-margin_bottom = 582.0
+margin_bottom = 538.842
 alignment = 1
 
 [node name="HealthPotion" parent="PotionsContainer" instance=ExtResource( 14 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 496.0
-margin_right = 528.0
+margin_left = 495.0
+margin_right = 527.0
 margin_bottom = 32.0
 rect_scale = Vector2( 1, 1 )
 

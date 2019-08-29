@@ -102,8 +102,8 @@ margin_bottom = 32.0
 text = "Doswiadczenie: 100"
 
 [node name="StatsPanel" parent="." instance=ExtResource( 9 )]
-margin_left = 763.436
-margin_top = 202.77
-margin_right = 763.436
-margin_bottom = 202.77
+margin_left = 783.705
+margin_top = 359.537
+margin_right = 783.705
+margin_bottom = 359.537
 [connection signal="pressed" from="MainHall/ExitDoorBtn" to="." method="_on_ExitDoorBtn_pressed"]
