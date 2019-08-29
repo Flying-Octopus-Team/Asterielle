@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Scenes/World/World.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/World/Background.gd" type="Script" id=2]
@@ -205,7 +205,7 @@ margin_bottom = 32.0
 size_flags_horizontal = 3
 alignment = 1
 
-[node name="HealthPotion" parent="PotionsContainer" instance=ExtResource( 15 )]
+[node name="HealthPotion" parent="BottomBar/Potions" instance=ExtResource( 15 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 136.0
@@ -221,6 +221,5 @@ size_flags_horizontal = 3
 
 [node name="GameSaver" type="Node" parent="."]
 script = ExtResource( 16 )
-[connection signal="pressed" from="UI/RevivalBtn" to="Revival" method="_on_RevivalBtn_pressed"]
 [connection signal="pressed" from="UI/TavernEnterBtn" to="UI" method="_on_TavernEnterBtn_pressed"]
 [connection signal="pressed" from="UI/RevivalEnterBtn" to="UI" method="_on_RevivalEnterBtn_pressed"]
