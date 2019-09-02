@@ -193,12 +193,13 @@ alignment = 1
 [node name="HealthPotion" parent="PotionsContainer" instance=ExtResource( 14 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 495.0
-margin_right = 527.0
+margin_left = 496.0
+margin_right = 528.0
 margin_bottom = 32.0
 rect_scale = Vector2( 1, 1 )
 
 [node name="GameSaver" type="Node" parent="."]
 script = ExtResource( 15 )
+
 [connection signal="pressed" from="UI/TavernEnterBtn" to="UI" method="_on_TavernEnterBtn_pressed"]
 [connection signal="pressed" from="UI/RevivalEnterBtn" to="UI" method="_on_RevivalEnterBtn_pressed"]
