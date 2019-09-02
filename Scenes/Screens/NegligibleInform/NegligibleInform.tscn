@@ -16,7 +16,7 @@ layer = 10
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 174.0
-margin_bottom = -243.0
+margin_bottom = -221.0
 color = Color( 0.168627, 0.168627, 0.168627, 0.717647 )
 
 [node name="TopText" type="Label" parent="CanvasLayer"]
@@ -35,9 +35,9 @@ text = "Second text"
 align = 1
 
 [node name="ExitButton" type="Button" parent="CanvasLayer"]
-margin_left = 354.133
-margin_top = 273.759
-margin_right = 666.133
-margin_bottom = 341.759
+margin_left = 358.137
+margin_top = 269.387
+margin_right = 670.137
+margin_bottom = 337.387
 text = "OK!"
 [connection signal="pressed" from="CanvasLayer/ExitButton" to="." method="exit"]
