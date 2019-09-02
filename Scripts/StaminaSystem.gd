@@ -14,7 +14,7 @@ func _ready():
 	set_process_input(true)
 
 func _input(event):
-	if Input.is_action_just_pressed("increasing_stamina"):
+	if Input.is_action_just_pressed("increasing_stamina") or event is InputEventScreenTouch:
 		increasing_stamina()
 
 func increasing_stamina():
