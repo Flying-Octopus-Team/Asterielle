@@ -194,7 +194,7 @@ margin_right = 304.0
 margin_bottom = 32.0
 size_flags_horizontal = 3
 
-[node name="SkillBtn" parent="BottomBar/ActiveSpells" instance=ExtResource( 14 )]
+[node name="SpeedupBtn" parent="BottomBar/ActiveSpells" instance=ExtResource( 14 )]
 margin_right = 32.0
 margin_bottom = 32.0
 

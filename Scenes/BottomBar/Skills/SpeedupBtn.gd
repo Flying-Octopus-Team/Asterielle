@@ -3,6 +3,7 @@ extends "res://Scenes/BottomBar/Skills/SkillBtn.gd"
 onready var world = get_node("/root/World")
 onready var level_manager = world.find_node("LevelManager")
 
+
 func use() -> void:
 	remove_nodes_in_group("IDwarf")
 	remove_nodes_in_group("IArrow")
@@ -22,7 +23,7 @@ func jump_to_next_boss_level() -> void:
 	
 	for i in range(current_level, next_boss_level):
 		level_manager.increase_level()
-		
+	
 func spawn_boss() -> void:
 	var dwarves_spawner = world.find_node("DwarvesSpawner")
 	dwarves_spawner.spawn_boss()
