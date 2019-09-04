@@ -1,5 +1,6 @@
 extends Control
 
+signal room_entered
 signal room_exited
 
 func _ready():
@@ -7,6 +8,7 @@ func _ready():
 
 func on_enter():
 	visible = true
+	emit_signal("room_entered")
 	
 func _on_ExitBtn_pressed():
 	visible = false
