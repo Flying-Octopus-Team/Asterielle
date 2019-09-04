@@ -53,8 +53,8 @@ func _ready():
 
 func increase_level():
 	current_level += 1
+	ui.set_level_label(current_level)
 	killed_dwarves = 0
-	ui.set_level_label(String(current_level))
 	emit_signal("next_level", current_level)
 	
 func on_Dwarf_died():
@@ -86,15 +86,20 @@ func spawn_next_dwarf():
 		dwarves_spawner.spawn_dwarf()
 	
 func on_Boss_died():
-	increase_level()
-	
 	if speedup_skill.using:
+		jump_to_next_boss_level()
 		dwarves_spawner.spawn_boss()
 	else:
+		increase_level()
 		dwarves_spawner.spawn_dwarf()
 	
-	#ui.set_killed_dwarves_label(killed_dwarves, dwarves_per_level)
 	emit_signal("boss_died")
+	
+func jump_to_next_boss_level() -> void:
+	var next_boss_level : int = (floor(current_level / 10)+1) * 10
+	
+	for i in range(current_level, next_boss_level):
+		increase_level()
 
 func on_Boss_kill_timeout():
 	killed_dwarves = 0
@@ -124,7 +129,6 @@ func show_offline_screen():
 func reset_to_base():
 	current_level = floor((current_level-1) / 10) * 10 + 1
 	killed_dwarves = 0
-	ui.set_level_label(String(current_level))
 	ui.set_killed_dwarves_label(killed_dwarves, dwarves_per_level)
 	emit_signal("reset_to_base")
 	
