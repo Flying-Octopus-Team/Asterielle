@@ -254,5 +254,6 @@ position = Vector2( 733.783, 525.41 )
 scale = Vector2( 0.4245, 0.4245 )
 z_index = 3
 texture = ExtResource( 21 )
+
 [connection signal="pressed" from="UI/TavernEnterBtn" to="UI" method="_on_TavernEnterBtn_pressed"]
 [connection signal="pressed" from="UI/RevivalEnterBtn" to="UI" method="_on_RevivalEnterBtn_pressed"]
