@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Scenes/World/World.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/World/Background.gd" type="Script" id=2]
@@ -15,6 +15,12 @@
 [ext_resource path="res://Scenes/Tavern/TavernScreen.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Objects/Potions/Health/HealthPotion.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Scripts/GameSaver.gd" type="Script" id=15]
+[ext_resource path="res://Objects/Background/Other/sky.png" type="Texture" id=16]
+[ext_resource path="res://Objects/Background/Other/frontGrass.png" type="Texture" id=17]
+[ext_resource path="res://Objects/Background/Other/backGrass.png" type="Texture" id=18]
+[ext_resource path="res://Objects/Background/Other/path.png" type="Texture" id=19]
+[ext_resource path="res://Objects/Background/Other/rocks.png" type="Texture" id=20]
+[ext_resource path="res://bush.png" type="Texture" id=21]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 537.558, 30.0002 )
@@ -27,7 +33,7 @@ __meta__ = {
 
 [node name="Background" type="Node2D" parent="."]
 script = ExtResource( 2 )
-num_of_layers = 3
+num_of_layers = 2
 move_speed = 70.0
 tree_seperation = 250.0
 
@@ -201,5 +207,52 @@ rect_scale = Vector2( 1, 1 )
 [node name="GameSaver" type="Node" parent="."]
 script = ExtResource( 15 )
 
+[node name="sky" type="Sprite" parent="."]
+position = Vector2( 511.63, 287.253 )
+scale = Vector2( 2, 2 )
+z_index = -20
+texture = ExtResource( 16 )
+
+[node name="frontGrass2" type="Sprite" parent="."]
+position = Vector2( 511.63, 235.053 )
+scale = Vector2( 2, 2 )
+z_index = -11
+texture = ExtResource( 17 )
+
+[node name="backGrass" type="Sprite" parent="."]
+position = Vector2( 512.499, 321.797 )
+scale = Vector2( 2, 2 )
+z_index = -9
+texture = ExtResource( 18 )
+
+[node name="path" type="Sprite" parent="."]
+position = Vector2( 512.31, 292.933 )
+scale = Vector2( 2, 2 )
+z_index = -6
+texture = ExtResource( 19 )
+
+[node name="rocks" type="Sprite" parent="."]
+position = Vector2( 511.63, 294.253 )
+scale = Vector2( 2, 2 )
+z_index = -5
+texture = ExtResource( 20 )
+
+[node name="frontGrass" type="Sprite" parent="."]
+position = Vector2( 512.404, 297.312 )
+scale = Vector2( 2, 2 )
+z_index = 10
+texture = ExtResource( 17 )
+
+[node name="bush" type="Sprite" parent="."]
+position = Vector2( 244.22, 473.968 )
+scale = Vector2( 0.4245, 0.4245 )
+z_index = -10
+texture = ExtResource( 21 )
+
+[node name="bush2" type="Sprite" parent="."]
+position = Vector2( 733.783, 525.41 )
+scale = Vector2( 0.4245, 0.4245 )
+z_index = 3
+texture = ExtResource( 21 )
 [connection signal="pressed" from="UI/TavernEnterBtn" to="UI" method="_on_TavernEnterBtn_pressed"]
 [connection signal="pressed" from="UI/RevivalEnterBtn" to="UI" method="_on_RevivalEnterBtn_pressed"]
