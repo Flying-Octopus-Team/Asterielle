@@ -59,6 +59,12 @@ class Stat:
 		changed_value = value
 		changers.clear()
 		emit_signal("value_changed", self)
+		
+	func set_default_value(dv:float) -> void:
+		if default_value == value:
+			set_value(dv)
+			
+		default_value = dv
 	
 	func named(n:String) -> bool:
 		return name == n

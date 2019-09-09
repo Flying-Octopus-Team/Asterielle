@@ -5,4 +5,3 @@ func set_texture(texture:Texture) -> void:
 
 func _on_VisibilityNotifier2D_screen_exited() -> void:
 	queue_free()
-	print("Removed")
