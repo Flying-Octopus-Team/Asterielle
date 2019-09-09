@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Objects/Background/Bushes/BushesSpawner.gd" type="Script" id=1]
+
+[node name="BushesSpawner" type="Node2D"]
+position = Vector2( 0, 500 )
+script = ExtResource( 1 )
+move_speed = 70.0
+separation = 150.0
+
