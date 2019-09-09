@@ -4,6 +4,7 @@
 [ext_resource path="res://Objects/Background/Bushes/bush04.png" type="Texture" id=2]
 
 [node name="Bush" type="Node2D"]
+modulate = Color( 0.572549, 0.572549, 0.572549, 1 )
 script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]

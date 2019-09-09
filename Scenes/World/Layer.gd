@@ -4,7 +4,7 @@ var TREE_TEXTURES = [
 	load("res://Objects/Background/Trees/tree1.png"),
 	load("res://Objects/Background/Trees/tree2.png"),
 	load("res://Objects/Background/Trees/tree3.png"),
-	load("res://Objects/Background/Trees/tree4.png"),
+	#load("res://Objects/Background/Trees/tree4.png"),
 	load("res://Objects/Background/Trees/tree5.png")
 ]
 

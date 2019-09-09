@@ -3,4 +3,6 @@
 [ext_resource path="res://Scenes/World/Layer.gd" type="Script" id=1]
 
 [node name="Layer" type="Node2D"]
+modulate = Color( 0.0705882, 0.0705882, 0.0705882, 1 )
 script = ExtResource( 1 )
+
