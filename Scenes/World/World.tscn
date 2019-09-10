@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Scenes/World/World.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/World/Background.gd" type="Script" id=2]
@@ -13,8 +13,9 @@
 [ext_resource path="res://Objects/Dwarves/DwarvesSpawner/DwarvesSpawner.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Objects/EventItem/EventItemSpawner.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/Tavern/TavernScreen.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Objects/Potions/Health/HealthPotion.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Scripts/GameSaver.gd" type="Script" id=15]
+[ext_resource path="res://Scenes/BottomBar/Skills/SpeedupBtn.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Objects/Potions/Health/HealthPotion.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Scripts/GameSaver.gd" type="Script" id=16]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 537.558, 30.0002 )
@@ -32,6 +33,7 @@ move_speed = 70.0
 tree_seperation = 250.0
 
 [node name="UI" type="Control" parent="."]
+editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 3 )
@@ -181,25 +183,44 @@ shape = SubResource( 1 )
 
 [node name="TavernScreen" parent="." instance=ExtResource( 13 )]
 
-[node name="PotionsContainer" type="HBoxContainer" parent="."]
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = 506.842
-margin_right = 1024.0
-margin_bottom = 538.842
+[node name="BottomBar" type="HBoxContainer" parent="."]
+margin_left = 57.0
+margin_top = 550.0
+margin_right = 977.0
+margin_bottom = 582.0
+
+[node name="ActiveSpells" type="HBoxContainer" parent="BottomBar"]
+margin_right = 304.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+
+[node name="SpeedupBtn" parent="BottomBar/ActiveSpells" instance=ExtResource( 14 )]
+margin_right = 32.0
+margin_bottom = 32.0
+
+[node name="Potions" type="HBoxContainer" parent="BottomBar"]
+margin_left = 308.0
+margin_right = 612.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
 alignment = 1
 
-[node name="HealthPotion" parent="PotionsContainer" instance=ExtResource( 14 )]
+[node name="HealthPotion" parent="BottomBar/Potions" instance=ExtResource( 15 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 496.0
-margin_right = 528.0
+margin_left = 136.0
+margin_right = 168.0
 margin_bottom = 32.0
 rect_scale = Vector2( 1, 1 )
 
+[node name="Margin" type="Control" parent="BottomBar"]
+margin_left = 616.0
+margin_right = 920.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+
 [node name="GameSaver" type="Node" parent="."]
-script = ExtResource( 15 )
+script = ExtResource( 16 )
 
 [connection signal="pressed" from="UI/TavernEnterBtn" to="UI" method="_on_TavernEnterBtn_pressed"]
 [connection signal="pressed" from="UI/RevivalEnterBtn" to="UI" method="_on_RevivalEnterBtn_pressed"]

@@ -2,16 +2,12 @@ extends HBoxContainer
 
 signal bought
 
-enum PriceType {
-	GOLD,
-	XP
-}
-
 export(String) var item_name
-export(float) var price
-export(float) var price_mod = 1.0
-export(PriceType) var price_type
-export(String) var popup_title 
+export(float) var price_gold
+export(float) var price_xp
+export(float) var price_gold_mod = 1.0
+export(float) var price_xp_mod = 1.0
+export(String) var popup_title
 
 onready var game_data = get_tree().get_current_scene().find_node("GameData")
 onready var elf_stats = get_node("/root/World/ElfStats")
@@ -24,36 +20,59 @@ func _ready():
 	update_price_label()
 
 func _on_BuyBtn_pressed():
-	match price_type:
-		PriceType.GOLD:
-			publican.on_spend_gold(get_lower_price())
-			game_data.add_gold(-get_lower_price())
-		PriceType.XP:
-			publican.on_spend_xp(get_lower_price())
-			game_data.add_xp(-get_lower_price())
-	
-	set_price(price * price_mod)
+	if price_gold:
+		game_data.add_gold(-get_lower_price_gold())
+		set_price_gold(price_gold * price_gold_mod)
+		publican.on_spend_gold(get_lower_price_gold())
+	if price_xp:
+		game_data.add_xp(-price_xp)
+		set_price_xp(price_xp * price_xp_mod)
+		publican.on_spend_xp(price_xp)
 	
 	emit_signal("bought")
 
-func set_price(new_price:float):
-	price = new_price
+func set_price_gold(new_price:float):
+	price_gold = new_price
+	update_price_label()
+	
+func set_price_xp(new_price:float):
+	price_xp = new_price
 	update_price_label()
 
 func _on_Charisma_value_changed(charisma_stat) -> void:
 	update_price_label()
 
-func get_lower_price() -> float:
-	if price_type == PriceType.XP:
-		return price
-		
-	return max(max(price - elf_stats.get_stat_value("charisma"), price * 0.5), 0)
+func get_lower_price_gold() -> float:
+	var charisma = elf_stats.get_stat_value("charisma")
+	var half_price_gold = price_gold * 0.5
+	return max(price_gold - charisma, half_price_gold)
 
 func update_price_label():
-	$Price.text = str(stepify(get_lower_price(),0.01))
-	
+	if price_gold:
+		$PriceGold.text = str(stepify(get_lower_price_gold(),0.01)) + " zl"
+	else:
+		$PriceGold.text = ""
+		
+	if price_xp:
+		$PriceXp.text = str(stepify(price_xp, 0.01)) + " xp"
+	else:
+		$PriceXp.text = ""
+		
 func set_enabled(enabled:bool) -> void:
 	$BuyBtn.set_disabled(!enabled)
+	
+func update_enabled() -> void:
+	var gold = game_data.gold
+	var xp = game_data.xp
+	
+	var should_be_enabled = true
+	
+	if price_gold:
+		should_be_enabled = gold > price_gold
+	if price_xp:
+		should_be_enabled = should_be_enabled && xp > price_xp
+	
+	set_enabled(should_be_enabled)
 	
 func _on_TavernBtn_mouse_entered():
 	if popup_title != "":
