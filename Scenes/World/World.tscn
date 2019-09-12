@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Scenes/World/World.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/World/Background.gd" type="Script" id=2]
@@ -20,7 +20,9 @@
 [ext_resource path="res://Objects/Dwarves/DwarvesSpawner/DwarvesSpawner.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Objects/EventItem/EventItemSpawner.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Scenes/Tavern/TavernScreen.tscn" type="PackedScene" id=20]
-[ext_resource path="res://Scripts/GameSaver.gd" type="Script" id=21]
+[ext_resource path="res://Scenes/BottomBar/Skills/SpeedupBtn.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Scripts/GameSaver.gd" type="Script" id=22]
+
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 537.558, 30.0002 )
@@ -226,14 +228,6 @@ margin_right = 1024.0
 margin_bottom = 539.0
 alignment = 1
 
-[node name="HealthPotion" parent="UIContainer/PotionsContainer" instance=ExtResource( 12 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 496.0
-margin_right = 528.0
-margin_bottom = 32.0
-rect_scale = Vector2( 1, 1 )
-
 [node name="GameManager" type="Node" parent="."]
 script = ExtResource( 13 )
 
@@ -269,8 +263,44 @@ shape = SubResource( 1 )
 
 [node name="TavernScreen" parent="." instance=ExtResource( 20 )]
 
+[node name="BottomBar" type="HBoxContainer" parent="."]
+margin_left = 57.0
+margin_top = 550.0
+margin_right = 977.0
+margin_bottom = 582.0
+
+[node name="ActiveSpells" type="HBoxContainer" parent="BottomBar"]
+margin_right = 304.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+
+[node name="SpeedupBtn" parent="BottomBar/ActiveSpells" instance=ExtResource( 21 )]
+margin_right = 32.0
+margin_bottom = 32.0
+
+[node name="Potions" type="HBoxContainer" parent="BottomBar"]
+margin_left = 308.0
+margin_right = 612.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="HealthPotion" parent="BottomBar/Potions" instance=ExtResource( 12 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 136.0
+margin_right = 168.0
+margin_bottom = 32.0
+rect_scale = Vector2( 1, 1 )
+
+[node name="Margin" type="Control" parent="BottomBar"]
+margin_left = 616.0
+margin_right = 920.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+
 [node name="GameSaver" type="Node" parent="."]
-script = ExtResource( 21 )
+script = ExtResource( 22 )
 
 [connection signal="pressed" from="UIContainer/UI/TavernEnterBtn" to="UIContainer/UI" method="_on_TavernEnterBtn_pressed"]
 [connection signal="pressed" from="UIContainer/UI/RevivalEnterBtn" to="UIContainer/UI" method="_on_RevivalEnterBtn_pressed"]

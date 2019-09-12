@@ -6,6 +6,9 @@ var velocity : Vector2
 
 var damage : float
 
+func _ready():
+	add_to_group("IArrow")
+
 func _physics_process(delta):
 	velocity.y += gravity * delta
 	velocity.x *= damping

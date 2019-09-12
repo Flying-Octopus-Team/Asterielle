@@ -21,6 +21,16 @@ onready var revival_enter_btn = get_parent().find_node("RevivalEnterBtn")
 onready var tavern_screen = get_parent().get_node("TavernScreen")
 onready var ui = get_parent().find_node("UI")
 onready var publician = get_parent().find_node("Publician")
+onready var parent = get_parent()
+onready var dwarves_spawner = parent.get_node("DwarvesSpawner") 
+onready var game_data = parent.get_node("GameData") 
+onready var game_saver = parent.get_node("GameSaver") 
+onready var tavern_enter_btn = parent.find_node("TavernEnterBtn")
+onready var revival_enter_btn = parent.find_node("RevivalEnterBtn")
+onready var tavern_screen = parent.get_node("TavernScreen")
+onready var ui = parent.get_node("UI")
+onready var publician = parent.find_node("Publician")
+onready var speedup_skill = parent.find_node("SpeedupBtn")
 
 var GameOverScreen = load("res://Scenes/Screens/GameOverScreen/GameOverScreen.tscn")
 var NegligibleInformScreen = load("res://Scenes/Screens/NegligibleInform/NegligibleInform.tscn")
@@ -51,8 +61,8 @@ func _ready():
 
 func increase_level():
 	current_level += 1
-	killed_dwarves = 0
 	ui.set_level_label(current_level)
+	killed_dwarves = 0
 	emit_signal("next_level", current_level)
 	
 func on_Dwarf_died():
@@ -84,10 +94,20 @@ func spawn_next_dwarf():
 		dwarves_spawner.spawn_dwarf()
 	
 func on_Boss_died():
+	if speedup_skill.using:
+		jump_to_next_boss_level()
+		dwarves_spawner.spawn_boss()
+	else:
+		increase_level()
+		dwarves_spawner.spawn_dwarf()
+	
 	emit_signal("boss_died")
-	increase_level()
-	dwarves_spawner.spawn_dwarf()
-	ui.set_killed_dwarves_label(killed_dwarves, dwarves_per_level)
+	
+func jump_to_next_boss_level() -> void:
+	var next_boss_level : int = (floor(current_level / 10)+1) * 10
+	
+	for i in range(current_level, next_boss_level):
+		increase_level()
 
 func on_Boss_kill_timeout():
 	killed_dwarves = 0
