@@ -13,24 +13,16 @@ var basic_start_level : int = 0
 
 var killed_dwarves : int = 0
 
-onready var dwarves_spawner = get_parent().get_node("DwarvesSpawner") 
-onready var game_data = get_parent().get_node("GameData") 
-onready var game_saver = get_parent().get_node("GameSaver") 
-onready var tavern_enter_btn = get_parent().find_node("TavernEnterBtn")
-onready var revival_enter_btn = get_parent().find_node("RevivalEnterBtn")
-onready var tavern_screen = get_parent().get_node("TavernScreen")
-onready var ui = get_parent().find_node("UI")
-onready var publician = get_parent().find_node("Publician")
-onready var parent = get_parent()
-onready var dwarves_spawner = parent.get_node("DwarvesSpawner") 
-onready var game_data = parent.get_node("GameData") 
-onready var game_saver = parent.get_node("GameSaver") 
-onready var tavern_enter_btn = parent.find_node("TavernEnterBtn")
-onready var revival_enter_btn = parent.find_node("RevivalEnterBtn")
-onready var tavern_screen = parent.get_node("TavernScreen")
-onready var ui = parent.get_node("UI")
-onready var publician = parent.find_node("Publician")
-onready var speedup_skill = parent.find_node("SpeedupBtn")
+onready var world = get_node("/root/World")
+onready var dwarves_spawner = world.get_node("DwarvesSpawner") 
+onready var game_data = world.get_node("GameData") 
+onready var game_saver = world.get_node("GameSaver") 
+onready var tavern_enter_btn = world.find_node("TavernEnterBtn")
+onready var revival_enter_btn = world.find_node("RevivalEnterBtn")
+onready var tavern_screen = world.get_node("TavernScreen")
+onready var ui = world.find_node("UI")
+onready var publician = world.find_node("Publician")
+onready var speedup_skill = world.find_node("SpeedupBtn")
 
 var GameOverScreen = load("res://Scenes/Screens/GameOverScreen/GameOverScreen.tscn")
 var NegligibleInformScreen = load("res://Scenes/Screens/NegligibleInform/NegligibleInform.tscn")
@@ -50,7 +42,7 @@ func _ready():
 	ui.set_level_label(current_level)
 	ui.set_killed_dwarves_label(killed_dwarves, dwarves_per_level)
 	
-	var elf = get_parent().get_node("Elf")
+	var elf = world.get_node("Elf")
 	elf.connect("game_over", self, "on_Game_Over")
 	connect("next_level", dwarves_spawner, "on_next_level")
 	connect("reset_to_base", dwarves_spawner, "reset_to_base")
@@ -118,7 +110,7 @@ func on_Game_Over():
 	var eis = EssentialInformScreen.instance()
 	eis.init(3,"Game Over","Spraciles przytomnosc\n Teraz mozesz odrodzic sie na polu walki albo w tawernie","skull",false)
 	eis.connect("timeout", self, "reset_to_base")
-	get_parent().call_deferred("add_child", eis)
+	world.call_deferred("add_child", eis)
 
 func show_offline_screen():
 	if game_data.offline_time == 0:
@@ -132,7 +124,7 @@ func show_offline_screen():
 	
 	nis.init(3,offine_text,offline_gold_reward)
 	
-	get_parent().call_deferred("add_child", nis)
+	world.call_deferred("add_child", nis)
 
 func reset_to_base():
 	current_level = floor((current_level-1) / 10) * 10 + 1
