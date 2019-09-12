@@ -86,7 +86,7 @@ func reset_to_base():
 	hp = stats.get_stat_value("vitality")
 	hp_bar.max_value = hp
 	hp_bar.value = hp
-	hp_label.text = str(hp)
+	hp_label.text = str(stepify(hp,0.01))
 
 func restart_arrow_timer():
 	next_arrow_timer = next_arrow_wait_time
