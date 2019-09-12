@@ -221,6 +221,5 @@ size_flags_horizontal = 3
 
 [node name="GameSaver" type="Node" parent="."]
 script = ExtResource( 16 )
-
 [connection signal="pressed" from="UI/TavernEnterBtn" to="UI" method="_on_TavernEnterBtn_pressed"]
 [connection signal="pressed" from="UI/RevivalEnterBtn" to="UI" method="_on_RevivalEnterBtn_pressed"]
