@@ -14,6 +14,7 @@ onready var game_data = get_parent().get_node("GameData")
 onready var level_manager = get_parent().get_node("LevelManager")
 onready var elf_stats = get_parent().get_node("ElfStats")
 onready var elf = get_parent().get_node("Elf")
+onready var publician = get_parent().find_node("Publician")
 
 func _ready():
 	load_game()
@@ -173,6 +174,7 @@ func revival_reset():
 	load_level(1)
 	elf_stats.restore_to_default()
 	load_helth_potion(0)
+	publician.create_default_quests()
 	save_game()
 
 func load_gold(gold):
