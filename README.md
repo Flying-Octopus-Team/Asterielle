@@ -1,6 +1,6 @@
-# Elf vs Dwarves
+# Asterielle : Slayer of Dwarves
 
-'EvD' is a game created by Flying Octopus
+'A:SOD' is a game created by Flying Octopus
 
 | [:fire:Play](#Play) | [:camera:Screenshots](#screenshots) | [:wrench:Credits](#credits) | [:star:Resources](#resources) |
 | ----- | ----------- | ----------- | ----------- |
@@ -37,6 +37,6 @@ you can play in EvD for free:
 - Project manager: [GitHub](http://github.com/)
 
 ## Resources
-[:skull: Website](http://elf-vs-dwarves.pl/)
+[:skull: Website](http://elf-vs-dwarves.com/)
 
 [:ghost: Discord](https://discord.gg/D29mBe4)
