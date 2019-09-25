@@ -51,6 +51,7 @@ func save_quests():
 	save_file.close()
 
 func create_default_quests():
+	clear_items()
 	add_kill_dwarves_quest()
 	add_spend_gold_quest()
 	add_kill_dwarves_quest()
@@ -63,6 +64,10 @@ func create_default_quests():
 	add_spend_xp_quest()
 	add_spend_xp_quest()
 	add_spend_gold_quest()
+
+func clear_items():
+	quests.clear()
+	item_list.clear()
 
 func load_list_panel():
 	for index in quests.size():

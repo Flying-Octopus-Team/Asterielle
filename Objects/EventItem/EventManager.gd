@@ -1,5 +1,6 @@
 extends Node
 
+var dwarf_in_ballon: bool = false
 var timer = null
 var event_items : Array = [
 	load("res://Objects/EventItem/SackOfGold.tscn"),
@@ -23,4 +24,6 @@ func return_random_time() -> float:
 func spawn_item():
 	var index : int = randi() % event_items.size()
 	var item = event_items[index].instance()
+	if item.name == "DwarfInBalloon" && dwarf_in_ballon:
+		return
 	get_parent().call_deferred("add_child", item)

@@ -25,7 +25,6 @@ margin_bottom = 216.0
 [node name="BowBtn" parent="VBoxContainer/Shop" index="0" instance=ExtResource( 3 )]
 margin_right = 1024.0
 item_name = "Luk"
-price = 1.0
 item = ExtResource( 4 )
 
 [node name="LeftRingBtn" parent="VBoxContainer/Shop" index="1" instance=ExtResource( 3 )]
@@ -33,7 +32,6 @@ margin_top = 24.0
 margin_right = 1024.0
 margin_bottom = 44.0
 item_name = "Lewy pierscien"
-price = 1.0
 item = ExtResource( 5 )
 
 [node name="RightRingBtn" parent="VBoxContainer/Shop" index="2" instance=ExtResource( 3 )]
@@ -41,7 +39,6 @@ margin_top = 48.0
 margin_right = 1024.0
 margin_bottom = 68.0
 item_name = "Prawy pierscien"
-price = 1.0
 item = ExtResource( 6 )
 
 [node name="HelmetBtn" parent="VBoxContainer/Shop" index="3" instance=ExtResource( 3 )]
@@ -49,7 +46,6 @@ margin_top = 72.0
 margin_right = 1024.0
 margin_bottom = 92.0
 item_name = "Helm"
-price = 1.0
 item = ExtResource( 7 )
 
 [node name="ArmorBtn" parent="VBoxContainer/Shop" index="4" instance=ExtResource( 3 )]
@@ -57,7 +53,6 @@ margin_top = 96.0
 margin_right = 1024.0
 margin_bottom = 116.0
 item_name = "Zbroja"
-price = 1.0
 item = ExtResource( 8 )
 
 [node name="GlovesBtn" parent="VBoxContainer/Shop" index="5" instance=ExtResource( 3 )]
@@ -65,7 +60,6 @@ margin_top = 120.0
 margin_right = 1024.0
 margin_bottom = 140.0
 item_name = "Rekawice"
-price = 1.0
 item = ExtResource( 9 )
 
 [node name="BootsBtn" parent="VBoxContainer/Shop" index="6" instance=ExtResource( 3 )]
@@ -73,7 +67,6 @@ margin_top = 144.0
 margin_right = 1024.0
 margin_bottom = 164.0
 item_name = "Buty"
-price = 1.0
 item = ExtResource( 10 )
 
 [node name="CenterContainer" parent="VBoxContainer" index="2"]

@@ -11,7 +11,7 @@
 [ext_resource path="res://Scripts/Revival.gd" type="Script" id=9]
 [ext_resource path="res://Objects/Elf/Elf.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Objects/Dwarves/DwarvesSpawner/DwarvesSpawner.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Objects/EventItem/EventItemSpawner.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Objects/EventItem/EventManager.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/Tavern/TavernScreen.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Scenes/BottomBar/Skills/SpeedupBtn.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Objects/Potions/Health/HealthPotion.tscn" type="PackedScene" id=15]
@@ -167,7 +167,7 @@ position = Vector2( 121.06, 544.182 )
 [node name="DwarvesSpawner" parent="." instance=ExtResource( 11 )]
 position = Vector2( 1081.97, 544.587 )
 
-[node name="EventItemSpawner" parent="." instance=ExtResource( 12 )]
+[node name="EventManager" parent="." instance=ExtResource( 12 )]
 
 [node name="Ground" type="Area2D" parent="."]
 editor/display_folded = true
@@ -184,6 +184,7 @@ shape = SubResource( 1 )
 [node name="TavernScreen" parent="." instance=ExtResource( 13 )]
 
 [node name="BottomBar" type="HBoxContainer" parent="."]
+editor/display_folded = true
 margin_left = 57.0
 margin_top = 550.0
 margin_right = 977.0
@@ -221,6 +222,5 @@ size_flags_horizontal = 3
 
 [node name="GameSaver" type="Node" parent="."]
 script = ExtResource( 16 )
-
 [connection signal="pressed" from="UI/TavernEnterBtn" to="UI" method="_on_TavernEnterBtn_pressed"]
 [connection signal="pressed" from="UI/RevivalEnterBtn" to="UI" method="_on_RevivalEnterBtn_pressed"]

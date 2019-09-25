@@ -17,10 +17,10 @@ func _on_Xp_changed():
 	update_xp_label()
 	
 func update_gold_label():
-	gold_label.text = str("Zloto: ", game_data.gold) 
+	gold_label.text = str("Zloto: ", stepify(game_data.gold,0.01)) 
 	
 func update_xp_label():
-	xp_label.text = str("Doswiadczenie: ", game_data.xp)
+	xp_label.text = str("Doswiadczenie: ", stepify(game_data.xp,0.01))
 	
 func _on_Tavern_entered():
 	visible = true

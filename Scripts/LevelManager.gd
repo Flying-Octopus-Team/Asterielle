@@ -21,7 +21,7 @@ onready var tavern_enter_btn = parent.find_node("TavernEnterBtn")
 onready var revival_enter_btn = parent.find_node("RevivalEnterBtn")
 onready var tavern_screen = parent.get_node("TavernScreen")
 onready var ui = parent.get_node("UI")
-onready var publician = parent.find_node("Publician")
+onready var publican = parent.find_node("Publican")
 onready var speedup_skill = parent.find_node("SpeedupBtn")
 
 var GameOverScreen = load("res://Scenes/Screens/GameOverScreen/GameOverScreen.tscn")
@@ -59,7 +59,7 @@ func increase_level():
 	
 func on_Dwarf_died():
 	killed_dwarves += 1
-	publician.on_kill_dwarver()
+	publican.on_kill_dwarver()
 	emit_signal("dwarf_died")
 	
 	if tavern_enter_btn.pressed:
