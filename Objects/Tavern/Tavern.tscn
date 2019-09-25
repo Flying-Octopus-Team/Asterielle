@@ -25,6 +25,6 @@ scale = Vector2( 0.5, 1 )
 shape = SubResource( 1 )
 
 [node name="karczma5" type="Sprite" parent="."]
-position = Vector2( 0.237823, -137.487 )
+position = Vector2( 109.933, -137.487 )
 texture = ExtResource( 2 )
 [connection signal="area_entered" from="." to="." method="_on_Tavern_area_entered"]

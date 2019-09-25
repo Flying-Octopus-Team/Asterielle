@@ -103,8 +103,8 @@ var health_multiplier: float = 1.0
 
 var stats = [
 	Stat.new("bows_knowledge", 1 * damage_multiplier),
-	Stat.new("agility", 0.1 * health_multiplier),
-	Stat.new("vitality", 10),
+	Stat.new("agility", 0.1),
+	Stat.new("vitality", 10 * health_multiplier),
 	Stat.new("charisma", 0),
 	Stat.new("sensinitive_points", 0),
 	Stat.new("eagle_eye", 0.1),

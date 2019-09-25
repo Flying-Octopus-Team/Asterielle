@@ -13,14 +13,14 @@
 [ext_resource path="res://Scripts/StaminaSystem.gd" type="Script" id=11]
 [ext_resource path="res://Scenes/BottomBar/Skills/SpeedupBtn.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Objects/Potions/Health/HealthPotion.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Scripts/GameManager.gd" type="Script" id=14]
-[ext_resource path="res://Scripts/LevelManager.gd" type="Script" id=15]
-[ext_resource path="res://Scripts/GameData.gd" type="Script" id=16]
-[ext_resource path="res://Scripts/Revival.gd" type="Script" id=17]
-[ext_resource path="res://Objects/Elf/Elf.tscn" type="PackedScene" id=18]
-[ext_resource path="res://Objects/Dwarves/DwarvesSpawner/DwarvesSpawner.tscn" type="PackedScene" id=19]
-[ext_resource path="res://Objects/EventItem/EventItemSpawner.tscn" type="PackedScene" id=20]
-[ext_resource path="res://Scenes/Tavern/TavernScreen.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Scripts/Revival.gd" type="Script" id=14]
+[ext_resource path="res://Objects/Elf/Elf.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Objects/Dwarves/DwarvesSpawner/DwarvesSpawner.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Scenes/Tavern/TavernScreen.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Scripts/GameManager.gd" type="Script" id=18]
+[ext_resource path="res://Scripts/LevelManager.gd" type="Script" id=19]
+[ext_resource path="res://Scripts/GameData.gd" type="Script" id=20]
+[ext_resource path="res://Objects/EventItem/EventManager.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Scripts/GameSaver.gd" type="Script" id=22]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -33,6 +33,7 @@ __meta__ = {
 }
 
 [node name="Background" type="Node2D" parent="."]
+editor/display_folded = true
 modulate = Color( 0.733333, 0.733333, 0.733333, 1 )
 script = ExtResource( 2 )
 num_of_layers = 2
@@ -103,6 +104,7 @@ move_speed = 110.0
 script = ExtResource( 9 )
 
 [node name="UIContainer" type="Node2D" parent="."]
+editor/display_folded = true
 z_index = 100
 
 [node name="UI" type="Control" parent="UIContainer"]
@@ -252,29 +254,17 @@ margin_right = 920.0
 margin_bottom = 32.0
 size_flags_horizontal = 3
 
-[node name="GameManager" type="Node" parent="."]
+[node name="Revival" type="Node" parent="."]
 script = ExtResource( 14 )
 
-[node name="LevelManager" type="Node" parent="."]
-script = ExtResource( 15 )
-
-[node name="GameData" type="Node" parent="."]
-script = ExtResource( 16 )
-
-[node name="Revival" type="Node" parent="."]
-script = ExtResource( 17 )
-
-[node name="Elf" parent="." instance=ExtResource( 18 )]
+[node name="Elf" parent="." instance=ExtResource( 15 )]
 position = Vector2( 121.06, 544.182 )
 
-[node name="DwarvesSpawner" parent="." instance=ExtResource( 19 )]
+[node name="DwarvesSpawner" parent="." instance=ExtResource( 16 )]
 position = Vector2( 1081.97, 544.587 )
-
-[node name="EventItemSpawner" parent="." instance=ExtResource( 20 )]
 
 [node name="Ground" type="Area2D" parent="."]
 editor/display_folded = true
-visible = false
 position = Vector2( 569.18, 577.345 )
 collision_layer = 32
 collision_mask = 0
@@ -285,10 +275,23 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
 shape = SubResource( 1 )
 
-[node name="TavernScreen" parent="." instance=ExtResource( 21 )]
+[node name="TavernScreen" parent="." instance=ExtResource( 17 )]
+
+[node name="BottomBar" type="HBoxContainer" parent="."]
+editor/display_folded = true
+
+[node name="GameManager" type="Node" parent="."]
+script = ExtResource( 18 )
+
+[node name="LevelManager" type="Node" parent="."]
+script = ExtResource( 19 )
+
+[node name="GameData" type="Node" parent="."]
+script = ExtResource( 20 )
+
+[node name="EventManager" parent="." instance=ExtResource( 21 )]
 
 [node name="GameSaver" type="Node" parent="."]
 script = ExtResource( 22 )
-
 [connection signal="pressed" from="UIContainer/UI/TavernEnterBtn" to="UIContainer/UI" method="_on_TavernEnterBtn_pressed"]
 [connection signal="pressed" from="UIContainer/UI/RevivalEnterBtn" to="UIContainer/UI" method="_on_RevivalEnterBtn_pressed"]
