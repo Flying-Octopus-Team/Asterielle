@@ -5,4 +5,6 @@
 [node name="Layer" type="Node2D"]
 modulate = Color( 0.0705882, 0.0705882, 0.0705882, 1 )
 script = ExtResource( 1 )
+TREE_X_OFFSET = 200.0
+TREE_Y = 520.0
 
