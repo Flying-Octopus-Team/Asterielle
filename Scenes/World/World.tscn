@@ -184,6 +184,7 @@ shape = SubResource( 1 )
 [node name="TavernScreen" parent="." instance=ExtResource( 13 )]
 
 [node name="BottomBar" type="HBoxContainer" parent="."]
+editor/display_folded = true
 margin_left = 57.0
 margin_top = 550.0
 margin_right = 977.0

@@ -14,7 +14,7 @@ onready var game_data = get_parent().get_node("GameData")
 onready var level_manager = get_parent().get_node("LevelManager")
 onready var elf_stats = get_parent().get_node("ElfStats")
 onready var elf = get_parent().get_node("Elf")
-onready var publician = get_parent().find_node("Publician")
+onready var publican = get_parent().find_node("Publican")
 
 func _ready():
 	load_game()
@@ -161,8 +161,8 @@ func load_tradesman_item_price_multipler(value):
 	game_data.tradesman_item_price_multipler = value
 
 func load_quest(value):
-	get_parent().find_node("Publician").selected_quest = value
-	get_parent().find_node("Publician").item_list.select(value)
+	get_parent().find_node("Publican").selected_quest = value
+	get_parent().find_node("Publican").item_list.select(value)
 
 func revival_reset():
 	load_offline_time(0)
@@ -174,7 +174,7 @@ func revival_reset():
 	load_level(1)
 	elf_stats.restore_to_default()
 	load_helth_potion(0)
-	publician.create_default_quests()
+	publican.create_default_quests()
 	save_game()
 
 func load_gold(gold):

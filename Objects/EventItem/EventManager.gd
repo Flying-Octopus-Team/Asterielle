@@ -18,7 +18,7 @@ func wait_to_spawn_item():
 	timer.start()
 
 func return_random_time() -> float:
-	var value = randi()%2+1#%40+20
+	var value = randi()%40+20
 	return value
 
 func spawn_item():

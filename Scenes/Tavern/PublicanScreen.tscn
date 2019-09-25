@@ -7,7 +7,7 @@
 [ext_resource path="res://Scenes/Tavern/Buttons/TavernBtn.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Tavern/Publician.gd" type="Script" id=6]
 
-[node name="PublicanScreen" instance=ExtResource( 1 )]
+[node name="PublicanScreen" index="0" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
 [node name="VBoxContainer" parent="." index="0"]
@@ -38,16 +38,16 @@ popup_title = "Kup miksture zycia na poznie (leczy 4 hp)"
 margin_top = 100.0
 margin_bottom = 120.0
 
-[node name="Publician" type="Node2D" parent="." index="1"]
+[node name="Publican" type="Node2D" parent="." index="1"]
 script = ExtResource( 6 )
 
-[node name="questsBackground" type="Panel" parent="Publician" index="0"]
+[node name="questsBackground" type="Panel" parent="Publican" index="0"]
 modulate = Color( 1, 1, 1, 0.321569 )
 margin_top = 104.0
 margin_right = 411.0
 margin_bottom = 599.0
 
-[node name="questsLabel" type="Label" parent="Publician" index="1"]
+[node name="questsLabel" type="Label" parent="Publican" index="1"]
 margin_left = 124.0
 margin_top = 112.0
 margin_right = 278.0
@@ -56,7 +56,7 @@ text = "Zadania:"
 align = 1
 valign = 1
 
-[node name="ItemList" type="ItemList" parent="Publician" index="2"]
+[node name="ItemList" type="ItemList" parent="Publican" index="2"]
 margin_left = 20.0
 margin_top = 154.0
 margin_right = 395.0
