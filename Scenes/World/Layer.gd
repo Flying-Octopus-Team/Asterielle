@@ -4,7 +4,6 @@ var TREE_TEXTURES = [
 	load("res://Objects/Background/Trees/tree1.png"),
 	load("res://Objects/Background/Trees/tree2.png"),
 	load("res://Objects/Background/Trees/tree3.png"),
-	load("res://Objects/Background/Trees/tree4.png"),
 	load("res://Objects/Background/Trees/tree5.png")
 ]
 
@@ -15,6 +14,9 @@ var tree_seperation : float
 var tree_scale : float
 
 var distance_counter : float = 0
+
+export(float) var TREE_X_OFFSET
+export(float) var TREE_Y
 
 onready var WINDOW_WIDTH = get_viewport().size.x
 
@@ -45,12 +47,12 @@ func generate_tree() -> void:
 	
 	add_child(tree)
 	
-	tree.position.x = -position.x + WINDOW_WIDTH + 200
-	tree.position.y = 550
+	tree.position.x = -position.x + WINDOW_WIDTH + TREE_X_OFFSET
+	tree.position.y = TREE_Y
 	
 	var texture = TREE_TEXTURES[randi() % TREE_TEXTURES.size()]
 	tree.texture = texture
 	
-	var random_scale: float = rand_range(-0.25,0.25);
+	var random_scale: float = rand_range(-0.35,0);
 	tree.scale = Vector2(tree_scale + random_scale, tree_scale + random_scale)
 	

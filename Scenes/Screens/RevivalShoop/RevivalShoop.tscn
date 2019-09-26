@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scenes/Screens/RevivalShoop/RevivalShoop.gd" type="Script" id=1]
 
-[node name="_Node2D" type="Node2D"]
+[node name="RevivalShop" type="CanvasLayer"]
 script = ExtResource( 1 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -422,6 +422,7 @@ margin_top = 483.45
 margin_right = 579.549
 margin_bottom = 522.45
 text = "EXIT"
+
 [connection signal="pressed" from="ColorRect/Item_enemies_per_level/Button" to="." method="upgrade_enemies_per_level"]
 [connection signal="pressed" from="ColorRect/Item_earn_gold/Button" to="." method="upgrade_earn_gold"]
 [connection signal="pressed" from="ColorRect/Item_earn_xp/Button" to="." method="upgrade_earn_xp"]
