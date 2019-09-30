@@ -7,3 +7,4 @@ script = ExtResource( 1 )
 name = "LeftRing"
 stat_changers = [  ]
 price = 0.0
+
