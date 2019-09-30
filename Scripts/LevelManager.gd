@@ -25,7 +25,6 @@ onready var publician = world.find_node("Publician")
 onready var speedup_skill = world.find_node("SpeedupBtn")
 onready var publican = world.find_node("Publican")
 
-var GameOverScreen = load("res://Scenes/Screens/GameOverScreen/GameOverScreen.tscn")
 var NegligibleInformScreen = load("res://Scenes/Screens/NegligibleInform/NegligibleInform.tscn")
 var EssentialInformScreen = load("res://Scenes/Screens/EssentialInform/EssentialInform.tscn")
 var RevivalShoop = load("res://Scenes/Screens/RevivalShoop/RevivalShoop.tscn")
