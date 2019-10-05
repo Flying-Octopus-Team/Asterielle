@@ -33,11 +33,13 @@ func spawn_tavern():
 	var tavern = Tavern.instance()
 	world.call_deferred("add_child", tavern)
 	tavern.global_position = global_position
+	spawn = false
 
 func spawn_devil():
 	var devil = Devil.instance()
 	world.call_deferred("add_child", devil)
 	devil.global_position = global_position
+	spawn = false
 
 func create_dwarf(DwarfScene, damage:float, hp:float, on_died_func:String):
 	var dwarf = DwarfScene.instance()

@@ -11,7 +11,7 @@ export(String) var popup_title
 
 onready var game_data = get_tree().get_current_scene().find_node("GameData")
 onready var elf_stats = get_node("/root/World/ElfStats")
-onready var publican = get_tree().get_current_scene().find_node("Publician")
+onready var publican = get_tree().get_current_scene().find_node("Publican")
 var popup = null
 
 func _ready():
