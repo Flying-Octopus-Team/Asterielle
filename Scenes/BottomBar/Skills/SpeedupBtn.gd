@@ -6,8 +6,8 @@ onready var dwarves_manager = world.find_node("DwarvesManager")
 
 
 func use() -> void:
-	remove_nodes_in_group("IDwarf")
 	remove_nodes_in_group("IArrow")
+	dwarves_manager.remove_all_dwarves()
 	level_manager.jump_to_next_boss_level()
 	dwarves_manager.spawn_boss()
 	.use()

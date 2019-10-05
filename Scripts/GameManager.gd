@@ -1,18 +1,18 @@
 extends Node
 
-onready var dwarves_spawner = get_parent().find_node("DwarvesSpawner")
+onready var dwarves_manager = get_parent().find_node("DwarvesManager")
 
 var Popup = load("res://Scenes/InformationPopup/Popup.tscn")
 
 func stop_gameplay():
-	dwarves_spawner.spawn = false
+	dwarves_manager.spawn = false
 	#TODO: zabić wszystkie boty 
 	#var dwarf = find_node("Dwarf")
 	#dwarf.death()
 
 func resume_gameplay():
-	dwarves_spawner.spawn = true
-	dwarves_spawner.spawn_dwarf()
+	dwarves_manager.spawn = true
+	dwarves_manager.spawn_dwarf()
 	
 func create_popup(title:String, parent:Node):
 	var popup = Popup.instance()

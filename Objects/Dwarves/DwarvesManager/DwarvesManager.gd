@@ -17,9 +17,12 @@ onready var base_dwarf_damage = dwarf_damage
 onready var world = get_parent()
 onready var level_manager = world.get_node("LevelManager")
 
-func _on_FirstDwarfTimer_timeout():
+var total_dwarves_kill_counter : int = 0
+
+func _ready():
+	yield(get_tree().create_timer(1.0), "timeout")
 	spawn_dwarf()
-	
+
 func spawn_dwarf():
 	if spawn:
 		create_dwarf(Dwarf, dwarf_damage, dwarf_max_hp, "on_Dwarf_died")
@@ -43,11 +46,11 @@ func spawn_devil():
 
 func create_dwarf(DwarfScene, damage:float, hp:float, on_died_func:String):
 	var dwarf = DwarfScene.instance()
-	world.call_deferred("add_child", dwarf)
-	dwarf.global_position = global_position
+	call_deferred("add_child", dwarf)
 	dwarf.damage = damage
 	dwarf.set_hp(hp)
 	dwarf.connect("died", level_manager, on_died_func)
+	dwarf.connect("died", self, "_on_Dwarf_died")
 	return dwarf
 	
 func on_next_level(level : int):
@@ -65,3 +68,9 @@ func reset_dwarf_data():
 	dwarf_max_hp = base_dwarf_hp
 	dwarf_damage = base_dwarf_damage
 	
+func _on_Dwarf_died():
+	total_dwarves_kill_counter += 1
+	
+func remove_all_dwarves():
+	for dwarf in get_children():
+		dwarf.queue_free()
