@@ -7,4 +7,3 @@ script = ExtResource( 1 )
 name = "Armor"
 stat_changers = [  ]
 price = 0.0
-

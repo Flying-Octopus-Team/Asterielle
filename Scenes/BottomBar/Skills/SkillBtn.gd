@@ -86,3 +86,12 @@ func is_using() -> bool:
 
 func _on_DurationTimer_timeout():
 	finish()
+	
+func disable():
+	disabled = true
+	mouse_default_cursor_shape = Control.CURSOR_ARROW
+	
+func enable():
+	disabled = false
+	mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
+	

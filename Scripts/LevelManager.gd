@@ -14,7 +14,7 @@ var basic_start_level : int = 0
 var killed_dwarves : int = 0
 
 onready var world = get_node("/root/World")
-onready var dwarves_spawner = world.get_node("DwarvesSpawner") 
+onready var dwarves_manager = world.get_node("DwarvesManager") 
 onready var game_data = world.get_node("GameData") 
 onready var game_saver = world.get_node("GameSaver") 
 onready var tavern_enter_btn = world.find_node("TavernEnterBtn")
@@ -24,6 +24,7 @@ onready var ui = world.find_node("UI")
 onready var publician = world.find_node("Publician")
 onready var speedup_skill = world.find_node("SpeedupBtn")
 onready var publican = world.find_node("Publican")
+onready var active_spells = world.find_node("ActiveSpells")
 
 var NegligibleInformScreen = load("res://Scenes/Screens/NegligibleInform/NegligibleInform.tscn")
 var EssentialInformScreen = load("res://Scenes/Screens/EssentialInform/EssentialInform.tscn")
@@ -44,8 +45,8 @@ func _ready():
 	
 	var elf = world.get_node("Elf")
 	elf.connect("game_over", self, "on_Game_Over")
-	connect("next_level", dwarves_spawner, "on_next_level")
-	connect("reset_to_base", dwarves_spawner, "reset_to_base")
+	connect("next_level", dwarves_manager, "on_next_level")
+	connect("reset_to_base", dwarves_manager, "reset_to_base")
 	connect("reset_to_base", elf, "reset_to_base")
 	connect("reset_to_base", game_data, "on_game_over")
 	game_data.connect("get_first_silver_moon", self, "show_silver_moon_screen")
@@ -62,36 +63,48 @@ func on_Dwarf_died():
 	publican.on_kill_dwarver()
 	emit_signal("dwarf_died")
 	
-	if tavern_enter_btn.pressed:
-		dwarves_spawner.spawn_tavern()
-	elif revival_enter_btn.pressed:
-		dwarves_spawner.spawn_devil()
-	else:
-		spawn_next_dwarf()
+	after_dwarf_died()
 	
 	ui.set_killed_dwarves_label(killed_dwarves, dwarves_per_level)
 	
+func after_dwarf_died():
+	if tavern_enter_btn.pressed:
+		dwarves_manager.spawn_tavern()
+		disable_skills()
+	elif revival_enter_btn.pressed:
+		dwarves_manager.spawn_devil()
+		disable_skills()
+	else:
+		spawn_next_dwarf()
+		
+func disable_skills():
+	active_spells.disable_skills()
+	
+func enable_skills():
+	active_spells.enable_skills()
+	
 func _on_Tavern_exited():
 	tavern_enter_btn.pressed = false
+	enable_skills()
 	spawn_next_dwarf()
 		
 func spawn_next_dwarf():
 	if killed_dwarves >= dwarves_per_level:
 		if current_level % 10 == 0:
-			dwarves_spawner.spawn_boss()
+			dwarves_manager.spawn_boss()
 		else:
 			increase_level()
-			dwarves_spawner.spawn_dwarf()
+			dwarves_manager.spawn_dwarf()
 	else:
-		dwarves_spawner.spawn_dwarf()
+		dwarves_manager.spawn_dwarf()
 	
 func on_Boss_died():
 	if speedup_skill.using:
 		jump_to_next_boss_level()
-		dwarves_spawner.spawn_boss()
+		dwarves_manager.spawn_boss()
 	else:
 		increase_level()
-		dwarves_spawner.spawn_dwarf()
+		after_dwarf_died()
 	
 	emit_signal("boss_died")
 	
@@ -103,7 +116,7 @@ func jump_to_next_boss_level() -> void:
 
 func on_Boss_kill_timeout():
 	killed_dwarves = 0
-	dwarves_spawner.spawn_dwarf()
+	dwarves_manager.spawn_dwarf()
 	ui.set_killed_dwarves_label(killed_dwarves, dwarves_per_level)
 	
 func on_Game_Over():
