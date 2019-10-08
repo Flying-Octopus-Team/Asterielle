@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Scenes/World/World.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/World/Background.gd" type="Script" id=2]
@@ -23,6 +23,7 @@
 [ext_resource path="res://Scripts/GameData.gd" type="Script" id=21]
 [ext_resource path="res://Objects/EventItem/EventManager.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Scripts/GameSaver.gd" type="Script" id=23]
+[ext_resource path="res://Backup/PlanetAnimation.tscn" type="PackedScene" id=24]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 537.558, 30.0002 )
@@ -291,5 +292,7 @@ script = ExtResource( 21 )
 
 [node name="GameSaver" type="Node" parent="."]
 script = ExtResource( 23 )
+
+[node name="PlanetAnimation" parent="." instance=ExtResource( 24 )]
 [connection signal="pressed" from="UIContainer/UI/TavernEnterBtn" to="UIContainer/UI" method="_on_TavernEnterBtn_pressed"]
 [connection signal="pressed" from="UIContainer/UI/RevivalEnterBtn" to="UIContainer/UI" method="_on_RevivalEnterBtn_pressed"]
