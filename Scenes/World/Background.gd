@@ -3,12 +3,16 @@ extends Node2D
 export(int) var num_of_layers = 1
 export(float) var move_speed
 export(float) var tree_seperation
-
+export(float) var start_rotation_speed = 0.1
 var Layer = load("res://Objects/Background/Layer.tscn")
+onready var stars = get_node("stars")
 
 func _ready() -> void:
 	var layers : Array = create_layers_array()
 	add_layers_from_back(layers)
+
+func _process(delta):
+	stars.rotation += start_rotation_speed * delta
 		
 func create_layers_array() -> Array:
 	var layers : Array = []
@@ -34,4 +38,3 @@ func add_layers_from_back(layers) -> void:
 	# looping backwards
 	for i in range(layers.size()-1, -1, -1):
 		add_child(layers[i])
-	
