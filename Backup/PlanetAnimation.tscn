@@ -1,17 +1,27 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Backup/World.tres" type="Animation" id=1]
 [ext_resource path="res://Backup/TimeManager.gd" type="Script" id=2]
 [ext_resource path="res://Backup/sun.png" type="Texture" id=3]
+[ext_resource path="res://Backup/Stars.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Backup/Stars.gd" type="Script" id=5]
+[ext_resource path="res://Backup/Background.tscn" type="PackedScene" id=6]
 
 [node name="PlanetAnimation" type="AnimationPlayer"]
-playback_speed = 64.0
+playback_speed = 2.0
 anims/SunMovement = ExtResource( 1 )
 
 [node name="TimeManager" type="Node2D" parent="."]
 script = ExtResource( 2 )
 
 [node name="PlanetTexture" type="Sprite" parent="."]
-position = Vector2( 1074.6, 265.434 )
+position = Vector2( 52.4111, 221.62 )
 texture = ExtResource( 3 )
+
+[node name="Stars" parent="." instance=ExtResource( 4 )]
+modulate = Color( 1, 1, 1, 0.155409 )
+script = ExtResource( 5 )
+
+[node name="Background" parent="." instance=ExtResource( 6 )]
+modulate = Color( 0.576793, 0.451574, 0.418121, 1 )
 [connection signal="animation_finished" from="." to="TimeManager" method="_on_SunAnimation_animation_finished"]

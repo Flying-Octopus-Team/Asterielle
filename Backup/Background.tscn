@@ -1,0 +1,76 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scenes/World/Background.gd" type="Script" id=1]
+[ext_resource path="res://Objects/Background/Other/BackgroundLayer.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Objects/Background/Other/sky.png" type="Texture" id=3]
+[ext_resource path="res://Objects/Background/Other/frontGrass.png" type="Texture" id=4]
+[ext_resource path="res://Objects/Background/Bushes/BushesSpawner.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Objects/Background/Other/path.png" type="Texture" id=6]
+[ext_resource path="res://Objects/Background/Other/rocks.png" type="Texture" id=7]
+
+[node name="Background" type="Node2D"]
+modulate = Color( 0.552941, 0, 0, 1 )
+script = ExtResource( 1 )
+num_of_layers = 2
+move_speed = 40.0
+tree_seperation = 150.0
+
+[node name="Sky" parent="." instance=ExtResource( 2 )]
+scale = Vector2( 2, 2 )
+z_index = -20
+texture = ExtResource( 3 )
+move_speed = 5.0
+
+[node name="BackGrass" parent="." instance=ExtResource( 2 )]
+modulate = Color( 0.419608, 0.419608, 0.419608, 1 )
+position = Vector2( 0, 70 )
+scale = Vector2( 1.5, 1.5 )
+z_index = -15
+texture = ExtResource( 4 )
+move_speed = 30.0
+
+[node name="MiddleGrass" parent="." instance=ExtResource( 2 )]
+modulate = Color( 0.803922, 0.803922, 0.803922, 1 )
+position = Vector2( 0, 10 )
+scale = Vector2( 1.75, 1.75 )
+z_index = -5
+texture = ExtResource( 4 )
+
+[node name="BushesSpawner" parent="." instance=ExtResource( 5 )]
+modulate = Color( 0.776471, 0.776471, 0.776471, 1 )
+position = Vector2( 0, 510 )
+move_speed = 60.0
+separation = 130.0
+
+[node name="Path" parent="." instance=ExtResource( 2 )]
+modulate = Color( 0.74902, 0.74902, 0.74902, 1 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 6 )
+move_speed = 70.0
+
+[node name="Rocks" parent="." instance=ExtResource( 2 )]
+modulate = Color( 0.823529, 0.823529, 0.823529, 1 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 7 )
+move_speed = 70.0
+
+[node name="FrontGrass" parent="." instance=ExtResource( 2 )]
+modulate = Color( 0.862745, 0.862745, 0.862745, 1 )
+scale = Vector2( 2, 2 )
+z_index = 5
+texture = ExtResource( 4 )
+move_speed = 90.0
+
+[node name="FrontBushesSpawner" parent="." instance=ExtResource( 5 )]
+modulate = Color( 0.803922, 0.803922, 0.803922, 1 )
+position = Vector2( 0, 576 )
+z_index = 5
+move_speed = 100.0
+deep_scale = 1.5
+
+[node name="FrontGrass2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 0, 20 )
+scale = Vector2( 2, 2 )
+z_index = 5
+texture = ExtResource( 4 )
+move_speed = 110.0
