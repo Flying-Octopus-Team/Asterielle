@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Sprite",
+"class": "ComingObject",
+"language": "GDScript",
+"path": "res://Objects/ComingObjects/ComingObject.gd"
+}, {
 "base": "Node",
 "class": "ElfStats",
 "language": "GDScript",
@@ -30,6 +35,7 @@ _global_script_classes=[ {
 "path": "res://Resources/Items/StatChangers/StatChanger.gd"
 } ]
 _global_script_class_icons={
+"ComingObject": "",
 "ElfStats": "",
 "Item": "",
 "ItemQuality": "",
@@ -41,6 +47,10 @@ _global_script_class_icons={
 config/name="EvD"
 run/main_scene="res://Scenes/World/World.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+BackgroundData="*res://Objects/Background/BackgroundData.gd"
 
 [display]
 

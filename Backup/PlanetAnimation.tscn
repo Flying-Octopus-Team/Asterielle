@@ -15,13 +15,13 @@ anims/SunMovement = ExtResource( 1 )
 script = ExtResource( 2 )
 
 [node name="PlanetTexture" type="Sprite" parent="."]
-position = Vector2( 52.4111, 221.62 )
+position = Vector2( -49.2, 265.42 )
 texture = ExtResource( 3 )
 
 [node name="Stars" parent="." instance=ExtResource( 4 )]
-modulate = Color( 1, 1, 1, 0.155409 )
+modulate = Color( 1, 1, 1, 0.431373 )
 script = ExtResource( 5 )
 
 [node name="Background" parent="." instance=ExtResource( 6 )]
-modulate = Color( 0.576793, 0.451574, 0.418121, 1 )
+modulate = Color( 0.168627, 0.219608, 0.270588, 1 )
 [connection signal="animation_finished" from="." to="TimeManager" method="_on_SunAnimation_animation_finished"]

@@ -8,8 +8,8 @@ export(bool) var spawn : bool = true
 
 var Dwarf = load("res://Objects/Dwarves/Dwarf/Dwarf.tscn")
 var Boss = load("res://Objects/Dwarves/Boss/Boss.tscn")
-var Tavern = load("res://Objects/Tavern/Tavern.tscn")
-var Devil = load("res://Objects/Devil/Devil.tscn")
+var Tavern = load("res://Objects/ComingObjects/Tavern/Tavern.tscn")
+var Devil = load("res://Objects/ComingObjects/Devil/Devil.tscn")
 
 onready var base_dwarf_hp = dwarf_max_hp
 onready var base_dwarf_damage = dwarf_damage

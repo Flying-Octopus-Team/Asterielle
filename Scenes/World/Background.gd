@@ -1,7 +1,7 @@
 extends Node2D
 
 export(int) var num_of_layers = 1
-export(float) var move_speed
+export(float) var move_speed_mod
 export(float) var tree_seperation
 var Layer = load("res://Objects/Background/Layer.tscn")
 
@@ -23,7 +23,7 @@ func create_layers_array() -> Array:
 func create_layer(deepth_scale) -> Node2D:
 	var layer = Layer.instance()
 	
-	layer.move_speed = move_speed * deepth_scale
+	layer.move_speed = move_speed_mod * deepth_scale * BackgroundData.move_speed
 	layer.tree_seperation = tree_seperation * deepth_scale
 	layer.tree_scale = deepth_scale
 	

@@ -9,7 +9,7 @@ func _ready():
 	call_deferred("create_stat_panel")
 		
 func create_stat_panel():
-	for s in elf_stats.stats:
+	for s in elf_stats.get_stats():
 		var row = Stat.instance()
 		s.connect("value_changed", self, "update_stat_value")
 		row.name = s.name

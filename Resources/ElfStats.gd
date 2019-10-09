@@ -98,10 +98,12 @@ class Stat:
 		emit_signal("value_changed", self)
 		
 ##################################################
+# warning-ignore: unused_class_variable
 var damage_multiplier: float = 1.0
+# warning-ignore: unused_class_variable
 var health_multiplier: float = 1.0
 
-var stats = [
+var _stats = [
 	Stat.new("bows_knowledge", 1 * damage_multiplier),
 	Stat.new("agility", 0.1),
 	Stat.new("vitality", 10 * health_multiplier),
@@ -112,7 +114,7 @@ var stats = [
 	Stat.new("magic", 0),
 	Stat.new("lucky", 0),
 	Stat.new("stamina", 10)
-] setget set_stats
+] setget , get_stats
 
 var items = {}
 
@@ -140,11 +142,11 @@ func restore_to_default() -> void:
 	for key in items:
 		items[key].reset()
 
-	for s in stats:
+	for s in _stats:
 		s.reset()
 		
 func get_stat(stat_name:String) -> Stat:
-	for s in stats:
+	for s in _stats:
 		if s.named(stat_name):
 			return s
 	
@@ -171,7 +173,7 @@ func get_stat_unchanged_value(stat_name:String) -> float:
 func add_item(item) -> void:
 	items[item.name] = item
 	
-	for s in stats:
+	for s in _stats:
 		# Remove every changer from old item
 		for i in range(s.changers.size()-1, -1, -1):
 			if s.changers[i].item_name == item.name:
@@ -182,8 +184,8 @@ func add_item(item) -> void:
 			if s.named(c.stat_name):
 				s.add_changer(c)
 				
-func set_stats(v):
-	printerr("stats array should not be modified!")
+func get_stats():
+	return _stats
 	
 func save():
 	var save_dict = {
@@ -195,7 +197,7 @@ func save():
 		_health_multiplier = health_multiplier
 	}
 	
-	for s in stats:
+	for s in _stats:
 		save_dict["_elf_stats"]["_stats"][s.name] = {
 			_default_value = s.default_value,
 			_value = s.get_unchanged_value()

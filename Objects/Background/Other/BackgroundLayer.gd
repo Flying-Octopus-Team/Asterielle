@@ -2,7 +2,7 @@ extends Node2D
 
 export(Texture) var texture
 
-export(float) var move_speed
+export(float) var move_speed_mod = 1
 
 onready var screen_width : float = get_viewport_rect().size.x
 
@@ -21,7 +21,7 @@ func create_sprites() -> void:
 		x -= texture.get_size().x
 		
 func _process(delta) -> void:
-	position.x -= move_speed * delta
+	position.x -= move_speed_mod * delta * BackgroundData.move_speed
 	
 	while position.x <= -screen_width:
 		position.x += screen_width
