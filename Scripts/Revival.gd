@@ -35,15 +35,15 @@ func show_revival_shoop():
 	get_parent().call_deferred("add_child", rss)
 
 func revive():
-## Do testów ### TODO: przenieść zmienne
-	if level_manager.current_level < game_data.FIRST_REVIVAL_LEVEL:
-		return
-	if game_data.last_revival_level == game_data.MY_FIRST_REVIVAL_LEVEL:
-		game_data.silver_moon += game_data.REVIVAL_SILVER_MOON_REWARD
-		game_data.all_silver_moon += game_data.REVIVAL_SILVER_MOON_REWARD
-	else:
-		game_data.silver_moon += level_manager.current_level - game_data.last_revival_level
-		game_data.all_silver_moon += level_manager.current_level - game_data.last_revival_level
-	game_data.last_revival_level = level_manager.current_level
+### Do testów ### TODO: przenieść zmienne
+#	if level_manager.current_level < game_data.FIRST_REVIVAL_LEVEL:
+#		return
+#	if game_data.last_revival_level == game_data.MY_FIRST_REVIVAL_LEVEL:
+#		game_data.silver_moon += game_data.REVIVAL_SILVER_MOON_REWARD
+#		game_data.all_silver_moon += game_data.REVIVAL_SILVER_MOON_REWARD
+#	else:
+#		game_data.silver_moon += level_manager.current_level - game_data.last_revival_level
+#		game_data.all_silver_moon += level_manager.current_level - game_data.last_revival_level
+#	game_data.last_revival_level = level_manager.current_level
 	show_revival_screen()
 	get_parent().find_node("GameSaver").revival_reset()
