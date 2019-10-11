@@ -49,7 +49,6 @@ func _ready():
 	connect("reset_to_base", dwarves_manager, "reset_to_base")
 	connect("reset_to_base", elf, "reset_to_base")
 	connect("reset_to_base", game_data, "on_game_over")
-	game_data.connect("get_first_silver_moon", self, "show_silver_moon_screen")
 	game_saver.connect("save_data_was_loaded", self, "show_offline_screen")
 
 func increase_level():

@@ -5,6 +5,12 @@ var RevivalShoop = load("res://Scenes/Screens/RevivalShoop/RevivalShoop.tscn")
 
 const OffineScreen = preload("res://Scenes/Screens/OfflineScreen/OfflineScreen.gd")
 
+onready var world = get_node("/root/World")
+onready var game_data = world.get_node("GameData") 
+onready var level_manager = world.get_node("LevelManager")
+
+func _ready():
+	game_data.connect("get_first_silver_moon", self, "show_silver_moon_screen")
 
 
 func show_silver_moon_screen():
@@ -29,15 +35,15 @@ func show_revival_shoop():
 	get_parent().call_deferred("add_child", rss)
 
 func revive():
-### Do testów ###
-#	if level_manager.current_level < FIRST_REVIVAL_LEVEL:
-#		return
-#	if last_revival_level == MY_FIRST_REVIVAL_LEVEL:
-#		silver_moon += REVIVAL_SILVER_MOON_REWARD
-#		all_silver_moon += REVIVAL_SILVER_MOON_REWARD
-#	else:
-#		silver_moon += level_manager.current_level - last_revival_level
-#		all_silver_moon += level_manager.current_level - last_revival_level
-#	last_revival_level = level_manager.current_level
+## Do testów ### TODO: przenieść zmienne
+	if level_manager.current_level < game_data.FIRST_REVIVAL_LEVEL:
+		return
+	if game_data.last_revival_level == game_data.MY_FIRST_REVIVAL_LEVEL:
+		game_data.silver_moon += game_data.REVIVAL_SILVER_MOON_REWARD
+		game_data.all_silver_moon += game_data.REVIVAL_SILVER_MOON_REWARD
+	else:
+		game_data.silver_moon += level_manager.current_level - game_data.last_revival_level
+		game_data.all_silver_moon += level_manager.current_level - game_data.last_revival_level
+	game_data.last_revival_level = level_manager.current_level
 	show_revival_screen()
 	get_parent().find_node("GameSaver").revival_reset()
