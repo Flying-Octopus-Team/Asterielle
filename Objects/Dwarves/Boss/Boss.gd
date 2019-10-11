@@ -8,6 +8,7 @@ func _ready():
 	var world = get_node("/root/World")
 	var game_data = world.find_node("GameData")
 	$TimeToKill.wait_time = float(game_data.time_to_kill_boss) 
+	$TimeToKill.start()
 	update_label()
 	
 func _process(delta):
@@ -19,6 +20,7 @@ func on_arrow_hit(arrow):
 	
 func update_label():
 	timeToKillLabel.text = str("Do zabicia bossa pozostalo ", ceil($TimeToKill.time_left), " sekund")
+	print($TimeToKill.time_left)
 
 func _on_TimeToKill_timeout():
 	queue_free()

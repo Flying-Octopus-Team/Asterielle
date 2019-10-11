@@ -34,6 +34,7 @@ script = ExtResource( 2 )
 position = Vector2( 121.06, 544.182 )
 
 [node name="PlanetAnimation" parent="." instance=ExtResource( 4 )]
+playback_speed = 1.0
 
 [node name="UIContainer" type="Node2D" parent="."]
 editor/display_folded = true
