@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/sun.png-83d84f51e98061beab2d4a36bce7071c.stex"
+path="res://.import/stars.png-b5de38df4a79ef04603035e16a1bee21.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Backup/sun.png"
-dest_files=[ "res://.import/sun.png-83d84f51e98061beab2d4a36bce7071c.stex" ]
+source_file="res://Objects/Background/Planets/stars.png"
+dest_files=[ "res://.import/stars.png-b5de38df4a79ef04603035e16a1bee21.stex" ]
 
 [params]
 
