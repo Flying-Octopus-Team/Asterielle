@@ -2,8 +2,8 @@
 
 [ext_resource path="res://Scenes/Screens/RevivalShoop/RevivalShoop.gd" type="Script" id=1]
 
-[node name="RevivalShop" type="CanvasLayer"]
-editor/display_folded = true
+[node name="RevivalShop" type="Node2D"]
+z_index = 30
 script = ExtResource( 1 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -11,7 +11,7 @@ margin_right = 1024.0
 margin_bottom = 576.0
 color = Color( 0.145098, 0.2, 0.247059, 1 )
 
-[node name="Item_enemies_per_level" type="Node" parent="ColorRect"]
+[node name="Item_enemies_per_level" type="Node2D" parent="ColorRect"]
 
 [node name="Panel" type="Panel" parent="ColorRect/Item_enemies_per_level"]
 modulate = Color( 0.690196, 0.690196, 0.690196, 1 )
@@ -56,7 +56,7 @@ text = "+"
 align = 1
 valign = 1
 
-[node name="Item_earn_gold" type="Node" parent="ColorRect"]
+[node name="Item_earn_gold" type="Node2D" parent="ColorRect"]
 
 [node name="Panel" type="Panel" parent="ColorRect/Item_earn_gold"]
 modulate = Color( 0.690196, 0.690196, 0.690196, 1 )
@@ -101,7 +101,7 @@ text = "+"
 align = 1
 valign = 1
 
-[node name="Item_earn_xp" type="Node" parent="ColorRect"]
+[node name="Item_earn_xp" type="Node2D" parent="ColorRect"]
 
 [node name="Panel" type="Panel" parent="ColorRect/Item_earn_xp"]
 modulate = Color( 0.690196, 0.690196, 0.690196, 1 )
@@ -146,7 +146,7 @@ text = "+"
 align = 1
 valign = 1
 
-[node name="Item_time_to_kill_boss" type="Node" parent="ColorRect"]
+[node name="Item_time_to_kill_boss" type="Node2D" parent="ColorRect"]
 
 [node name="Panel" type="Panel" parent="ColorRect/Item_time_to_kill_boss"]
 modulate = Color( 0.690196, 0.690196, 0.690196, 1 )
@@ -192,7 +192,7 @@ text = "+"
 align = 1
 valign = 1
 
-[node name="Item_silver_moon_probability" type="Node" parent="ColorRect"]
+[node name="Item_silver_moon_probability" type="Node2D" parent="ColorRect"]
 
 [node name="Panel" type="Panel" parent="ColorRect/Item_silver_moon_probability"]
 modulate = Color( 0.690196, 0.690196, 0.690196, 1 )
@@ -237,7 +237,7 @@ text = "+"
 align = 1
 valign = 1
 
-[node name="Item_basic_start_level" type="Node" parent="ColorRect"]
+[node name="Item_basic_start_level" type="Node2D" parent="ColorRect"]
 
 [node name="Panel" type="Panel" parent="ColorRect/Item_basic_start_level"]
 modulate = Color( 0.690196, 0.690196, 0.690196, 1 )
@@ -282,7 +282,7 @@ text = "+"
 align = 1
 valign = 1
 
-[node name="Item_basic_damage" type="Node" parent="ColorRect"]
+[node name="Item_basic_damage" type="Node2D" parent="ColorRect"]
 
 [node name="Panel" type="Panel" parent="ColorRect/Item_basic_damage"]
 modulate = Color( 0.690196, 0.690196, 0.690196, 1 )
@@ -327,7 +327,7 @@ text = "+"
 align = 1
 valign = 1
 
-[node name="Item_basic_hp" type="Node" parent="ColorRect"]
+[node name="Item_basic_hp" type="Node2D" parent="ColorRect"]
 
 [node name="Panel" type="Panel" parent="ColorRect/Item_basic_hp"]
 modulate = Color( 0.690196, 0.690196, 0.690196, 1 )
@@ -372,7 +372,7 @@ text = "+"
 align = 1
 valign = 1
 
-[node name="Item_items_price" type="Node" parent="ColorRect"]
+[node name="Item_items_price" type="Node2D" parent="ColorRect"]
 
 [node name="Panel" type="Panel" parent="ColorRect/Item_items_price"]
 modulate = Color( 0.690196, 0.690196, 0.690196, 1 )
