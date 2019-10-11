@@ -2,15 +2,17 @@ extends Area2D
 
 signal died
 
-export(float) var move_speed
+export(float) var move_speed_mod = 1
 
-var spr_dwarf_default = load("res://Objects/Dwarves/Dwarf/dwarf.png")
-var spr_dwarf_kamikaze = load("res://Objects/Dwarves/Dwarf/kamikazekrasnal.png")
-var spr_dwarf_shield = load("res://Objects/Dwarves/Dwarf/kransoludtarcz_kopia.png")
-var spr_dwarf_magic = load("res://Objects/Dwarves/Dwarf/krasnolud_mag.png")
-var spr_dwarf_pick = load("res://Objects/Dwarves/Dwarf/krasnoludkilof.png")
-var spr_dwarf_shooter = load("res://Objects/Dwarves/Dwarf/strzelec.png")
-var spr_dwarf_poor = load("res://Objects/Dwarves/Dwarf/ubogikrasnolud.png")
+var DWARVES_TEXTURES = [
+	load("res://Objects/Dwarves/Dwarf/dwarf.png"),
+	load("res://Objects/Dwarves/Dwarf/kamikazekrasnal.png"),
+	load("res://Objects/Dwarves/Dwarf/kransoludtarcz_kopia.png"),
+	load("res://Objects/Dwarves/Dwarf/krasnolud_mag.png"),
+	load("res://Objects/Dwarves/Dwarf/krasnoludkilof.png"),
+	load("res://Objects/Dwarves/Dwarf/strzelec.png"),
+	load("res://Objects/Dwarves/Dwarf/ubogikrasnolud.png")
+]
 
 
 
@@ -39,23 +41,7 @@ func set_hp(new_hp):
 	hp_label.text = str(stepify(hp,0.01))
 
 func set_texture():
-	var texture: Texture = spr_dwarf_default
-	var index = randi()%7+1
-	
-	match index:
-		1:
-			texture = spr_dwarf_kamikaze
-		2:
-			texture = spr_dwarf_magic
-		3:
-			texture = spr_dwarf_pick
-		4:
-			texture = spr_dwarf_poor
-		5:
-			texture = spr_dwarf_shield
-		6:
-			texture = spr_dwarf_shooter
-	
+	var texture = DWARVES_TEXTURES[randi() % DWARVES_TEXTURES.size()]
 	find_node("Sprite").texture = texture
 
 func _physics_process(delta):
@@ -81,7 +67,7 @@ func on_arrow_hit(arrow):
 	hp_label.text = str(stepify(hp,0.01))
 		
 func go_forward():
-	velocity = Vector2(-move_speed, 0)
+	velocity = Vector2(-move_speed_mod * BackgroundData.move_speed, 0)
 	
 func _on_NextAttackTimer_timeout():
 	attack()

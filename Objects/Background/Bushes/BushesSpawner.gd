@@ -1,6 +1,6 @@
 extends Node2D
 
-export(float) var move_speed
+export(float) var move_speed_mod
 export(float) var separation
 export(Array, Texture) var textures
 export(float) var deep_scale = 1.0
@@ -22,9 +22,11 @@ func _ready() -> void:
 	next_separation = separation + rand_range(-50.0, 50.0)
 
 func _process(delta) -> void:
-	position.x -= move_speed * delta
+	var current_move_speed = move_speed_mod * BackgroundData.move_speed * delta
+
+	position.x -= current_move_speed
 	
-	elapsed_x += move_speed * delta
+	elapsed_x += current_move_speed
 	if elapsed_x > next_separation:
 		elapsed_x = 0
 		next_separation = separation + rand_range(-50.0, 50.0)

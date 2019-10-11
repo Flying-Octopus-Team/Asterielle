@@ -5,4 +5,3 @@
 [node name="BackgroundLayer" type="Node2D"]
 script = ExtResource( 1 )
 move_speed = 50.0
-
