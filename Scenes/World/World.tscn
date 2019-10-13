@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Scenes/World/World.gd" type="Script" id=1]
 [ext_resource path="res://Resources/ElfStats.gd" type="Script" id=2]
@@ -10,13 +10,15 @@
 [ext_resource path="res://Scenes/BottomBar/Skills/SpeedupBtn.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Objects/Potions/Health/HealthPotion.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scripts/Revival.gd" type="Script" id=10]
-[ext_resource path="res://Objects/Dwarves/DwarvesManager/DwarvesManager.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Scenes/Tavern/TavernScreen.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Scripts/GameManager.gd" type="Script" id=13]
-[ext_resource path="res://Scripts/LevelManager.gd" type="Script" id=14]
-[ext_resource path="res://Scripts/GameData.gd" type="Script" id=15]
-[ext_resource path="res://Objects/EventItem/EventManager.tscn" type="PackedScene" id=16]
-[ext_resource path="res://Scripts/GameSaver.gd" type="Script" id=17]
+[ext_resource path="res://Objects/Spawners/DwarvesManager/DwarvesManager.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Objects/Spawners/TavernSpawner/TavernSpawner.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Objects/Spawners/DevilSpawner/DevilSpawner.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scenes/Tavern/TavernScreen.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Scripts/GameManager.gd" type="Script" id=15]
+[ext_resource path="res://Scripts/LevelManager.gd" type="Script" id=16]
+[ext_resource path="res://Scripts/GameData.gd" type="Script" id=17]
+[ext_resource path="res://Objects/EventItem/EventManager.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Scripts/GameSaver.gd" type="Script" id=19]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 537.558, 30.0002 )
@@ -32,14 +34,15 @@ script = ExtResource( 2 )
 
 [node name="Elf" parent="." instance=ExtResource( 3 )]
 position = Vector2( 121.06, 544.182 )
+z_index = 1
 
 [node name="PlanetAnimation" parent="." instance=ExtResource( 4 )]
 
 [node name="UIContainer" type="Node2D" parent="."]
-editor/display_folded = true
 z_index = 100
 
 [node name="UI" type="Control" parent="UIContainer"]
+editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 5 )
@@ -192,6 +195,13 @@ script = ExtResource( 10 )
 
 [node name="DwarvesManager" parent="." instance=ExtResource( 11 )]
 position = Vector2( 1081.97, 544.587 )
+z_index = 1
+
+[node name="TavernSpawner" parent="." instance=ExtResource( 12 )]
+position = Vector2( 1081.97, 544.587 )
+
+[node name="DevilSpawner" parent="." instance=ExtResource( 13 )]
+position = Vector2( 1081.97, 544.587 )
 
 [node name="Ground" type="Area2D" parent="."]
 editor/display_folded = true
@@ -205,20 +215,20 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
 shape = SubResource( 1 )
 
-[node name="TavernScreen" parent="." instance=ExtResource( 12 )]
+[node name="TavernScreen" parent="." instance=ExtResource( 14 )]
 
 [node name="GameManager" type="Node" parent="."]
-script = ExtResource( 13 )
-
-[node name="LevelManager" type="Node" parent="."]
-script = ExtResource( 14 )
-
-[node name="GameData" type="Node" parent="."]
 script = ExtResource( 15 )
 
-[node name="EventManager" parent="." instance=ExtResource( 16 )]
+[node name="LevelManager" type="Node" parent="."]
+script = ExtResource( 16 )
+
+[node name="GameData" type="Node" parent="."]
+script = ExtResource( 17 )
+
+[node name="EventManager" parent="." instance=ExtResource( 18 )]
 
 [node name="GameSaver" type="Node" parent="."]
-script = ExtResource( 17 )
+script = ExtResource( 19 )
 [connection signal="pressed" from="UIContainer/UI/TavernEnterBtn" to="UIContainer/UI" method="_on_TavernEnterBtn_pressed"]
 [connection signal="pressed" from="UIContainer/UI/RevivalEnterBtn" to="UIContainer/UI" method="_on_RevivalEnterBtn_pressed"]
