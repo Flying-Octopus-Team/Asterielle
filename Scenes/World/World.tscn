@@ -39,6 +39,7 @@ z_index = 1
 [node name="PlanetAnimation" parent="." instance=ExtResource( 4 )]
 
 [node name="UIContainer" type="Node2D" parent="."]
+editor/display_folded = true
 z_index = 100
 
 [node name="UI" type="Control" parent="UIContainer"]
@@ -154,6 +155,7 @@ valign = 1
 script = ExtResource( 6 )
 
 [node name="BottomBar" type="HBoxContainer" parent="UIContainer"]
+editor/display_folded = true
 margin_left = 57.0
 margin_top = 510.0
 margin_right = 977.0

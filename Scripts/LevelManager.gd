@@ -36,9 +36,14 @@ var RevivalShoop = load("res://Scenes/Screens/RevivalShoop/RevivalShoop.tscn")
 const OffineScreen = preload("res://Scenes/Screens/OfflineScreen/OfflineScreen.gd")
 
 func set_level(value):
-	current_level = value
-	ui.set_level_label(value)
-
+	var level_diff : int = value - current_level
+	
+	if level_diff <= 0:
+		return
+		
+	for i in range(level_diff):
+		increase_level()
+		
 func _ready():
 	add_to_group('IHaveSthToSave')
 	
