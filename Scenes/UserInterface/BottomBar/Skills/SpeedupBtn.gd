@@ -1,4 +1,4 @@
-extends "res://Scenes/BottomBar/Skills/SkillBtn.gd"
+extends SkillBtn
 
 onready var world = get_node("/root/World")
 onready var level_manager = world.find_node("LevelManager")

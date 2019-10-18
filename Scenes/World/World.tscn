@@ -1,24 +1,20 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Scenes/World/World.gd" type="Script" id=1]
 [ext_resource path="res://Resources/ElfStats.gd" type="Script" id=2]
 [ext_resource path="res://Objects/Elf/Elf.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Objects/Background/Planets/PlanetAnimation.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/World/UI.gd" type="Script" id=5]
-[ext_resource path="res://Scripts/StaminaSystem.gd" type="Script" id=6]
-[ext_resource path="res://Scenes/BottomBar/Skills/ActiveSpellsManager.gd" type="Script" id=7]
-[ext_resource path="res://Scenes/BottomBar/Skills/SpeedupBtn.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Objects/Potions/Health/HealthPotion.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Scripts/Revival.gd" type="Script" id=10]
-[ext_resource path="res://Objects/Spawners/DwarvesManager/DwarvesManager.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Objects/Spawners/TavernSpawner/TavernSpawner.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Objects/Spawners/DevilSpawner/DevilSpawner.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Scenes/Tavern/TavernScreen.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Scripts/GameManager.gd" type="Script" id=15]
-[ext_resource path="res://Scripts/LevelManager.gd" type="Script" id=16]
-[ext_resource path="res://Scripts/GameData.gd" type="Script" id=17]
-[ext_resource path="res://Objects/EventItem/EventManager.tscn" type="PackedScene" id=18]
-[ext_resource path="res://Scripts/GameSaver.gd" type="Script" id=19]
+[ext_resource path="res://Scenes/UserInterface/UIContainer.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scripts/Revival.gd" type="Script" id=6]
+[ext_resource path="res://Objects/Spawners/DwarvesManager/DwarvesManager.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Objects/Spawners/TavernSpawner/TavernSpawner.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Objects/Spawners/DevilSpawner/DevilSpawner.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Tavern/TavernScreen.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scripts/GameManager.gd" type="Script" id=11]
+[ext_resource path="res://Scripts/LevelManager.gd" type="Script" id=12]
+[ext_resource path="res://Scripts/GameData.gd" type="Script" id=13]
+[ext_resource path="res://Objects/EventItem/EventManager.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Scripts/GameSaver.gd" type="Script" id=15]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 537.558, 30.0002 )
@@ -39,171 +35,19 @@ z_index = 1
 [node name="PlanetAnimation" parent="." instance=ExtResource( 4 )]
 playback_speed = 1.0
 
-[node name="UIContainer" type="Node2D" parent="."]
-editor/display_folded = true
-z_index = 100
-
-[node name="UI" type="Control" parent="UIContainer"]
-editor/display_folded = true
-anchor_right = 1.0
-anchor_bottom = 1.0
-script = ExtResource( 5 )
-
-[node name="MarginContainer" type="MarginContainer" parent="UIContainer/UI"]
-anchor_right = 1.0
-margin_left = 40.0
-margin_top = 40.0
-margin_right = 985.0
-margin_bottom = 120.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UIContainer/UI/MarginContainer"]
-margin_right = 945.0
-margin_bottom = 98.0
-custom_constants/separation = 10
-
-[node name="CenterContainer" type="CenterContainer" parent="UIContainer/UI/MarginContainer/VBoxContainer"]
-margin_right = 945.0
-margin_bottom = 14.0
-
-[node name="LevelLabel" type="Label" parent="UIContainer/UI/MarginContainer/VBoxContainer/CenterContainer"]
-margin_left = 438.0
-margin_right = 506.0
-margin_bottom = 14.0
-text = "Poziom 10"
-
-[node name="CenterContainer2" type="CenterContainer" parent="UIContainer/UI/MarginContainer/VBoxContainer"]
-margin_top = 24.0
-margin_right = 945.0
-margin_bottom = 38.0
-
-[node name="KilledDwarvesLabel" type="Label" parent="UIContainer/UI/MarginContainer/VBoxContainer/CenterContainer2"]
-margin_left = 458.0
-margin_right = 487.0
-margin_bottom = 14.0
-text = "1 / 5"
-
-[node name="MarginContainer" type="MarginContainer" parent="UIContainer/UI/MarginContainer/VBoxContainer"]
-margin_top = 48.0
-margin_right = 945.0
-margin_bottom = 98.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UIContainer/UI/MarginContainer/VBoxContainer/MarginContainer"]
-margin_right = 945.0
-margin_bottom = 50.0
-
-[node name="GoldLabel" type="Label" parent="UIContainer/UI/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
-margin_right = 945.0
-margin_bottom = 14.0
-text = "Zloto: 0"
-
-[node name="XpLabel" type="Label" parent="UIContainer/UI/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
-margin_top = 18.0
-margin_right = 945.0
-margin_bottom = 32.0
-text = "Doswiadczenie: 0"
-
-[node name="SilverMoonLabel" type="Label" parent="UIContainer/UI/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
-margin_top = 36.0
-margin_right = 945.0
-margin_bottom = 50.0
-
-[node name="TavernEnterBtn" type="CheckButton" parent="UIContainer/UI"]
-margin_left = 895.684
-margin_top = 72.6317
-margin_right = 978.684
-margin_bottom = 115.632
-
-[node name="TavernLabel" type="Label" parent="UIContainer/UI/TavernEnterBtn"]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -81.8158
-margin_top = -55.7368
-margin_right = 81.1842
-margin_bottom = -23.7368
-text = "Wejdz do tawerny:"
-align = 1
-
-[node name="RevivalEnterBtn" type="CheckButton" parent="UIContainer/UI"]
-margin_left = 755.684
-margin_top = 72.6317
-margin_right = 838.684
-margin_bottom = 115.632
-
-[node name="RevivalEnterLabel" type="Label" parent="UIContainer/UI/RevivalEnterBtn"]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -81.8158
-margin_top = -55.7368
-margin_right = 81.1842
-margin_bottom = -23.7368
-text = "Przywolaj diabla:"
-align = 1
-
-[node name="StaminaLab" type="Label" parent="UIContainer/UI"]
-margin_left = 384.0
-margin_top = 106.0
-margin_right = 573.0
-margin_bottom = 144.0
-rect_scale = Vector2( 1.4, 1.4 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "9.9s / 10s"
-align = 1
-valign = 1
-script = ExtResource( 6 )
-
-[node name="BottomBar" type="HBoxContainer" parent="UIContainer"]
-editor/display_folded = true
-margin_left = 57.0
-margin_top = 510.0
-margin_right = 977.0
-margin_bottom = 542.0
-
-[node name="ActiveSpells" type="HBoxContainer" parent="UIContainer/BottomBar"]
-margin_right = 304.0
-margin_bottom = 32.0
-size_flags_horizontal = 3
-script = ExtResource( 7 )
-
-[node name="SpeedupBtn" parent="UIContainer/BottomBar/ActiveSpells" instance=ExtResource( 8 )]
-margin_right = 32.0
-margin_bottom = 32.0
-
-[node name="Potions" type="HBoxContainer" parent="UIContainer/BottomBar"]
-margin_left = 308.0
-margin_right = 612.0
-margin_bottom = 32.0
-size_flags_horizontal = 3
-alignment = 1
-
-[node name="HealthPotion" parent="UIContainer/BottomBar/Potions" instance=ExtResource( 9 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 136.0
-margin_right = 168.0
-margin_bottom = 32.0
-rect_scale = Vector2( 1, 1 )
-
-[node name="Margin" type="Control" parent="UIContainer/BottomBar"]
-margin_left = 616.0
-margin_right = 920.0
-margin_bottom = 32.0
-size_flags_horizontal = 3
+[node name="UIContainer" parent="." instance=ExtResource( 5 )]
 
 [node name="Revival" type="Node" parent="."]
-script = ExtResource( 10 )
+script = ExtResource( 6 )
 
-[node name="DwarvesManager" parent="." instance=ExtResource( 11 )]
+[node name="DwarvesManager" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1081.97, 544.587 )
 z_index = 1
 
-[node name="TavernSpawner" parent="." instance=ExtResource( 12 )]
+[node name="TavernSpawner" parent="." instance=ExtResource( 8 )]
 position = Vector2( 1081.97, 544.587 )
 
-[node name="DevilSpawner" parent="." instance=ExtResource( 13 )]
+[node name="DevilSpawner" parent="." instance=ExtResource( 9 )]
 position = Vector2( 1081.97, 544.587 )
 
 [node name="Ground" type="Area2D" parent="."]
@@ -218,21 +62,18 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
 shape = SubResource( 1 )
 
-[node name="TavernScreen" parent="." instance=ExtResource( 14 )]
+[node name="TavernScreen" parent="." instance=ExtResource( 10 )]
 
 [node name="GameManager" type="Node" parent="."]
-script = ExtResource( 15 )
+script = ExtResource( 11 )
 
 [node name="LevelManager" type="Node" parent="."]
-script = ExtResource( 16 )
+script = ExtResource( 12 )
 
 [node name="GameData" type="Node" parent="."]
-script = ExtResource( 17 )
+script = ExtResource( 13 )
 
-[node name="EventManager" parent="." instance=ExtResource( 18 )]
+[node name="EventManager" parent="." instance=ExtResource( 14 )]
 
 [node name="GameSaver" type="Node" parent="."]
-script = ExtResource( 17 )
-
-[connection signal="pressed" from="UIContainer/UI/TavernEnterBtn" to="UIContainer/UI" method="_on_TavernEnterBtn_pressed"]
-[connection signal="pressed" from="UIContainer/UI/RevivalEnterBtn" to="UIContainer/UI" method="_on_RevivalEnterBtn_pressed"]
+script = ExtResource( 15 )

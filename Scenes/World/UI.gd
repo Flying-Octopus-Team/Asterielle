@@ -31,7 +31,7 @@ func set_killed_dwarves_label(killed_dwarves, dwarves_per_level):
 	killed_dwarves_label.text = str(killed_dwarves, " / ", dwarves_per_level)
 
 func _on_RevivalEnterBtn_pressed():
-	tavern_enter_btn.pressed = false
+	tavern_enter_btn.set_pressed(false)
 
 func _on_TavernEnterBtn_pressed():
-	revival_enter_btn.pressed = false
+	revival_enter_btn.set_pressed(false)

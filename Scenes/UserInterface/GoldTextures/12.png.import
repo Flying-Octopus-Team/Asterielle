@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/speedup_arrow.png-b18d54c7de5284db8a97f56ca0820b15.stex"
+path="res://.import/12.png-43b8f1db88ad06001c6986e5c3ebae7c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/BottomBar/Skills/speedup_arrow.png"
-dest_files=[ "res://.import/speedup_arrow.png-b18d54c7de5284db8a97f56ca0820b15.stex" ]
+source_file="res://Scenes/UserInterface/GoldTextures/12.png"
+dest_files=[ "res://.import/12.png-43b8f1db88ad06001c6986e5c3ebae7c.stex" ]
 
 [params]
 

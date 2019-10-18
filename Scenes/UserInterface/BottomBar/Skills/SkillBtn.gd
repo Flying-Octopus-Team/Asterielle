@@ -1,4 +1,5 @@
 extends TextureButton
+class_name SkillBtn
 
 signal used
 signal ready_changed
