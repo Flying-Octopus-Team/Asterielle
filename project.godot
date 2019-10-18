@@ -29,6 +29,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Resources/Items/ItemQuality/ItemQuality.gd"
 }, {
+"base": "Node2D",
+"class": "SpawnerSystem",
+"language": "GDScript",
+"path": "res://Objects/Spawners/SpawnerSystem.gd"
+}, {
 "base": "Resource",
 "class": "StatChanger",
 "language": "GDScript",
@@ -39,6 +44,7 @@ _global_script_class_icons={
 "ElfStats": "",
 "Item": "",
 "ItemQuality": "",
+"SpawnerSystem": "",
 "StatChanger": ""
 }
 

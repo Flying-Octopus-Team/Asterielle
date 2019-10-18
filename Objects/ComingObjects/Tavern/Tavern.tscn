@@ -4,6 +4,7 @@
 [ext_resource path="res://Objects/ComingObjects/Tavern/karczma5.png" type="Texture" id=2]
 [ext_resource path="res://Objects/ComingObjects/Tavern/Tavern.gd" type="Script" id=3]
 
-[node name="Tavern" index="0" instance=ExtResource( 1 )]
+[node name="Tavern" instance=ExtResource( 1 )]
+z_index = 1
 texture = ExtResource( 2 )
 script = ExtResource( 3 )
