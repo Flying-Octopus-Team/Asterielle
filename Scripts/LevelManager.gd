@@ -14,12 +14,14 @@ var basic_start_level : int = 0
 var killed_dwarves : int = 0
 
 onready var world = get_node("/root/World")
-onready var dwarves_manager = world.get_node("DwarvesManager") 
-onready var game_data = world.get_node("GameData") 
-onready var game_saver = world.get_node("GameSaver") 
+onready var dwarves_manager = world.find_node("DwarvesManager") 
+onready var tavern_spawner = world.find_node("TavernSpawner") 
+onready var devil_spawner = world.find_node("DevilSpawner") 
+onready var game_data = world.find_node("GameData") 
+onready var game_saver = world.find_node("GameSaver") 
 onready var tavern_enter_btn = world.find_node("TavernEnterBtn")
 onready var revival_enter_btn = world.find_node("RevivalEnterBtn")
-onready var tavern_screen = world.get_node("TavernScreen")
+onready var tavern_screen = world.find_node("TavernScreen")
 onready var ui = world.find_node("UI")
 onready var publician = world.find_node("Publician")
 onready var speedup_skill = world.find_node("SpeedupBtn")
@@ -34,9 +36,14 @@ var RevivalShoop = load("res://Scenes/Screens/RevivalShoop/RevivalShoop.tscn")
 const OffineScreen = preload("res://Scenes/Screens/OfflineScreen/OfflineScreen.gd")
 
 func set_level(value):
-	current_level = value
-	ui.set_level_label(value)
-
+	var level_diff : int = value - current_level
+	
+	if level_diff <= 0:
+		return
+		
+	for i in range(level_diff):
+		increase_level()
+		
 func _ready():
 	add_to_group('IHaveSthToSave')
 	
@@ -69,10 +76,10 @@ func on_Dwarf_died():
 	
 func after_dwarf_died():
 	if tavern_enter_btn.pressed:
-		dwarves_manager.spawn_tavern()
+		tavern_spawner.spawn_tavern()
 		disable_skills()
 	elif revival_enter_btn.pressed:
-		dwarves_manager.spawn_devil()
+		devil_spawner.spawn_devil()
 		disable_skills()
 	else:
 		spawn_next_dwarf()

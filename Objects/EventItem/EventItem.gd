@@ -2,9 +2,6 @@ extends Node2D
 
 export(int) var gold_reward = 65
 export(float) var move_speed = -100
-export(Vector2) var start_position = Vector2()
-
-
 
 func _ready():
 	var value = randi()%800+160

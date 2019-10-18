@@ -4,7 +4,8 @@
 [ext_resource path="res://Objects/Background/Planets/PlanetSystem.gd" type="Script" id=2]
 [ext_resource path="res://Objects/Background/Planets/sun.png" type="Texture" id=3]
 [ext_resource path="res://Objects/Background/Planets/Stars.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Objects/Background.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Objects/Background/Background.tscn" type="PackedScene" id=5]
+
 
 [node name="PlanetAnimation" type="AnimationPlayer"]
 root_node = NodePath("")

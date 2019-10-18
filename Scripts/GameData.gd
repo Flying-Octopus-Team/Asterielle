@@ -33,14 +33,7 @@ const REVIVAL_SILVER_MOON_REWARD : int = 50
 
 onready var level_manager = get_parent().get_node("LevelManager")
 onready var game_saver = get_parent().get_node("GameSaver")
-onready var revival = get_parent().get_node("Revival")
 onready var ui = get_parent().find_node("UI")
-
-onready var gold_label = get_parent().find_node("GoldLabel")
-onready var xp_label = get_parent().find_node("XpLabel")
-onready var silver_moon_label = get_parent().find_node("SilverMoonLabel")
-
-onready var revival_btn = get_parent().find_node("RevivalBtn")
 
 func set_gold(value):
 	gold = value

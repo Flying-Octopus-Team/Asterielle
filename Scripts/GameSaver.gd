@@ -52,8 +52,6 @@ func load_game():
 	var data = JSON.parse(save_file.get_as_text()).result;
 	
 	for node_path in data.keys():
-		var node = get_node(node_path)
-		
 		for attribure in data[node_path]:
 			match attribure:	#Odczytywane są w kolejności alfabetycznej
 				"__time":
