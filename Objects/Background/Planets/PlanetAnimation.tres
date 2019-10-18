@@ -29,7 +29,7 @@ tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
 "times": PoolRealArray( 0, 119.945, 119.946, 120.141, 237.335 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1.7411, 1 ),
 "update": 1,
 "values": [ ExtResource( 1 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 3 ) ]
 }
