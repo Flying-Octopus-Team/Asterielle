@@ -3,6 +3,7 @@
 [ext_resource path="res://Objects/ComingObjects/ComingObject.gd" type="Script" id=1]
 
 [node name="ComingObject" type="Sprite"]
+z_index = 1
 centered = false
 offset = Vector2( 0.99, -274.22 )
 script = ExtResource( 1 )
