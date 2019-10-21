@@ -18,7 +18,7 @@ func _input(event):
 		increasing_stamina()
 
 func increasing_stamina():
-	current_stamina = min(current_stamina + 1, max_stamina)	
+	current_stamina = min(current_stamina + 1, max_stamina)
 
 func _process(delta):
 	if current_stamina > 0:
