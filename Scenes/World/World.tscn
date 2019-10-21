@@ -232,7 +232,6 @@ script = ExtResource( 17 )
 [node name="EventManager" parent="." instance=ExtResource( 18 )]
 
 [node name="GameSaver" type="Node" parent="."]
-script = ExtResource( 17 )
-
+script = ExtResource( 19 )
 [connection signal="pressed" from="UIContainer/UI/TavernEnterBtn" to="UIContainer/UI" method="_on_TavernEnterBtn_pressed"]
 [connection signal="pressed" from="UIContainer/UI/RevivalEnterBtn" to="UIContainer/UI" method="_on_RevivalEnterBtn_pressed"]
