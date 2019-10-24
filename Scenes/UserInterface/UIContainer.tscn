@@ -1,11 +1,70 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Scenes/World/UI.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/UserInterface/AnimatedCheckButton.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scripts/StaminaSystem.gd" type="Script" id=3]
-[ext_resource path="res://Scenes/UserInterface/BottomBar/Skills/ActiveSpellsManager.gd" type="Script" id=4]
-[ext_resource path="res://Scenes/UserInterface/BottomBar/Skills/SpeedupBtn.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Objects/Potions/Health/HealthPotion.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/UserInterface/GoldTextures/12.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/UserInterface/GoldTextures/1.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/UserInterface/GoldTextures/2.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/UserInterface/GoldTextures/3.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/UserInterface/GoldTextures/4.png" type="Texture" id=6]
+[ext_resource path="res://Scenes/UserInterface/GoldTextures/5.png" type="Texture" id=7]
+[ext_resource path="res://Scenes/UserInterface/GoldTextures/6.png" type="Texture" id=8]
+[ext_resource path="res://Scenes/UserInterface/GoldTextures/7.png" type="Texture" id=9]
+[ext_resource path="res://Scenes/UserInterface/GoldTextures/8.png" type="Texture" id=10]
+[ext_resource path="res://Scenes/UserInterface/GoldTextures/9.png" type="Texture" id=11]
+[ext_resource path="res://Scenes/UserInterface/GoldTextures/10.png" type="Texture" id=12]
+[ext_resource path="res://Scenes/UserInterface/GoldTextures/11.png" type="Texture" id=13]
+[ext_resource path="res://Scenes/UserInterface/AnimatedCheckButton.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Scripts/StaminaSystem.gd" type="Script" id=15]
+[ext_resource path="res://Scenes/UserInterface/BottomBar/Skills/ActiveSpellsManager.gd" type="Script" id=16]
+[ext_resource path="res://Scenes/UserInterface/BottomBar/Skills/SpeedupBtn.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Objects/Potions/Health/HealthPotion.tscn" type="PackedScene" id=18]
+
+[sub_resource type="Animation" id=1]
+resource_name = "gold_reached"
+length = 0.55
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 2 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "xp_reached"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 9 ), ExtResource( 5 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "silver_moon_reached"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.7, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 12 ), ExtResource( 9 ), ExtResource( 4 ), ExtResource( 10 ) ]
+}
 
 [node name="UIContainer" type="Node2D"]
 z_index = 100
@@ -28,11 +87,10 @@ custom_constants/margin_left = 40
 margin_left = 40.0
 margin_top = 40.0
 margin_right = 984.0
-margin_bottom = 138.0
+margin_bottom = 232.0
 custom_constants/separation = 10
 
 [node name="CenterContainer" type="CenterContainer" parent="UI/MarginContainer/VBoxContainer"]
-editor/display_folded = true
 margin_right = 944.0
 margin_bottom = 14.0
 
@@ -57,42 +115,88 @@ text = "1 / 5"
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/MarginContainer/VBoxContainer"]
 margin_top = 48.0
 margin_right = 944.0
-margin_bottom = 98.0
+margin_bottom = 192.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer/VBoxContainer/HBoxContainer"]
+margin_right = 470.0
+margin_bottom = 144.0
+size_flags_horizontal = 3
+custom_constants/separation = 0
+
+[node name="GoldRow" type="HBoxContainer" parent="UI/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 editor/display_folded = true
 margin_right = 470.0
-margin_bottom = 50.0
-size_flags_horizontal = 3
+margin_bottom = 48.0
 
-[node name="GoldLabel" type="Label" parent="UI/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
-margin_right = 470.0
-margin_bottom = 14.0
+[node name="GoldIcon" type="TextureRect" parent="UI/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/GoldRow"]
+margin_right = 48.0
+margin_bottom = 48.0
+texture = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/GoldRow/GoldIcon"]
+anims/gold_reached = SubResource( 1 )
+
+[node name="GoldLabel" type="Label" parent="UI/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/GoldRow"]
+margin_left = 52.0
+margin_top = 17.0
+margin_right = 101.0
+margin_bottom = 31.0
 text = "Zloto: 0"
 
-[node name="XpLabel" type="Label" parent="UI/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
-margin_top = 18.0
+[node name="XpRow" type="HBoxContainer" parent="UI/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+editor/display_folded = true
+margin_top = 48.0
 margin_right = 470.0
-margin_bottom = 32.0
+margin_bottom = 96.0
+
+[node name="XpIcon" type="TextureRect" parent="UI/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/XpRow"]
+margin_right = 48.0
+margin_bottom = 48.0
+texture = ExtResource( 9 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/XpRow/XpIcon"]
+anims/xp_reached = SubResource( 2 )
+
+[node name="XpLabel" type="Label" parent="UI/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/XpRow"]
+margin_left = 52.0
+margin_top = 17.0
+margin_right = 164.0
+margin_bottom = 31.0
 text = "Doswiadczenie: 0"
 
-[node name="SilverMoonLabel" type="Label" parent="UI/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
-margin_top = 36.0
+[node name="SilverMoonRow" type="HBoxContainer" parent="UI/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+editor/display_folded = true
+margin_top = 96.0
 margin_right = 470.0
-margin_bottom = 50.0
+margin_bottom = 144.0
+
+[node name="SilverMoonIcon" type="TextureRect" parent="UI/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/SilverMoonRow"]
+margin_right = 48.0
+margin_bottom = 48.0
+texture = ExtResource( 10 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/SilverMoonRow/SilverMoonIcon"]
+anims/silver_moon_reached = SubResource( 3 )
+
+[node name="SilverMoonLabel" type="Label" parent="UI/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/SilverMoonRow"]
+margin_left = 52.0
+margin_top = 17.0
+margin_right = 176.0
+margin_bottom = 31.0
+text = "Srebrne ksiezyce: 0"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/MarginContainer/VBoxContainer/HBoxContainer"]
 margin_left = 474.0
 margin_right = 944.0
-margin_bottom = 50.0
+margin_bottom = 27.0
 size_flags_horizontal = 3
+size_flags_vertical = 0
 custom_constants/separation = 80
 alignment = 2
 
-[node name="RevivalEnterBtn" parent="UI/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer" instance=ExtResource( 2 )]
+[node name="RevivalEnterBtn" parent="UI/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer" instance=ExtResource( 14 )]
 margin_left = 228.0
 margin_right = 309.0
-margin_bottom = 50.0
 
 [node name="RevivalEnterLabel" type="Label" parent="UI/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer/RevivalEnterBtn"]
 anchor_left = 0.5
@@ -100,16 +204,15 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 margin_left = -77.812
-margin_top = -68.925
+margin_top = 13.0
 margin_right = 85.188
-margin_bottom = -36.9255
-text = "Przywolaj diabla:"
+margin_bottom = 44.9995
+text = "Przywolaj diabla"
 align = 1
 
-[node name="TavernEnterBtn" parent="UI/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer" instance=ExtResource( 2 )]
+[node name="TavernEnterBtn" parent="UI/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer" instance=ExtResource( 14 )]
 margin_left = 389.0
 margin_right = 470.0
-margin_bottom = 50.0
 
 [node name="TavernLabel" type="Label" parent="UI/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer/TavernEnterBtn"]
 anchor_left = 0.5
@@ -117,10 +220,10 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 margin_left = -79.142
-margin_top = -68.925
+margin_top = 13.0
 margin_right = 83.858
-margin_bottom = -36.9259
-text = "Wejdz do tawerny:"
+margin_bottom = 44.9991
+text = "Wejdz do tawerny"
 align = 1
 
 [node name="StaminaLab" type="Label" parent="UI"]
@@ -133,7 +236,7 @@ custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "9.9s / 10s"
 align = 1
 valign = 1
-script = ExtResource( 3 )
+script = ExtResource( 15 )
 
 [node name="BottomBar" type="HBoxContainer" parent="."]
 editor/display_folded = true
@@ -146,9 +249,9 @@ margin_bottom = 542.0
 margin_right = 304.0
 margin_bottom = 32.0
 size_flags_horizontal = 3
-script = ExtResource( 4 )
+script = ExtResource( 16 )
 
-[node name="SpeedupBtn" parent="BottomBar/ActiveSpells" instance=ExtResource( 5 )]
+[node name="SpeedupBtn" parent="BottomBar/ActiveSpells" instance=ExtResource( 17 )]
 margin_right = 32.0
 margin_bottom = 32.0
 
@@ -159,7 +262,7 @@ margin_bottom = 32.0
 size_flags_horizontal = 3
 alignment = 1
 
-[node name="HealthPotion" parent="BottomBar/Potions" instance=ExtResource( 6 )]
+[node name="HealthPotion" parent="BottomBar/Potions" instance=ExtResource( 18 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 136.0
