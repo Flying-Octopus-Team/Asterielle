@@ -1,10 +1,10 @@
 extends "res://Objects/EventItem/EventItem.gd"
 
-var walking_chicken_speed: float = -50
+var chicken_speed: float = -100
 
 func _ready():
 	set_start_position(1100,575)
-	move_speed = walking_chicken_speed
+	move_speed = chicken_speed
 
 func _process(delta):
 	move(delta)

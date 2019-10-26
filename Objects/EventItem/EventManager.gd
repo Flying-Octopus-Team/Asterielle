@@ -6,11 +6,14 @@ var dwarf_in_ballon: bool = false
 var event_items : Array = [
 	load("res://Objects/EventItem/SackOfGold.tscn"),
 	load("res://Objects/EventItem/DwarfInBalloon.tscn"),
-	load("res://Objects/EventItem/Chicken.tscn")
+	load("res://Objects/EventItem/Chicken.tscn"),
+	load("res://Objects/EventItem/Mag.tscn")
 ]
 
 func _ready():
 	restart_timer()
+	var item = event_items[3].instance()
+	get_parent().call_deferred("add_child", item)
 
 func restart_timer():
 	timer.set_wait_time(return_random_time())
