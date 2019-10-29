@@ -16,7 +16,7 @@ onready var elf = get_parent().get_node("Elf")
 onready var publican = get_parent().find_node("Publican")
 
 func _ready():
-	#load_game()
+	load_game()
 	pass
 
 var timer : float = 0

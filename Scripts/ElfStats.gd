@@ -210,13 +210,13 @@ static func save():
 
 static func load_data(data):
 	var stats = data["_stats"]
-	var items = data["_items"]
+	var _items = data["_items"]
 	
 	for key in stats:
 		var new_stat = stats[key]
 		var stat = get_stat(key)
 		stat.setup(new_stat["_default_value"], new_stat["_value"])
 		
-	for key in items:
-		ElfStats.items[key].load_data(items[key])
-		add_item(items[key])
+	for key in _items:
+		ElfStats.items[key].load_data(_items[key])
+		add_item(ElfStats.items[key])
