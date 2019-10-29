@@ -1,9 +1,5 @@
 extends Node
 
-class_name ElfStats
-
-##################################################
-
 class Stat:
 	signal value_changed(me)
 	

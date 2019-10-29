@@ -24,11 +24,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Objects/Dwarves/Dwarf/Dwarf.gd"
 }, {
-"base": "Node",
-"class": "ElfStats",
-"language": "GDScript",
-"path": "res://Scripts/ElfStats.gd"
-}, {
 "base": "Resource",
 "class": "Item",
 "language": "GDScript",
@@ -58,7 +53,6 @@ _global_script_class_icons={
 "BasicShop": "",
 "ComingObject": "",
 "Dwarf": "",
-"ElfStats": "",
 "Item": "",
 "ItemQuality": "",
 "SpawnerSystem": "",
