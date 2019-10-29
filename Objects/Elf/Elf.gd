@@ -13,15 +13,14 @@ var next_arrow_velocity : Vector2
 var hp : float setget set_current_hp
 
 onready var stamina_system = get_parent().find_node("StaminaLab")
-onready var stats = get_node("/root/World/ElfStats")
 onready var fire_point = find_node("FirePoint")
 onready var hp_bar = find_node("HPBar")
 onready var hp_label = find_node("HPLabel")
 onready var animation_player = find_node("AnimationPlayer")
 
 func _ready():
-	stats.create_default_items()
-	stats.get_stat("vitality").connect("value_changed", self, "_on_vitality_change")
+	ElfStats.create_default_items()
+	ElfStats.get_stat("vitality").connect("value_changed", self, "_on_vitality_change")
 	add_to_group('IHaveSthToSave')
 	restart_arrow_timer()
 	reset_to_base()
@@ -63,10 +62,10 @@ func spawn_arrow():
 	arrow.global_position = fire_point.global_position
 	arrow.gravity = arrow_gravity
 	arrow.velocity = arrow_velocity
-	arrow.damage = stats.get_stat_value("bows_knowledge")
+	arrow.damage = ElfStats.get_stat_value("bows_knowledge")
 	
 func on_dwarf_hit(dmg) -> bool:
-	if randf() < stats.get_stat_value("agility"):
+	if randf() < ElfStats.get_stat_value("agility"):
 		return true
 	
 	hp -= dmg
@@ -84,7 +83,7 @@ func update_hp_label():
 	hp_label.text = str(stepify(hp,0.01))
 
 func reset_to_base():
-	hp = stats.get_stat_value("vitality")
+	hp = ElfStats.get_stat_value("vitality")
 	hp_bar.max_value = hp
 	hp_bar.value = hp
 	update_hp_label()

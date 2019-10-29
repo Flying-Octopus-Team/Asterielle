@@ -114,7 +114,7 @@ var _stats = [
 	Stat.new("magic", 0),
 	Stat.new("lucky", 0),
 	Stat.new("stamina", 10)
-] setget , get_stats
+]
 
 var items = {}
 
@@ -123,8 +123,8 @@ var items = {}
 func _ready():
 	add_to_group("IHaveSthToSave")
 
-func create_default_items() -> void:
-	items = {
+static func create_default_items() -> void:
+	ElfStats.items = {
 		"Bow": load("res://Resources/Items/Bow.tres"),
 		"Helmet": load("res://Resources/Items/Helmet.tres"),
 		"LeftRing": load("res://Resources/Items/LeftRing.tres"),
@@ -134,26 +134,29 @@ func create_default_items() -> void:
 		"Boots": load("res://Resources/Items/Boots.tres")
 	}
 
-	for key in items:
-		items[key] = items[key].duplicate()
-		items[key].reset()
+	for key in ElfStats.items:
+		ElfStats.items[key] = ElfStats.items[key].duplicate()
+		ElfStats.items[key].reset()
 
-func restore_to_default() -> void:
-	for key in items:
-		items[key].reset()
+static func restore_to_default() -> void:
+	for key in ElfStats.items:
+		ElfStats.items[key].reset()
 
-	for s in _stats:
+	for s in ElfStats._stats:
 		s.reset()
 		
-func get_stat(stat_name:String) -> Stat:
-	for s in _stats:
+static func get_stats() -> Array:
+	return ElfStats._stats
+		
+static func get_stat(stat_name:String) -> Stat:
+	for s in ElfStats._stats:
 		if s.named(stat_name):
 			return s
 	
 	printerr("nonexist stat with name: \"" + stat_name + "\"")
 	return null
 	
-func get_stat_value(stat_name:String) -> float:
+static func get_stat_value(stat_name:String) -> float:
 	var stat = get_stat(stat_name)
 	
 	if stat:
@@ -161,7 +164,7 @@ func get_stat_value(stat_name:String) -> float:
 	
 	return 0.0
 	
-func get_stat_unchanged_value(stat_name:String) -> float:
+static func get_stat_unchanged_value(stat_name:String) -> float:
 	var stat = get_stat(stat_name)
 	
 	if stat:
@@ -170,10 +173,10 @@ func get_stat_unchanged_value(stat_name:String) -> float:
 	return 0.0
 
 # requires optimisation
-func add_item(item) -> void:
-	items[item.name] = item
+static func add_item(item) -> void:
+	ElfStats.items[item.name] = item
 	
-	for s in _stats:
+	for s in ElfStats._stats:
 		# Remove every changer from old item
 		for i in range(s.changers.size()-1, -1, -1):
 			if s.changers[i].item_name == item.name:
@@ -183,40 +186,37 @@ func add_item(item) -> void:
 		for c in item.stat_changers:
 			if s.named(c.stat_name):
 				s.add_changer(c)
-				
-func get_stats():
-	return _stats
 	
-func save():
+static func save():
 	var save_dict = {
 		_elf_stats = {
 			_stats = {},
 			_items = {}
 		},
-		_damage_multiplier = damage_multiplier,
-		_health_multiplier = health_multiplier
+		_damage_multiplier = ElfStats.damage_multiplier,
+		_health_multiplier = ElfStats.health_multiplier
 	}
 	
-	for s in _stats:
+	for s in ElfStats._stats:
 		save_dict["_elf_stats"]["_stats"][s.name] = {
 			_default_value = s.default_value,
 			_value = s.get_unchanged_value()
 		}
 		
-	for key in items:
-		save_dict["_elf_stats"]["_items"][key] = items[key].save()
+	for key in ElfStats.items:
+		save_dict["_elf_stats"]["_items"][key] = ElfStats.items[key].save()
 	
 	return save_dict
 
-func load_data(data):
-	var _stats = data["_stats"]
-	var _items = data["_items"]
+static func load_data(data):
+	var stats = data["_stats"]
+	var items = data["_items"]
 	
-	for key in _stats:
-		var new_stat = _stats[key]
+	for key in stats:
+		var new_stat = stats[key]
 		var stat = get_stat(key)
 		stat.setup(new_stat["_default_value"], new_stat["_value"])
 		
-	for key in _items:
-		items[key].load_data(_items[key])
+	for key in items:
+		ElfStats.items[key].load_data(items[key])
 		add_item(items[key])

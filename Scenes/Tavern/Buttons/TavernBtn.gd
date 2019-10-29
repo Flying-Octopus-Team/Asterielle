@@ -1,5 +1,7 @@
 extends HBoxContainer
 
+class_name TavernBtn
+
 signal bought
 
 export(String) var item_name
@@ -10,12 +12,11 @@ export(float) var price_xp_mod = 1.0
 export(String) var popup_title
 
 onready var game_data = get_tree().get_current_scene().find_node("GameData")
-onready var elf_stats = get_node("/root/World/ElfStats")
 onready var publican = get_tree().get_current_scene().find_node("Publican")
 var popup = null
 
 func _ready():
-	elf_stats.get_stat("charisma").connect("value_changed", self, "_on_Charisma_value_changed")
+	ElfStats.get_stat("charisma").connect("value_changed", self, "_on_Charisma_value_changed")
 	$Name.text = item_name
 	update_price_label()
 
@@ -43,7 +44,7 @@ func _on_Charisma_value_changed(charisma_stat) -> void:
 	update_price_label()
 
 func get_lower_price_gold() -> float:
-	var charisma = elf_stats.get_stat_value("charisma")
+	var charisma = ElfStats.get_stat_value("charisma")
 	var half_price_gold = price_gold * 0.5
 	return max(price_gold - charisma, half_price_gold)
 

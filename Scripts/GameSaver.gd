@@ -12,12 +12,12 @@ const OFFINE_BONUS_XP_RATIO : float = 0.2
 
 onready var game_data = get_parent().get_node("GameData")
 onready var level_manager = get_parent().get_node("LevelManager")
-onready var elf_stats = get_parent().get_node("ElfStats")
 onready var elf = get_parent().get_node("Elf")
 onready var publican = get_parent().find_node("Publican")
 
 func _ready():
-	load_game()
+	#load_game()
+	pass
 
 var timer : float = 0
 func _process(delta):
@@ -124,8 +124,8 @@ func load_level(level):
 	var level_manager = get_parent().get_node("LevelManager")
 	level_manager.current_level = level
 
-func load_elf_stats(elf_stat):
-	elf_stats.load_data(elf_stat)
+func load_elf_stats(elf_stats):
+	ElfStats.load_data(elf_stats)
 	elf.reset_to_base()
 
 func load_helth_potion(helth_potion):
@@ -170,7 +170,7 @@ func revival_reset():
 	load_xp(0.0)
 	load_hp(10.0)
 	load_level(1)
-	elf_stats.restore_to_default()
+	ElfStats.restore_to_default()
 	load_helth_potion(0)
 	publican.create_default_quests()
 	save_game()

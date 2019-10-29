@@ -9,15 +9,25 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Control",
+"class": "BasicShop",
+"language": "GDScript",
+"path": "res://Scenes/Tavern/Shop/BasicShop.gd"
+}, {
 "base": "Sprite",
 "class": "ComingObject",
 "language": "GDScript",
 "path": "res://Objects/ComingObjects/ComingObject.gd"
 }, {
+"base": "Area2D",
+"class": "Dwarf",
+"language": "GDScript",
+"path": "res://Objects/Dwarves/Dwarf/Dwarf.gd"
+}, {
 "base": "Node",
 "class": "ElfStats",
 "language": "GDScript",
-"path": "res://Resources/ElfStats.gd"
+"path": "res://Scripts/ElfStats.gd"
 }, {
 "base": "Resource",
 "class": "Item",
@@ -38,14 +48,22 @@ _global_script_classes=[ {
 "class": "StatChanger",
 "language": "GDScript",
 "path": "res://Resources/Items/StatChangers/StatChanger.gd"
+}, {
+"base": "HBoxContainer",
+"class": "TavernBtn",
+"language": "GDScript",
+"path": "res://Scenes/Tavern/Buttons/TavernBtn.gd"
 } ]
 _global_script_class_icons={
+"BasicShop": "",
 "ComingObject": "",
+"Dwarf": "",
 "ElfStats": "",
 "Item": "",
 "ItemQuality": "",
 "SpawnerSystem": "",
-"StatChanger": ""
+"StatChanger": "",
+"TavernBtn": ""
 }
 
 [application]
@@ -57,6 +75,7 @@ config/icon="res://icon.png"
 [autoload]
 
 BackgroundData="*res://Objects/Background/BackgroundData.gd"
+ElfStats="*res://Scripts/ElfStats.gd"
 
 [display]
 
@@ -90,8 +109,8 @@ pointing/emulate_touch_from_mouse=true
 
 [network]
 
-limits/debugger_stdout/max_messages_per_frame=60
-limits/debugger_stdout/max_errors_per_frame=60
+limits/debugger_stdout/max_messages_per_frame=120
+limits/debugger_stdout/max_errors_per_frame=120
 
 [rendering]
 
