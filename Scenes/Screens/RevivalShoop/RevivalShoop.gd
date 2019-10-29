@@ -157,13 +157,12 @@ func return_basic_damage_access() -> bool:
 	return result
 	
 func set_basic_damage_count():
-	basic_damage_count.text = "x" + String(get_parent().find_node("Elf").stats.damage_multiplier)
+	basic_damage_count.text = "x" + String(ElfStats.damage_multiplier)
 
 func upgrade_basic_damage():
-	var stats = get_parent().find_node("Elf").stats
-	stats.damage_multiplier += 0.1
-	var damage_stat = stats.get_stat("bows_knowledge")
-	damage_stat.set_default_value(damage_stat.default_value + stats.damage_multiplier)
+	ElfStats.damage_multiplier += 0.1
+	var damage_stat = ElfStats.get_stat("bows_knowledge")
+	damage_stat.set_default_value(damage_stat.default_value + ElfStats.damage_multiplier)
 	damage_stat.calculate_changed_value()
 
 
@@ -175,13 +174,12 @@ func return_basic_hp_access() -> bool:
 	return result
 	
 func set_basic_hp_count():
-	basic_hp_count.text = "x" + String(get_parent().find_node("Elf").stats.health_multiplier)
+	basic_hp_count.text = "x" + String(ElfStats.health_multiplier)
 
 func upgrade_basic_hp():
-	var stats = get_parent().find_node("Elf").stats
-	stats.health_multiplier += 0.1
-	var health_stat = stats.get_stat("vitality")
-	health_stat.set_default_value(health_stat.default_value + stats.health_multiplier)
+	ElfStats.health_multiplier += 0.1
+	var health_stat = ElfStats.get_stat("vitality")
+	health_stat.set_default_value(health_stat.default_value + ElfStats.health_multiplier)
 	health_stat.calculate_changed_value()
 
 
