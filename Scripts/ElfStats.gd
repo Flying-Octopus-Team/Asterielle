@@ -80,6 +80,11 @@ class Stat:
 		changers.erase(changer)
 		calculate_changed_value()
 		
+	func remove_changer_by_item_name(item_name) -> void:
+		for i in range(changers.size()-1, -1, -1):
+			if changers[i].item_name == item_name:
+				remove_changer(changers[i])
+		
 	func calculate_changed_value():
 		changed_value = value
 		
@@ -92,17 +97,17 @@ class Stat:
 		changed_value = max(changed_value, 0)
 		
 		emit_signal("value_changed", self)
-		
+
 ##################################################
 # warning-ignore: unused_class_variable
-var damage_multiplier: float = 1.0
+var damage_multiplier: float = 1.0 setget set_damage_multiplier
 # warning-ignore: unused_class_variable
-var health_multiplier: float = 1.0
+var health_multiplier: float = 1.0 setget set_health_multiplier
 
 var _stats = [
-	Stat.new("bows_knowledge", 1 * damage_multiplier),
+	Stat.new("bows_knowledge", 1),
 	Stat.new("agility", 0.1),
-	Stat.new("vitality", 10 * health_multiplier),
+	Stat.new("vitality", 10),
 	Stat.new("charisma", 0),
 	Stat.new("sensinitive_points", 0),
 	Stat.new("eagle_eye", 0.1),
@@ -115,6 +120,25 @@ var _stats = [
 var items = {}
 
 
+
+func set_damage_multiplier(value):
+	damage_multiplier = value
+	add_revival_changer("bows_knowledge", value)
+
+func set_health_multiplier(value):
+	health_multiplier = value
+	add_revival_changer("vitality", value)
+
+func add_revival_changer(stat_name, value):
+	var damage_stat = get_stat(stat_name)
+	var changer = StatChanger.new()
+
+	changer.stat_name = stat_name
+	changer.multiply_stat = value
+	changer.item_name = "revival_" + stat_name
+	
+	damage_stat.remove_changer_by_item_name(changer.item_name)
+	damage_stat.add_changer(changer)
 
 func _ready():
 	add_to_group("IHaveSthToSave")

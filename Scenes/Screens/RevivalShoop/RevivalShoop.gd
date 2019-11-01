@@ -161,10 +161,7 @@ func set_basic_damage_count():
 
 func upgrade_basic_damage():
 	ElfStats.damage_multiplier += 0.1
-	var damage_stat = ElfStats.get_stat("bows_knowledge")
-	damage_stat.set_default_value(damage_stat.default_value + ElfStats.damage_multiplier)
-	damage_stat.calculate_changed_value()
-
+	stats.damage_multiplier += 0.1
 
 func set_basic_hp_button():
 	find_node("Item_basic_hp").find_node("Button").disabled = return_basic_hp_access();
@@ -178,9 +175,7 @@ func set_basic_hp_count():
 
 func upgrade_basic_hp():
 	ElfStats.health_multiplier += 0.1
-	var health_stat = ElfStats.get_stat("vitality")
-	health_stat.set_default_value(health_stat.default_value + ElfStats.health_multiplier)
-	health_stat.calculate_changed_value()
+	stats.health_multiplier += 0.1
 
 
 func set_items_price_button():

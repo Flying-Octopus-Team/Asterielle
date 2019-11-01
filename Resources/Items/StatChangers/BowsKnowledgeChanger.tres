@@ -2,7 +2,6 @@
 
 [ext_resource path="res://Resources/Items/StatChangers/StatChanger.gd" type="Script" id=1]
 
-
 [resource]
 script = ExtResource( 1 )
 stat_name = "bows_knowledge"
