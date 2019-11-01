@@ -133,3 +133,4 @@ add_to_stat = 0.2
 [node name="CenterContainer" parent="VBoxContainer" index="2"]
 margin_top = 309.0
 margin_bottom = 329.0
+

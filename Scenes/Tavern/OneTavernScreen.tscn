@@ -37,4 +37,5 @@ margin_left = 489.0
 margin_right = 534.0
 margin_bottom = 20.0
 text = "Wroc"
+
 [connection signal="pressed" from="VBoxContainer/CenterContainer/ExitBtn" to="." method="_on_ExitBtn_pressed"]
