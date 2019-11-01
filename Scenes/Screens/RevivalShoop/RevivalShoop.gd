@@ -162,9 +162,6 @@ func set_basic_damage_count():
 func upgrade_basic_damage():
 	var stats = get_parent().find_node("Elf").stats
 	stats.damage_multiplier += 0.1
-	var damage_stat = stats.get_stat("bows_knowledge")
-	damage_stat.set_default_value(damage_stat.default_value + stats.damage_multiplier)
-	damage_stat.calculate_changed_value()
 
 
 func set_basic_hp_button():
@@ -180,9 +177,6 @@ func set_basic_hp_count():
 func upgrade_basic_hp():
 	var stats = get_parent().find_node("Elf").stats
 	stats.health_multiplier += 0.1
-	var health_stat = stats.get_stat("vitality")
-	health_stat.set_default_value(health_stat.default_value + stats.health_multiplier)
-	health_stat.calculate_changed_value()
 
 
 func set_items_price_button():
