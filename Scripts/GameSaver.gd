@@ -71,7 +71,7 @@ func load_game():
 				"_current_level":
 					load_level(int(data[node_path]['_current_level']))
 				"_elf_stats":
-					load_elf_stats(data[node_path]['_elf_stats'])
+					load_elf_stats(data[node_path]["_elf_stats"])
 				"_amount":
 					load_helth_potion(data[node_path]['_amount'])
 				"_price":
