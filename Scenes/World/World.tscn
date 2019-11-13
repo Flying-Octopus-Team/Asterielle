@@ -23,7 +23,6 @@
 extents = Vector2( 537.558, 30.0002 )
 
 [node name="World" type="Node2D"]
-editor/display_folded = true
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_horizontal_guides_": [  ]

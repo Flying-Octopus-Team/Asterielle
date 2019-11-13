@@ -28,10 +28,8 @@ onready var speedup_skill = world.find_node("SpeedupBtn")
 onready var publican = world.find_node("Publican")
 onready var active_spells = world.find_node("ActiveSpells")
 
-var NegligibleInformScreen = load("res://Scenes/Screens/NegligibleInform/NegligibleInform.tscn")
-var EssentialInformScreen = load("res://Scenes/Screens/EssentialInform/EssentialInform.tscn")
-var RevivalShoop = load("res://Scenes/Screens/RevivalShoop/RevivalShoop.tscn")
-
+var NegligibleInformScreen = preload("res://Scenes/Screens/NegligibleInform/NegligibleInform.tscn")
+var EssentialInformScreen = preload("res://Scenes/Screens/EssentialInform/EssentialInform.tscn")
 
 const OffineScreen = preload("res://Scenes/Screens/OfflineScreen/OfflineScreen.gd")
 
