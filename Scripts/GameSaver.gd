@@ -42,44 +42,45 @@ func load_game():
 	var data = JSON.parse(save_file.get_as_text()).result;
 	
 	for node_path in data.keys():
-		for attribure in data[node_path]:
+		var node_data = data[node_path]
+		for attribure in node_data:
 			match attribure:	#Odczytywane są w kolejności alfabetycznej
 				"__time":
-					load_offline_time(int(data[node_path]['__time']))
+					load_offline_time(int(node_data['__time']))
 				"_golds_on_second":
-					load_golds_on_second(float(data[node_path]['_golds_on_second']))
+					load_golds_on_second(float(node_data['_golds_on_second']))
 				"_xp_on_second":
-					load_xp_on_second(float(data[node_path]['_xp_on_second']))
+					load_xp_on_second(float(node_data['_xp_on_second']))
 				"_gold":
-					load_gold_and_reward(float(data[node_path]['_gold']), float(data[node_path]['_golds_on_second']))
+					load_gold_and_reward(float(node_data['_gold']), float(node_data['_golds_on_second']))
 				"_xp":
-					load_xp_and_reward(float(data[node_path]['_xp']), float(data[node_path]['_xp_on_second']))
+					load_xp_and_reward(float(node_data['_xp']), float(node_data['_xp_on_second']))
 				"_silver_moon":
-					load_silver_moon(int(data[node_path]['_silver_moon']))
+					load_silver_moon(int(node_data['_silver_moon']))
 				"_hp":
-					load_hp(float(data[node_path]['_hp']))
+					load_hp(float(node_data['_hp']))
 				"_current_level":
-					load_level(int(data[node_path]['_current_level']))
+					load_level(int(node_data['_current_level']))
 				"_elf_stats":
-					load_elf_stats(data[node_path]["_elf_stats"])
+					load_elf_stats(node_data["_elf_stats"])
 				"_amount":
-					load_helth_potion(data[node_path]['_amount'])
+					load_helth_potion(node_data['_amount'])
 				"_price":
-					load_price(float(data[node_path]['_price']))
+					load_price(float(node_data['_price']))
 				"_dwarves_per_level":
-					load_dwarves_per_level(int(data[node_path]['_dwarves_per_level']))
+					load_dwarves_per_level(int(node_data['_dwarves_per_level']))
 				"_additional_gold_multipler":
-					load_additional_gold_multipler(float(data[node_path]['_additional_gold_multipler']))
+					load_additional_gold_multipler(float(node_data['_additional_gold_multipler']))
 				"_additional_xp_multipler":
-					load_additional_xp_multipler(float(data[node_path]['_additional_xp_multipler']))
+					load_additional_xp_multipler(float(node_data['_additional_xp_multipler']))
 				"_time_to_kill_boss":
-					load_time_to_kill_boss(int(data[node_path]['_time_to_kill_boss']))
+					load_time_to_kill_boss(int(node_data['_time_to_kill_boss']))
 				"_probability_to_get_silver_moon_in_percent":
-					load_probability_to_get_silver_moon_in_percent(int(data[node_path]['_probability_to_get_silver_moon_in_percent']))
+					load_probability_to_get_silver_moon_in_percent(int(node_data['_probability_to_get_silver_moon_in_percent']))
 				"_tradesman_item_price_multipler":
-					load_tradesman_item_price_multipler(float(data[node_path]['_tradesman_item_price_multipler']))
+					load_tradesman_item_price_multipler(float(node_data['_tradesman_item_price_multipler']))
 				"_selected_quest":
-					load_quest(int(data[node_path]['_selected_quest']))
+					load_quest(int(node_data['_selected_quest']))
 				
 	emit_signal("save_data_was_loaded")
 
@@ -111,7 +112,6 @@ func load_hp(hp):
 	elf.set_current_hp(hp)
 
 func load_level(level):
-	var level_manager = get_parent().get_node("LevelManager")
 	level_manager.current_level = level
 
 func load_elf_stats(elf_stats):
@@ -149,8 +149,15 @@ func load_tradesman_item_price_multipler(value):
 	game_data.tradesman_item_price_multipler = value
 
 func load_quest(value):
-	get_parent().find_node("Publican").selected_quest = value
-	get_parent().find_node("Publican").item_list.select(value)
+	var publican_screen = get_parent().find_node("Publican")
+	publican_screen.selected_quest = value
+	publican_screen.item_list.select(value)
+
+func load_gold(gold):
+	game_data.gold = gold
+
+func load_xp(xp):
+	game_data.xp = xp
 
 func revival_reset():
 	load_offline_time(0)
@@ -160,16 +167,10 @@ func revival_reset():
 	load_xp(0.0)
 	load_hp(10.0)
 	load_level(1)
-	ElfStats.restore_to_default()
 	load_helth_potion(0)
+	ElfStats.restore_to_default()
 	publican.create_default_quests()
 	save_game()
-
-func load_gold(gold):
-	game_data.gold = gold
-
-func load_xp(xp):
-	game_data.xp = xp
 
 func hard_reset():
 	revival_reset()
