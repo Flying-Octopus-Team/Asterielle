@@ -64,6 +64,8 @@ _global_script_class_icons={
 
 config/name="EvD"
 run/main_scene="res://Scenes/World/World.tscn"
+boot_splash/image="res://flying-octopus-logo.png"
+boot_splash/bg_color=Color( 1, 1, 1, 1 )
 config/icon="res://icon.png"
 
 [autoload]
