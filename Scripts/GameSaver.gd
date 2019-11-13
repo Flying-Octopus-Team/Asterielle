@@ -123,9 +123,10 @@ func load_helth_potion(helth_potion):
 
 func load_price(price):
 	var items = get_parent().find_node("Items") 
-	for i in range(items.get_child_count()):
-		var item = items.get_child(i)	
+	for item in items.get_children():
 		item.find_node("*BuyBtn").set_disabled(price > game_data.gold)
+		
+		# TODO What is this?:
 		var ArrowDmgItem = get_parent().find_node("ArrowDmgItem")
 		ArrowDmgItem.price = price
 		ArrowDmgItem.update_price_label()
