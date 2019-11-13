@@ -229,5 +229,9 @@ script = ExtResource( 16 )
 
 [node name="GameSaver" type="Node" parent="."]
 script = ExtResource( 18 )
+
+[node name="NextSaveTimer" type="Timer" parent="GameSaver"]
+autostart = true
 [connection signal="pressed" from="UIContainer/UI/TavernEnterBtn" to="UIContainer/UI" method="_on_TavernEnterBtn_pressed"]
 [connection signal="pressed" from="UIContainer/UI/RevivalEnterBtn" to="UIContainer/UI" method="_on_RevivalEnterBtn_pressed"]
+[connection signal="timeout" from="GameSaver/NextSaveTimer" to="GameSaver" method="_on_NextSaveTimer_timeout"]

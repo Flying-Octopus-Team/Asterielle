@@ -19,16 +19,6 @@ func _ready():
 	load_game()
 	pass
 
-var timer : float = 0
-func _process(delta):
-	timer -= delta
-	
-	if timer > 0:
-		return
-	
-	save_game()
-	timer = 1
-
 func save_game():
 	var save_dict = load_player_data()
 	var save_file = File.new()
@@ -184,4 +174,7 @@ func load_xp(xp):
 func hard_reset():
 	revival_reset()
 	load_silver_moon(0)
+	save_game()
+
+func _on_NextSaveTimer_timeout():
 	save_game()
