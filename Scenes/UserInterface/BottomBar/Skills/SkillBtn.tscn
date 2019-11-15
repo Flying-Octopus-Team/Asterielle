@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scenes/UserInterface/BottomBar/Skills/speedup_arrow.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/UserInterface/BottomBar/Skills/SkillBtn.gd" type="Script" id=2]
+[ext_resource path="res://OnePixel.png" type="Texture" id=3]
+
+
+[sub_resource type="InputEventKey" id=1]
+scancode = 49
+
+[sub_resource type="ShortCut" id=2]
+shortcut = SubResource( 1 )
+
+[node name="SkillBtn" type="TextureButton"]
+margin_right = 40.0
+margin_bottom = 40.0
+mouse_default_cursor_shape = 2
+shortcut = SubResource( 2 )
+texture_normal = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="CooldownTexture" type="TextureProgress" parent="."]
+modulate = Color( 0, 0, 0, 0.592157 )
+margin_right = 1.0
+margin_bottom = 1.0
+rect_scale = Vector2( 32, 32 )
+max_value = 1.0
+step = 0.0
+texture_progress = ExtResource( 3 )
+fill_mode = 3
+
+[node name="CooldownTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[node name="TimeLeftLabel" type="Label" parent="."]
+margin_left = -21.0
+margin_top = 35.7959
+margin_right = 54.0
+margin_bottom = 49.7959
+align = 1
+
+[node name="DurationTimer" type="Timer" parent="."]
+one_shot = true
+[connection signal="pressed" from="." to="." method="_on_SkillBtn_pressed"]
+[connection signal="timeout" from="CooldownTimer" to="." method="_on_CooldownTimer_timeout"]
+[connection signal="timeout" from="DurationTimer" to="." method="_on_DurationTimer_timeout"]
