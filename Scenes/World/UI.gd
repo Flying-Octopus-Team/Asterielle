@@ -33,9 +33,7 @@ func set_silver_moon_label(silver_moon):
 		silver_moon_icon.get_node("AnimationPlayer").play("silver_moon_reached")
 		silver_moon_label.text = str(silver_moon)
 	else:
-#		silver_moon_row.hide()
-		silver_moon_row.show()
-		silver_moon_icon.get_node("AnimationPlayer").play("silver_moon_reached")
+		silver_moon_row.hide()
 
 func set_level_label(current_level:int):
 	level_label.text = str("Poziom ", String(current_level))
