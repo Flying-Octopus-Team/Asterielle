@@ -1,12 +1,42 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Objects/ComingObjects/ComingObject.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Objects/ComingObjects/Devil/devil.png" type="Texture" id=2]
+[ext_resource path="res://Objects/ComingObjects/Devil/animation/death02.png" type="Texture" id=2]
 [ext_resource path="res://Objects/ComingObjects/Devil/Devil.gd" type="Script" id=3]
+[ext_resource path="res://Objects/ComingObjects/Devil/devil.png" type="Texture" id=4]
+[ext_resource path="res://Objects/ComingObjects/Devil/animation/death03.png" type="Texture" id=5]
+[ext_resource path="res://Objects/ComingObjects/Devil/animation/death04.png" type="Texture" id=6]
+[ext_resource path="res://Objects/ComingObjects/Devil/animation/death05.png" type="Texture" id=7]
+[ext_resource path="res://Objects/ComingObjects/Devil/animation/death06.png" type="Texture" id=8]
+[ext_resource path="res://Objects/ComingObjects/Devil/animation/death07.png" type="Texture" id=9]
+[ext_resource path="res://Objects/ComingObjects/Devil/animation/death08.png" type="Texture" id=10]
+[ext_resource path="res://Objects/ComingObjects/Devil/animation/death09.png" type="Texture" id=11]
+[ext_resource path="res://Objects/ComingObjects/Devil/animation/death10.png" type="Texture" id=12]
+[ext_resource path="res://Objects/ComingObjects/Devil/animation/death11.png" type="Texture" id=13]
+[ext_resource path="res://Objects/ComingObjects/Devil/animation/death12.png" type="Texture" id=14]
 
-[node name="Devil" instance=ExtResource( 1 )]
+[sub_resource type="Animation" id=1]
+resource_name = "death_idle"
+length = 1.1
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 4 ), ExtResource( 2 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ]
+}
+
+[node name="Devil" index="0" instance=ExtResource( 1 )]
 scale = Vector2( 2, 2 )
-z_index = 1
 texture = ExtResource( 2 )
 offset = Vector2( 0, -64.28 )
 script = ExtResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
+anims/death_idle = SubResource( 1 )
