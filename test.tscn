@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Objects/Background/Other/BackgroundLayer.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Objects/Background/Other/BackgroundSprite.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Objects/Background/Background.tscn" type="PackedScene" id=3]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="BackgroundLayer" parent="." instance=ExtResource( 1 )]
+position = Vector2( 273.676, 413.515 )
+
+[node name="BackgroundSprite" parent="." instance=ExtResource( 2 )]
+position = Vector2( 201.362, 553.477 )
+
+[node name="Background" parent="." instance=ExtResource( 3 )]
+position = Vector2( 164.039, 532.483 )
