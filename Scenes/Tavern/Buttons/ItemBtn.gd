@@ -17,13 +17,14 @@ func generate_popup_title():
 	
 	for c in item.stat_changers:
 		var stat = ElfStats.get_stat(c.stat_name)
-		var stat_value = stat.value
+		var stat_value = stat.get_value()
 		var new_stat_value : float
 		
 		if stat.is_changed_by_item(item.name):
 			new_stat_value = stat.get_value_replaced_item(item)
 		else:
 			new_stat_value = c.get_changed_value(stat_value)
+			new_stat_value = stat.get_changed_value_with_changer(c)
 		
 		popup_title += c.stat_name + ": " + str(stepify(stat_value,0.01)) + " -> " + str(stepify(new_stat_value,0.01)) + "\n"
 	

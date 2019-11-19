@@ -36,16 +36,31 @@ class Stat:
 				re_changed_value = changer.get_multiplayed_value(re_changed_value)
 				
 		for changer in item.stat_changers:
-			re_changed_value = changer.get_multiplayed_value(re_changed_value)
+			if changer.stat_name == name:
+				re_changed_value = changer.get_multiplayed_value(re_changed_value)
 		
 		for changer in changers:
 			if changer.item_name != item.name:
 				re_changed_value = changer.get_added_value(re_changed_value)
 				
 		for changer in item.stat_changers:
-			re_changed_value = changer.get_added_value(re_changed_value)
+			if changer.stat_name == name:
+				re_changed_value = changer.get_added_value(re_changed_value)
 			
 		return max(re_changed_value, 0)
+		
+	func get_changed_value_with_changer(changer) -> float:
+		var temp_changed_value = value
+		
+		temp_changed_value = changer.get_multiplayed_value(temp_changed_value)
+		for c in changers:
+			temp_changed_value = c.get_multiplayed_value(temp_changed_value)
+		
+		temp_changed_value = changer.get_added_value(temp_changed_value)
+		for c in changers:
+			temp_changed_value = c.get_added_value(temp_changed_value)
+			
+		return max(temp_changed_value, 0)
 	
 	func get_unchanged_value() -> float:
 		return value

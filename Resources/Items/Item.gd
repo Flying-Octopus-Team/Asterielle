@@ -69,12 +69,19 @@ func generate_random(lucky:float) -> void:
 	
 	var no_changers = randi()%3 + 1
 	for i in range(no_changers):
-		stat_changers.push_back(get_random_element(CHANGERS).duplicate())
+		stat_changers.push_back(pop_random_element(CHANGERS).duplicate())
 		stat_changers[i].generate_random()
 		stat_changers[i].item_name = name
+		
+	fill_changers_array()
 	
 func get_random_element(from:Array):
 	return from[randi() % from.size()]
+	
+func pop_random_element(from:Array):
+	var element = get_random_element(from)
+	from.erase(element)
+	return element
 	
 func get_changer(stat_name:String) -> Resource:
 	for c in CHANGERS:

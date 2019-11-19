@@ -13,12 +13,18 @@ func _ready():
 	game_data.connect("xp_changed", self, "on_Xp_changed")
 	
 	for btn in get_children():
-		btn.connect("bought", self, "disable_valid_buttons")
+		btn.connect("bought", self, "_on_Item_bought")
 	
 func on_Gold_changed():
 	disable_valid_buttons()
 	
 func on_Xp_changed():
+	disable_valid_buttons()
+		
+func _on_Item_bought() -> void:
+	for btn in get_children():
+		btn.generate_popup_title()
+		
 	disable_valid_buttons()
 		
 func disable_valid_buttons():
