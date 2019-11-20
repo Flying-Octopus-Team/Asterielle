@@ -10,7 +10,6 @@ const OFFINE_LIMIT_TIME : int = 7200
 const OFFINE_BONUS_GOLD_RATIO : float = 0.3 
 const OFFINE_BONUS_XP_RATIO : float = 0.2
 
-onready var game_data = get_parent().get_node("GameData")
 onready var level_manager = get_parent().get_node("LevelManager")
 onready var elf = get_parent().get_node("Elf")
 onready var publican = get_parent().find_node("Publican")
@@ -89,24 +88,24 @@ func load_offline_time(time):
 	if OFFINE_LIMIT:
 		if offline_time > OFFINE_LIMIT_TIME:
 			offline_time = OFFINE_LIMIT_TIME
-	game_data.offline_time = offline_time
+	GameData.offline_time = offline_time
 
 func load_golds_on_second(gold_on_second):
-	game_data.golds_on_second = gold_on_second
+	GameData.golds_on_second = gold_on_second
 
 func load_xp_on_second(xp_on_second):
-	game_data.xp_on_second = xp_on_second
+	GameData.xp_on_second = xp_on_second
 
 func load_gold_and_reward(gold, gold_on_second):
-	game_data.offline_gold_reward = gold_on_second * OFFINE_BONUS_GOLD_RATIO * game_data.offline_time
-	game_data.gold = gold + game_data.offline_gold_reward
+	GameData.offline_gold_reward = gold_on_second * OFFINE_BONUS_GOLD_RATIO * GameData.offline_time
+	GameData.gold = gold + GameData.offline_gold_reward
 
 func load_xp_and_reward(xp, xp_on_second):
-	game_data.offline_xp_reward = xp_on_second * OFFINE_BONUS_XP_RATIO * game_data.offline_time
-	game_data.xp = xp + game_data.offline_xp_reward
+	GameData.offline_xp_reward = xp_on_second * OFFINE_BONUS_XP_RATIO * GameData.offline_time
+	GameData.xp = xp + GameData.offline_xp_reward
 
 func load_silver_moon(silver_moon):
-	game_data.silver_moon = silver_moon
+	GameData.silver_moon = silver_moon
 
 func load_hp(hp):
 	elf.set_current_hp(hp)
@@ -124,7 +123,7 @@ func load_helth_potion(helth_potion):
 func load_price(price):
 	var items = get_parent().find_node("Items") 
 	for item in items.get_children():
-		item.find_node("*BuyBtn").set_disabled(price > game_data.gold)
+		item.find_node("*BuyBtn").set_disabled(price > GameData.gold)
 		
 		# TODO What is this?:
 		var ArrowDmgItem = get_parent().find_node("ArrowDmgItem")
@@ -135,19 +134,19 @@ func load_dwarves_per_level(count):
 	level_manager.dwarves_per_level = count
 
 func load_additional_gold_multipler(value):
-	game_data.additional_gold_multipler = value
+	GameData.additional_gold_multipler = value
 
 func load_additional_xp_multipler(value):
-	game_data.additional_xp_multipler = value
+	GameData.additional_xp_multipler = value
 
 func load_time_to_kill_boss(time):
-	game_data.time_to_kill_boss = time
+	GameData.time_to_kill_boss = time
 
 func load_probability_to_get_silver_moon_in_percent(value):
-	game_data.probability_to_get_silver_moon_in_percent = value
+	GameData.probability_to_get_silver_moon_in_percent = value
 
 func load_tradesman_item_price_multipler(value):
-	game_data.tradesman_item_price_multipler = value
+	GameData.tradesman_item_price_multipler = value
 
 func load_quest(value):
 	var publican_screen = get_parent().find_node("Publican")
@@ -155,10 +154,10 @@ func load_quest(value):
 	publican_screen.item_list.select(value)
 
 func load_gold(gold):
-	game_data.gold = gold
+	GameData.gold = gold
 
 func load_xp(xp):
-	game_data.xp = xp
+	GameData.xp = xp
 
 func revival_reset():
 	load_offline_time(0)

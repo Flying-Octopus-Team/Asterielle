@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Scenes/World/World.gd" type="Script" id=1]
 [ext_resource path="res://Objects/Elf/Elf.tscn" type="PackedScene" id=2]
@@ -15,9 +15,8 @@
 [ext_resource path="res://Scenes/Tavern/TavernScreen.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Scenes/World/GameManager.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Scenes/World/LevelManager.tscn" type="PackedScene" id=15]
-[ext_resource path="res://Scripts/GameData.gd" type="Script" id=16]
-[ext_resource path="res://Objects/EventItem/EventManager.tscn" type="PackedScene" id=17]
-[ext_resource path="res://Scenes/World/GameSaver.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Objects/EventItem/EventManager.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Scenes/World/GameSaver.tscn" type="PackedScene" id=17]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 537.558, 30.0002 )
@@ -220,12 +219,9 @@ shape = SubResource( 1 )
 
 [node name="LevelManager" parent="." instance=ExtResource( 15 )]
 
-[node name="GameData" type="Node" parent="."]
-script = ExtResource( 16 )
+[node name="EventManager" parent="." instance=ExtResource( 16 )]
 
-[node name="EventManager" parent="." instance=ExtResource( 17 )]
-
-[node name="GameSaver" parent="." instance=ExtResource( 18 )]
+[node name="GameSaver" parent="." instance=ExtResource( 17 )]
 
 [connection signal="pressed" from="UIContainer/UI/TavernEnterBtn" to="UIContainer/UI" method="_on_TavernEnterBtn_pressed"]
 [connection signal="pressed" from="UIContainer/UI/RevivalEnterBtn" to="UIContainer/UI" method="_on_RevivalEnterBtn_pressed"]

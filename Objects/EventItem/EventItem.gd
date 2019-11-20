@@ -18,8 +18,7 @@ func set_start_position(x, y):
 	position.y = y
 
 func get_reward():
-	var game_data = get_parent().find_node("GameData")
-	game_data.gold += gold_reward
+	GameData.gold += gold_reward
 
 func _on_Item_pressed():
 	get_reward()

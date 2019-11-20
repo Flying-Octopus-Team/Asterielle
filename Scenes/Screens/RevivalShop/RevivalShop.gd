@@ -27,8 +27,6 @@ onready var basic_damage_count = find_node("Item_basic_damage").find_node("Count
 onready var basic_hp_count = find_node("Item_basic_hp").find_node("Count")
 onready var items_price_count = find_node("Item_items_price").find_node("Count")
 
-
-onready var game_data = get_parent().find_node("GameData")
 onready var level_manager = get_parent().find_node("LevelManager")
 
 
@@ -65,7 +63,7 @@ func set_enemies_per_level_button():
 func return_enemies_per_level_access() -> bool:
 	if get_parent().find_node("LevelManager").dwarves_per_level <= 1:
 		return true #Ulepszono do maximum
-	var result : bool = game_data.silver_moon < ENEMIES_PER_LEVEL_PRICE
+	var result : bool = GameData.silver_moon < ENEMIES_PER_LEVEL_PRICE
 	return result;
 
 func set_enemies_per_level_count():
@@ -80,65 +78,65 @@ func set_earn_gold_button():
 	find_node("Item_earn_gold").find_node("Button").disabled = return_earn_gold_access();
 
 func return_earn_gold_access() -> bool:
-	var result: bool = game_data.silver_moon < EARN_GOLD_PRICE
+	var result: bool = GameData.silver_moon < EARN_GOLD_PRICE
 	return result
 
 func set_earn_gold_count():
-	earn_gold_count.text = "x" + String(game_data.additional_gold_multipler)
+	earn_gold_count.text = "x" + String(GameData.additional_gold_multipler)
 
 func upgrade_earn_gold():
-	game_data.additional_gold_multipler += 0.1
+	GameData.additional_gold_multipler += 0.1
 
 
 func set_earn_xp_button():
 	find_node("Item_earn_xp").find_node("Button").disabled = return_earn_xp_access();
 
 func return_earn_xp_access() -> bool:
-	var result: bool = game_data.silver_moon < EARN_XP_PRICE
+	var result: bool = GameData.silver_moon < EARN_XP_PRICE
 	return result
 
 func set_earn_xp_count():
-	earn_xp_count.text = "x" + String(game_data.additional_xp_multipler)
+	earn_xp_count.text = "x" + String(GameData.additional_xp_multipler)
 
 func upgrade_earn_xp():
-	game_data.additional_xp_multipler += 0.1
+	GameData.additional_xp_multipler += 0.1
 
 
 func set_time_to_kill_boss_button():
 	find_node("Item_time_to_kill_boss").find_node("Button").disabled = return_time_to_kill_boss_access();
 
 func return_time_to_kill_boss_access() -> bool:
-	var result: bool = game_data.silver_moon < TIME_TO_KILL_BOSS_PRICE
+	var result: bool = GameData.silver_moon < TIME_TO_KILL_BOSS_PRICE
 	return result
 
 func set_time_to_kill_boss_count():
-	time_to_kill_boss_count.text = String(game_data.time_to_kill_boss) + "s"
+	time_to_kill_boss_count.text = String(GameData.time_to_kill_boss) + "s"
 
 func upgrade_time_to_kill_boss():
-	game_data.time_to_kill_boss += 5
+	GameData.time_to_kill_boss += 5
 
 
 func set_silver_moon_probability_button():
 	find_node("Item_silver_moon_probability").find_node("Button").disabled = return_silver_moon_probability_access();
 
 func return_silver_moon_probability_access() -> bool:
-	if game_data.probability_to_get_silver_moon_in_percent >= 100:
+	if GameData.probability_to_get_silver_moon_in_percent >= 100:
 		return true #Ulepszono do maximum
-	var result: bool = game_data.silver_moon < SILVER_MOON_PROBABILITY_PRICE
+	var result: bool = GameData.silver_moon < SILVER_MOON_PROBABILITY_PRICE
 	return result
 
 func set_silver_moon_probability_count():
-	silver_moon_probability_count.text = String(game_data.probability_to_get_silver_moon_in_percent) + "%" 
+	silver_moon_probability_count.text = String(GameData.probability_to_get_silver_moon_in_percent) + "%" 
 
 func upgrade_silver_moon_probability():
-	game_data.probability_to_get_silver_moon_in_percent += 5
+	GameData.probability_to_get_silver_moon_in_percent += 5
 
 
 func set_basic_start_level_button():
 	find_node("Item_silver_moon_probability").find_node("Button").disabled = return_basic_start_level_access();
 
 func return_basic_start_level_access() -> bool:
-	var result: bool = game_data.silver_moon < BASIC_START_LEVEL_PRCE
+	var result: bool = GameData.silver_moon < BASIC_START_LEVEL_PRCE
 	return result
 
 func set_basic_start_level_count():
@@ -153,7 +151,7 @@ func set_basic_damage_button():
 	find_node("Item_basic_damage").find_node("Button").disabled = return_basic_damage_access();
 
 func return_basic_damage_access() -> bool:
-	var result: bool = game_data.silver_moon < BASIC_DAMAGE_PRCE
+	var result: bool = GameData.silver_moon < BASIC_DAMAGE_PRCE
 	return result
 	
 func set_basic_damage_count():
@@ -166,7 +164,7 @@ func set_basic_hp_button():
 	find_node("Item_basic_hp").find_node("Button").disabled = return_basic_hp_access();
 
 func return_basic_hp_access() -> bool:
-	var result: bool = game_data.silver_moon < BASIC_HP_PRCE
+	var result: bool = GameData.silver_moon < BASIC_HP_PRCE
 	return result
 	
 func set_basic_hp_count():
@@ -180,11 +178,11 @@ func set_items_price_button():
 	find_node("Item_items_price").find_node("Button").disabled = return_items_price_access();
 
 func return_items_price_access() -> bool:
-	var result: bool = game_data.silver_moon < BASIC_ITEMS_PRCE
+	var result: bool = GameData.silver_moon < BASIC_ITEMS_PRCE
 	return result
 	
 func set_items_price_count():
-	items_price_count.text = "x" + String(game_data.tradesman_item_price_multipler)
+	items_price_count.text = "x" + String(GameData.tradesman_item_price_multipler)
 	
 func upgrade_items_price():
-	game_data.tradesman_item_price_multipler += 0.1
+	GameData.tradesman_item_price_multipler += 0.1

@@ -11,8 +11,7 @@ export(float) var price_gold_mod = 1.0
 export(float) var price_xp_mod = 1.0
 export(String) var popup_title
 
-onready var game_data = get_tree().get_current_scene().find_node("GameData")
-onready var publican = get_tree().get_current_scene().find_node("Publican")
+onready var publican = get_node("/root/World").find_node("Publican")
 var popup = null
 
 func _ready():
@@ -22,11 +21,11 @@ func _ready():
 
 func _on_BuyBtn_pressed():
 	if price_gold:
-		game_data.add_gold(-get_lower_price_gold())
+		GameData.add_gold(-get_lower_price_gold())
 		set_price_gold(price_gold * price_gold_mod)
 		publican.on_spend_gold(get_lower_price_gold())
 	if price_xp:
-		game_data.add_xp(-price_xp)
+		GameData.add_xp(-price_xp)
 		set_price_xp(price_xp * price_xp_mod)
 		publican.on_spend_xp(price_xp)
 	
@@ -63,8 +62,8 @@ func set_enabled(enabled:bool) -> void:
 	$BuyBtn.set_disabled(!enabled)
 	
 func update_enabled() -> void:
-	var gold = game_data.gold
-	var xp = game_data.xp
+	var gold = GameData.gold
+	var xp = GameData.xp
 	
 	var should_be_enabled = true
 	

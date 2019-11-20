@@ -72,6 +72,7 @@ config/icon="res://icon.png"
 
 BackgroundData="*res://Objects/Background/BackgroundData.gd"
 ElfStats="*res://Scripts/ElfStats.gd"
+GameData="*res://Scripts/GameData.gd"
 
 [display]
 
