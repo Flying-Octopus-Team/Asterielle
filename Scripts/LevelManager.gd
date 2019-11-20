@@ -17,7 +17,6 @@ onready var world = get_node("/root/World")
 onready var dwarves_manager = world.find_node("DwarvesManager") 
 onready var tavern_spawner = world.find_node("TavernSpawner") 
 onready var devil_spawner = world.find_node("DevilSpawner") 
-onready var game_data = world.find_node("GameData") 
 onready var game_saver = world.find_node("GameSaver") 
 onready var tavern_enter_btn = world.find_node("TavernEnterBtn")
 onready var revival_enter_btn = world.find_node("RevivalEnterBtn")
@@ -28,10 +27,8 @@ onready var speedup_skill = world.find_node("SpeedupBtn")
 onready var publican = world.find_node("Publican")
 onready var active_spells = world.find_node("ActiveSpells")
 
-var NegligibleInformScreen = load("res://Scenes/Screens/NegligibleInform/NegligibleInform.tscn")
-var EssentialInformScreen = load("res://Scenes/Screens/EssentialInform/EssentialInform.tscn")
-var RevivalShoop = load("res://Scenes/Screens/RevivalShoop/RevivalShoop.tscn")
-
+var NegligibleInformScreen = preload("res://Scenes/Screens/NegligibleInform/NegligibleInform.tscn")
+var EssentialInformScreen = preload("res://Scenes/Screens/EssentialInform/EssentialInform.tscn")
 
 const OffineScreen = preload("res://Scenes/Screens/OfflineScreen/OfflineScreen.gd")
 
@@ -55,7 +52,7 @@ func _ready():
 	connect("next_level", dwarves_manager, "on_next_level")
 	connect("reset_to_base", dwarves_manager, "reset_to_base")
 	connect("reset_to_base", elf, "reset_to_base")
-	connect("reset_to_base", game_data, "on_game_over")
+	connect("reset_to_base", GameData, "on_game_over")
 	game_saver.connect("save_data_was_loaded", self, "show_offline_screen")
 
 func increase_level():
@@ -132,14 +129,14 @@ func on_Game_Over():
 	world.call_deferred("add_child", eis)
 
 func show_offline_screen():
-	if game_data.offline_time == 0:
+	if GameData.offline_time == 0:
 		queue_free()
 		pass
 	
 	var nis = NegligibleInformScreen.instance()
 	var offline_screen = OffineScreen.new()
-	var offine_text = offline_screen.offline_text(stepify(game_data.offline_time,0.01))
-	var offline_gold_reward = offline_screen.reward_text(round(game_data.offline_gold_reward), round(game_data.offline_xp_reward))
+	var offine_text = offline_screen.offline_text(stepify(GameData.offline_time,0.01))
+	var offline_gold_reward = offline_screen.reward_text(round(GameData.offline_gold_reward), round(GameData.offline_xp_reward))
 	
 	nis.init(3,offine_text,offline_gold_reward)
 	

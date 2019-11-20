@@ -1,9 +1,5 @@
 extends Node
 
-class_name ElfStats
-
-##################################################
-
 class Stat:
 	signal value_changed(me)
 	
@@ -40,16 +36,31 @@ class Stat:
 				re_changed_value = changer.get_multiplayed_value(re_changed_value)
 				
 		for changer in item.stat_changers:
-			re_changed_value = changer.get_multiplayed_value(re_changed_value)
+			if changer.stat_name == name:
+				re_changed_value = changer.get_multiplayed_value(re_changed_value)
 		
 		for changer in changers:
 			if changer.item_name != item.name:
 				re_changed_value = changer.get_added_value(re_changed_value)
 				
 		for changer in item.stat_changers:
-			re_changed_value = changer.get_added_value(re_changed_value)
+			if changer.stat_name == name:
+				re_changed_value = changer.get_added_value(re_changed_value)
 			
 		return max(re_changed_value, 0)
+		
+	func get_changed_value_with_changer(changer) -> float:
+		var temp_changed_value = value
+		
+		temp_changed_value = changer.get_multiplayed_value(temp_changed_value)
+		for c in changers:
+			temp_changed_value = c.get_multiplayed_value(temp_changed_value)
+		
+		temp_changed_value = changer.get_added_value(temp_changed_value)
+		for c in changers:
+			temp_changed_value = c.get_added_value(temp_changed_value)
+			
+		return max(temp_changed_value, 0)
 	
 	func get_unchanged_value() -> float:
 		return value
@@ -84,6 +95,11 @@ class Stat:
 		changers.erase(changer)
 		calculate_changed_value()
 		
+	func remove_changer_by_item_name(item_name) -> void:
+		for i in range(changers.size()-1, -1, -1):
+			if changers[i].item_name == item_name:
+				remove_changer(changers[i])
+		
 	func calculate_changed_value():
 		changed_value = value
 		
@@ -96,17 +112,17 @@ class Stat:
 		changed_value = max(changed_value, 0)
 		
 		emit_signal("value_changed", self)
-		
+
 ##################################################
 # warning-ignore: unused_class_variable
-var damage_multiplier: float = 1.0
+var damage_multiplier: float = 1.0 setget set_damage_multiplier
 # warning-ignore: unused_class_variable
-var health_multiplier: float = 1.0
+var health_multiplier: float = 1.0 setget set_health_multiplier
 
 var _stats = [
-	Stat.new("bows_knowledge", 1 * damage_multiplier),
+	Stat.new("bows_knowledge", 1),
 	Stat.new("agility", 0.1),
-	Stat.new("vitality", 10 * health_multiplier),
+	Stat.new("vitality", 10),
 	Stat.new("charisma", 0),
 	Stat.new("sensinitive_points", 0),
 	Stat.new("eagle_eye", 0.1),
@@ -114,46 +130,67 @@ var _stats = [
 	Stat.new("magic", 0),
 	Stat.new("lucky", 0),
 	Stat.new("stamina", 10)
-] setget , get_stats
+]
 
-var items = {}
-
+var _items = {}
 
 
 func _ready():
 	add_to_group("IHaveSthToSave")
 
-func create_default_items() -> void:
-	items = {
-		"Bow": load("res://Resources/Items/Bow.tres"),
-		"Helmet": load("res://Resources/Items/Helmet.tres"),
-		"LeftRing": load("res://Resources/Items/LeftRing.tres"),
-		"RightRing": load("res://Resources/Items/RightRing.tres"),
-		"Armor": load("res://Resources/Items/Armor.tres"),
-		"Gloves": load("res://Resources/Items/Gloves.tres"),
-		"Boots": load("res://Resources/Items/Boots.tres")
+func set_damage_multiplier(value):
+	damage_multiplier = value
+	add_revival_changer("bows_knowledge", value)
+
+func set_health_multiplier(value):
+	health_multiplier = value
+	add_revival_changer("vitality", value)
+
+func add_revival_changer(stat_name, value):
+	var damage_stat = get_stat(stat_name)
+	var changer = StatChanger.new()
+
+	changer.stat_name = stat_name
+	changer.multiply_stat = value
+	changer.item_name = "revival_" + stat_name
+	
+	damage_stat.remove_changer_by_item_name(changer.item_name)
+	damage_stat.add_changer(changer)
+
+static func create_default_items() -> void:
+	ElfStats._items = {
+		"Bow": load("res://Resources/items/Bow.tres"),
+		"Helmet": load("res://Resources/items/Helmet.tres"),
+		"LeftRing": load("res://Resources/items/LeftRing.tres"),
+		"RightRing": load("res://Resources/items/RightRing.tres"),
+		"Armor": load("res://Resources/items/Armor.tres"),
+		"Gloves": load("res://Resources/items/Gloves.tres"),
+		"Boots": load("res://Resources/items/Boots.tres")
 	}
 
-	for key in items:
-		items[key] = items[key].duplicate()
-		items[key].reset()
+	for key in ElfStats._items:
+		ElfStats._items[key] = ElfStats._items[key].duplicate()
+		ElfStats._items[key].reset()
 
-func restore_to_default() -> void:
-	for key in items:
-		items[key].reset()
+static func restore_to_default() -> void:
+	for key in ElfStats._items:
+		ElfStats._items[key].reset()
 
-	for s in _stats:
+	for s in ElfStats._stats:
 		s.reset()
 		
-func get_stat(stat_name:String) -> Stat:
-	for s in _stats:
+static func get_stats() -> Array:
+	return ElfStats._stats
+		
+static func get_stat(stat_name:String) -> Stat:
+	for s in ElfStats._stats:
 		if s.named(stat_name):
 			return s
 	
 	printerr("nonexist stat with name: \"" + stat_name + "\"")
 	return null
 	
-func get_stat_value(stat_name:String) -> float:
+static func get_stat_value(stat_name:String) -> float:
 	var stat = get_stat(stat_name)
 	
 	if stat:
@@ -161,7 +198,7 @@ func get_stat_value(stat_name:String) -> float:
 	
 	return 0.0
 	
-func get_stat_unchanged_value(stat_name:String) -> float:
+static func get_stat_unchanged_value(stat_name:String) -> float:
 	var stat = get_stat(stat_name)
 	
 	if stat:
@@ -170,10 +207,10 @@ func get_stat_unchanged_value(stat_name:String) -> float:
 	return 0.0
 
 # requires optimisation
-func add_item(item) -> void:
-	items[item.name] = item
+static func add_item(item) -> void:
+	ElfStats._items[item.name] = item
 	
-	for s in _stats:
+	for s in ElfStats._stats:
 		# Remove every changer from old item
 		for i in range(s.changers.size()-1, -1, -1):
 			if s.changers[i].item_name == item.name:
@@ -183,40 +220,41 @@ func add_item(item) -> void:
 		for c in item.stat_changers:
 			if s.named(c.stat_name):
 				s.add_changer(c)
-				
-func get_stats():
-	return _stats
 	
-func save():
+static func save():
 	var save_dict = {
 		_elf_stats = {
 			_stats = {},
-			_items = {}
-		},
-		_damage_multiplier = damage_multiplier,
-		_health_multiplier = health_multiplier
+			_items = {},
+			_damage_multiplier = ElfStats.damage_multiplier,
+			_health_multiplier = ElfStats.health_multiplier
+		}
 	}
 	
-	for s in _stats:
+	for s in ElfStats._stats:
 		save_dict["_elf_stats"]["_stats"][s.name] = {
 			_default_value = s.default_value,
 			_value = s.get_unchanged_value()
 		}
 		
-	for key in items:
-		save_dict["_elf_stats"]["_items"][key] = items[key].save()
+	for key in ElfStats._items:
+		save_dict["_elf_stats"]["_items"][key] = ElfStats._items[key].save()
 	
 	return save_dict
 
-func load_data(data):
-	var _stats = data["_stats"]
-	var _items = data["_items"]
+static func load_data(data):
+	var stats = data["_stats"]
+	var items = data["_items"]
 	
-	for key in _stats:
-		var new_stat = _stats[key]
+	for key in stats:
+		var new_stat = stats[key]
 		var stat = get_stat(key)
 		stat.setup(new_stat["_default_value"], new_stat["_value"])
 		
-	for key in _items:
-		items[key].load_data(_items[key])
-		add_item(items[key])
+	for key in items:
+		ElfStats._items[key].load_data(items[key])
+		add_item(ElfStats._items[key])
+		
+	ElfStats.set_damage_multiplier(data["_damage_multiplier"])
+	ElfStats.set_health_multiplier(data["_health_multiplier"])
+	

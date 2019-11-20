@@ -1,20 +1,18 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scenes/World/World.gd" type="Script" id=1]
-[ext_resource path="res://Resources/ElfStats.gd" type="Script" id=2]
-[ext_resource path="res://Objects/Elf/Elf.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Objects/Background/Planets/PlanetAnimation.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/UserInterface/UIContainer.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scripts/Revival.gd" type="Script" id=6]
-[ext_resource path="res://Objects/Spawners/DwarvesManager/DwarvesManager.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Objects/Spawners/TavernSpawner/TavernSpawner.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Objects/Spawners/DevilSpawner/DevilSpawner.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Scenes/Tavern/TavernScreen.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Scripts/GameManager.gd" type="Script" id=11]
-[ext_resource path="res://Scripts/LevelManager.gd" type="Script" id=12]
-[ext_resource path="res://Scripts/GameData.gd" type="Script" id=13]
-[ext_resource path="res://Objects/EventItem/EventManager.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Scripts/GameSaver.gd" type="Script" id=15]
+[ext_resource path="res://Objects/Elf/Elf.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Objects/Background/Planets/PlanetAnimation.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/UserInterface/UIContainer.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scripts/Revival.gd" type="Script" id=5]
+[ext_resource path="res://Objects/Spawners/DwarvesManager/DwarvesManager.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Objects/Spawners/TavernSpawner/TavernSpawner.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Objects/Spawners/DevilSpawner/DevilSpawner.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Tavern/TavernScreen.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/World/GameManager.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/World/LevelManager.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Objects/EventItem/EventManager.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenes/World/GameSaver.tscn" type="PackedScene" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 537.558, 30.0002 )
@@ -25,30 +23,26 @@ __meta__ = {
 "_edit_horizontal_guides_": [  ]
 }
 
-[node name="ElfStats" type="Node" parent="."]
-script = ExtResource( 2 )
-
-[node name="Elf" parent="." instance=ExtResource( 3 )]
+[node name="Elf" parent="." instance=ExtResource( 2 )]
 position = Vector2( 121.06, 544.182 )
 z_index = 1
 
-[node name="PlanetAnimation" parent="." instance=ExtResource( 4 )]
+[node name="PlanetAnimation" parent="." instance=ExtResource( 3 )]
 playback_speed = 1.0
 
-[node name="UIContainer" parent="." instance=ExtResource( 5 )]
+[node name="UIContainer" parent="." instance=ExtResource( 4 )]
 
 [node name="Revival" type="Node" parent="."]
-script = ExtResource( 6 )
+script = ExtResource( 5 )
 
-[node name="DwarvesManager" parent="." instance=ExtResource( 7 )]
+[node name="DwarvesManager" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1081.97, 544.587 )
 z_index = 1
 
-[node name="TavernSpawner" parent="." instance=ExtResource( 8 )]
+[node name="TavernSpawner" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1081.97, 544.587 )
 
-[node name="DevilSpawner" parent="." instance=ExtResource( 9 )]
-position = Vector2( 1081.97, 544.587 )
+[node name="DevilSpawner" parent="." instance=ExtResource( 8 )]
 
 [node name="Ground" type="Area2D" parent="."]
 editor/display_folded = true
@@ -62,18 +56,12 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
 shape = SubResource( 1 )
 
-[node name="TavernScreen" parent="." instance=ExtResource( 10 )]
+[node name="TavernScreen" parent="." instance=ExtResource( 9 )]
 
-[node name="GameManager" type="Node" parent="."]
-script = ExtResource( 11 )
+[node name="GameManager" parent="." instance=ExtResource( 10 )]
 
-[node name="LevelManager" type="Node" parent="."]
-script = ExtResource( 12 )
+[node name="LevelManager" parent="." instance=ExtResource( 11 )]
 
-[node name="GameData" type="Node" parent="."]
-script = ExtResource( 13 )
+[node name="EventManager" parent="." instance=ExtResource( 12 )]
 
-[node name="EventManager" parent="." instance=ExtResource( 14 )]
-
-[node name="GameSaver" type="Node" parent="."]
-script = ExtResource( 15 )
+[node name="GameSaver" parent="." instance=ExtResource( 13 )]
