@@ -1,15 +1,16 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scenes/Tavern/OneTavernScreen.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Tavern/TradesmanScreen.gd" type="Script" id=2]
-[ext_resource path="res://Scenes/Tavern/Buttons/ItemBtn.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Resources/Items/Bow.tres" type="Resource" id=4]
-[ext_resource path="res://Resources/Items/LeftRing.tres" type="Resource" id=5]
-[ext_resource path="res://Resources/Items/RightRing.tres" type="Resource" id=6]
-[ext_resource path="res://Resources/Items/Helmet.tres" type="Resource" id=7]
-[ext_resource path="res://Resources/Items/Armor.tres" type="Resource" id=8]
-[ext_resource path="res://Resources/Items/Gloves.tres" type="Resource" id=9]
-[ext_resource path="res://Resources/Items/Boots.tres" type="Resource" id=10]
+[ext_resource path="res://Scenes/Tavern/Shop/TradesmanShop.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Tavern/Buttons/ItemBtn.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Resources/Items/Bow.tres" type="Resource" id=5]
+[ext_resource path="res://Resources/Items/LeftRing.tres" type="Resource" id=6]
+[ext_resource path="res://Resources/Items/RightRing.tres" type="Resource" id=7]
+[ext_resource path="res://Resources/Items/Helmet.tres" type="Resource" id=8]
+[ext_resource path="res://Resources/Items/Armor.tres" type="Resource" id=9]
+[ext_resource path="res://Resources/Items/Gloves.tres" type="Resource" id=10]
+[ext_resource path="res://Resources/Items/Boots.tres" type="Resource" id=11]
 
 [node name="TradesmanScreen" index="0" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
@@ -21,53 +22,54 @@ text = "Handlarz
 
 [node name="Shop" parent="VBoxContainer" index="1"]
 margin_bottom = 216.0
+script = ExtResource( 3 )
 
-[node name="BowBtn" parent="VBoxContainer/Shop" index="0" instance=ExtResource( 3 )]
+[node name="BowBtn" parent="VBoxContainer/Shop" index="0" instance=ExtResource( 4 )]
 margin_right = 1024.0
 item_name = "Luk"
-item = ExtResource( 4 )
+item = ExtResource( 5 )
 
-[node name="LeftRingBtn" parent="VBoxContainer/Shop" index="1" instance=ExtResource( 3 )]
+[node name="LeftRingBtn" parent="VBoxContainer/Shop" index="1" instance=ExtResource( 4 )]
 margin_top = 24.0
 margin_right = 1024.0
 margin_bottom = 44.0
 item_name = "Lewy pierscien"
-item = ExtResource( 5 )
+item = ExtResource( 6 )
 
-[node name="RightRingBtn" parent="VBoxContainer/Shop" index="2" instance=ExtResource( 3 )]
+[node name="RightRingBtn" parent="VBoxContainer/Shop" index="2" instance=ExtResource( 4 )]
 margin_top = 48.0
 margin_right = 1024.0
 margin_bottom = 68.0
 item_name = "Prawy pierscien"
-item = ExtResource( 6 )
+item = ExtResource( 7 )
 
-[node name="HelmetBtn" parent="VBoxContainer/Shop" index="3" instance=ExtResource( 3 )]
+[node name="HelmetBtn" parent="VBoxContainer/Shop" index="3" instance=ExtResource( 4 )]
 margin_top = 72.0
 margin_right = 1024.0
 margin_bottom = 92.0
 item_name = "Helm"
-item = ExtResource( 7 )
+item = ExtResource( 8 )
 
-[node name="ArmorBtn" parent="VBoxContainer/Shop" index="4" instance=ExtResource( 3 )]
+[node name="ArmorBtn" parent="VBoxContainer/Shop" index="4" instance=ExtResource( 4 )]
 margin_top = 96.0
 margin_right = 1024.0
 margin_bottom = 116.0
 item_name = "Zbroja"
-item = ExtResource( 8 )
+item = ExtResource( 9 )
 
-[node name="GlovesBtn" parent="VBoxContainer/Shop" index="5" instance=ExtResource( 3 )]
+[node name="GlovesBtn" parent="VBoxContainer/Shop" index="5" instance=ExtResource( 4 )]
 margin_top = 120.0
 margin_right = 1024.0
 margin_bottom = 140.0
 item_name = "Rekawice"
-item = ExtResource( 9 )
+item = ExtResource( 10 )
 
-[node name="BootsBtn" parent="VBoxContainer/Shop" index="6" instance=ExtResource( 3 )]
+[node name="BootsBtn" parent="VBoxContainer/Shop" index="6" instance=ExtResource( 4 )]
 margin_top = 144.0
 margin_right = 1024.0
 margin_bottom = 164.0
 item_name = "Buty"
-item = ExtResource( 10 )
+item = ExtResource( 11 )
 
 [node name="CenterContainer" parent="VBoxContainer" index="2"]
 margin_top = 220.0
