@@ -1,9 +1,10 @@
 extends "res://Objects/EventItem/EventItem.gd"
 
+onready var BONUS_TIME = 10
+
 var timer
 var default_damage_multiplier
 var default_damage
-var quadruple_damage_time = 10
 
 
 func get_reward():
@@ -16,8 +17,11 @@ func get_reward():
 	default_damage = damage_stat.default_value * (stats.damage_multiplier/stats.damage_multiplier / 4.0)
 	damage_stat.calculate_changed_value()
 	
+	delayed_reset(BONUS_TIME)
+
+func delayed_reset(time):
 	timer = Timer.new()
-	timer.wait_time = quadruple_damage_time
+	timer.wait_time = time
 	timer.connect("timeout",self,"_on_timer_timeout")
 	timer.one_shot = true
 	get_parent().add_child(timer)
@@ -35,4 +39,7 @@ func _on_timer_timeout():
 
 func _on_Item_pressed():
 	get_reward()
+	hide_item()
+
+func hide_item():
 	get_node("texture").visible = false
