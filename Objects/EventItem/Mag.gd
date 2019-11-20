@@ -3,7 +3,7 @@ extends "res://Objects/EventItem/EventItem.gd"
 var timer
 var default_damage_multiplier
 var default_damage
-var quadruple_damage_time = 30
+var quadruple_damage_time = 10
 
 
 func get_reward():
@@ -20,7 +20,7 @@ func get_reward():
 	timer.wait_time = quadruple_damage_time
 	timer.connect("timeout",self,"_on_timer_timeout")
 	timer.one_shot = true
-	get_parent().call_deferred("add_child", timer)
+	get_parent().add_child(timer)
 	timer.start()
 
 func _on_timer_timeout():
@@ -30,3 +30,9 @@ func _on_timer_timeout():
 	var damage_stat = stats.get_stat("bows_knowledge")
 	damage_stat.set_default_value(default_damage)
 	damage_stat.calculate_changed_value()
+	
+	queue_free()
+
+func _on_Item_pressed():
+	get_reward()
+	get_node("texture").visible = false

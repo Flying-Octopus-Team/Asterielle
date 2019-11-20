@@ -23,4 +23,4 @@ func get_reward():
 
 func _on_Item_pressed():
 	get_reward()
-	#queue_free()
+	queue_free()
