@@ -1,14 +1,15 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scenes/Tavern/TavernScreen.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Tavern/MainHall.gd" type="Script" id=2]
-[ext_resource path="res://Scenes/Tavern/Buttons/EnterScreenBtn.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/Tavern/RoomScreen.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/Tavern/WizardScreen.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/Tavern/TradesmanScreen.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/Tavern/PublicanScreen.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenes/Tavern/Resources/TavernResources.gd" type="Script" id=8]
-[ext_resource path="res://Objects/StatsPanel/StatsPanel.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/UserInterface/Buttons/GameButton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Tavern/Buttons/EnterScreenBtn.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Tavern/RoomScreen.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Tavern/WizardScreen.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Tavern/TradesmanScreen.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Tavern/PublicanScreen.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Tavern/Resources/TavernResources.gd" type="Script" id=9]
+[ext_resource path="res://Objects/StatsPanel/StatsPanel.tscn" type="PackedScene" id=10]
 
 [node name="TavernScreen" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -26,62 +27,62 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 2 )
 
-[node name="ExitDoorBtn" type="Button" parent="MainHall"]
-margin_left = 39.8366
-margin_top = 449.432
-margin_right = 112.837
-margin_bottom = 470.432
-text = "Drzwi"
+[node name="ExitDoorBtn" parent="MainHall" instance=ExtResource( 3 )]
+margin_left = 53.1572
+margin_top = 444.12
+margin_right = 165.157
+margin_bottom = 472.12
+button_label = "Wyjdz"
 
-[node name="EnterWizardBtn" parent="MainHall" instance=ExtResource( 3 )]
+[node name="EnterWizardBtn" parent="MainHall" instance=ExtResource( 4 )]
 margin_left = 592.795
 margin_top = 420.316
 margin_right = 662.795
 margin_bottom = 440.316
-text = "Mag"
+button_label = "Mag"
 screen_name = "WizardScreen"
 
-[node name="EnterRoomBtn" parent="MainHall" instance=ExtResource( 3 )]
+[node name="EnterRoomBtn" parent="MainHall" instance=ExtResource( 4 )]
 margin_left = 587.094
 margin_top = 272.045
 margin_right = 657.094
 margin_bottom = 292.045
-text = "Pokoj"
+button_label = "Pokoj"
 screen_name = "RoomScreen"
 
-[node name="EnterTradesmanBtn" parent="MainHall" instance=ExtResource( 3 )]
+[node name="EnterTradesmanBtn" parent="MainHall" instance=ExtResource( 4 )]
 margin_left = 215.108
 margin_top = 267.02
 margin_right = 285.108
 margin_bottom = 287.02
-text = "Handlarz"
+button_label = "Handlarz"
 screen_name = "TradesmanScreen"
 
-[node name="EnterPublicanBtn" parent="MainHall" instance=ExtResource( 3 )]
+[node name="EnterPublicanBtn" parent="MainHall" instance=ExtResource( 4 )]
 margin_left = 479.108
 margin_top = 159.02
 margin_right = 557.108
 margin_bottom = 179.02
-text = "Karczmarka"
+button_label = "Karczmarka"
 screen_name = "PublicanScreen"
 
-[node name="RoomScreen" parent="." instance=ExtResource( 4 )]
+[node name="RoomScreen" parent="." instance=ExtResource( 5 )]
 visible = false
 
-[node name="WizardScreen" parent="." instance=ExtResource( 5 )]
+[node name="WizardScreen" parent="." instance=ExtResource( 6 )]
 visible = false
 
-[node name="TradesmanScreen" parent="." instance=ExtResource( 6 )]
+[node name="TradesmanScreen" parent="." instance=ExtResource( 7 )]
 visible = false
 
-[node name="PublicanScreen" parent="." instance=ExtResource( 7 )]
+[node name="PublicanScreen" parent="." instance=ExtResource( 8 )]
 visible = false
 
 [node name="Resources" type="Control" parent="."]
 visible = false
 margin_right = 40.0
 margin_bottom = 40.0
-script = ExtResource( 8 )
+script = ExtResource( 9 )
 
 [node name="MarginContainer" type="MarginContainer" parent="Resources"]
 margin_left = 40.0
@@ -102,7 +103,7 @@ margin_right = 128.0
 margin_bottom = 32.0
 text = "Doswiadczenie: 100"
 
-[node name="StatsPanel" parent="." instance=ExtResource( 9 )]
+[node name="StatsPanel" parent="." instance=ExtResource( 10 )]
 margin_left = 783.705
 margin_top = 359.537
 margin_right = 783.705

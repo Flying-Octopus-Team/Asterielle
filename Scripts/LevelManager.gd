@@ -87,7 +87,7 @@ func enable_skills():
 	active_spells.enable_skills()
 	
 func _on_Tavern_exited():
-	tavern_enter_btn.pressed = false
+	tavern_enter_btn.set_pressed(false)
 	enable_skills()
 	spawn_next_dwarf()
 		

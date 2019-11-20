@@ -24,6 +24,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Objects/Dwarves/Dwarf/Dwarf.gd"
 }, {
+"base": "TextureButton",
+"class": "GameButton",
+"language": "GDScript",
+"path": "res://Scenes/UserInterface/Buttons/GameButton.gd"
+}, {
 "base": "Resource",
 "class": "Item",
 "language": "GDScript",
@@ -33,6 +38,11 @@ _global_script_classes=[ {
 "class": "ItemQuality",
 "language": "GDScript",
 "path": "res://Resources/Items/ItemQuality/ItemQuality.gd"
+}, {
+"base": "TextureButton",
+"class": "SkillBtn",
+"language": "GDScript",
+"path": "res://Scenes/UserInterface/BottomBar/Skills/SkillBtn.gd"
 }, {
 "base": "Node2D",
 "class": "SpawnerSystem",
@@ -53,8 +63,10 @@ _global_script_class_icons={
 "BasicShop": "",
 "ComingObject": "",
 "Dwarf": "",
+"GameButton": "",
 "Item": "",
 "ItemQuality": "",
+"SkillBtn": "",
 "SpawnerSystem": "",
 "StatChanger": "",
 "TavernBtn": ""
@@ -81,6 +93,29 @@ window/size/test_width=1024
 window/size/test_height=576
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
+
+[importer_defaults]
+
+texture={
+"compress/bptc_ldr": 0,
+"compress/hdr_mode": 0,
+"compress/lossy_quality": 0.7,
+"compress/mode": 0,
+"compress/normal_map": 0,
+"detect_3d": false,
+"flags/anisotropic": false,
+"flags/filter": false,
+"flags/mipmaps": false,
+"flags/repeat": 0,
+"flags/srgb": 2,
+"process/HDR_as_SRGB": false,
+"process/fix_alpha_border": true,
+"process/invert_color": false,
+"process/premult_alpha": false,
+"size_limit": 0,
+"stream": false,
+"svg/scale": 1.0
+}
 
 [input]
 

@@ -5,3 +5,4 @@
 
 [node name="StatBtn" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+

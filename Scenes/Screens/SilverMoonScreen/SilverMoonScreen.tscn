@@ -1,7 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scenes/Screens/SilverMoonScreen/SilverMoonScreen.gd" type="Script" id=1]
-
+[ext_resource path="res://Scenes/UserInterface/Buttons/GameButton.tscn" type="PackedScene" id=2]
 
 [node name="SilverMoonLabel" type="Control"]
 anchor_right = 1.0
@@ -28,10 +28,10 @@ text = "Oto infornacja o tym czym sa srebrne ksiezyce
 oraz czym jest odrodzenie"
 align = 1
 
-[node name="Button" type="Button" parent="CanvasLayer"]
-margin_left = 354.133
-margin_top = 273.759
-margin_right = 666.133
-margin_bottom = 341.759
-text = "OK!"
-[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_Button_pressed"]
+[node name="OkButton" parent="CanvasLayer" instance=ExtResource( 2 )]
+margin_left = 445.506
+margin_top = 286.308
+margin_right = 557.506
+margin_bottom = 314.308
+button_label = "OK!"
+[connection signal="pressed" from="CanvasLayer/OkButton" to="." method="_on_OkButton_pressed"]
