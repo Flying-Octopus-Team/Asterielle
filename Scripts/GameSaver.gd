@@ -160,15 +160,15 @@ func load_xp(xp):
 	GameData.xp = xp
 
 func revival_reset():
+	ElfStats.restore_to_default()
 	load_offline_time(0)
 	load_golds_on_second(0.0)
 	load_xp_on_second(0.0)
 	load_gold(0.0)
 	load_xp(0.0)
-	load_hp(10.0)
+	load_hp(ElfStats.get_stat_value("vitality"))
 	load_level(1)
 	load_helth_potion(0)
-	ElfStats.restore_to_default()
 	publican.create_default_quests()
 	save_game()
 

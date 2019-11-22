@@ -37,6 +37,7 @@ func show_revival_screen():
 func show_revival_shop():
 	var rss = RevivalShop.instance()
 	rss.connect("revival_shop_exit", world.find_node("UIContainer"), "_on_RevivalShop_exited")
+	rss.connect("revival_shop_exit", self, "_on_RevivalShop_exited")
 	get_parent().call_deferred("add_child", rss)
 
 func revive():
@@ -50,5 +51,8 @@ func revive():
 #		GameData.silver_moon += level_manager.current_level - GameData.last_revival_level
 #		GameData.all_silver_moon += level_manager.current_level - GameData.last_revival_level
 #	GameData.last_revival_level = level_manager.current_level
-	emit_signal("revive")
 	show_revival_screen()
+	
+func _on_RevivalShop_exited() -> void:
+	emit_signal("revive")
+	
