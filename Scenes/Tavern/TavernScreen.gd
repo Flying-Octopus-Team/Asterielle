@@ -33,3 +33,9 @@ func _on_ExitDoorBtn_pressed():
 
 func _on_Room_exited():
 	emit_signal("room_exited")
+
+func reset_to_default() -> void:
+	$RoomScreen.reset_to_default()
+	$WizardScreen.reset_to_default()
+	$TradesmanScreen.reset_to_default()
+	$PublicanScreen.reset_to_default()

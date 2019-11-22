@@ -17,3 +17,8 @@ func _ready():
 func disable_valid_buttons():
 	for item in get_children():
 		item.update_enabled()
+		
+func reset_to_default() -> void:
+	for item in get_children():
+		item.reset_to_default()
+	

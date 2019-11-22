@@ -11,6 +11,9 @@ export(float) var price_gold_mod = 1.0
 export(float) var price_xp_mod = 1.0
 export(String) var popup_title
 
+onready var default_price_gold : float = price_gold
+onready var default_price_xp : float = price_xp
+
 onready var publican = get_node("/root/World").find_node("Publican")
 var popup = null
 
@@ -88,4 +91,8 @@ func create_popup():
 	var screen = get_node("/root/World").find_node("TavernScreen")
 	popup = game_manager.create_popup(popup_title, screen)
 
-
+func reset_to_default() -> void:
+	price_gold = default_price_gold
+	price_xp = default_price_xp
+	update_price_label()
+	update_enabled()

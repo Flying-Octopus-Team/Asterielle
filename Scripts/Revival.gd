@@ -11,6 +11,7 @@ onready var game_saver = world.find_node("GameSaver")
 
 func _ready():
 	GameData.connect("get_first_silver_moon", self, "show_silver_moon_screen")
+	connect("revive", world.find_node("TavernScreen"), "reset_to_default")
 
 func show_silver_moon_screen():
 	var eis = EssentialInformScreen.instance()

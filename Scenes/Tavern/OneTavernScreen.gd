@@ -13,3 +13,7 @@ func on_enter():
 func _on_ExitBtn_pressed():
 	visible = false
 	emit_signal("room_exited")
+	
+func reset_to_default() -> void:
+	var shop = find_node("Shop")
+	shop.reset_to_default()
