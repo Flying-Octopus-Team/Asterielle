@@ -6,12 +6,16 @@ var EssentialInformScreen = load("res://Scenes/Screens/EssentialInform/Essential
 var RevivalShop = load("res://Scenes/Screens/RevivalShop/RevivalShop.tscn")
 
 onready var world = get_node("/root/World")
-onready var level_manager = world.find_node("LevelManager")
-onready var game_saver = world.find_node("GameSaver")
 
 func _ready():
+	var tavern_screen = world.find_node("TavernScreen")
+	var dwarves_manager = world.find_node("DwarvesManager")
+	var game_saver = world.find_node("GameSaver")
+	
 	GameData.connect("get_first_silver_moon", self, "show_silver_moon_screen")
-	connect("revive", world.find_node("TavernScreen"), "reset_to_default")
+	connect("revive", tavern_screen, "reset_to_default")
+	connect("revive", dwarves_manager, "reset_to_default")
+	connect("revive", game_saver, "revival_reset")
 
 func show_silver_moon_screen():
 	var eis = EssentialInformScreen.instance()
@@ -48,4 +52,3 @@ func revive():
 #	GameData.last_revival_level = level_manager.current_level
 	emit_signal("revive")
 	show_revival_screen()
-	game_saver.revival_reset()
