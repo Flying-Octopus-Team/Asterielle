@@ -3,6 +3,8 @@ extends Control
 signal room_entered
 signal room_exited
 
+onready var shop = find_node("Shop")
+
 func _ready():
 	connect("room_exited", get_parent(), "_on_Room_exited")
 
@@ -15,5 +17,11 @@ func _on_ExitBtn_pressed():
 	emit_signal("room_exited")
 	
 func reset_to_default() -> void:
-	var shop = find_node("Shop")
 	shop.reset_to_default()
+	
+func save() -> Dictionary:
+	return shop.save()
+	
+func load_data(data) -> void:
+	shop.load_data(data["shop"])
+	
