@@ -97,6 +97,7 @@ func enable_skills():
 func _on_Tavern_exited():
 	enable_skills()
 	spawn_next_dwarf()
+	ui.set_killed_dwarves_label(killed_dwarves, dwarves_per_level)
 		
 func spawn_next_dwarf():
 	if killed_dwarves >= dwarves_per_level:
