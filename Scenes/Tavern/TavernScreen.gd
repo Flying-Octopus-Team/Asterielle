@@ -12,6 +12,7 @@ onready var resources = $Resources
 
 func _ready():
 	connect("tavern_exited", world.find_node("LevelManager"), "_on_Tavern_exited")
+	connect("tavern_exited", world.find_node("UIContainer"), "_on_Tavern_exited")
 	connect("room_exited", main_hall, "_on_Room_exited")
 	connect_node("MainHall")
 	connect_node("Resources")

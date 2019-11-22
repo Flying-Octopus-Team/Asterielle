@@ -11,7 +11,7 @@ var current_level : int = 1 setget set_level
 
 var basic_start_level : int = 0
 
-var killed_dwarves : int = 0
+var killed_dwarves : int = 0 setget set_killed_dwarves
 
 onready var world = get_node("/root/World")
 onready var dwarves_manager = world.find_node("DwarvesManager") 
@@ -21,7 +21,7 @@ onready var game_saver = world.find_node("GameSaver")
 onready var tavern_enter_btn = world.find_node("TavernEnterBtn")
 onready var revival_enter_btn = world.find_node("RevivalEnterBtn")
 onready var tavern_screen = world.find_node("TavernScreen")
-onready var ui = world.find_node("UI")
+onready var ui = world.find_node("UIContainer")
 onready var publician = world.find_node("Publician")
 onready var speedup_skill = world.find_node("SpeedupBtn")
 onready var publican = world.find_node("Publican")
@@ -35,11 +35,19 @@ const OffineScreen = preload("res://Scenes/Screens/OfflineScreen/OfflineScreen.g
 func set_level(value):
 	var level_diff : int = value - current_level
 	
+	set_killed_dwarves(0)
+	
 	if level_diff <= 0:
+		current_level = value
+		ui.set_level_label(current_level)
 		return
 		
 	for i in range(level_diff):
 		increase_level()
+		
+func set_killed_dwarves(value) -> void:
+	killed_dwarves = value
+	ui.set_killed_dwarves_label(killed_dwarves, dwarves_per_level)
 		
 func _ready():
 	add_to_group('IHaveSthToSave')
@@ -87,7 +95,6 @@ func enable_skills():
 	active_spells.enable_skills()
 	
 func _on_Tavern_exited():
-	tavern_enter_btn.set_pressed(false)
 	enable_skills()
 	spawn_next_dwarf()
 		

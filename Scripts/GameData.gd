@@ -34,7 +34,7 @@ const REVIVAL_SILVER_MOON_REWARD : int = 50
 onready var world = get_node("/root/World")
 onready var level_manager = world.get_node("LevelManager")
 onready var game_saver = world.get_node("GameSaver")
-onready var ui = world.find_node("UI")
+onready var ui = world.find_node("UIContainer")
 
 func _ready():
 	add_to_group('IHaveSthToSave')

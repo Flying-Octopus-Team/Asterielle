@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+signal revival_shop_exit
+
 onready var game_manager = get_parent().get_node("GameManager")
 onready var ui = get_parent().find_node("UI")
 
@@ -52,8 +54,8 @@ func _process(delta):
 	set_items_price_count()
 
 func exit():
-	ui.revival_enter_btn.pressed = false
 	game_manager.resume_gameplay()
+	emit_signal("revival_shop_exit")
 	queue_free()
 
 

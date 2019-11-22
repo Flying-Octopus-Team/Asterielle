@@ -43,6 +43,7 @@ z_index = 1
 position = Vector2( 1081.97, 544.587 )
 
 [node name="DevilSpawner" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1081.15, 545.387 )
 
 [node name="Ground" type="Area2D" parent="."]
 editor/display_folded = true

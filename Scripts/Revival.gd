@@ -1,12 +1,13 @@
 extends Node
 
-var EssentialInformScreen = load("res://Scenes/Screens/EssentialInform/EssentialInform.tscn")
-var RevivalShoop = load("res://Scenes/Screens/RevivalShop/RevivalShop.tscn")
+signal revive 
 
-const OffineScreen = preload("res://Scenes/Screens/OfflineScreen/OfflineScreen.gd")
+var EssentialInformScreen = load("res://Scenes/Screens/EssentialInform/EssentialInform.tscn")
+var RevivalShop = load("res://Scenes/Screens/RevivalShop/RevivalShop.tscn")
 
 onready var world = get_node("/root/World")
-onready var level_manager = world.get_node("LevelManager")
+onready var level_manager = world.find_node("LevelManager")
+onready var game_saver = world.find_node("GameSaver")
 
 func _ready():
 	GameData.connect("get_first_silver_moon", self, "show_silver_moon_screen")
@@ -25,11 +26,12 @@ func show_revival_screen():
 	"Odrodzilas sie!",
 	"Znowu zaczynasz rozgrywke od nowa lecz posiadasz wiedze",
 	"skull", false)
-	eis.connect("timeout", self, "show_revival_shoop")
+	eis.connect("timeout", self, "show_revival_shop")
 	get_parent().call_deferred("add_child", eis)
 	
-func show_revival_shoop():
-	var rss = RevivalShoop.instance()
+func show_revival_shop():
+	var rss = RevivalShop.instance()
+	rss.connect("revival_shop_exit", world.find_node("UIContainer"), "_on_RevivalShop_exited")
 	get_parent().call_deferred("add_child", rss)
 
 func revive():
@@ -43,5 +45,6 @@ func revive():
 #		GameData.silver_moon += level_manager.current_level - GameData.last_revival_level
 #		GameData.all_silver_moon += level_manager.current_level - GameData.last_revival_level
 #	GameData.last_revival_level = level_manager.current_level
+	emit_signal("revive")
 	show_revival_screen()
-	get_parent().find_node("GameSaver").revival_reset()
+	game_saver.revival_reset()

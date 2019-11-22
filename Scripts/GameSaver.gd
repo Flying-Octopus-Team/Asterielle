@@ -111,7 +111,7 @@ func load_hp(hp):
 	elf.set_current_hp(hp)
 
 func load_level(level):
-	level_manager.current_level = level
+	level_manager.set_level(level)
 
 func load_elf_stats(elf_stats):
 	ElfStats.load_data(elf_stats)
