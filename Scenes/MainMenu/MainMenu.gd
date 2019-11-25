@@ -4,6 +4,7 @@ var world_path = "res://Scenes/World/World.tscn"
 
 onready var home = get_node("Canvas/Home")
 onready var options = get_node("Canvas/Options")
+onready var about = get_node("Canvas/About")
 
 
 
@@ -12,8 +13,8 @@ func _on_ContinueBtn_pressed():
 
 
 func _on_NewGameBtn_pressed():
+	#TODO hard_reset()
 	get_tree().change_scene(world_path)
-	get_tree().find_node("GameSaver").hard_reset()
 
 
 func _on_OptionsBtn_pressed():
@@ -21,7 +22,7 @@ func _on_OptionsBtn_pressed():
 
 
 func _on_AboutBtn_pressed():
-	pass # Replace with function body.
+	switch_panel(MENU_PANEL.ABOUT)
 
 
 func _on_ExitBtn_pressed():
@@ -32,14 +33,20 @@ func switch_panel(var menu_panel):
 		MENU_PANEL.HOME:
 			options.visible = false
 			home.visible = true
-			
+			about.visible = false
 		MENU_PANEL.OPTIONS:
 			home.visible = false
 			options.visible = true
+			about.visible = false
+		MENU_PANEL.ABOUT:
+			home.visible = false
+			options.visible = false
+			about.visible = true
 
 enum MENU_PANEL{
 	HOME,
-	OPTIONS
+	OPTIONS,
+	ABOUT
 }
 
 func _on_BackBtn_pressed():
