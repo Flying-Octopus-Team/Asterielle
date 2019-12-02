@@ -10,13 +10,15 @@ const OFFINE_LIMIT_TIME : int = 7200
 const OFFINE_BONUS_GOLD_RATIO : float = 0.3 
 const OFFINE_BONUS_XP_RATIO : float = 0.2
 
-onready var level_manager = get_parent().get_node("LevelManager")
-onready var elf = get_parent().get_node("Elf")
-onready var publican = get_parent().find_node("Publican")
+var level_manager
+var elf
+var publican
 
-func _ready():
+func setup() -> void:
+	level_manager = get_parent().get_node("LevelManager")
+	elf = get_parent().get_node("Elf")
+	publican = get_parent().find_node("Publican")
 	load_game()
-	pass
 
 func save_game():
 	var save_dict = load_player_data()
