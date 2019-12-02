@@ -13,7 +13,7 @@
 
 you can play in EvD for free:
 
-- [:fire: Play in your browser](https://ajver.github.io/EvD/Export/)
+- [:fire: Play in your browser](http://elf-vs-dwarves.pl/newest/)
 
 
 ## Screenshots
