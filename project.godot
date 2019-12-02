@@ -75,7 +75,7 @@ _global_script_class_icons={
 [application]
 
 config/name="EvD"
-run/main_scene="res://Scenes/World/World.tscn"
+run/main_scene="res://Scenes/MainMenu/MainMenu.tscn"
 boot_splash/image="res://flying-octopus-logo.png"
 boot_splash/bg_color=Color( 1, 1, 1, 1 )
 config/icon="res://icon.png"
@@ -147,4 +147,3 @@ limits/debugger_stdout/max_errors_per_frame=120
 [rendering]
 
 vram_compression/import_etc=true
-environment/default_environment="res://default_env.tres"
