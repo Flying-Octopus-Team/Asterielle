@@ -179,6 +179,12 @@ static func restore_to_default() -> void:
 	for s in ElfStats._stats:
 		s.reset()
 		
+	if ElfStats.damage_multiplier != 1.0:
+		ElfStats.add_revival_changer("bows_knowledge", ElfStats.damage_multiplier)
+		
+	if ElfStats.health_multiplier != 1.0:
+		ElfStats.add_revival_changer("vitality", ElfStats.health_multiplier)
+		
 static func get_stats() -> Array:
 	return ElfStats._stats
 		

@@ -80,6 +80,8 @@ func load_game():
 					load_tradesman_item_price_multipler(float(node_data['_tradesman_item_price_multipler']))
 				"_selected_quest":
 					load_quest(int(node_data['_selected_quest']))
+				"tavern_screen":
+					load_tavern_data(node_data["tavern_screen"])
 				
 	emit_signal("save_data_was_loaded")
 
@@ -111,7 +113,7 @@ func load_hp(hp):
 	elf.set_current_hp(hp)
 
 func load_level(level):
-	level_manager.current_level = level
+	level_manager.set_level(level)
 
 func load_elf_stats(elf_stats):
 	ElfStats.load_data(elf_stats)
@@ -158,17 +160,21 @@ func load_gold(gold):
 
 func load_xp(xp):
 	GameData.xp = xp
+	
+func load_tavern_data(data) -> void:
+	var tavern = get_parent().find_node("TavernScreen")
+	tavern.load_data(data)
 
 func revival_reset():
+	ElfStats.restore_to_default()
 	load_offline_time(0)
 	load_golds_on_second(0.0)
 	load_xp_on_second(0.0)
 	load_gold(0.0)
 	load_xp(0.0)
-	load_hp(10.0)
+	load_hp(ElfStats.get_stat_value("vitality"))
 	load_level(1)
 	load_helth_potion(0)
-	ElfStats.restore_to_default()
 	publican.create_default_quests()
 	save_game()
 

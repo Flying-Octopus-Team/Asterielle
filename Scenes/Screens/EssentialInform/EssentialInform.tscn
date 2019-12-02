@@ -1,9 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/Screens/EssentialInform/EssentialInform.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Screens/EssentialInform/SilverMoon.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/Screens/EssentialInform/Skull.png" type="Texture" id=3]
-
+[ext_resource path="res://Scenes/UserInterface/Buttons/GameButton.tscn" type="PackedScene" id=4]
 
 [sub_resource type="Animation" id=1]
 resource_name = "FadedIn"
@@ -68,18 +68,6 @@ tracks/4/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
-tracks/5/type = "value"
-tracks/5/path = NodePath("CanvasLayer/ExitButton:modulate")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
-"times": PoolRealArray( 0, 4.8, 5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
-}
 
 [sub_resource type="Animation" id=2]
 resource_name = "FadedOut"
@@ -126,18 +114,6 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("CanvasLayer/ExitButton:modulate")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
@@ -206,11 +182,11 @@ scale = Vector2( 0.357688, 0.357688 )
 frames = SubResource( 3 )
 animation = "skull"
 
-[node name="ExitButton" type="Button" parent="CanvasLayer"]
-margin_left = 343.35
-margin_top = 661.55
-margin_right = 701.35
-margin_bottom = 717.55
-text = "OK"
+[node name="ExitButton" parent="CanvasLayer" instance=ExtResource( 4 )]
+margin_left = 456.739
+margin_top = 671.446
+margin_right = 568.739
+margin_bottom = 699.446
+button_label = "OK"
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="pressed" from="CanvasLayer/ExitButton" to="." method="_on_ExitButton_pressed"]

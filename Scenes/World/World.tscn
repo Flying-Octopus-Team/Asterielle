@@ -4,7 +4,7 @@
 [ext_resource path="res://Objects/Elf/Elf.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Objects/Background/Planets/PlanetAnimation.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/UserInterface/UIContainer.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scripts/Revival.gd" type="Script" id=5]
+[ext_resource path="res://Scenes/World/Revival.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Objects/Spawners/DwarvesManager/DwarvesManager.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Objects/Spawners/TavernSpawner/TavernSpawner.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Objects/Spawners/DevilSpawner/DevilSpawner.tscn" type="PackedScene" id=8]
@@ -32,8 +32,7 @@ playback_speed = 1.0
 
 [node name="UIContainer" parent="." instance=ExtResource( 4 )]
 
-[node name="Revival" type="Node" parent="."]
-script = ExtResource( 5 )
+[node name="Revival" parent="." instance=ExtResource( 5 )]
 
 [node name="DwarvesManager" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1081.97, 544.587 )
@@ -43,10 +42,12 @@ z_index = 1
 position = Vector2( 1081.97, 544.587 )
 
 [node name="DevilSpawner" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1081.15, 545.387 )
 
 [node name="Ground" type="Area2D" parent="."]
 editor/display_folded = true
-position = Vector2( 569.18, 577.345 )
+position = Vector2( 568.185, 578.34 )
+monitoring = false
 collision_layer = 32
 collision_mask = 0
 __meta__ = {

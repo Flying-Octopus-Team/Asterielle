@@ -28,6 +28,7 @@ item_name = "Znajomosc lukow"
 price_xp = 3.0
 price_xp_mod = 1.1
 popup_title = "Zadawaj wieksze obrazenia"
+should_save_price = true
 stat_name = "bows_knowledge"
 multiply_stat = 1.2
 
@@ -39,6 +40,7 @@ item_name = "Zrecznosc"
 price_xp = 2.0
 price_xp_mod = 1.1
 popup_title = "Unikaj krasnoludzkich ciosow"
+should_save_price = true
 stat_name = "agility"
 add_to_stat = 0.01
 
@@ -51,6 +53,7 @@ item_name = "Witalnosc"
 price_xp = 1.0
 price_xp_mod = 1.1
 popup_title = "Wytrzymaj wiecej ran"
+should_save_price = true
 stat_name = "vitality"
 add_to_stat = 1.0
 
@@ -62,6 +65,7 @@ item_name = "Charyzma"
 price_xp = 5.0
 price_xp_mod = 1.1
 popup_title = "Targuj nizsze ceny"
+should_save_price = true
 stat_name = "charisma"
 add_to_stat = 1.0
 
@@ -73,6 +77,7 @@ item_name = "Czule punkty"
 price_xp = 5.0
 price_xp_mod = 1.1
 popup_title = "Znajdz czule punkty bossow"
+should_save_price = true
 stat_name = "sensinitive_points"
 add_to_stat = 1.0
 
@@ -84,6 +89,7 @@ item_name = "Sokole oko"
 price_xp = 5.0
 price_xp_mod = 1.1
 popup_title = "Strzelaj precyzyjniej i zadawaj krytyki"
+should_save_price = true
 stat_name = "eagle_eye"
 add_to_stat = 0.01
 
@@ -95,6 +101,7 @@ item_name = "Sila"
 price_xp = 2.0
 price_xp_mod = 1.1
 popup_title = "Zadawaj wiecej obrazen podczas krytykow"
+should_save_price = true
 stat_name = "strength"
 add_to_stat = 1.0
 
@@ -106,6 +113,7 @@ item_name = "Magia"
 price_xp = 1.0
 price_xp_mod = 1.1
 popup_title = "Czaruj"
+should_save_price = true
 stat_name = "magic"
 add_to_stat = 1.0
 
@@ -117,6 +125,7 @@ item_name = "Szczescie"
 price_xp = 5.0
 price_xp_mod = 1.1
 popup_title = "Trafiaj na lepsze przedmioty u handlarza"
+should_save_price = true
 stat_name = "lucky"
 add_to_stat = 1.0
 
@@ -128,6 +137,7 @@ item_name = "Wytrzymalosc"
 price_xp = 2.0
 price_xp_mod = 1.1
 popup_title = "Strzelaj dluzej"
+should_save_price = true
 stat_name = "stamina"
 add_to_stat = 0.2
 

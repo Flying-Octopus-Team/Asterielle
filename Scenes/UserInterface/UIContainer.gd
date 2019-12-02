@@ -1,4 +1,4 @@
-extends Control
+extends Node2D
 
 onready var gold_icon = find_node("GoldIcon")
 onready var gold_label = find_node("GoldLabel")
@@ -14,8 +14,8 @@ onready var level_label = find_node("LevelLabel")
 onready var killed_dwarves_label = find_node("KilledDwarvesLabel")
 onready var game_data = get_node("/root/World").find_node("GameData")
 
-onready var tavern_enter_btn = get_parent().find_node("TavernEnterBtn")
-onready var revival_enter_btn = get_parent().find_node("RevivalEnterBtn")
+onready var tavern_enter_btn = find_node("TavernEnterBtn")
+onready var revival_enter_btn = find_node("RevivalEnterBtn")
 
 
 
@@ -45,4 +45,10 @@ func _on_RevivalEnterBtn_pressed():
 	tavern_enter_btn.set_pressed(false)
 
 func _on_TavernEnterBtn_pressed():
+	revival_enter_btn.set_pressed(false)
+	
+func _on_Tavern_exited() -> void:
+	tavern_enter_btn.set_pressed(false)
+	
+func _on_RevivalShop_exited() -> void:
 	revival_enter_btn.set_pressed(false)

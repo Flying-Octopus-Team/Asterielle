@@ -31,6 +31,10 @@ func _ready():
 	go_forward()
 	set_texture()
 	
+func set_data(new_hp, new_damage) -> void:
+	set_hp(new_hp)
+	damage = new_damage
+	
 func set_hp(new_hp):
 	hp = new_hp
 	hp_bar = find_node("HPBar")

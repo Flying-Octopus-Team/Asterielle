@@ -2,8 +2,6 @@
 
 [ext_resource path="res://Scenes/Screens/RevivalShop/RevivalShop.gd" type="Script" id=1]
 
-
-
 [node name="RevivalShop" type="CanvasLayer"]
 script = ExtResource( 1 )
 
