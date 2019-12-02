@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Objects/EventItem/Chicken.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+
+[node name="Chicken" type="Node2D"]
+position = Vector2( 110, 400 )
+script = ExtResource( 1 )
+move_speed = -200.0
+
+[node name="Item" type="Button" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = -49.0
+margin_top = -115.0
+margin_right = 91.0
+margin_bottom = 17.0
+text = "Krasnolud w balonie"
+
+[node name="texture" type="Sprite" parent="."]
+position = Vector2( 20.1515, -49.4436 )
+z_index = 1
+texture = ExtResource( 2 )
+[connection signal="pressed" from="Item" to="." method="_on_Item_pressed"]

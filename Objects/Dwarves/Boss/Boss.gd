@@ -1,4 +1,4 @@
-extends "res://Objects/Dwarves/Dwarf/Dwarf.gd"
+extends Dwarf
 
 signal boss_kill_timeout
 
@@ -15,7 +15,7 @@ func _process(delta):
 	update_label()
 	
 func on_arrow_hit(arrow):
-	arrow.damage += elf_stats.get_stat_value("sensinitive_points")
+	arrow.damage += ElfStats.get_stat_value("sensinitive_points")
 	.on_arrow_hit(arrow)
 	
 func update_label():

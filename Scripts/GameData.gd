@@ -31,10 +31,22 @@ const FIRST_REVIVAL_LEVEL : int = 100
 const MY_FIRST_REVIVAL_LEVEL : int = 0
 const REVIVAL_SILVER_MOON_REWARD : int = 50
 
-onready var level_manager = get_parent().get_node("LevelManager")
-onready var game_saver = get_parent().get_node("GameSaver")
-onready var ui = get_parent().find_node("UI")
+var world
+var level_manager
+var game_saver 
+var ui
 
+func setup() -> void:
+	add_to_group('IHaveSthToSave')
+	
+	world = get_node("/root/World")
+	level_manager = world.get_node("LevelManager")
+	game_saver = world.get_node("GameSaver")
+	ui = world.find_node("UIContainer")
+	
+	level_manager.connect("dwarf_died", self, "on_Dwarf_died")
+	level_manager.connect("boss_died", self, "on_Boss_died")
+	
 func set_gold(value):
 	gold = value
 	ui.set_gold_label(value)
@@ -48,11 +60,6 @@ func set_xp(value):
 func set_silver_moon(value):
 	silver_moon = value
 	ui.set_silver_moon_label(value)
-
-func _ready():
-	add_to_group('IHaveSthToSave')
-	level_manager.connect("dwarf_died", self, "on_Dwarf_died")
-	level_manager.connect("boss_died", self, "on_Boss_died")
 
 func _process(delta):
 	next_timer -= delta
