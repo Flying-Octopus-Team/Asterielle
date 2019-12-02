@@ -1,6 +1,9 @@
 extends Node2D
 
-var world_path = "res://Scenes/World/World.tscn"
+onready var WEBSITE_PATH = "http://elf-vs-dwarves.pl/"
+onready var SAVE_FILE_PATH = "save.json"
+
+onready var world_path = "res://Scenes/World/World.tscn"
 
 onready var home = get_node("Canvas/Home")
 onready var options = get_node("Canvas/Options")
@@ -13,7 +16,7 @@ func _on_ContinueBtn_pressed():
 
 
 func _on_NewGameBtn_pressed():
-	Directory.new().remove("save.json")
+	Directory.new().remove(SAVE_FILE_PATH)
 	get_tree().change_scene(world_path)
 
 
@@ -54,4 +57,4 @@ func _on_BackBtn_pressed():
 
 
 func _on_LinkBtn_pressed():
-	OS.shell_open("http://elf-vs-dwarves.pl/") 
+	OS.shell_open(WEBSITE_PATH) 
