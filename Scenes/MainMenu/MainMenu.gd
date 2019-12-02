@@ -10,20 +10,20 @@ onready var about = get_node("Canvas/About")
 
 
 
-func switch_panel(var menu_panel):
+func switch_panel(menu_panel):
+	hide_all_panel()
 	match menu_panel:
 		MENU_PANEL.HOME:
-			options.visible = false
 			home.visible = true
-			about.visible = false
 		MENU_PANEL.OPTIONS:
-			home.visible = false
 			options.visible = true
-			about.visible = false
 		MENU_PANEL.ABOUT:
-			home.visible = false
-			options.visible = false
 			about.visible = true
+
+func hide_all_panel():
+	home.visible = false
+	options.visible = false
+	about.visible = false
 
 enum MENU_PANEL{
 	HOME,
