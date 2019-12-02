@@ -7,13 +7,11 @@ var event_items : Array = [
 	load("res://Objects/EventItem/SackOfGold.tscn"),
 	load("res://Objects/EventItem/DwarfInBalloon.tscn"),
 	load("res://Objects/EventItem/Chicken.tscn"),
-	load("res://Objects/EventItem/Mag.tscn")
+	load("res://Objects/EventItem/Wizard.tscn")
 ]
 
 func _ready():
 	restart_timer()
-	var item = event_items[3].instance()
-	get_parent().call_deferred("add_child", item)
 
 func restart_timer():
 	timer.set_wait_time(return_random_time())
@@ -29,7 +27,6 @@ func _on_Timer_timeout():
 func spawn_item():
 	var index : int = randi() % event_items.size()
 	var item = event_items[index].instance()
-	
 	restart_timer()
 	
 	if item.name == "DwarfInBalloon" && dwarf_in_ballon:

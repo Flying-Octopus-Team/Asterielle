@@ -2,7 +2,6 @@ extends "res://Objects/EventItem/EventItem.gd"
 
 onready var BONUS_TIME = 10
 
-var timer
 var default_damage_multiplier
 var default_damage
 
@@ -20,12 +19,8 @@ func get_reward():
 	delayed_reset(BONUS_TIME)
 
 func delayed_reset(time):
-	timer = Timer.new()
-	timer.wait_time = time
-	timer.connect("timeout",self,"_on_timer_timeout")
-	timer.one_shot = true
-	get_parent().add_child(timer)
-	timer.start()
+	yield(get_tree().create_timer(time), "timeout")
+	_on_timer_timeout()
 
 func _on_timer_timeout():
 	var stats = get_parent().find_node("Elf").stats

@@ -6,6 +6,7 @@
 [node name="Chicken" type="Node2D"]
 position = Vector2( 110, 400 )
 script = ExtResource( 1 )
+move_speed = -200.0
 
 [node name="Item" type="Button" parent="."]
 modulate = Color( 1, 1, 1, 0 )
