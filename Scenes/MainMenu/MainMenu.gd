@@ -13,7 +13,7 @@ func _on_ContinueBtn_pressed():
 
 
 func _on_NewGameBtn_pressed():
-	#TODO hard_reset()
+	Directory.new().remove("save.json")
 	get_tree().change_scene(world_path)
 
 
