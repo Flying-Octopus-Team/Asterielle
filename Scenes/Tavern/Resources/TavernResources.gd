@@ -1,12 +1,11 @@
 extends Control
 
-onready var game_data = get_node("/root/World/GameData")
 onready var gold_label = find_node("GoldLabel")
 onready var xp_label = find_node("XpLabel")
 
 func _ready():
-	game_data.connect("gold_changed", self, "_on_Gold_changed")
-	game_data.connect("xp_changed", self, "_on_Xp_changed")
+	GameData.connect("gold_changed", self, "_on_Gold_changed")
+	GameData.connect("xp_changed", self, "_on_Xp_changed")
 	update_gold_label()
 	update_xp_label()
 
@@ -17,10 +16,10 @@ func _on_Xp_changed():
 	update_xp_label()
 	
 func update_gold_label():
-	gold_label.text = str("Zloto: ", stepify(game_data.gold,0.01)) 
+	gold_label.text = str("Zloto: ", stepify(GameData.gold,0.01)) 
 	
 func update_xp_label():
-	xp_label.text = str("Doswiadczenie: ", stepify(game_data.xp,0.01))
+	xp_label.text = str("Doswiadczenie: ", stepify(GameData.xp,0.01))
 	
 func _on_Tavern_entered():
 	visible = true

@@ -1,5 +1,7 @@
 extends Area2D
 
+class_name Dwarf
+
 signal died
 
 export(float) var move_speed_mod = 1
@@ -21,8 +23,6 @@ var velocity : Vector2
 var hp : float
 var damage : float
 
-onready var elf_stats = get_node("/root/World/ElfStats")
-
 onready var hp_bar
 onready var hp_label
 
@@ -30,6 +30,10 @@ func _ready():
 	add_to_group("IDwarf")
 	go_forward()
 	set_texture()
+	
+func set_data(new_hp, new_damage) -> void:
+	set_hp(new_hp)
+	damage = new_damage
 	
 func set_hp(new_hp):
 	hp = new_hp
@@ -53,8 +57,8 @@ func _physics_process(delta):
 		set_physics_process(false)
 		
 func on_arrow_hit(arrow):
-	if randf() < elf_stats.get_stat_value("eagle_eye"):
-		arrow.damage += elf_stats.get_stat_value("strength")
+	if randf() < ElfStats.get_stat_value("eagle_eye"):
+		arrow.damage += ElfStats.get_stat_value("strength")
 	
 	hp -= arrow.damage
 	arrow.queue_free()
