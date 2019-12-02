@@ -51,3 +51,7 @@ enum MENU_PANEL{
 
 func _on_BackBtn_pressed():
 	switch_panel(MENU_PANEL.HOME)
+
+
+func _on_LinkBtn_pressed():
+	OS.shell_open("http://elf-vs-dwarves.pl/") 
