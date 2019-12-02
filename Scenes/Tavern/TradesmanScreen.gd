@@ -1,6 +1,5 @@
 extends "res://Scenes/Tavern/OneTavernScreen.gd"
 
-onready var shop = find_node("Shop")
 onready var reset_items_timer = $ResetItemsTimer
 
 var needs_regenerate_items = true

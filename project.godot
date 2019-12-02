@@ -9,15 +9,25 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Control",
+"class": "BasicShop",
+"language": "GDScript",
+"path": "res://Scenes/Tavern/Shop/BasicShop.gd"
+}, {
 "base": "Sprite",
 "class": "ComingObject",
 "language": "GDScript",
 "path": "res://Objects/ComingObjects/ComingObject.gd"
 }, {
-"base": "Node",
-"class": "ElfStats",
+"base": "Area2D",
+"class": "Dwarf",
 "language": "GDScript",
-"path": "res://Resources/ElfStats.gd"
+"path": "res://Objects/Dwarves/Dwarf/Dwarf.gd"
+}, {
+"base": "TextureButton",
+"class": "GameButton",
+"language": "GDScript",
+"path": "res://Scenes/UserInterface/Buttons/GameButton.gd"
 }, {
 "base": "Resource",
 "class": "Item",
@@ -29,6 +39,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Resources/Items/ItemQuality/ItemQuality.gd"
 }, {
+"base": "TextureButton",
+"class": "SkillBtn",
+"language": "GDScript",
+"path": "res://Scenes/UserInterface/BottomBar/Skills/SkillBtn.gd"
+}, {
 "base": "Node2D",
 "class": "SpawnerSystem",
 "language": "GDScript",
@@ -38,25 +53,38 @@ _global_script_classes=[ {
 "class": "StatChanger",
 "language": "GDScript",
 "path": "res://Resources/Items/StatChangers/StatChanger.gd"
+}, {
+"base": "HBoxContainer",
+"class": "TavernBtn",
+"language": "GDScript",
+"path": "res://Scenes/Tavern/Buttons/TavernBtn.gd"
 } ]
 _global_script_class_icons={
+"BasicShop": "",
 "ComingObject": "",
-"ElfStats": "",
+"Dwarf": "",
+"GameButton": "",
 "Item": "",
 "ItemQuality": "",
+"SkillBtn": "",
 "SpawnerSystem": "",
-"StatChanger": ""
+"StatChanger": "",
+"TavernBtn": ""
 }
 
 [application]
 
 config/name="EvD"
 run/main_scene="res://Scenes/World/World.tscn"
+boot_splash/image="res://flying-octopus-logo.png"
+boot_splash/bg_color=Color( 1, 1, 1, 1 )
 config/icon="res://icon.png"
 
 [autoload]
 
 BackgroundData="*res://Objects/Background/BackgroundData.gd"
+ElfStats="*res://Scripts/ElfStats.gd"
+GameData="*res://Scripts/GameData.gd"
 
 [display]
 
@@ -65,6 +93,29 @@ window/size/test_width=1024
 window/size/test_height=576
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
+
+[importer_defaults]
+
+texture={
+"compress/bptc_ldr": 0,
+"compress/hdr_mode": 0,
+"compress/lossy_quality": 0.7,
+"compress/mode": 0,
+"compress/normal_map": 0,
+"detect_3d": false,
+"flags/anisotropic": false,
+"flags/filter": false,
+"flags/mipmaps": false,
+"flags/repeat": 0,
+"flags/srgb": 2,
+"process/HDR_as_SRGB": false,
+"process/fix_alpha_border": true,
+"process/invert_color": false,
+"process/premult_alpha": false,
+"size_limit": 0,
+"stream": false,
+"svg/scale": 1.0
+}
 
 [input]
 
@@ -90,8 +141,8 @@ pointing/emulate_touch_from_mouse=true
 
 [network]
 
-limits/debugger_stdout/max_messages_per_frame=60
-limits/debugger_stdout/max_errors_per_frame=60
+limits/debugger_stdout/max_messages_per_frame=120
+limits/debugger_stdout/max_errors_per_frame=120
 
 [rendering]
 

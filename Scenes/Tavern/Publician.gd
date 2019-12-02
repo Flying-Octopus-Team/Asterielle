@@ -157,19 +157,18 @@ func give_reward(gold, xp, index):
 	nis.init(3,header,desc)
 	get_parent().call_deferred("add_child", nis)
 	
-	var game_data = get_node("/root/World/GameData")
-	game_data.gold += gold
-	game_data.xp += xp
+	GameData.add_gold(gold)
+	GameData.add_xp(xp)
 
 func add_spend_xp_quest():
-	var xp_to_spend = stepify((get_node("/root/World/GameData").xp + (randi()%5+1)) * (randi()%5+1),2)
+	var xp_to_spend = stepify((GameData.xp + (randi()%5+1)) * (randi()%5+1),2)
 	
 	quests.append(QuestSpendXp.new(xp_to_spend))
 	
 	item_list.add_item(String(quests[quests.size()-1].data["title"]),dwarver_cion)
 
 func add_spend_gold_quest():
-	var gold_to_spend = stepify((get_node("/root/World/GameData").gold + (randi()%5+1)) * (randi()%5+1),2)
+	var gold_to_spend = stepify((GameData.gold + (randi()%5+1)) * (randi()%5+1),2)
 	
 	quests.append(QuestSpendGold.new(gold_to_spend))
 	

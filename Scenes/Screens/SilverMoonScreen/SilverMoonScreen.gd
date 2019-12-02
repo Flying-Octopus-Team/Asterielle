@@ -8,5 +8,5 @@ func _process(delta):
 		return
 	queue_free()
 
-func _on_Button_pressed():
+func _on_OkButton_pressed():
 	queue_free()

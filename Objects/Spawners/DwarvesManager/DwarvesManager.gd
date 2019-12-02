@@ -9,6 +9,11 @@ export(bool) var spawn : bool = true
 var Dwarf = load("res://Objects/Dwarves/Dwarf/Dwarf.tscn")
 var Boss = load("res://Objects/Dwarves/Boss/Boss.tscn")
 
+# dwarf data on level 1
+onready var default_dwarf_hp = dwarf_max_hp
+onready var default_dwarf_damage = dwarf_damage
+
+# dwarf data on level 1, 10, 20, 30, ... (used when elf die)
 onready var base_dwarf_hp = dwarf_max_hp
 onready var base_dwarf_damage = dwarf_damage
 
@@ -46,8 +51,7 @@ func _on_Devil_spawned():
 
 func create_dwarf(DwarfScene, damage:float, hp:float, on_died_func:String):
 	var dwarf = create_object(DwarfScene)
-	dwarf.damage = damage
-	dwarf.set_hp(hp)
+	dwarf.set_data(hp, damage)
 	dwarf.connect("died", level_manager, on_died_func)
 	dwarf.connect("died", self, "_on_Dwarf_died")
 	return dwarf
@@ -61,11 +65,12 @@ func on_next_level(level : int):
 		base_dwarf_damage = dwarf_damage
 		
 func reset_to_base():
-	reset_dwarf_data()
-
-func reset_dwarf_data():
 	dwarf_max_hp = base_dwarf_hp
 	dwarf_damage = base_dwarf_damage
+	
+func reset_to_default() -> void:
+	dwarf_max_hp = default_dwarf_hp
+	dwarf_damage = default_dwarf_damage
 	
 func _on_Dwarf_died():
 	total_dwarves_kill_counter += 1

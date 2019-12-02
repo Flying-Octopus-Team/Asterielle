@@ -1,7 +1,6 @@
 extends Label
 
 onready var stamina_label: Label = self
-onready var elf_stats = get_node("/root/World").find_node("ElfStats")
 
 var current_stamina: float = 10
 var max_stamina: float = 10
@@ -9,7 +8,7 @@ var auto_atack: bool = true
 var timer = null
 
 func _ready():
-	max_stamina = elf_stats.get_stat("stamina").value
+	max_stamina = ElfStats.get_stat("stamina").value
 	current_stamina = max_stamina
 	set_process_input(true)
 
@@ -18,7 +17,7 @@ func _input(event):
 		increasing_stamina()
 
 func increasing_stamina():
-	current_stamina = min(current_stamina + 1, max_stamina)	
+	current_stamina = min(current_stamina + 1, max_stamina)
 
 func _process(delta):
 	if current_stamina > 0:
@@ -27,7 +26,9 @@ func _process(delta):
 	else:
 		auto_atack = false
 	
-	max_stamina = elf_stats.get_stat("stamina").value
-	var status = String(stepify(current_stamina,0.1))+"s / " + String(stepify(max_stamina,0.1)) + "s"
+	var current_stamina_str : String = str(stepify(current_stamina,0.1), "s")
+	var max_stamina_str : String = str(stepify(max_stamina,0.1), "s")
+	
+	var stamina_label_text = current_stamina_str + " / " + max_stamina_str
 
-	stamina_label.stamina_label.text = status
+	stamina_label.stamina_label.text = stamina_label_text

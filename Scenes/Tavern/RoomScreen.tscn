@@ -19,117 +19,128 @@ text = "Pokoj
 
 [node name="Shop" parent="VBoxContainer" index="1"]
 margin_top = 69.0
-margin_bottom = 305.0
+margin_bottom = 365.0
 
 [node name="BowsKnowledge" parent="VBoxContainer/Shop" index="0" instance=ExtResource( 2 )]
 margin_right = 1024.0
+margin_bottom = 26.0
 item_name = "Znajomosc lukow"
 price_xp = 3.0
 price_xp_mod = 1.1
 popup_title = "Zadawaj wieksze obrazenia"
+should_save_price = true
 stat_name = "bows_knowledge"
 multiply_stat = 1.2
 
 [node name="Agility" parent="VBoxContainer/Shop" index="1" instance=ExtResource( 2 )]
-margin_top = 24.0
+margin_top = 30.0
 margin_right = 1024.0
-margin_bottom = 44.0
+margin_bottom = 56.0
 item_name = "Zrecznosc"
 price_xp = 2.0
 price_xp_mod = 1.1
 popup_title = "Unikaj krasnoludzkich ciosow"
+should_save_price = true
 stat_name = "agility"
 add_to_stat = 0.01
 
 [node name="Vitality" parent="VBoxContainer/Shop" index="2" instance=ExtResource( 2 )]
-margin_top = 48.0
+margin_top = 60.0
 margin_right = 1024.0
-margin_bottom = 68.0
+margin_bottom = 86.0
 script = ExtResource( 3 )
 item_name = "Witalnosc"
 price_xp = 1.0
 price_xp_mod = 1.1
 popup_title = "Wytrzymaj wiecej ran"
+should_save_price = true
 stat_name = "vitality"
 add_to_stat = 1.0
 
 [node name="Charisma" parent="VBoxContainer/Shop" index="3" instance=ExtResource( 2 )]
-margin_top = 72.0
+margin_top = 90.0
 margin_right = 1024.0
-margin_bottom = 92.0
+margin_bottom = 116.0
 item_name = "Charyzma"
 price_xp = 5.0
 price_xp_mod = 1.1
 popup_title = "Targuj nizsze ceny"
+should_save_price = true
 stat_name = "charisma"
 add_to_stat = 1.0
 
 [node name="SensinitivePoints" parent="VBoxContainer/Shop" index="4" instance=ExtResource( 2 )]
-margin_top = 96.0
+margin_top = 120.0
 margin_right = 1024.0
-margin_bottom = 116.0
+margin_bottom = 146.0
 item_name = "Czule punkty"
 price_xp = 5.0
 price_xp_mod = 1.1
 popup_title = "Znajdz czule punkty bossow"
+should_save_price = true
 stat_name = "sensinitive_points"
 add_to_stat = 1.0
 
 [node name="EagleEye" parent="VBoxContainer/Shop" index="5" instance=ExtResource( 2 )]
-margin_top = 120.0
+margin_top = 150.0
 margin_right = 1024.0
-margin_bottom = 140.0
+margin_bottom = 176.0
 item_name = "Sokole oko"
 price_xp = 5.0
 price_xp_mod = 1.1
 popup_title = "Strzelaj precyzyjniej i zadawaj krytyki"
+should_save_price = true
 stat_name = "eagle_eye"
 add_to_stat = 0.01
 
 [node name="Strength" parent="VBoxContainer/Shop" index="6" instance=ExtResource( 2 )]
-margin_top = 144.0
+margin_top = 180.0
 margin_right = 1024.0
-margin_bottom = 164.0
+margin_bottom = 206.0
 item_name = "Sila"
 price_xp = 2.0
 price_xp_mod = 1.1
 popup_title = "Zadawaj wiecej obrazen podczas krytykow"
+should_save_price = true
 stat_name = "strength"
 add_to_stat = 1.0
 
 [node name="Magic" parent="VBoxContainer/Shop" index="7" instance=ExtResource( 2 )]
-margin_top = 168.0
+margin_top = 210.0
 margin_right = 1024.0
-margin_bottom = 188.0
+margin_bottom = 236.0
 item_name = "Magia"
 price_xp = 1.0
 price_xp_mod = 1.1
 popup_title = "Czaruj"
+should_save_price = true
 stat_name = "magic"
 add_to_stat = 1.0
 
 [node name="Lucky" parent="VBoxContainer/Shop" index="8" instance=ExtResource( 2 )]
-margin_top = 192.0
+margin_top = 240.0
 margin_right = 1024.0
-margin_bottom = 212.0
+margin_bottom = 266.0
 item_name = "Szczescie"
 price_xp = 5.0
 price_xp_mod = 1.1
 popup_title = "Trafiaj na lepsze przedmioty u handlarza"
+should_save_price = true
 stat_name = "lucky"
 add_to_stat = 1.0
 
 [node name="Stamina" parent="VBoxContainer/Shop" index="9" instance=ExtResource( 2 )]
-margin_top = 216.0
+margin_top = 270.0
 margin_right = 1024.0
-margin_bottom = 236.0
+margin_bottom = 296.0
 item_name = "Wytrzymalosc"
 price_xp = 2.0
 price_xp_mod = 1.1
 popup_title = "Strzelaj dluzej"
+should_save_price = true
 stat_name = "stamina"
 add_to_stat = 0.2
 
 [node name="CenterContainer" parent="VBoxContainer" index="2"]
-margin_top = 309.0
-margin_bottom = 329.0
+margin_top = 369.0
+margin_bottom = 397.0

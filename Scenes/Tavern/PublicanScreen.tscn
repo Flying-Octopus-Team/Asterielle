@@ -61,5 +61,6 @@ margin_left = 20.0
 margin_top = 154.0
 margin_right = 395.0
 margin_bottom = 586.0
+
 [connection signal="bought" from="VBoxContainer/Shop/VineBtn" to="VBoxContainer/Shop" method="_on_VineBtn_bought"]
 [connection signal="bought" from="VBoxContainer/Shop/HealthPotionBtn" to="VBoxContainer/Shop" method="_on_HealthPotionBtn_bought"]

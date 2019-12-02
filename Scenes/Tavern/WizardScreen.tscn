@@ -13,19 +13,21 @@ text = "Mag
 
 [node name="Shop" parent="VBoxContainer" index="1"]
 margin_top = 35.0
-margin_bottom = 55.0
+margin_bottom = 61.0
 script = ExtResource( 2 )
 
 [node name="SpeedupTimeIncrease" parent="VBoxContainer/Shop" index="0" instance=ExtResource( 3 )]
 margin_right = 1024.0
+margin_bottom = 26.0
 item_name = "Przyspieszenie"
 price_gold = 15.0
 price_xp = 200.0
 price_gold_mod = 1.5
 price_xp_mod = 1.8
 popup_title = "Zwieksz czas trwania"
+should_save_price = true
 
 [node name="CenterContainer" parent="VBoxContainer" index="2"]
-margin_top = 59.0
-margin_bottom = 79.0
+margin_top = 65.0
+margin_bottom = 93.0
 [connection signal="bought" from="VBoxContainer/Shop/SpeedupTimeIncrease" to="VBoxContainer/Shop" method="_on_SpeedupTimeIncrease_bought"]
