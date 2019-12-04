@@ -14,7 +14,6 @@ script = ExtResource( 1 )
 [node name="Canvas" type="CanvasLayer" parent="."]
 
 [node name="Home" type="Node2D" parent="Canvas"]
-editor/display_folded = true
 
 [node name="NewGame" type="Sprite" parent="Canvas/Home"]
 position = Vector2( 512, 160 )
@@ -147,6 +146,15 @@ margin_bottom = 572.39
 custom_fonts/font = ExtResource( 3 )
 text = "Flying Octopus"
 align = 2
+valign = 1
+
+[node name="Label2" type="Label" parent="Canvas/Home"]
+margin_left = 4.95445
+margin_top = 541.198
+margin_right = 186.944
+margin_bottom = 571.198
+custom_fonts/font = ExtResource( 3 )
+text = "Version 0.14.1"
 valign = 1
 
 [node name="Options" type="Node2D" parent="Canvas"]
