@@ -15,28 +15,27 @@ margin_top = 120.0
 margin_bottom = 1.0
 
 [node name="NameLabel" parent="VBoxContainer" index="0"]
-text = "Karczmarka
-
-"
+text = "Karczmarka"
 
 [node name="Shop" parent="VBoxContainer" index="1"]
-margin_bottom = 96.0
+margin_bottom = 90.0
 script = ExtResource( 3 )
 
 [node name="VineBtn" parent="VBoxContainer/Shop" index="0" instance=ExtResource( 4 )]
 margin_right = 1024.0
+margin_bottom = 26.0
 
 [node name="HealthPotionBtn" parent="VBoxContainer/Shop" index="1" instance=ExtResource( 5 )]
-margin_top = 24.0
+margin_top = 30.0
 margin_right = 1024.0
-margin_bottom = 44.0
+margin_bottom = 56.0
 item_name = "Mikstura zycia"
 price_gold = 3.0
 popup_title = "Kup miksture zycia na poznie (leczy 4 hp)"
 
 [node name="CenterContainer" parent="VBoxContainer" index="2"]
-margin_top = 100.0
-margin_bottom = 120.0
+margin_top = 94.0
+margin_bottom = 122.0
 
 [node name="Publican" type="Node2D" parent="." index="1"]
 script = ExtResource( 6 )
@@ -61,6 +60,5 @@ margin_left = 20.0
 margin_top = 154.0
 margin_right = 395.0
 margin_bottom = 586.0
-
 [connection signal="bought" from="VBoxContainer/Shop/VineBtn" to="VBoxContainer/Shop" method="_on_VineBtn_bought"]
 [connection signal="bought" from="VBoxContainer/Shop/HealthPotionBtn" to="VBoxContainer/Shop" method="_on_HealthPotionBtn_bought"]

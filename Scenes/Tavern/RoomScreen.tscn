@@ -11,15 +11,10 @@ margin_left = -1.22766
 margin_right = -1.22766
 
 [node name="NameLabel" parent="VBoxContainer" index="0"]
-margin_bottom = 65.0
-text = "Pokoj
-
-
-"
+text = "Pokoj"
 
 [node name="Shop" parent="VBoxContainer" index="1"]
-margin_top = 69.0
-margin_bottom = 365.0
+margin_bottom = 346.0
 
 [node name="BowsKnowledge" parent="VBoxContainer/Shop" index="0" instance=ExtResource( 2 )]
 margin_right = 1024.0
@@ -142,5 +137,5 @@ stat_name = "stamina"
 add_to_stat = 0.2
 
 [node name="CenterContainer" parent="VBoxContainer" index="2"]
-margin_top = 369.0
-margin_bottom = 397.0
+margin_top = 366.0
+margin_bottom = 394.0

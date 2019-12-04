@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scenes/InformationPopup/Popup.gd" type="Script" id=1]
+[ext_resource path="res://Fonts/SHPinsher_16.tres" type="DynamicFont" id=2]
 
 [node name="Popup" type="Control"]
 margin_right = 67.0
@@ -25,10 +26,11 @@ margin_bottom = -6.0
 grow_vertical = 2
 
 [node name="Label" type="Label" parent="MarginContainer"]
-margin_right = 119.0
-margin_bottom = 14.0
+margin_right = 103.0
+margin_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+custom_fonts/font = ExtResource( 2 )
 text = "Default popup text"
 align = 1
 valign = 1
