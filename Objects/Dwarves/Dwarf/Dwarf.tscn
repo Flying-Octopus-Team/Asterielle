@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Objects/Dwarves/Dwarf/Dwarf.gd" type="Script" id=1]
 [ext_resource path="res://Objects/Dwarves/Dwarf/dwarf.png" type="Texture" id=2]
 [ext_resource path="res://OnePixel.png" type="Texture" id=3]
+[ext_resource path="res://Fonts/SHPinsher_16.tres" type="DynamicFont" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 20, 31 )
@@ -51,12 +52,14 @@ value = 70.0
 texture_progress = ExtResource( 3 )
 
 [node name="HPLabel" type="Label" parent="HP"]
-margin_left = -9.0
-margin_top = -69.0
-margin_right = 8.0
-margin_bottom = -55.0
+margin_left = -40.0
+margin_top = -76.0
+margin_right = 40.0
+margin_bottom = -56.0
+custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "10"
+align = 1
 
 [node name="NextAttackTimer" type="Timer" parent="."]
 [connection signal="area_entered" from="." to="." method="_on_Dwarf_area_entered"]

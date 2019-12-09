@@ -4,16 +4,13 @@
 [ext_resource path="res://Scenes/Tavern/Shop/WizardShop.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/Tavern/Buttons/TavernBtn.tscn" type="PackedScene" id=3]
 
-[node name="WizardScreen" instance=ExtResource( 1 )]
+[node name="WizardScreen" index="0" instance=ExtResource( 1 )]
 
 [node name="NameLabel" parent="VBoxContainer" index="0"]
-margin_bottom = 31.0
-text = "Mag
-"
+text = "Mag"
 
 [node name="Shop" parent="VBoxContainer" index="1"]
-margin_top = 35.0
-margin_bottom = 61.0
+margin_bottom = 60.0
 script = ExtResource( 2 )
 
 [node name="SpeedupTimeIncrease" parent="VBoxContainer/Shop" index="0" instance=ExtResource( 3 )]
@@ -28,6 +25,6 @@ popup_title = "Zwieksz czas trwania"
 should_save_price = true
 
 [node name="CenterContainer" parent="VBoxContainer" index="2"]
-margin_top = 65.0
-margin_bottom = 93.0
+margin_top = 64.0
+margin_bottom = 92.0
 [connection signal="bought" from="VBoxContainer/Shop/SpeedupTimeIncrease" to="VBoxContainer/Shop" method="_on_SpeedupTimeIncrease_bought"]

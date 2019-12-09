@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scenes/Screens/EssentialInform/EssentialInform.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/Screens/EssentialInform/SilverMoon.png" type="Texture" id=2]
-[ext_resource path="res://Scenes/Screens/EssentialInform/Skull.png" type="Texture" id=3]
-[ext_resource path="res://Scenes/UserInterface/Buttons/GameButton.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Fonts/frikativ_32.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Fonts/SHPinsher_16.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Scenes/Screens/EssentialInform/SilverMoon.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/Screens/EssentialInform/Skull.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/UserInterface/Buttons/GameButton.tscn" type="PackedScene" id=6]
 
 [sub_resource type="Animation" id=1]
 resource_name = "FadedIn"
@@ -122,12 +124,12 @@ tracks/3/keys = {
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ ExtResource( 2 ) ],
+"frames": [ ExtResource( 4 ) ],
 "loop": true,
 "name": "moon",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ) ],
+"frames": [ ExtResource( 5 ) ],
 "loop": true,
 "name": "skull",
 "speed": 5.0
@@ -157,8 +159,9 @@ margin_bottom = 174.0
 
 [node name="TopText" type="Label" parent="CanvasLayer"]
 anchor_right = 1.0
-margin_top = 271.68
-margin_bottom = 285.68
+margin_top = 236.689
+margin_bottom = 268.689
+custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Top Text"
 align = 1
@@ -167,6 +170,7 @@ align = 1
 anchor_right = 1.0
 margin_top = 504.79
 margin_bottom = 759.79
+custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Center Text Center Text Center Text Center Text Center Text Center Text Center Text Center Text 
 Center Text Center Text Center Text Center Text Center Text Center Text Center Text Center Text 
@@ -182,7 +186,7 @@ scale = Vector2( 0.357688, 0.357688 )
 frames = SubResource( 3 )
 animation = "skull"
 
-[node name="ExitButton" parent="CanvasLayer" instance=ExtResource( 4 )]
+[node name="ExitButton" parent="CanvasLayer" instance=ExtResource( 6 )]
 margin_left = 456.739
 margin_top = 671.446
 margin_right = 568.739
