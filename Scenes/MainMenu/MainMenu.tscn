@@ -154,7 +154,7 @@ margin_top = 541.198
 margin_right = 186.944
 margin_bottom = 571.198
 custom_fonts/font = ExtResource( 3 )
-text = "Version 0.14.2"
+text = "Version 0.14.3"
 valign = 1
 
 [node name="Options" type="Node2D" parent="Canvas"]
