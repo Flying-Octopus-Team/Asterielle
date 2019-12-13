@@ -9,7 +9,7 @@
 [ext_resource path="res://Scenes/Tavern/TradesmanScreen.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Tavern/PublicanScreen.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Tavern/Resources/TavernResources.gd" type="Script" id=9]
-[ext_resource path="res://Fonts/SHPinsher_24.tres" type="DynamicFont" id=10]
+[ext_resource path="res://Fonts/SHPinsher_16.tres" type="DynamicFont" id=10]
 [ext_resource path="res://Objects/StatsPanel/StatsPanel.tscn" type="PackedScene" id=11]
 
 [node name="TavernScreen" type="CanvasLayer"]
@@ -22,6 +22,7 @@ anchor_bottom = 1.0
 color = Color( 0.360784, 0.286275, 0.286275, 1 )
 
 [node name="MainHall" type="Control" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 2 )
@@ -84,23 +85,27 @@ margin_bottom = 40.0
 script = ExtResource( 9 )
 
 [node name="MarginContainer" type="MarginContainer" parent="Resources"]
-margin_left = 40.0
-margin_top = 40.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Resources/MarginContainer"]
-margin_right = 159.0
-margin_bottom = 64.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 169.0
+margin_bottom = 74.0
 
 [node name="GoldLabel" type="Label" parent="Resources/MarginContainer/VBoxContainer"]
-margin_right = 128.0
-margin_bottom = 14.0
+margin_right = 159.0
+margin_bottom = 30.0
 custom_fonts/font = ExtResource( 10 )
 text = "Zloto: 100"
 
 [node name="XpLabel" type="Label" parent="Resources/MarginContainer/VBoxContainer"]
-margin_top = 18.0
-margin_right = 128.0
-margin_bottom = 32.0
+margin_top = 34.0
+margin_right = 159.0
+margin_bottom = 64.0
 custom_fonts/font = ExtResource( 10 )
 text = "Doswiadczenie: 100"
 
