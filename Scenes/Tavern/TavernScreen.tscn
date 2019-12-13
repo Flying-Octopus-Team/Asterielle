@@ -22,48 +22,46 @@ anchor_bottom = 1.0
 color = Color( 0.360784, 0.286275, 0.286275, 1 )
 
 [node name="MainHall" type="Control" parent="."]
-editor/display_folded = true
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 2 )
 
 [node name="ExitDoorBtn" parent="MainHall" instance=ExtResource( 3 )]
-margin_left = 53.1572
-margin_top = 444.12
-margin_right = 165.157
-margin_bottom = 472.12
+margin_left = 26.3486
+margin_top = 251.654
+margin_right = 138.349
+margin_bottom = 279.654
 button_label = "Wyjdz"
 
 [node name="EnterWizardBtn" parent="MainHall" instance=ExtResource( 4 )]
-margin_left = 592.795
-margin_top = 420.316
-margin_right = 662.795
-margin_bottom = 440.316
+margin_left = 234.892
+margin_top = 188.085
+margin_right = 346.892
+margin_bottom = 216.085
 button_label = "Mag"
 screen_name = "WizardScreen"
 
 [node name="EnterRoomBtn" parent="MainHall" instance=ExtResource( 4 )]
-margin_left = 587.094
-margin_top = 272.045
-margin_right = 657.094
-margin_bottom = 292.045
+margin_left = 388.712
+margin_top = 117.873
+margin_right = 500.712
+margin_bottom = 145.873
 button_label = "Pokoj"
 screen_name = "RoomScreen"
 
 [node name="EnterTradesmanBtn" parent="MainHall" instance=ExtResource( 4 )]
-margin_left = 215.108
-margin_top = 267.02
-margin_right = 285.108
-margin_bottom = 287.02
+margin_left = 94.6058
+margin_top = 122.198
+margin_right = 206.606
+margin_bottom = 150.198
 button_label = "Handlarz"
 screen_name = "TradesmanScreen"
 
 [node name="EnterPublicanBtn" parent="MainHall" instance=ExtResource( 4 )]
-margin_left = 479.108
-margin_top = 159.02
-margin_right = 557.108
-margin_bottom = 179.02
+margin_left = 231.739
+margin_top = 45.3357
+margin_right = 343.739
+margin_bottom = 73.3357
 button_label = "Karczmarka"
 screen_name = "PublicanScreen"
 
@@ -107,8 +105,8 @@ custom_fonts/font = ExtResource( 10 )
 text = "Doswiadczenie: 100"
 
 [node name="StatsPanel" parent="." instance=ExtResource( 11 )]
-margin_left = 783.705
-margin_top = 359.537
-margin_right = 783.705
-margin_bottom = 359.537
+margin_left = 360.525
+margin_top = 168.461
+margin_right = 360.525
+margin_bottom = 168.461
 [connection signal="pressed" from="MainHall/ExitDoorBtn" to="." method="_on_ExitDoorBtn_pressed"]
