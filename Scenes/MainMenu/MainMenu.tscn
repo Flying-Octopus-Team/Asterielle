@@ -15,7 +15,6 @@ script = ExtResource( 1 )
 
 [node name="Home" type="Control" parent="Canvas"]
 editor/display_folded = true
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 
@@ -191,6 +190,8 @@ margin_left = 40.0
 margin_right = 121.0
 
 [node name="About" type="Control" parent="Canvas"]
+editor/display_folded = true
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 
@@ -233,7 +234,7 @@ size_flags_vertical = 3
 scroll_horizontal_enabled = false
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Canvas/About/MarginContainer2/VBoxContainer/ScrollContainer"]
-margin_right = 528.0
+margin_right = 540.0
 margin_bottom = 546.0
 size_flags_horizontal = 3
 custom_constants/separation = 20
