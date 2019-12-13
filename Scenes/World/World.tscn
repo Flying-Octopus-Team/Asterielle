@@ -24,7 +24,7 @@ __meta__ = {
 }
 
 [node name="Elf" parent="." instance=ExtResource( 2 )]
-position = Vector2( 121.06, 544.182 )
+position = Vector2( 72.0464, 271.228 )
 z_index = 1
 
 [node name="PlanetAnimation" parent="." instance=ExtResource( 3 )]
@@ -46,7 +46,7 @@ position = Vector2( 1081.15, 545.387 )
 
 [node name="Ground" type="Area2D" parent="."]
 editor/display_folded = true
-position = Vector2( 568.185, 578.34 )
+position = Vector2( 387.044, 274.607 )
 monitoring = false
 collision_layer = 32
 collision_mask = 0

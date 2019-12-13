@@ -6,7 +6,6 @@
 [ext_resource path="res://Objects/Background/Planets/Stars.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Objects/Background/Background.tscn" type="PackedScene" id=5]
 
-
 [node name="PlanetAnimation" type="AnimationPlayer"]
 root_node = NodePath("")
 playback_speed = 3.0
