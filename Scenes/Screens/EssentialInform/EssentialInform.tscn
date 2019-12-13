@@ -159,8 +159,8 @@ margin_bottom = 174.0
 
 [node name="TopText" type="Label" parent="CanvasLayer"]
 anchor_right = 1.0
-margin_top = 236.689
-margin_bottom = 268.689
+margin_top = 190.391
+margin_bottom = 222.391
 custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Top Text"
@@ -168,8 +168,11 @@ align = 1
 
 [node name="CenterText" type="Label" parent="CanvasLayer"]
 anchor_right = 1.0
-margin_top = 504.79
-margin_bottom = 759.79
+anchor_bottom = 1.0
+margin_left = -31.723
+margin_top = 261.5
+margin_right = 29.277
+margin_bottom = 58.4999
 custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Center Text Center Text Center Text Center Text Center Text Center Text Center Text Center Text 
@@ -180,17 +183,18 @@ Center Text Center Text Center Text "
 align = 1
 
 [node name="Sprite" type="AnimatedSprite" parent="CanvasLayer"]
-position = Vector2( 511.96, 396.538 )
+visible = false
+position = Vector2( 286.47, 308.228 )
 rotation = -0.00411392
 scale = Vector2( 0.357688, 0.357688 )
 frames = SubResource( 3 )
 animation = "skull"
 
 [node name="ExitButton" parent="CanvasLayer" instance=ExtResource( 6 )]
-margin_left = 456.739
-margin_top = 671.446
-margin_right = 568.739
-margin_bottom = 699.446
+margin_left = 232.572
+margin_top = 435.407
+margin_right = 344.572
+margin_bottom = 463.407
 button_label = "OK"
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="pressed" from="CanvasLayer/ExitButton" to="." method="_on_ExitButton_pressed"]
