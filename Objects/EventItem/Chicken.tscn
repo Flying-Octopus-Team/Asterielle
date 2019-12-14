@@ -4,9 +4,8 @@
 [ext_resource path="res://icon.png" type="Texture" id=2]
 
 [node name="Chicken" type="Node2D"]
-position = Vector2( 110, 400 )
+position = Vector2( 603.96, 293.125 )
 script = ExtResource( 1 )
-move_speed = -200.0
 
 [node name="Item" type="Button" parent="."]
 modulate = Color( 1, 1, 1, 0 )

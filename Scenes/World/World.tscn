@@ -28,7 +28,6 @@ position = Vector2( 72.0464, 271.228 )
 z_index = 1
 
 [node name="PlanetAnimation" parent="." instance=ExtResource( 3 )]
-playback_speed = 1.0
 
 [node name="UIContainer" parent="." instance=ExtResource( 4 )]
 
