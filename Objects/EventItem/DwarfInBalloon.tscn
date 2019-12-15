@@ -4,8 +4,8 @@
 [ext_resource path="res://Objects/EventItem/Krasnal_balon.png" type="Texture" id=2]
 
 [node name="DwarfInBalloon" type="Node2D"]
-position = Vector2( 110, 400 )
-z_index = 100
+position = Vector2( 56.5804, 104.18 )
+z_index = 50
 script = ExtResource( 1 )
 move_speed = 0.0
 
@@ -15,9 +15,9 @@ texture = ExtResource( 2 )
 
 [node name="Item" type="Button" parent="Krasnal_balon"]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = -69.1515
+margin_left = -70.0496
 margin_top = -65.5564
-margin_right = 70.8485
+margin_right = 69.9504
 margin_bottom = 66.4436
 text = "Krasnolud w balonie"
 [connection signal="pressed" from="Krasnal_balon/Item" to="." method="_on_Item_pressed"]
