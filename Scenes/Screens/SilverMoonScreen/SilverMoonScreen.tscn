@@ -17,23 +17,23 @@ layer = 10
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 174.0
-margin_bottom = -243.0
+margin_top = 104.526
+margin_bottom = -60.4738
 color = Color( 0.168627, 0.168627, 0.168627, 0.717647 )
 
 [node name="SilverMoonInfoLabel" type="Label" parent="CanvasLayer"]
 anchor_right = 1.0
-margin_top = 188.0
-margin_bottom = 250.0
+margin_top = 121.684
+margin_bottom = 183.684
 custom_fonts/font = ExtResource( 2 )
 text = "Oto infornacja o tym czym sa srebrne ksiezyce
 oraz czym jest odrodzenie"
 align = 1
 
 [node name="OkButton" parent="CanvasLayer" instance=ExtResource( 3 )]
-margin_left = 445.506
-margin_top = 286.308
-margin_right = 557.506
-margin_bottom = 314.308
+margin_left = 232.823
+margin_top = 201.055
+margin_right = 344.823
+margin_bottom = 229.055
 button_label = "OK!"
 [connection signal="pressed" from="CanvasLayer/OkButton" to="." method="_on_OkButton_pressed"]

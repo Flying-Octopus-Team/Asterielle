@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/Screens/NegligibleInform/NegligibleInform.gd" type="Script" id=1]
-[ext_resource path="res://Fonts/frikativ_32.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Fonts/frikativ_24.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Fonts/SHPinsher_16.tres" type="DynamicFont" id=3]
 [ext_resource path="res://Scenes/UserInterface/Buttons/GameButton.tscn" type="PackedScene" id=4]
 
@@ -16,33 +16,34 @@ script = ExtResource( 1 )
 layer = 10
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchor_top = 0.5
 anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = 174.0
-margin_bottom = -221.0
+anchor_bottom = 0.5
+margin_top = -77.5148
+margin_bottom = 72.4852
 color = Color( 0, 0, 0, 0.52549 )
 
 [node name="TopText" type="Label" parent="CanvasLayer"]
 anchor_right = 1.0
-margin_top = 182.68
-margin_bottom = 214.68
+margin_top = 94.2712
+margin_bottom = 126.271
 custom_fonts/font = ExtResource( 2 )
 text = "First text"
 align = 1
 
 [node name="CenterText" type="Label" parent="CanvasLayer"]
 anchor_right = 1.0
-margin_top = 235.16
+margin_top = 137.915
 margin_right = -0.00012207
-margin_bottom = 255.16
+margin_bottom = 157.915
 custom_fonts/font = ExtResource( 3 )
 text = "Second text"
 align = 1
 
 [node name="GameButton" parent="CanvasLayer" instance=ExtResource( 4 )]
-margin_left = 457.727
-margin_top = 298.743
-margin_right = 569.727
-margin_bottom = 326.743
+margin_left = 225.927
+margin_top = 184.743
+margin_right = 337.927
+margin_bottom = 212.743
 button_label = "OK"
 [connection signal="pressed" from="CanvasLayer/GameButton" to="." method="exit"]

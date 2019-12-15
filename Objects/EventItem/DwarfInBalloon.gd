@@ -4,7 +4,7 @@ onready var event_manager = get_parent().get_node("EventManager")
 
 func _ready():
 	event_manager.dwarf_in_ballon = true
-	set_start_position(110,400)
+	set_start_position(57, 110)
 
 func _process(delta):
 	move(delta)

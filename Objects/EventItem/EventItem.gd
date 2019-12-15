@@ -5,7 +5,7 @@ export(float) var move_speed = -100
 
 func _ready():
 	var value = randi()%800+160
-	set_start_position(value,550)
+	set_start_position(value,293)
 
 func _process(delta):
 	move(delta)
