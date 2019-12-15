@@ -24,29 +24,28 @@ __meta__ = {
 }
 
 [node name="Elf" parent="." instance=ExtResource( 2 )]
-position = Vector2( 121.06, 544.182 )
+position = Vector2( 72.0464, 271.228 )
 z_index = 1
 
 [node name="PlanetAnimation" parent="." instance=ExtResource( 3 )]
-playback_speed = 1.0
 
 [node name="UIContainer" parent="." instance=ExtResource( 4 )]
 
 [node name="Revival" parent="." instance=ExtResource( 5 )]
 
 [node name="DwarvesManager" parent="." instance=ExtResource( 6 )]
-position = Vector2( 1081.97, 544.587 )
+position = Vector2( 620, 270 )
 z_index = 1
 
 [node name="TavernSpawner" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1081.97, 544.587 )
+position = Vector2( 620, 270 )
 
 [node name="DevilSpawner" parent="." instance=ExtResource( 8 )]
-position = Vector2( 1081.15, 545.387 )
+position = Vector2( 620, 270 )
 
 [node name="Ground" type="Area2D" parent="."]
 editor/display_folded = true
-position = Vector2( 568.185, 578.34 )
+position = Vector2( 387.044, 274.607 )
 monitoring = false
 collision_layer = 32
 collision_mask = 0

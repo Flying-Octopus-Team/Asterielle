@@ -4,7 +4,7 @@
 [ext_resource path="res://icon.png" type="Texture" id=2]
 
 [node name="Wizard" type="Node2D"]
-position = Vector2( 110, 400 )
+position = Vector2( 590.001, 268.421 )
 script = ExtResource( 1 )
 
 [node name="button" type="Button" parent="."]

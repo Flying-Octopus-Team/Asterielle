@@ -1,18 +1,23 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://Fonts/SHPinsher_24.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Fonts/SHPinsher_16.tres" type="DynamicFont" id=1]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchor_right = 1.0
-margin_bottom = 24.0
-custom_constants/margin_top = 130
+margin_bottom = 14.0
+custom_constants/margin_top = 100
 
-[node name="TimeToKillLabel" type="Label" parent="MarginContainer"]
-margin_top = 130.0
-margin_right = 1024.0
-margin_bottom = 160.0
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer"]
+margin_top = 100.0
+margin_right = 560.0
+margin_bottom = 120.0
+
+[node name="TimeToKillLabel" type="Label" parent="MarginContainer/CenterContainer"]
+margin_left = 173.0
+margin_right = 386.0
+margin_bottom = 20.0
 custom_fonts/font = ExtResource( 1 )
 text = "Do zabicia bossa pozostalo 30 sekund"
 align = 1
