@@ -18,7 +18,7 @@ func restart_timer():
 	timer.start()
 
 func return_random_time() -> float:
-	var value = randi()%40+20
+	var value = 3#randi()%40+20
 	return value
 	
 func _on_Timer_timeout():
