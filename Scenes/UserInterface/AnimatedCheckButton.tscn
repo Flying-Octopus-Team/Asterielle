@@ -30,6 +30,7 @@ rect_min_size = Vector2( 81, 27 )
 mouse_default_cursor_shape = 2
 custom_icons/off = SubResource( 1 )
 custom_icons/on = SubResource( 2 )
+disabled = true
 script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
