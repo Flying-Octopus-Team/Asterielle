@@ -3,7 +3,8 @@ extends "res://Objects/EventItem/EventItem.gd"
 onready var BONUS_TIME = 10
 
 var default_damage_multiplier
-var default_damage 
+var default_damage
+
 
 func get_reward():
 	default_damage_multiplier = ElfStats.damage_multiplier
@@ -34,5 +35,4 @@ func _on_Item_pressed():
 	hide_item()
 
 func hide_item():
-	$texture.visible = false
-	$button.disabled = true
+	get_node("texture").visible = false
