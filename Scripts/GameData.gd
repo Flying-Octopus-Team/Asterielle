@@ -119,7 +119,7 @@ func add_silver_moon():
 	if lvl < 50:
 		return
 	
-	if lvl == 50:
+	if lvl == 51:
 		silver_moon += 1
 		emit_signal("get_first_silver_moon")
 		return

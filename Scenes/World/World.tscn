@@ -4,13 +4,13 @@
 [ext_resource path="res://Objects/Elf/Elf.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Objects/Background/Planets/PlanetAnimation.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/UserInterface/UIContainer.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/World/Revival.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Objects/Spawners/DwarvesManager/DwarvesManager.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Objects/Spawners/TavernSpawner/TavernSpawner.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Objects/Spawners/DevilSpawner/DevilSpawner.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Scenes/Tavern/TavernScreen.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Scenes/World/GameManager.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Scenes/World/LevelManager.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Objects/Spawners/DwarvesManager/DwarvesManager.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Objects/Spawners/TavernSpawner/TavernSpawner.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Objects/Spawners/DevilSpawner/DevilSpawner.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Tavern/TavernScreen.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/World/GameManager.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/World/LevelManager.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/World/Revival.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Objects/EventItem/EventManager.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/World/GameSaver.tscn" type="PackedScene" id=13]
 
@@ -31,16 +31,14 @@ z_index = 1
 
 [node name="UIContainer" parent="." instance=ExtResource( 4 )]
 
-[node name="Revival" parent="." instance=ExtResource( 5 )]
-
-[node name="DwarvesManager" parent="." instance=ExtResource( 6 )]
+[node name="DwarvesManager" parent="." instance=ExtResource( 5 )]
 position = Vector2( 620, 270 )
 z_index = 1
 
-[node name="TavernSpawner" parent="." instance=ExtResource( 7 )]
+[node name="TavernSpawner" parent="." instance=ExtResource( 6 )]
 position = Vector2( 620, 270 )
 
-[node name="DevilSpawner" parent="." instance=ExtResource( 8 )]
+[node name="DevilSpawner" parent="." instance=ExtResource( 7 )]
 position = Vector2( 620, 270 )
 
 [node name="Ground" type="Area2D" parent="."]
@@ -56,11 +54,13 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
 shape = SubResource( 1 )
 
-[node name="TavernScreen" parent="." instance=ExtResource( 9 )]
+[node name="TavernScreen" parent="." instance=ExtResource( 8 )]
 
-[node name="GameManager" parent="." instance=ExtResource( 10 )]
+[node name="GameManager" parent="." instance=ExtResource( 9 )]
 
-[node name="LevelManager" parent="." instance=ExtResource( 11 )]
+[node name="LevelManager" parent="." instance=ExtResource( 10 )]
+
+[node name="Revival" parent="." instance=ExtResource( 11 )]
 
 [node name="EventManager" parent="." instance=ExtResource( 12 )]
 

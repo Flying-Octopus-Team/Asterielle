@@ -237,33 +237,10 @@ margin_bottom = 238.0
 size_flags_horizontal = 3
 custom_constants/separation = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer3"]
-margin_left = 89.0
-margin_right = 178.0
-margin_bottom = 47.0
-size_flags_horizontal = 8
-custom_constants/separation = 0
-
-[node name="RevivalEnterBtn" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer3/VBoxContainer" instance=ExtResource( 33 )]
-margin_left = 8.0
-margin_right = 89.0
-size_flags_horizontal = 8
-
-[node name="RevivalEnterLabel" type="Label" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer3/VBoxContainer"]
-margin_top = 27.0
-margin_right = 89.0
-margin_bottom = 47.0
-size_flags_horizontal = 0
-custom_fonts/font = ExtResource( 31 )
-text = "Przywolaj diabla"
-align = 2
-
 [node name="VBoxContainer2" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer3"]
-editor/display_folded = true
 margin_left = 84.0
-margin_top = 57.0
 margin_right = 178.0
-margin_bottom = 104.0
+margin_bottom = 47.0
 size_flags_horizontal = 8
 custom_constants/separation = 0
 
@@ -281,6 +258,28 @@ custom_fonts/font = ExtResource( 31 )
 text = "Wejdz do tawerny"
 align = 2
 
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer3"]
+margin_left = 89.0
+margin_top = 57.0
+margin_right = 178.0
+margin_bottom = 104.0
+size_flags_horizontal = 8
+custom_constants/separation = 0
+
+[node name="RevivalEnterBtn" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer3/VBoxContainer" instance=ExtResource( 33 )]
+margin_left = 8.0
+margin_right = 89.0
+size_flags_horizontal = 8
+
+[node name="RevivalEnterLabel" type="Label" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer3/VBoxContainer"]
+margin_top = 27.0
+margin_right = 89.0
+margin_bottom = 47.0
+size_flags_horizontal = 0
+custom_fonts/font = ExtResource( 31 )
+text = "Przywolaj diabla"
+align = 2
+
 [node name="BottomBar" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
 editor/display_folded = true
 margin_top = 248.0
@@ -294,7 +293,7 @@ size_flags_horizontal = 3
 script = ExtResource( 34 )
 
 [node name="SpeedupBtn" parent="Control/MarginContainer/VBoxContainer/BottomBar/ActiveSpells" instance=ExtResource( 35 )]
-margin_right = 32.0
+margin_right = 29.0
 margin_bottom = 32.0
 
 [node name="Potions" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/BottomBar"]
@@ -318,5 +317,5 @@ margin_left = 362.0
 margin_right = 540.0
 margin_bottom = 32.0
 size_flags_horizontal = 3
-[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer3/VBoxContainer/RevivalEnterBtn" to="." method="_on_RevivalEnterBtn_pressed"]
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer3/VBoxContainer2/TavernEnterBtn" to="." method="_on_TavernEnterBtn_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer3/VBoxContainer/RevivalEnterBtn" to="." method="_on_RevivalEnterBtn_pressed"]

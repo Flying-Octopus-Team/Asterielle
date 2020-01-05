@@ -3,7 +3,8 @@ extends "res://Objects/EventItem/EventItem.gd"
 onready var BONUS_TIME = 10
 
 var default_damage_multiplier
-var default_damage 
+var default_damage
+
 
 func get_reward():
 	default_damage_multiplier = ElfStats.damage_multiplier
