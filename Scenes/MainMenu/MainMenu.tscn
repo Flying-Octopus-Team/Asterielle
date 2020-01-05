@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/MainMenu/MainMenu.gd" type="Script" id=1]
-[ext_resource path="res://Fonts/frikativ_32.tres" type="DynamicFont" id=2]
-[ext_resource path="res://Scenes/UserInterface/Buttons/GameButton.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Fonts/SHPinsher_16.tres" type="DynamicFont" id=4]
-[ext_resource path="res://Fonts/SHPinsher_24.tres" type="DynamicFont" id=5]
+[ext_resource path="res://Scenes/UserInterface/Graphics/button11.png" type="Texture" id=2]
+[ext_resource path="res://Fonts/SHPinsher_24.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Fonts/frikativ_64.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Fonts/SHPinsher_16.tres" type="DynamicFont" id=5]
 [ext_resource path="res://Scenes/UserInterface/AnimatedCheckButton.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Objects/Background/Background.tscn" type="PackedScene" id=7]
 
@@ -40,261 +40,281 @@ text = "Asterielle Slayer of Dwarves "
 align = 1
 valign = 1
 
-[node name="CenterContainer" type="CenterContainer" parent="Canvas/Home/MarginContainer/VBoxContainer"]
-margin_top = 36.0
-margin_right = 540.0
-margin_bottom = 261.0
-size_flags_vertical = 3
+[node name="NewGameBtn" type="Button" parent="Canvas/Home/NewGame"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = -56.0
+margin_top = -14.7933
+margin_right = 56.0
+margin_bottom = 12.2067
+text = "Kontynuuj Gre"
 
-[node name="Menu" type="VBoxContainer" parent="Canvas/Home/MarginContainer/VBoxContainer/CenterContainer"]
-margin_left = 214.0
-margin_top = 34.0
-margin_right = 326.0
-margin_bottom = 190.0
+[node name="Continue" type="Sprite" parent="Canvas/Home"]
+position = Vector2( 512, 240 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
 
-[node name="NewGameBtn" parent="Canvas/Home/MarginContainer/VBoxContainer/CenterContainer/Menu" instance=ExtResource( 3 )]
-margin_right = 112.0
-margin_bottom = 28.0
-button_label = "New Game"
-
-[node name="ContinueBtn" parent="Canvas/Home/MarginContainer/VBoxContainer/CenterContainer/Menu" instance=ExtResource( 3 )]
-margin_top = 32.0
-margin_right = 112.0
-margin_bottom = 60.0
-button_label = "Continue"
-
-[node name="OptionsBtn" parent="Canvas/Home/MarginContainer/VBoxContainer/CenterContainer/Menu" instance=ExtResource( 3 )]
-margin_top = 64.0
-margin_right = 112.0
-margin_bottom = 92.0
-button_label = "Options"
-
-[node name="AboutBtn" parent="Canvas/Home/MarginContainer/VBoxContainer/CenterContainer/Menu" instance=ExtResource( 3 )]
-margin_top = 96.0
-margin_right = 112.0
-margin_bottom = 124.0
-button_label = "About"
-
-[node name="ExitBtn" parent="Canvas/Home/MarginContainer/VBoxContainer/CenterContainer/Menu" instance=ExtResource( 3 )]
-margin_top = 128.0
-margin_right = 112.0
-margin_bottom = 156.0
-button_label = "Exit"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Canvas/Home/MarginContainer/VBoxContainer"]
-margin_top = 265.0
-margin_right = 540.0
-margin_bottom = 295.0
-
-[node name="VersionLabel" type="Label" parent="Canvas/Home/MarginContainer/VBoxContainer/HBoxContainer"]
-margin_top = 10.0
-margin_right = 78.0
-margin_bottom = 30.0
-size_flags_vertical = 8
-custom_fonts/font = ExtResource( 4 )
-text = "Version 0.14.3"
+[node name="Label" type="Label" parent="Canvas/Home/Continue"]
+margin_left = -55.0
+margin_top = -18.0
+margin_right = 57.0
+margin_bottom = 13.0
+custom_fonts/font = ExtResource( 3 )
+text = "Kontynuuj"
+align = 1
 valign = 1
 
-[node name="FlyingOctopusLabel" type="Label" parent="Canvas/Home/MarginContainer/VBoxContainer/HBoxContainer"]
-margin_left = 82.0
-margin_right = 540.0
-margin_bottom = 30.0
-size_flags_horizontal = 3
-custom_fonts/font = ExtResource( 5 )
+[node name="ContinueBtn" type="Button" parent="Canvas/Home/Continue"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = -56.0
+margin_top = -14.0
+margin_right = 56.0
+margin_bottom = 13.0
+text = "Kontynuuj Gre"
+
+[node name="Options" type="Sprite" parent="Canvas/Home"]
+position = Vector2( 512, 320 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="Canvas/Home/Options"]
+margin_left = -56.0
+margin_top = -17.0
+margin_right = 56.0
+margin_bottom = 13.0
+custom_fonts/font = ExtResource( 3 )
+text = "Opcje"
+align = 1
+valign = 1
+
+[node name="OptionsBtn" type="Button" parent="Canvas/Home/Options"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = -56.0
+margin_top = -14.0
+margin_right = 56.0
+margin_bottom = 13.0
+text = "Kontynuuj Gre"
+
+[node name="About" type="Sprite" parent="Canvas/Home"]
+position = Vector2( 512, 400 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="Canvas/Home/About"]
+margin_left = -55.6849
+margin_top = -16.9371
+margin_right = 56.3151
+margin_bottom = 16.0629
+custom_fonts/font = ExtResource( 3 )
+text = "O Nas"
+align = 1
+valign = 1
+
+[node name="AboutBtn" type="Button" parent="Canvas/Home/About"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = -56.0
+margin_top = -14.0
+margin_right = 56.0
+margin_bottom = 13.0
+text = "Kontynuuj Gre"
+
+[node name="Exit" type="Sprite" parent="Canvas/Home"]
+position = Vector2( 512, 480 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="Canvas/Home/Exit"]
+margin_left = -55.4863
+margin_top = -18.2078
+margin_right = 56.5137
+margin_bottom = 14.7922
+custom_fonts/font = ExtResource( 3 )
+text = "Wyjscie"
+align = 1
+valign = 1
+
+[node name="ExitBtn" type="Button" parent="Canvas/Home/Exit"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = -56.0
+margin_top = -14.0
+margin_right = 56.0
+margin_bottom = 13.0
+text = "Kontynuuj Gre"
+
+[node name="Name" type="Label" parent="Canvas/Home"]
+margin_right = 1023.0
+margin_bottom = 119.0
+custom_fonts/font = ExtResource( 4 )
+text = "Asterielle Slayer of Dwarves "
+align = 1
+valign = 1
+
+[node name="Label" type="Label" parent="Canvas/Home"]
+margin_left = 839.27
+margin_top = 542.39
+margin_right = 1021.26
+margin_bottom = 572.39
+custom_fonts/font = ExtResource( 3 )
 text = "Flying Octopus"
 align = 2
 valign = 1
 
-[node name="Options" type="Control" parent="Canvas"]
+[node name="Label2" type="Label" parent="Canvas/Home"]
+margin_left = 4.95445
+margin_top = 541.198
+margin_right = 186.944
+margin_bottom = 571.198
+custom_fonts/font = ExtResource( 3 )
+text = "Version 0.14.1"
+valign = 1
+
+[node name="Options" type="Node2D" parent="Canvas"]
 editor/display_folded = true
 visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
 
-[node name="MarginContainer" type="MarginContainer" parent="Canvas/Options"]
-editor/display_folded = true
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_constants/margin_right = 10
-custom_constants/margin_top = 10
-custom_constants/margin_left = 10
-custom_constants/margin_bottom = 10
+[node name="BackBtn" type="Sprite" parent="Canvas/Options"]
+position = Vector2( 101.506, 48.3656 )
+texture = ExtResource( 2 )
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Canvas/Options/MarginContainer"]
-margin_left = 10.0
-margin_top = 10.0
-margin_right = 550.0
-margin_bottom = 305.0
-custom_constants/separation = 20
-
-[node name="BackBtn" parent="Canvas/Options/MarginContainer/VBoxContainer" instance=ExtResource( 3 )]
-margin_right = 112.0
-margin_bottom = 28.0
-size_flags_horizontal = 0
-button_label = "Back"
-
-[node name="Label" type="Label" parent="Canvas/Options/MarginContainer/VBoxContainer"]
-margin_top = 48.0
-margin_right = 540.0
-margin_bottom = 80.0
-custom_fonts/font = ExtResource( 2 )
-text = "Options"
-align = 1
-valign = 1
-
-[node name="CenterContainer" type="CenterContainer" parent="Canvas/Options/MarginContainer/VBoxContainer"]
-margin_top = 100.0
-margin_right = 540.0
-margin_bottom = 164.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Canvas/Options/MarginContainer/VBoxContainer/CenterContainer"]
-margin_left = 209.0
-margin_right = 330.0
-margin_bottom = 64.0
-custom_constants/separation = 10
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Canvas/Options/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer"]
-margin_right = 121.0
-margin_bottom = 27.0
-alignment = 2
-
-[node name="Label" type="Label" parent="Canvas/Options/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/HBoxContainer"]
-margin_left = 6.0
-margin_top = 3.0
-margin_right = 36.0
-margin_bottom = 23.0
-custom_fonts/font = ExtResource( 4 )
-text = "Music"
-valign = 1
-
-[node name="AnimatedCheckButton" parent="Canvas/Options/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 6 )]
-margin_left = 40.0
-margin_right = 121.0
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="Canvas/Options/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer"]
-margin_top = 37.0
-margin_right = 121.0
-margin_bottom = 64.0
-alignment = 2
-
-[node name="Label2" type="Label" parent="Canvas/Options/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/HBoxContainer2"]
-margin_top = 3.0
-margin_right = 36.0
-margin_bottom = 23.0
-custom_fonts/font = ExtResource( 4 )
-text = "Sounds"
-valign = 1
-
-[node name="AnimatedCheckButton2" parent="Canvas/Options/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/HBoxContainer2" instance=ExtResource( 6 )]
-margin_left = 40.0
-margin_right = 121.0
-
-[node name="About" type="Control" parent="Canvas"]
-editor/display_folded = true
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-
-[node name="MarginContainer2" type="MarginContainer" parent="Canvas/About"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_constants/margin_right = 10
-custom_constants/margin_top = 10
-custom_constants/margin_left = 10
-custom_constants/margin_bottom = 10
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Canvas/About/MarginContainer2"]
-margin_left = 10.0
-margin_top = 10.0
-margin_right = 550.0
-margin_bottom = 305.0
-custom_constants/separation = 20
-
-[node name="BackBtn" parent="Canvas/About/MarginContainer2/VBoxContainer" instance=ExtResource( 3 )]
-margin_right = 112.0
-margin_bottom = 28.0
-size_flags_horizontal = 0
-button_label = "Back"
-
-[node name="Label" type="Label" parent="Canvas/About/MarginContainer2/VBoxContainer"]
-margin_top = 48.0
-margin_right = 540.0
-margin_bottom = 80.0
-custom_fonts/font = ExtResource( 2 )
-text = "About"
-align = 1
-valign = 1
-
-[node name="ScrollContainer" type="ScrollContainer" parent="Canvas/About/MarginContainer2/VBoxContainer"]
-margin_top = 100.0
-margin_right = 540.0
-margin_bottom = 295.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-scroll_horizontal_enabled = false
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Canvas/About/MarginContainer2/VBoxContainer/ScrollContainer"]
-margin_right = 540.0
-margin_bottom = 546.0
-size_flags_horizontal = 3
-custom_constants/separation = 20
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="Canvas/About/MarginContainer2/VBoxContainer/ScrollContainer/VBoxContainer"]
-editor/display_folded = true
-margin_right = 528.0
-margin_bottom = 144.0
-custom_constants/separation = 10
-
-[node name="Label" type="Label" parent="Canvas/About/MarginContainer2/VBoxContainer/ScrollContainer/VBoxContainer/VBoxContainer2"]
-margin_right = 528.0
-margin_bottom = 30.0
+[node name="Label" type="Label" parent="Canvas/Options/BackBtn"]
+margin_left = -56.0
+margin_top = -13.0
+margin_right = 56.0
+margin_bottom = 13.0
 custom_fonts/font = ExtResource( 5 )
+text = "Wroc"
+align = 1
+valign = 1
+
+[node name="BackBtn" type="Button" parent="Canvas/Options/BackBtn"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = -56.0
+margin_top = -14.7933
+margin_right = 56.0
+margin_bottom = 12.2067
+text = "Kontynuuj Gre"
+
+[node name="AnimatedCheckButton" parent="Canvas/Options" instance=ExtResource( 6 )]
+margin_left = 287.727
+margin_top = 214.585
+margin_right = 368.727
+margin_bottom = 241.585
+
+[node name="Label" type="Label" parent="Canvas/Options/AnimatedCheckButton"]
+margin_left = 92.2729
+margin_top = 1.41525
+margin_right = 385.273
+margin_bottom = 28.4153
+custom_fonts/font = ExtResource( 5 )
+text = "Muzyka"
+valign = 1
+
+[node name="AnimatedCheckButton2" parent="Canvas/Options" instance=ExtResource( 6 )]
+margin_left = 287.727
+margin_top = 266.164
+margin_right = 368.727
+margin_bottom = 293.164
+
+[node name="Label" type="Label" parent="Canvas/Options/AnimatedCheckButton2"]
+margin_left = 92.2729
+margin_top = 1.41525
+margin_right = 385.273
+margin_bottom = 28.4153
+custom_fonts/font = ExtResource( 5 )
+text = "Dzwięeki"
+valign = 1
+
+[node name="Label" type="Label" parent="Canvas/Options"]
+margin_left = 299.568
+margin_top = 44.1985
+margin_right = 682.568
+margin_bottom = 162.199
+custom_fonts/font = ExtResource( 3 )
+text = "Opcje"
+align = 1
+valign = 1
+
+[node name="About" type="Node2D" parent="Canvas"]
+editor/display_folded = true
+visible = false
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Canvas/About"]
+editor/display_folded = true
+margin_right = 1024.0
+margin_bottom = 576.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Canvas/About/ScrollContainer"]
+margin_right = 1024.0
+margin_bottom = 558.0
+size_flags_horizontal = 3
+custom_constants/separation = 70
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Canvas/About/ScrollContainer/VBoxContainer"]
+margin_right = 1024.0
+margin_bottom = 106.0
+custom_constants/separation = 10
+
+[node name="Label" type="Label" parent="Canvas/About/ScrollContainer/VBoxContainer/VBoxContainer2"]
+margin_right = 1024.0
+margin_bottom = 30.0
+custom_fonts/font = ExtResource( 3 )
 text = "Kim jestesmy ?"
 align = 1
 valign = 1
 
-[node name="Label2" type="Label" parent="Canvas/About/MarginContainer2/VBoxContainer/ScrollContainer/VBoxContainer/VBoxContainer2"]
+[node name="Label2" type="Label" parent="Canvas/About/ScrollContainer/VBoxContainer/VBoxContainer2"]
 margin_top = 40.0
-margin_right = 528.0
+margin_right = 1024.0
 margin_bottom = 106.0
-custom_fonts/font = ExtResource( 4 )
-text = "Jestesmy malym i ciagle rozwijajacym sie zespolem, który wspolnie probuje stworzyc
-cos fajnego. A czym to cos jest, hmmm jakby na to nie patrzec gra. 
+custom_fonts/font = ExtResource( 5 )
+text = "Jestesmy malym i ciagle rozwijajacym sie zespolem, który wspolnie probuje stworzyc cos fajnego.
+A czym to cos jest, hmmm jakby na to nie patrzec gra. 
 Wiekszosc informacji o nas znajdziesz na naszej stronie internetowej:"
 align = 1
 valign = 1
 
-[node name="CenterContainer" type="CenterContainer" parent="Canvas/About/MarginContainer2/VBoxContainer/ScrollContainer/VBoxContainer/VBoxContainer2"]
-margin_top = 116.0
-margin_right = 528.0
-margin_bottom = 144.0
+[node name="Link" type="Sprite" parent="Canvas/About/ScrollContainer/VBoxContainer"]
+position = Vector2( 513.474, 139.387 )
+scale = Vector2( 1.41453, 1.41453 )
+texture = ExtResource( 2 )
 
-[node name="LinkBtn" parent="Canvas/About/MarginContainer2/VBoxContainer/ScrollContainer/VBoxContainer/VBoxContainer2/CenterContainer" instance=ExtResource( 3 )]
-margin_left = 208.0
-margin_right = 320.0
-margin_bottom = 28.0
-button_label = "elf-vs-dwarves.pl"
+[node name="Label" type="Label" parent="Canvas/About/ScrollContainer/VBoxContainer/Link"]
+margin_left = -53.37
+margin_top = -9.73
+margin_right = 88.63
+margin_bottom = 16.27
+rect_scale = Vector2( 0.75, 0.75 )
+custom_fonts/font = ExtResource( 5 )
+text = "www.elf-vs-dwarves.pl"
+align = 1
+valign = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Canvas/About/MarginContainer2/VBoxContainer/ScrollContainer/VBoxContainer"]
-editor/display_folded = true
-margin_top = 164.0
-margin_right = 528.0
-margin_bottom = 546.0
+[node name="LinkBtn" type="Button" parent="Canvas/About/ScrollContainer/VBoxContainer/Link"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = -56.0
+margin_top = -14.0
+margin_right = 56.0
+margin_bottom = 14.0
+text = "Kontynuuj Gre"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Canvas/About/ScrollContainer/VBoxContainer"]
+margin_top = 176.0
+margin_right = 1024.0
+margin_bottom = 558.0
 custom_constants/separation = 10
 
-[node name="Label4" type="Label" parent="Canvas/About/MarginContainer2/VBoxContainer/ScrollContainer/VBoxContainer/VBoxContainer"]
-margin_right = 528.0
+[node name="Label4" type="Label" parent="Canvas/About/ScrollContainer/VBoxContainer/VBoxContainer"]
+margin_right = 1024.0
 margin_bottom = 30.0
-custom_fonts/font = ExtResource( 5 )
+custom_fonts/font = ExtResource( 3 )
 text = "Dlaczego stworzylismy zespol ?"
 align = 1
 valign = 1
 
-[node name="Label3" type="Label" parent="Canvas/About/MarginContainer2/VBoxContainer/ScrollContainer/VBoxContainer/VBoxContainer"]
+[node name="Label3" type="Label" parent="Canvas/About/ScrollContainer/VBoxContainer/VBoxContainer"]
 margin_top = 40.0
-margin_right = 528.0
+margin_right = 1024.0
 margin_bottom = 382.0
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 text = "Oczywiście każdy z nas, ma swoje powody, które skłoniły go do dołączenia, 
 jednak jest również kilka wspólnych o których tutaj napiszę, a mianowicie:
 realizujemy swoje marzenia - tak, każdy z nas chciał kiedyś stworzyć własną grę, 
@@ -313,13 +333,35 @@ każdy z nas chce coś osiągnąć w przyszłości, a kilka w pełni zrealizowan
 align = 1
 valign = 1
 
+[node name="BackBtn" type="Sprite" parent="Canvas/About"]
+editor/display_folded = true
+position = Vector2( 101.506, 48.3656 )
+texture = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="Canvas/About/BackBtn"]
+margin_left = -56.0
+margin_top = -13.0
+margin_right = 56.0
+margin_bottom = 13.0
+text = "Wroc"
+align = 1
+valign = 1
+
+[node name="BackBtn" type="Button" parent="Canvas/About/BackBtn"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = -56.0
+margin_top = -14.7933
+margin_right = 56.0
+margin_bottom = 12.2067
+text = "Kontynuuj Gre"
+
 [node name="Background" parent="." instance=ExtResource( 7 )]
 modulate = Color( 0.815686, 0.815686, 0.815686, 1 )
-[connection signal="pressed" from="Canvas/Home/MarginContainer/VBoxContainer/CenterContainer/Menu/NewGameBtn" to="." method="_on_NewGameBtn_pressed"]
-[connection signal="pressed" from="Canvas/Home/MarginContainer/VBoxContainer/CenterContainer/Menu/ContinueBtn" to="." method="_on_ContinueBtn_pressed"]
-[connection signal="pressed" from="Canvas/Home/MarginContainer/VBoxContainer/CenterContainer/Menu/OptionsBtn" to="." method="_on_OptionsBtn_pressed"]
-[connection signal="pressed" from="Canvas/Home/MarginContainer/VBoxContainer/CenterContainer/Menu/AboutBtn" to="." method="_on_AboutBtn_pressed"]
-[connection signal="pressed" from="Canvas/Home/MarginContainer/VBoxContainer/CenterContainer/Menu/ExitBtn" to="." method="_on_ExitBtn_pressed"]
-[connection signal="pressed" from="Canvas/Options/MarginContainer/VBoxContainer/BackBtn" to="." method="_on_BackBtn_pressed"]
-[connection signal="pressed" from="Canvas/About/MarginContainer2/VBoxContainer/BackBtn" to="." method="_on_BackBtn_pressed"]
-[connection signal="pressed" from="Canvas/About/MarginContainer2/VBoxContainer/ScrollContainer/VBoxContainer/VBoxContainer2/CenterContainer/LinkBtn" to="." method="_on_LinkBtn_pressed"]
+[connection signal="pressed" from="Canvas/Home/NewGame/NewGameBtn" to="." method="_on_NewGameBtn_pressed"]
+[connection signal="pressed" from="Canvas/Home/Continue/ContinueBtn" to="." method="_on_ContinueBtn_pressed"]
+[connection signal="pressed" from="Canvas/Home/Options/OptionsBtn" to="." method="_on_OptionsBtn_pressed"]
+[connection signal="pressed" from="Canvas/Home/About/AboutBtn" to="." method="_on_AboutBtn_pressed"]
+[connection signal="pressed" from="Canvas/Home/Exit/ExitBtn" to="." method="_on_ExitBtn_pressed"]
+[connection signal="pressed" from="Canvas/Options/BackBtn/BackBtn" to="." method="_on_BackBtn_pressed"]
+[connection signal="pressed" from="Canvas/About/ScrollContainer/VBoxContainer/Link/LinkBtn" to="." method="_on_LinkBtn_pressed"]
+[connection signal="pressed" from="Canvas/About/BackBtn/BackBtn" to="." method="_on_BackBtn_pressed"]
