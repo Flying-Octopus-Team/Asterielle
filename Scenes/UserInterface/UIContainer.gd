@@ -16,6 +16,7 @@ onready var game_data = get_node("/root/World").find_node("GameData")
 
 onready var tavern_enter_btn = find_node("TavernEnterBtn")
 onready var revival_enter_btn = find_node("RevivalEnterBtn")
+onready var revival_enter_label = find_node("RevivalEnterLabel")
 
 
 
@@ -41,8 +42,13 @@ func set_level_label(current_level:int):
 func set_killed_dwarves_label(killed_dwarves, dwarves_per_level):
 	killed_dwarves_label.text = str(killed_dwarves, " / ", dwarves_per_level)
 
-func active_revival_button():
+func show_revival_button():
 	revival_enter_btn.set_active(true)
+	revival_enter_label.visible = true
+	
+func hide_revival_button():
+	revival_enter_btn.set_active(false)
+	revival_enter_label.visible = false
 
 func _on_RevivalEnterBtn_pressed():
 	tavern_enter_btn.set_pressed(false)

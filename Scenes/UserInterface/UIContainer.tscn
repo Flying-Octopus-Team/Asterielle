@@ -268,7 +268,6 @@ size_flags_horizontal = 8
 custom_constants/separation = 0
 
 [node name="RevivalEnterBtn" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer3/VBoxContainer" instance=ExtResource( 33 )]
-modulate = Color( 0.223529, 0.223529, 0.223529, 0.443137 )
 margin_left = 8.0
 margin_right = 89.0
 size_flags_horizontal = 8

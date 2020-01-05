@@ -24,7 +24,4 @@ func animate(on) -> void:
 
 func set_active(value: bool):
 	disabled = !value
-	if value == true:
-		modulate = Color(1,1,1,1)
-		pass
-	
+	visible = value

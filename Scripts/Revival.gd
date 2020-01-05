@@ -11,8 +11,15 @@ func _ready():
 	var tavern_screen = world.find_node("TavernScreen")
 	var dwarves_manager = world.find_node("DwarvesManager")
 	var game_saver = world.find_node("GameSaver")
+	var level_manager = world.find_node("LevelManager")
+	var ui_container = world.find_node("UIContainer")
 	
-	GameData.connect("get_first_silver_moon", self, "active_revival_button")
+	if level_manager.current_level < 100:
+		ui_container.hide_revival_button()
+		GameData.connect("get_first_silver_moon", ui_container, "show_revival_button")
+	else:
+		ui_container.show_revival_button()
+	
 	GameData.connect("get_first_silver_moon", self, "show_silver_moon_screen")
 	connect("revive", tavern_screen, "reset_to_default")
 	connect("revive", dwarves_manager, "reset_to_default")
@@ -27,7 +34,7 @@ func show_silver_moon_screen():
 	get_parent().call_deferred("add_child", eis)
 
 func active_revival_button():
-	world.find_node("UIContainer").active_revival_button()
+	world.find_node("UIContainer").show_revival_button()
 
 func show_revival_screen():
 	var eis = EssentialInformScreen.instance()
