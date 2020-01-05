@@ -238,7 +238,6 @@ size_flags_horizontal = 3
 custom_constants/separation = 10
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer3"]
-editor/display_folded = true
 margin_left = 84.0
 margin_right = 178.0
 margin_bottom = 47.0

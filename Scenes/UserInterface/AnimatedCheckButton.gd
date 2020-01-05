@@ -10,8 +10,8 @@ func _on_AnimatedCheckButton_toggled(button_pressed) -> void:
 	animate(button_pressed)
  
 func set_pressed(value) -> void:
-	if !active:
-		return
+#	if !active:
+#		return
 	if pressed != value:
 		animate(value)
 	pressed = value
