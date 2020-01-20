@@ -27,9 +27,9 @@ var time_to_kill_boss: int = 30
 var next_wait_time = 1.0
 var next_timer : float
 
-const FIRST_REVIVAL_LEVEL : int = 100
+const FIRST_REVIVAL_LEVEL : int = 50
 const MY_FIRST_REVIVAL_LEVEL : int = 0
-const REVIVAL_SILVER_MOON_REWARD : int = 50
+const REVIVAL_SILVER_MOON_REWARD : int = 1
 
 var world
 var level_manager
@@ -120,7 +120,7 @@ func add_silver_moon():
 		return
 	
 	if lvl == 51:
-		silver_moon += 1
+		set_silver_moon(silver_moon + 1)
 		emit_signal("get_first_silver_moon")
 		return
 	
