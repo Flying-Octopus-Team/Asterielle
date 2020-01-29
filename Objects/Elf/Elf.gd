@@ -65,8 +65,8 @@ func spawn_arrow():
 	arrow.damage = ElfStats.get_stat_value("bows_knowledge")
 	
 func on_dwarf_hit(dmg) -> bool:
-	if randf() < ElfStats.get_stat_value("agility"):
-		return true
+#	if randf() < ElfStats.get_stat_value("agility"):
+#		return true
 	
 	hp -= dmg
 	
