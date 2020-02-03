@@ -19,4 +19,4 @@ func offline_text(Offline_time: float):
 	return String(OFFFINE_TIME_TEXT + String(Offline_time) + offline_time_text_end)
 
 func reward_text(Offline_gold_reward, Offline_xp_reward):
-	return String(REWARD_TEXT + String(Offline_gold_reward) + " golda i " + String(Offline_xp_reward) + " xp")
+	return String(REWARD_TEXT + String(Offline_gold_reward) + " golda")# i " + String(Offline_xp_reward) + " xp")
