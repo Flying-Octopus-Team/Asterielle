@@ -13,6 +13,7 @@ func _ready():
 	var game_saver = world.find_node("GameSaver")
 	var level_manager = world.find_node("LevelManager")
 	
+	set_active_revival_btn()
 	game_saver.connect("save_data_was_loaded", self, "set_active_revival_btn")
 	
 	GameData.connect("get_first_silver_moon", self, "show_silver_moon_screen")

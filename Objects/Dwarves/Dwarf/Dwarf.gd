@@ -57,8 +57,8 @@ func _physics_process(delta):
 		set_physics_process(false)
 		
 func on_arrow_hit(arrow):
-	if randf() < ElfStats.get_stat_value("eagle_eye"):
-		arrow.damage += ElfStats.get_stat_value("strength")
+	if randf() < ElfStats.get_stat_value("critical_shot"):
+		arrow.damage *= 2
 	
 	hp -= arrow.damage
 	arrow.queue_free()

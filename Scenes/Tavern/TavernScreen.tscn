@@ -43,6 +43,7 @@ button_label = "Mag"
 screen_name = "WizardScreen"
 
 [node name="EnterRoomBtn" parent="MainHall" instance=ExtResource( 4 )]
+visible = false
 margin_left = 388.712
 margin_top = 117.873
 margin_right = 500.712
@@ -93,19 +94,20 @@ custom_constants/margin_left = 10
 [node name="VBoxContainer" type="VBoxContainer" parent="Resources/MarginContainer"]
 margin_left = 10.0
 margin_top = 10.0
-margin_right = 169.0
-margin_bottom = 74.0
+margin_right = 66.0
+margin_bottom = 40.0
 
 [node name="GoldLabel" type="Label" parent="Resources/MarginContainer/VBoxContainer"]
-margin_right = 159.0
-margin_bottom = 30.0
+margin_right = 56.0
+margin_bottom = 20.0
 custom_fonts/font = ExtResource( 10 )
 text = "Zloto: 100"
 
 [node name="XpLabel" type="Label" parent="Resources/MarginContainer/VBoxContainer"]
-margin_top = 34.0
-margin_right = 159.0
-margin_bottom = 64.0
+visible = false
+margin_top = 24.0
+margin_right = 107.0
+margin_bottom = 44.0
 custom_fonts/font = ExtResource( 10 )
 text = "Doswiadczenie: 100"
 

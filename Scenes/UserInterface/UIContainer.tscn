@@ -118,7 +118,6 @@ margin_bottom = 238.0
 size_flags_vertical = 3
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2"]
-editor/display_folded = true
 margin_right = 177.0
 margin_bottom = 238.0
 size_flags_horizontal = 3
@@ -147,6 +146,7 @@ text = "0"
 
 [node name="XpRow" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer2"]
 editor/display_folded = true
+visible = false
 margin_top = 33.0
 margin_right = 177.0
 margin_bottom = 81.0
@@ -169,9 +169,9 @@ text = "0"
 
 [node name="SilverMoonRow" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer2"]
 editor/display_folded = true
-margin_top = 66.0
+margin_top = 33.0
 margin_right = 177.0
-margin_bottom = 114.0
+margin_bottom = 81.0
 
 [node name="SilverMoonIcon" type="TextureRect" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer2/SilverMoonRow"]
 margin_right = 48.0
