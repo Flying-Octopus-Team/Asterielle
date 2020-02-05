@@ -1,9 +1,9 @@
 extends SpawnerSystem
 
-export(float) var dwarf_max_hp : float = 10.0
+export(float) var dwarf_max_hp : float = 2.0
 export(float) var dwarf_damage : float = 1.0
-export(float) var boss_max_hp : float = 40.0
-export(float) var boss_damage : float = 3.0
+export(float) var boss_max_hp : float = 5.0
+export(float) var boss_damage : float = 2.0
 export(bool) var spawn : bool = true
 
 var Dwarf = load("res://Objects/Dwarves/Dwarf/Dwarf.tscn")
@@ -57,13 +57,13 @@ func create_dwarf(DwarfScene, damage:float, hp:float, on_died_func:String):
 	return dwarf
 	
 func on_next_level(level : int):
-	dwarf_max_hp += dwarf_max_hp * level * 0.1
-	dwarf_damage += level * 0.1
+	dwarf_max_hp += dwarf_max_hp * level * 0.05
+	dwarf_damage += level * 0.05
 	
 	if (level-1) % 10 == 0:
 		base_dwarf_hp = dwarf_max_hp
 		base_dwarf_damage = dwarf_damage
-		
+	
 func reset_to_base():
 	dwarf_max_hp = base_dwarf_hp
 	dwarf_damage = base_dwarf_damage
