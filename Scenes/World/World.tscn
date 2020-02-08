@@ -42,7 +42,6 @@ position = Vector2( 620, 270 )
 position = Vector2( 620, 270 )
 
 [node name="Ground" type="Area2D" parent="."]
-editor/display_folded = true
 position = Vector2( 387.044, 274.607 )
 monitoring = false
 collision_layer = 32
