@@ -147,4 +147,5 @@ limits/debugger_stdout/max_errors_per_frame=120
 
 [rendering]
 
+quality/driver/driver_name="GLES2"
 vram_compression/import_etc=true
