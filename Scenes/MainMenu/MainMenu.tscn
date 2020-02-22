@@ -105,11 +105,13 @@ align = 2
 valign = 1
 
 [node name="Options" type="Control" parent="Canvas"]
+editor/display_folded = true
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="MarginContainer" type="MarginContainer" parent="Canvas/Options"]
+editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_constants/margin_right = 10
@@ -187,6 +189,7 @@ margin_left = 40.0
 margin_right = 121.0
 
 [node name="About" type="Control" parent="Canvas"]
+editor/display_folded = true
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -236,6 +239,7 @@ size_flags_horizontal = 3
 custom_constants/separation = 20
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Canvas/About/MarginContainer2/VBoxContainer/ScrollContainer/VBoxContainer"]
+editor/display_folded = true
 margin_right = 528.0
 margin_bottom = 144.0
 custom_constants/separation = 10
@@ -271,6 +275,7 @@ margin_bottom = 28.0
 button_label = "elf-vs-dwarves.pl"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Canvas/About/MarginContainer2/VBoxContainer/ScrollContainer/VBoxContainer"]
+editor/display_folded = true
 margin_top = 164.0
 margin_right = 528.0
 margin_bottom = 546.0
