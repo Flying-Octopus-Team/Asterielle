@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Objects/Background/Planets/PlanetAnimation.tres" type="Animation" id=1]
 [ext_resource path="res://Objects/Background/Planets/PlanetSystem.gd" type="Script" id=2]
@@ -6,9 +6,12 @@
 [ext_resource path="res://Objects/Background/Planets/Stars.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Objects/Background/Background.tscn" type="PackedScene" id=5]
 
-[node name="PlanetAnimation" type="AnimationPlayer"]
-root_node = NodePath("")
-anims/SunMovement = ExtResource( 1 )
+[sub_resource type="Animation" id=1]
+resource_name = "PlanetAnimation32"
+
+[node name="AnimationPlayer" type="AnimationPlayer"]
+anims/PlanetAnimation = ExtResource( 1 )
+anims/PlanetAnimation32 = SubResource( 1 )
 
 [node name="PlanetSystem" type="Node2D" parent="."]
 script = ExtResource( 2 )
@@ -22,10 +25,7 @@ z_index = -16
 texture = ExtResource( 3 )
 
 [node name="Stars" parent="." instance=ExtResource( 4 )]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 286.778, 296.232 )
-rotation = 3.62895
+rotation = 3.62854
 
 [node name="Background" parent="." instance=ExtResource( 5 )]
-modulate = Color( 0.506896, 0.670796, 0.624635, 1 )
-[connection signal="animation_finished" from="." to="PlanetSystem" method="_on_SunAnimation_animation_finished"]

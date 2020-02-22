@@ -4,11 +4,10 @@
 [ext_resource path="res://Objects/Background/Planets/moon.png" type="Texture" id=2]
 
 [resource]
-resource_name = "SunMovement"
 length = 240.0
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("Planet/PlanetSprite:position")
+tracks/0/path = NodePath("PlanetAnimation/Planet/PlanetSprite:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -20,7 +19,7 @@ tracks/0/keys = {
 "values": [ Vector2( -50, 80 ), Vector2( 80, -20 ), Vector2( 280.069, -100 ), Vector2( 450, -20 ), Vector2( 610, 100 ), Vector2( -50, 80 ), Vector2( 80, -20 ), Vector2( 280.069, -100 ), Vector2( 450, -20 ), Vector2( 620, 100 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Planet/PlanetSprite:texture")
+tracks/1/path = NodePath("PlanetAnimation/Planet/PlanetSprite:texture")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -32,7 +31,7 @@ tracks/1/keys = {
 "values": [ ExtResource( 1 ), ExtResource( 1 ), null, ExtResource( 2 ), ExtResource( 2 ), null ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Stars:modulate")
+tracks/2/path = NodePath("PlanetAnimation/Stars:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -44,7 +43,7 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 0.431373 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.431373 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Background:modulate")
+tracks/3/path = NodePath("PlanetAnimation/Background:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -56,7 +55,7 @@ tracks/3/keys = {
 "values": [ Color( 0.168627, 0.219608, 0.270588, 1 ), Color( 0.588235, 0.415686, 0.384314, 1 ), Color( 0.501961, 0.686275, 0.639216, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0.529412, 0.686275, 0.501961, 1 ), Color( 0.666667, 0.454902, 0.301961, 1 ), Color( 0.168627, 0.219608, 0.270588, 1 ), Color( 0.239216, 0.298039, 0.360784, 1 ), Color( 0.168627, 0.219608, 0.270588, 1 ) ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("Stars:rotation_degrees")
+tracks/4/path = NodePath("PlanetAnimation/Stars:rotation_degrees")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
