@@ -41,8 +41,6 @@ func shot_arrow():
 	if stamina_system.auto_atack:
 		restart_arrow_timer()
 		animation_player.play("Shot")
-	else:
-		animation_player.stop()
 	
 func spawn_arrow():
 	if !stamina_system.auto_atack:

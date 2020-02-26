@@ -147,7 +147,7 @@ anims/FadedIn = SubResource( 1 )
 anims/FadedOut = SubResource( 2 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = 10
+layer = 46
 offset = Vector2( 0, -174.02 )
 transform = Transform2D( 1, 0, 0, 1, 0, -174.02 )
 

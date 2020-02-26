@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Objects/Background/Other/backGrass.png" type="Texture" id=1]
 [ext_resource path="res://Objects/Background/Trees/tree1.png" type="Texture" id=2]
@@ -12,10 +12,11 @@
 [ext_resource path="res://Objects/Background/Bushes/bush02.png" type="Texture" id=10]
 [ext_resource path="res://Objects/Background/Bushes/bush03.png" type="Texture" id=11]
 [ext_resource path="res://Objects/Background/Other/rocks.png" type="Texture" id=12]
-[ext_resource path="res://Objects/Background/Camera2D.gd" type="Script" id=13]
 
 [node name="Background" type="ParallaxBackground"]
 layer = 0
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
 
 [node name="BackGrassLayer" type="ParallaxLayer" parent="."]
 z_index = 5
@@ -23,95 +24,107 @@ motion_scale = Vector2( 0.9, 1 )
 motion_mirroring = Vector2( 560, 0 )
 
 [node name="backGrass" type="Sprite" parent="BackGrassLayer"]
+use_parent_material = true
+position = Vector2( -110.681, -28.1093 )
 scale = Vector2( 1.09375, 1.08681 )
 texture = ExtResource( 1 )
 centered = false
+offset = Vector2( 101.194, 25.864 )
 
 [node name="TreesLayer2" type="ParallaxLayer" parent="."]
+modulate = Color( 0.490196, 0.490196, 0.490196, 1 )
 z_index = -15
-motion_scale = Vector2( 0.6, 1 )
+motion_scale = Vector2( 0.5, 1 )
 motion_mirroring = Vector2( 560, 0 )
 
-[node name="backGrass" type="Sprite" parent="TreesLayer2"]
-position = Vector2( 270.073, 157.604 )
+[node name="tree1" type="Sprite" parent="TreesLayer2"]
+position = Vector2( 473.231, 153.393 )
 scale = Vector2( 0.643505, 0.517109 )
 texture = ExtResource( 2 )
 centered = false
 
-[node name="backGrass2" type="Sprite" parent="TreesLayer2"]
-position = Vector2( 381.807, 152.311 )
+[node name="tree2" type="Sprite" parent="TreesLayer2"]
+position = Vector2( 384.278, 150.903 )
 scale = Vector2( 0.526733, 0.497009 )
 texture = ExtResource( 3 )
 centered = false
 
-[node name="backGrass3" type="Sprite" parent="TreesLayer2"]
-position = Vector2( 105.522, 154.59 )
+[node name="tree3" type="Sprite" parent="TreesLayer2"]
+position = Vector2( 131.838, 151.432 )
 scale = Vector2( 0.576157, 0.537209 )
 texture = ExtResource( 4 )
 centered = false
 
-[node name="backGrass4" type="Sprite" parent="TreesLayer2"]
-position = Vector2( -3.12515, 153.928 )
+[node name="tree4" type="Sprite" parent="TreesLayer2"]
+position = Vector2( 10.5591, 150.77 )
 scale = Vector2( 0.53439, 0.502751 )
 texture = ExtResource( 5 )
 centered = false
 
-[node name="TreesLayer1" type="ParallaxLayer" parent="."]
-z_index = -10
-motion_scale = Vector2( 0.75, 1 )
-motion_mirroring = Vector2( 560, 0 )
-
-[node name="backGrass" type="Sprite" parent="TreesLayer1"]
-position = Vector2( 31.168, 84.0946 )
-scale = Vector2( 0.81005, 0.761183 )
+[node name="tree5" type="Sprite" parent="TreesLayer2"]
+position = Vector2( 276.875, 145.507 )
+scale = Vector2( 0.53439, 0.502751 )
 texture = ExtResource( 2 )
 centered = false
 
-[node name="backGrass2" type="Sprite" parent="TreesLayer1"]
-position = Vector2( 134.081, 84.6826 )
-scale = Vector2( 0.81005, 0.781283 )
+[node name="TreesLayer1" type="ParallaxLayer" parent="."]
+modulate = Color( 0.772549, 0.772549, 0.772549, 1 )
+z_index = -10
+motion_scale = Vector2( 0.65, 1 )
+motion_mirroring = Vector2( 560, 0 )
+
+[node name="tree1" type="Sprite" parent="TreesLayer1"]
+position = Vector2( -0.368118, 82.735 )
+scale = Vector2( 0.892287, 0.761183 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="tree2" type="Sprite" parent="TreesLayer1"]
+position = Vector2( 104.607, 98.2054 )
+scale = Vector2( 0.747533, 0.724348 )
 texture = ExtResource( 3 )
 centered = false
 
-[node name="backGrass3" type="Sprite" parent="TreesLayer1"]
-position = Vector2( 394.514, 85.0706 )
+[node name="tree3" type="Sprite" parent="TreesLayer1"]
+position = Vector2( 381.695, 87.6553 )
 scale = Vector2( 0.81005, 0.781283 )
 texture = ExtResource( 4 )
 centered = false
 
-[node name="backGrass4" type="Sprite" parent="TreesLayer1"]
-position = Vector2( 274.74, 78.2138 )
+[node name="tree4" type="Sprite" parent="TreesLayer1"]
+position = Vector2( 251.582, 85.5822 )
 scale = Vector2( 0.81005, 0.781283 )
 texture = ExtResource( 5 )
 centered = false
 
 [node name="MiddleBushesLayer" type="ParallaxLayer" parent="."]
+modulate = Color( 0.85098, 0.85098, 0.85098, 1 )
 z_index = -5
-motion_scale = Vector2( 0.9, 1 )
-motion_mirroring = Vector2( 560, 0 )
+motion_scale = Vector2( 0.8, 1 )
+motion_mirroring = Vector2( 580, 0 )
 
 [node name="bush04" type="Sprite" parent="MiddleBushesLayer"]
-position = Vector2( 116.129, 243.056 )
+position = Vector2( 39.8225, 242.199 )
 scale = Vector2( 0.420852, 0.447079 )
 texture = ExtResource( 8 )
 
 [node name="bush01" type="Sprite" parent="MiddleBushesLayer"]
-position = Vector2( 557.303, 246.041 )
+position = Vector2( 513.577, 244.326 )
 scale = Vector2( 0.496671, 0.499205 )
 texture = ExtResource( 9 )
 
 [node name="bush05" type="Sprite" parent="MiddleBushesLayer"]
-position = Vector2( 337.711, 243.719 )
+position = Vector2( 156.805, 243.719 )
 scale = Vector2( 0.468239, 0.447079 )
 texture = ExtResource( 9 )
 
 [node name="bush02" type="Sprite" parent="MiddleBushesLayer"]
-position = Vector2( 231.564, 245.378 )
+position = Vector2( 265.002, 246.235 )
 scale = Vector2( 0.496671, 0.499205 )
 texture = ExtResource( 10 )
 
 [node name="bush03" type="Sprite" parent="MiddleBushesLayer"]
-position = Vector2( 427.601, 210.786 )
+position = Vector2( 352.152, 210.786 )
 scale = Vector2( 0.534582, 0.494466 )
 texture = ExtResource( 11 )
 centered = false
@@ -152,8 +165,3 @@ position = Vector2( 0, 3 )
 scale = Vector2( 1.08789, 1.07649 )
 texture = ExtResource( 12 )
 centered = false
-
-[node name="Camera2D" type="Camera2D" parent="."]
-anchor_mode = 0
-current = true
-script = ExtResource( 13 )

@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=2]
-
-[ext_resource path="res://Scenes/World/Layer.gd" type="Script" id=1]
-
-[node name="Layer" type="Node2D"]
-script = ExtResource( 1 )
-TREE_X_OFFSET = 200.0
-TREE_Y = 255.0

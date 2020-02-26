@@ -16,7 +16,7 @@ var publican
 
 func setup() -> void:
 	level_manager = get_parent().get_node("LevelManager")
-	elf = get_parent().get_node("CanvasLayer/Elf")
+	elf = get_parent().get_node("MainObjectsLayer/Elf")
 	publican = get_parent().find_node("Publican")
 	load_game()
 

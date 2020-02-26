@@ -1,12 +1,6 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Objects/Background/Planets/PlanetAnimation.tres" type="Animation" id=1]
-[ext_resource path="res://Objects/Background/Background.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Objects/Background/Planets/moon.png" type="Texture" id=3]
-[ext_resource path="res://Objects/Background/Planets/PlanetSystem.gd" type="Script" id=4]
-[ext_resource path="res://Objects/Background/Planets/Stars.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Objects/Foreground/Foreground.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Objects/Sky/SkyBackground.tscn" type="PackedScene" id=8]
 
 [sub_resource type="Animation" id=1]
 resource_name = "PlanetAnimation32"
@@ -14,31 +8,3 @@ resource_name = "PlanetAnimation32"
 [node name="PlanetAnimation" type="AnimationPlayer"]
 anims/PlanetAnimation = ExtResource( 1 )
 anims/PlanetAnimation32 = SubResource( 1 )
-
-[node name="PlanetSystem" type="Node2D" parent="."]
-script = ExtResource( 4 )
-
-[node name="Planet" type="CanvasLayer" parent="."]
-layer = -10
-
-[node name="PlanetSprite" type="Sprite" parent="Planet"]
-position = Vector2( 600.898, 86.516 )
-z_index = -4
-texture = ExtResource( 3 )
-
-[node name="Background" parent="." instance=ExtResource( 2 )]
-layer = -7
-
-[node name="Foreground" parent="." instance=ExtResource( 7 )]
-layer = 4
-
-[node name="SkyBackground" parent="." instance=ExtResource( 8 )]
-layer = -13
-
-[node name="Stars" type="CanvasLayer" parent="."]
-layer = -8
-
-[node name="StarsNode" parent="Stars" instance=ExtResource( 6 )]
-modulate = Color( 1, 1, 1, 0.460165 )
-rotation = 3.04149
-scale = Vector2( 0.999999, 0.999999 )

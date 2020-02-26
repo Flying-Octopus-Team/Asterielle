@@ -8,6 +8,9 @@ margin_right = 67.0
 margin_bottom = 24.0
 rect_min_size = Vector2( 12, 12 )
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 mouse_y_offset = 4.0
 
 [node name="ColorRect" type="ColorRect" parent="."]

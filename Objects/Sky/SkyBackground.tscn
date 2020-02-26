@@ -4,6 +4,8 @@
 
 [node name="SkyBackground" type="ParallaxBackground"]
 
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+
 [node name="SkyLayer" type="ParallaxLayer" parent="."]
 motion_mirroring = Vector2( 560, 0 )
 
@@ -11,4 +13,3 @@ motion_mirroring = Vector2( 560, 0 )
 scale = Vector2( 1.09476, 1.09444 )
 texture = ExtResource( 1 )
 centered = false
-

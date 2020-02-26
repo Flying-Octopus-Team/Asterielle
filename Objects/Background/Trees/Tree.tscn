@@ -1,7 +1,20 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Objects/Background/Trees/tree3.png" type="Texture" id=1]
-[ext_resource path="res://Objects/Background/Trees/Tree.gd" type="Script" id=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Sprite
+
+func _ready():
+	var flip: int = randi()%2+1 
+	if flip == 1:
+		flip_h = false
+	else:
+		flip_h = true
+
+func _on_VisibilityNotifier2D_screen_exited():
+	queue_free()
+"
 
 [node name="Tree" type="Sprite"]
 modulate = Color( 0.72549, 0.72549, 0.72549, 1 )
@@ -9,10 +22,9 @@ position = Vector2( 9.27823, -127.433 )
 z_index = -10
 texture = ExtResource( 1 )
 offset = Vector2( 0, -120 )
-script = ExtResource( 2 )
+script = SubResource( 1 )
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
 position = Vector2( -4.91094, 8.59418 )
 scale = Vector2( 13.4002, 13.6457 )
-
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
