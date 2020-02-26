@@ -55,7 +55,7 @@ func _ready():
 	ui.set_level_label(current_level)
 	ui.set_killed_dwarves_label(killed_dwarves, dwarves_per_level)
 	
-	var elf = world.get_node("Elf")
+	var elf = world.get_node("CanvasLayer/Elf")
 	elf.connect("game_over", self, "on_Game_Over")
 	connect("next_level", dwarves_manager, "on_next_level")
 	connect("reset_to_base", dwarves_manager, "reset_to_base")

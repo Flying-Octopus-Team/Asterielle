@@ -1,10 +1,10 @@
 [gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scenes/World/World.gd" type="Script" id=1]
-[ext_resource path="res://Objects/Elf/Elf.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Objects/Background/Planets/PlanetAnimation.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/UserInterface/UIContainer.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Objects/Spawners/DwarvesManager/DwarvesManager.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Objects/Background/Planets/PlanetAnimation.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Objects/Elf/Elf.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Objects/Spawners/DwarvesManager/DwarvesManager.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/UserInterface/UIContainer.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Objects/Spawners/TavernSpawner/TavernSpawner.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Objects/Spawners/DevilSpawner/DevilSpawner.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Tavern/TavernScreen.tscn" type="PackedScene" id=8]
@@ -23,20 +23,27 @@ __meta__ = {
 "_edit_horizontal_guides_": [  ]
 }
 
-[node name="Elf" parent="." instance=ExtResource( 2 )]
-position = Vector2( 72.0464, 271.228 )
+[node name="PlanetAnimation" parent="." instance=ExtResource( 2 )]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Elf" parent="CanvasLayer" instance=ExtResource( 3 )]
+show_behind_parent = true
+light_mask = 8
+position = Vector2( 70.1557, 283.203 )
+z_index = 7
+priority = 1.0
+
+[node name="DwarvesManager" parent="CanvasLayer" instance=ExtResource( 4 )]
+position = Vector2( 620, 280 )
 z_index = 1
 
-[node name="PlanetAnimation" parent="." instance=ExtResource( 3 )]
-
-[node name="UIContainer" parent="." instance=ExtResource( 4 )]
-
-[node name="DwarvesManager" parent="." instance=ExtResource( 5 )]
+[node name="TavernSpawner" parent="CanvasLayer" instance=ExtResource( 6 )]
 position = Vector2( 620, 270 )
-z_index = 1
+z_index = 12
 
-[node name="TavernSpawner" parent="." instance=ExtResource( 6 )]
-position = Vector2( 620, 270 )
+[node name="UIContainer" parent="." instance=ExtResource( 5 )]
+layer = 22
 
 [node name="DevilSpawner" parent="." instance=ExtResource( 7 )]
 position = Vector2( 620, 270 )
@@ -54,6 +61,7 @@ __meta__ = {
 shape = SubResource( 1 )
 
 [node name="TavernScreen" parent="." instance=ExtResource( 8 )]
+layer = 62
 
 [node name="GameManager" parent="." instance=ExtResource( 9 )]
 

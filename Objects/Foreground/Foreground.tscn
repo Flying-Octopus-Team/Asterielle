@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Objects/Background/Bushes/bush03.png" type="Texture" id=1]
+[ext_resource path="res://Objects/Background/Bushes/bush04.png" type="Texture" id=2]
+[ext_resource path="res://Objects/Background/Bushes/bush02.png" type="Texture" id=3]
+[ext_resource path="res://Objects/Background/Bushes/bush01.png" type="Texture" id=4]
+[ext_resource path="res://Objects/Foreground/Camera2D.gd" type="Script" id=5]
+
+[node name="Foreground" type="ParallaxBackground"]
+
+[node name="FrontBushLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 1.2, 1 )
+motion_mirroring = Vector2( 560, 0 )
+
+[node name="bush03" type="Sprite" parent="FrontBushLayer"]
+position = Vector2( 342.717, 297.268 )
+scale = Vector2( 0.659674, 0.659675 )
+texture = ExtResource( 1 )
+
+[node name="bush04" type="Sprite" parent="FrontBushLayer"]
+position = Vector2( 471.403, 297.268 )
+scale = Vector2( 0.563695, 0.525276 )
+texture = ExtResource( 2 )
+
+[node name="bush02" type="Sprite" parent="FrontBushLayer"]
+position = Vector2( 193.874, 299.358 )
+scale = Vector2( 0.659674, 0.659675 )
+texture = ExtResource( 3 )
+
+[node name="bush1" type="Sprite" parent="FrontBushLayer"]
+position = Vector2( 16.541, 242.632 )
+scale = Vector2( 0.707162, 0.699248 )
+texture = ExtResource( 4 )
+centered = false
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource( 5 )

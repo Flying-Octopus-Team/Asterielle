@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Objects/Background/Other/sky.png" type="Texture" id=1]
+
+[node name="SkyBackground" type="ParallaxBackground"]
+
+[node name="SkyLayer" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2( 560, 0 )
+
+[node name="Sky" type="Sprite" parent="SkyLayer"]
+scale = Vector2( 1.09476, 1.09444 )
+texture = ExtResource( 1 )
+centered = false
+

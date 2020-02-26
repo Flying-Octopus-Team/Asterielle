@@ -1,77 +1,159 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://Scenes/World/Background.gd" type="Script" id=1]
-[ext_resource path="res://Objects/Background/Other/BackgroundLayer.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Objects/Background/Other/sky.png" type="Texture" id=3]
-[ext_resource path="res://Objects/Background/Other/frontGrass.png" type="Texture" id=4]
-[ext_resource path="res://Objects/Background/Bushes/BushesSpawner.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Objects/Background/Other/backGrass.png" type="Texture" id=1]
+[ext_resource path="res://Objects/Background/Trees/tree1.png" type="Texture" id=2]
+[ext_resource path="res://Objects/Background/Trees/tree2.png" type="Texture" id=3]
+[ext_resource path="res://Objects/Background/Trees/tree3.png" type="Texture" id=4]
+[ext_resource path="res://Objects/Background/Trees/tree5.png" type="Texture" id=5]
 [ext_resource path="res://Objects/Background/Other/path.png" type="Texture" id=6]
-[ext_resource path="res://Objects/Background/Other/rocks.png" type="Texture" id=7]
+[ext_resource path="res://Objects/Background/Other/frontGrass.png" type="Texture" id=7]
+[ext_resource path="res://Objects/Background/Bushes/bush04.png" type="Texture" id=8]
+[ext_resource path="res://Objects/Background/Bushes/bush01.png" type="Texture" id=9]
+[ext_resource path="res://Objects/Background/Bushes/bush02.png" type="Texture" id=10]
+[ext_resource path="res://Objects/Background/Bushes/bush03.png" type="Texture" id=11]
+[ext_resource path="res://Objects/Background/Other/rocks.png" type="Texture" id=12]
+[ext_resource path="res://Objects/Background/Camera2D.gd" type="Script" id=13]
 
-[node name="Background" type="Node2D"]
-script = ExtResource( 1 )
-num_of_layers = 2
-move_speed_mod = 0.6
-tree_seperation = 150.0
+[node name="Background" type="ParallaxBackground"]
+layer = 0
 
-[node name="Sky" parent="." instance=ExtResource( 2 )]
-scale = Vector2( 2, 2 )
-z_index = -20
-texture = ExtResource( 3 )
-move_speed_mod = 0.0
+[node name="BackGrassLayer" type="ParallaxLayer" parent="."]
+z_index = 5
+motion_scale = Vector2( 0.9, 1 )
+motion_mirroring = Vector2( 560, 0 )
 
-[node name="BackGrass" parent="." instance=ExtResource( 2 )]
-modulate = Color( 0.419608, 0.419608, 0.419608, 1 )
-position = Vector2( -1.10803, -186.131 )
-scale = Vector2( 1.5, 1.5 )
+[node name="backGrass" type="Sprite" parent="BackGrassLayer"]
+scale = Vector2( 1.09375, 1.08681 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="TreesLayer2" type="ParallaxLayer" parent="."]
 z_index = -15
-texture = ExtResource( 4 )
-move_speed_mod = 0.35
+motion_scale = Vector2( 0.6, 1 )
+motion_mirroring = Vector2( 560, 0 )
 
-[node name="MiddleGrass" parent="." instance=ExtResource( 2 )]
-modulate = Color( 0.803922, 0.803922, 0.803922, 1 )
-position = Vector2( 0, -245.849 )
-scale = Vector2( 1.75, 1.75 )
+[node name="backGrass" type="Sprite" parent="TreesLayer2"]
+position = Vector2( 270.073, 157.604 )
+scale = Vector2( 0.643505, 0.517109 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="backGrass2" type="Sprite" parent="TreesLayer2"]
+position = Vector2( 381.807, 152.311 )
+scale = Vector2( 0.526733, 0.497009 )
+texture = ExtResource( 3 )
+centered = false
+
+[node name="backGrass3" type="Sprite" parent="TreesLayer2"]
+position = Vector2( 105.522, 154.59 )
+scale = Vector2( 0.576157, 0.537209 )
+texture = ExtResource( 4 )
+centered = false
+
+[node name="backGrass4" type="Sprite" parent="TreesLayer2"]
+position = Vector2( -3.12515, 153.928 )
+scale = Vector2( 0.53439, 0.502751 )
+texture = ExtResource( 5 )
+centered = false
+
+[node name="TreesLayer1" type="ParallaxLayer" parent="."]
+z_index = -10
+motion_scale = Vector2( 0.75, 1 )
+motion_mirroring = Vector2( 560, 0 )
+
+[node name="backGrass" type="Sprite" parent="TreesLayer1"]
+position = Vector2( 31.168, 84.0946 )
+scale = Vector2( 0.81005, 0.761183 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="backGrass2" type="Sprite" parent="TreesLayer1"]
+position = Vector2( 134.081, 84.6826 )
+scale = Vector2( 0.81005, 0.781283 )
+texture = ExtResource( 3 )
+centered = false
+
+[node name="backGrass3" type="Sprite" parent="TreesLayer1"]
+position = Vector2( 394.514, 85.0706 )
+scale = Vector2( 0.81005, 0.781283 )
+texture = ExtResource( 4 )
+centered = false
+
+[node name="backGrass4" type="Sprite" parent="TreesLayer1"]
+position = Vector2( 274.74, 78.2138 )
+scale = Vector2( 0.81005, 0.781283 )
+texture = ExtResource( 5 )
+centered = false
+
+[node name="MiddleBushesLayer" type="ParallaxLayer" parent="."]
 z_index = -5
-texture = ExtResource( 4 )
-move_speed_mod = 0.7
+motion_scale = Vector2( 0.9, 1 )
+motion_mirroring = Vector2( 560, 0 )
 
-[node name="BushesSpawner" parent="." instance=ExtResource( 5 )]
-modulate = Color( 0.776471, 0.776471, 0.776471, 1 )
-position = Vector2( 0, 257.86 )
-move_speed_mod = 0.9
-separation = 130.0
+[node name="bush04" type="Sprite" parent="MiddleBushesLayer"]
+position = Vector2( 116.129, 243.056 )
+scale = Vector2( 0.420852, 0.447079 )
+texture = ExtResource( 8 )
 
-[node name="Path" parent="." instance=ExtResource( 2 )]
-modulate = Color( 0.74902, 0.74902, 0.74902, 1 )
-position = Vector2( 0, -255.443 )
-scale = Vector2( 2, 2 )
+[node name="bush01" type="Sprite" parent="MiddleBushesLayer"]
+position = Vector2( 557.303, 246.041 )
+scale = Vector2( 0.496671, 0.499205 )
+texture = ExtResource( 9 )
+
+[node name="bush05" type="Sprite" parent="MiddleBushesLayer"]
+position = Vector2( 337.711, 243.719 )
+scale = Vector2( 0.468239, 0.447079 )
+texture = ExtResource( 9 )
+
+[node name="bush02" type="Sprite" parent="MiddleBushesLayer"]
+position = Vector2( 231.564, 245.378 )
+scale = Vector2( 0.496671, 0.499205 )
+texture = ExtResource( 10 )
+
+[node name="bush03" type="Sprite" parent="MiddleBushesLayer"]
+position = Vector2( 427.601, 210.786 )
+scale = Vector2( 0.534582, 0.494466 )
+texture = ExtResource( 11 )
+centered = false
+
+[node name="PathLayer" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2( 560, 0 )
+
+[node name="path" type="Sprite" parent="PathLayer"]
+scale = Vector2( 1.09375, 1.08681 )
 texture = ExtResource( 6 )
+centered = false
 
-[node name="Rocks" parent="." instance=ExtResource( 2 )]
-modulate = Color( 0.823529, 0.823529, 0.823529, 1 )
-position = Vector2( 0, -256.001 )
-scale = Vector2( 2, 2 )
+[node name="FrontGrassLayer" type="ParallaxLayer" parent="."]
+z_index = 5
+motion_scale = Vector2( 1.1, 1 )
+motion_mirroring = Vector2( 560, 0 )
+
+[node name="frontGrass" type="Sprite" parent="FrontGrassLayer"]
+scale = Vector2( 1.09921, 1.1018 )
 texture = ExtResource( 7 )
+centered = false
 
-[node name="FrontGrass" parent="." instance=ExtResource( 2 )]
-modulate = Color( 0.862745, 0.862745, 0.862745, 1 )
-position = Vector2( 0, -251.734 )
-scale = Vector2( 2, 2 )
-z_index = 5
-texture = ExtResource( 4 )
-move_speed_mod = 1.1
+[node name="MiddleGrassLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.9, 1 )
+motion_mirroring = Vector2( 560, 0 )
 
-[node name="FrontBushesSpawner" parent="." instance=ExtResource( 5 )]
-modulate = Color( 0.803922, 0.803922, 0.803922, 1 )
-position = Vector2( 0, 329 )
-z_index = 5
-move_speed_mod = 1.2
-deep_scale = 1.5
+[node name="middleGrass" type="Sprite" parent="MiddleGrassLayer"]
+position = Vector2( 0, -38 )
+scale = Vector2( 1.09897, 1.09285 )
+texture = ExtResource( 7 )
+centered = false
 
-[node name="FrontGrass2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 0, -26.5374 )
-scale = Vector2( 2, 2 )
-z_index = 5
-texture = ExtResource( 4 )
-move_speed_mod = 1.3
+[node name="RocksLayer" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2( 560, 0 )
+
+[node name="rocks" type="Sprite" parent="RocksLayer"]
+position = Vector2( 0, 3 )
+scale = Vector2( 1.08789, 1.07649 )
+texture = ExtResource( 12 )
+centered = false
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+current = true
+script = ExtResource( 13 )
