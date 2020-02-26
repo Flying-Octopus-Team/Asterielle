@@ -2,8 +2,8 @@ extends SpawnerSystem
 
 export(float) var dwarf_max_hp : float = 2.0
 export(float) var dwarf_damage : float = 1.0
-export(float) var boss_max_hp : float = 5.0
-export(float) var boss_damage : float = 2.0
+#export(float) var boss_max_hp : float = 5.0
+#export(float) var boss_damage : float = 2.0
 export(bool) var spawn : bool = true
 
 var Dwarf = load("res://Objects/Dwarves/Dwarf/Dwarf.tscn")
@@ -12,10 +12,12 @@ var Boss = load("res://Objects/Dwarves/Boss/Boss.tscn")
 # dwarf data on level 1
 onready var default_dwarf_hp = dwarf_max_hp
 onready var default_dwarf_damage = dwarf_damage
+onready var WPHK = 0.0305
+onready var WPDK = 0.01894
 
 # dwarf data on level 1, 10, 20, 30, ... (used when elf die)
-onready var base_dwarf_hp = dwarf_max_hp
-onready var base_dwarf_damage = dwarf_damage
+#onready var base_dwarf_hp = dwarf_max_hp
+#onready var base_dwarf_damage = dwarf_damage
 
 onready var world = get_node("/root/World")
 onready var level_manager = world.find_node("LevelManager")
@@ -40,7 +42,7 @@ func spawn_dwarf():
 	
 func spawn_boss():
 	if spawn:
-		var boss = create_dwarf(Boss, boss_damage, boss_max_hp, "on_Boss_died")
+		var boss = create_dwarf(Boss, dwarf_damage*1.5, dwarf_max_hp*1.75, "on_Boss_died")
 		boss.connect("boss_kill_timeout", level_manager, "on_Boss_kill_timeout")
 	
 func _on_Tavern_spawned():
@@ -57,16 +59,19 @@ func create_dwarf(DwarfScene, damage:float, hp:float, on_died_func:String):
 	return dwarf
 	
 func on_next_level(level : int):
-	dwarf_max_hp += dwarf_max_hp * level * 0.05
-	dwarf_damage += level * 0.05
+	dwarf_max_hp = default_dwarf_hp * pow((WPHK + 1),level-1)
+	#dwarf_max_hp += dwarf_max_hp * level * 0.05
 	
-	if (level-1) % 10 == 0:
-		base_dwarf_hp = dwarf_max_hp
-		base_dwarf_damage = dwarf_damage
+	dwarf_damage = default_dwarf_damage * pow((WPDK + 1),level-1)
+	#dwarf_damage += level * 0.05
 	
-func reset_to_base():
-	dwarf_max_hp = base_dwarf_hp
-	dwarf_damage = base_dwarf_damage
+#	if (level-1) % 10 == 0:
+#		base_dwarf_hp = dwarf_max_hp
+#		base_dwarf_damage = dwarf_damage
+	
+#func reset_to_base():
+#	dwarf_max_hp = base_dwarf_hp
+#	dwarf_damage = base_dwarf_damage
 	
 func reset_to_default() -> void:
 	dwarf_max_hp = default_dwarf_hp
