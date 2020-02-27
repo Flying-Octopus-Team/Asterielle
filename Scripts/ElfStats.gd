@@ -264,4 +264,3 @@ static func load_data(data):
 		
 	ElfStats.set_damage_multiplier(data["_damage_multiplier"])
 	ElfStats.set_health_multiplier(data["_health_multiplier"])
-	
