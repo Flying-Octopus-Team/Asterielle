@@ -13,6 +13,3 @@ func _ready():
 func _on_TavernEnterTimer_timeout():
 	emit_signal("timeout")
 	queue_free()
-
-func _on_timeout():
-	pass
