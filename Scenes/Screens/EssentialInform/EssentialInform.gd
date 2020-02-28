@@ -1,10 +1,10 @@
-extends Control
+extends CanvasLayer
 
 signal timeout
 
-onready var top_text_label = get_node("CanvasLayer/TopText")
-onready var icon_sprite = get_node("CanvasLayer/Sprite")
-onready var center_text_label = get_node("CanvasLayer/CenterText")
+onready var top_text_label = get_node("Control/MarginContainer/VBoxContainer/TopText")
+onready var icon_sprite = get_node("Sprite")
+onready var center_text_label = get_node("Control/MarginContainer/VBoxContainer/CenterText")
 onready var game_manager = get_parent().get_node("GameManager")
 
 var top_text: String = ""
@@ -33,7 +33,6 @@ func _ready():
 
 func _on_ExitButton_pressed():
 	anim.play("FadedOut")
-
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "FadedOut":

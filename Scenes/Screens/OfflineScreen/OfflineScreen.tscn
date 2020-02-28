@@ -25,6 +25,9 @@ margin_top = 188.38
 margin_bottom = 202.38
 text = "Nie byles w grze: 30s"
 align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="OfflineRewardLabel" type="Label" parent="CanvasLayer"]
 anchor_right = 1.0

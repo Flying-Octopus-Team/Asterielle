@@ -17,8 +17,6 @@ const BASIC_HP_PRCE = 0
 const BASIC_ITEMS_PRCE = 0
 
 
-
-
 onready var enemies_per_level_count = find_node("Item_enemies_per_level").find_node("Count")
 onready var earn_gold_count = find_node("Item_earn_gold").find_node("Count")
 onready var earn_xp_count = find_node("Item_earn_xp").find_node("Count")
@@ -30,7 +28,6 @@ onready var basic_hp_count = find_node("Item_basic_hp").find_node("Count")
 onready var items_price_count = find_node("Item_items_price").find_node("Count")
 
 onready var level_manager = get_parent().find_node("LevelManager")
-
 
 
 func _process(delta):
