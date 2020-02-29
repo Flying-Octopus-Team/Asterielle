@@ -1,5 +1,5 @@
 extends Node2D
 
 func _ready():
-	var planet_animation: AnimationPlayer = get_parent()
-	planet_animation.play("PlanetAnimation")
+	var world_animation = get_parent().get_node("WorldAnimation")
+	world_animation.play("DayCycle")

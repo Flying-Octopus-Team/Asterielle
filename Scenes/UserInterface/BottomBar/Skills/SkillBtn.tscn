@@ -43,6 +43,7 @@ align = 1
 
 [node name="DurationTimer" type="Timer" parent="."]
 one_shot = true
+
 [connection signal="pressed" from="." to="." method="_on_SkillBtn_pressed"]
 [connection signal="timeout" from="CooldownTimer" to="." method="_on_CooldownTimer_timeout"]
 [connection signal="timeout" from="DurationTimer" to="." method="_on_DurationTimer_timeout"]

@@ -12,7 +12,7 @@ var next_arrow_velocity : Vector2
 
 var hp : float setget set_current_hp
 
-onready var stamina_system = get_parent().find_node("StaminaLab")
+onready var stamina_system = get_parent().get_parent().find_node("StaminaLab")
 onready var fire_point = find_node("FirePoint")
 onready var hp_bar = find_node("HPBar")
 onready var hp_label = find_node("HPLabel")

@@ -1,4 +1,4 @@
-extends Node2D
+extends CanvasLayer
 
 onready var gold_icon = find_node("GoldIcon")
 onready var gold_label = find_node("GoldLabel")

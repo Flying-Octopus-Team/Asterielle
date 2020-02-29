@@ -160,13 +160,13 @@ func add_revival_changer(stat_name, value):
 
 static func create_default_items() -> void:
 	ElfStats._items = {
-		"Bow": load("res://Resources/items/Bow.tres"),
-		"Helmet": load("res://Resources/items/Helmet.tres"),
-		"LeftRing": load("res://Resources/items/LeftRing.tres"),
-		"RightRing": load("res://Resources/items/RightRing.tres"),
-		"Armor": load("res://Resources/items/Armor.tres"),
-		"Gloves": load("res://Resources/items/Gloves.tres"),
-		"Boots": load("res://Resources/items/Boots.tres")
+		"Bow": load("res://Resources/Items/Bow.tres"),
+		"Helmet": load("res://Resources/Items/Helmet.tres"),
+		"LeftRing": load("res://Resources/Items/LeftRing.tres"),
+		"RightRing": load("res://Resources/Items/RightRing.tres"),
+		"Armor": load("res://Resources/Items/Armor.tres"),
+		"Gloves": load("res://Resources/Items/Gloves.tres"),
+		"Boots": load("res://Resources/Items/Boots.tres")
 	}
 
 	for key in ElfStats._items:
@@ -264,4 +264,3 @@ static func load_data(data):
 		
 	ElfStats.set_damage_multiplier(data["_damage_multiplier"])
 	ElfStats.set_health_multiplier(data["_health_multiplier"])
-	

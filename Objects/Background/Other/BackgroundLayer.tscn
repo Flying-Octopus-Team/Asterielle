@@ -1,6 +1,35 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://Objects/Background/Other/BackgroundLayer.gd" type="Script" id=1]
+[sub_resource type="GDScript" id=1]
+script/source = "extends Node2D
+
+export(Texture) var texture
+
+export(float) var move_speed_mod = 1
+
+onready var screen_width : float = get_viewport_rect().size.x
+
+var BackgroundSprite = load(\"res://Objects/Background/Other/BackgroundSprite.tscn\")
+
+func _ready():
+	create_sprites()
+
+func create_sprites() -> void:
+	var x : float = 0
+	while x >= -scree_width:
+		var sprite = BackgroundSprite.instance()
+		add_child(sprite)
+		sprite.texture = texture 
+		sprite.position.x = -x
+		x -= texture.get_size().x
+		
+func _process(delta) -> void:
+	position.x -= move_speed_mod * delta * BackgroundData.move_speed
+	
+	while position.x <= -screen_width:
+		position.x += screen_width
+"
 
 [node name="BackgroundLayer" type="Node2D"]
-script = ExtResource( 1 )
+script = SubResource( 1 )
+move_speed_mod = null
