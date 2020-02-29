@@ -141,6 +141,9 @@ anchor_bottom = 1.0
 margin_left = -1.05261
 margin_right = -1.05261
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/FadedIn = SubResource( 1 )
