@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scenes/Screens/RevivalShop/RevivalShop.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Screens/RevivalShop/RevivalShopItem.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/UserInterface/Buttons/GameButton.tscn" type="PackedScene" id=3]
 
 [node name="RevivalShop" type="CanvasLayer"]
 layer = 128
@@ -42,423 +44,91 @@ __meta__ = {
 
 [node name="CenterContainer" type="CenterContainer" parent="Control/MarginContainer/VBoxContainer"]
 margin_right = 540.0
-margin_bottom = 271.0
+margin_bottom = 263.0
 size_flags_vertical = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer/CenterContainer"]
-margin_left = 94.0
-margin_top = 29.0
-margin_right = 446.0
-margin_bottom = 241.0
+margin_left = 226.0
+margin_top = 25.0
+margin_right = 314.0
+margin_bottom = 237.0
 size_flags_vertical = 3
 
-[node name="Item_enemies_per_level" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer"]
-margin_left = 7.0
-margin_right = 352.0
-margin_bottom = 20.0
-size_flags_horizontal = 8
+[node name="Item_enemies_per_level" parent="Control/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer" instance=ExtResource( 2 )]
+margin_left = 0.0
+margin_right = 88.0
+color = Color( 0.243137, 1, 0, 1 )
+info = "zmniejszenie ilości przeciwników na poziom:"
 
-[node name="Info" type="Label" parent="Control/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/Item_enemies_per_level"]
-margin_right = 282.0
-margin_bottom = 14.0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-text = "zmniejszenie ilości przeciwników na poziom:"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Count" type="Label" parent="Control/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/Item_enemies_per_level"]
-margin_left = 286.0
-margin_right = 321.0
-margin_bottom = 20.0
-rect_min_size = Vector2( 35, 0 )
-size_flags_horizontal = 0
-size_flags_vertical = 1
-custom_colors/font_color = Color( 0.243137, 1, 0, 1 )
-text = "4"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Button" type="Button" parent="Control/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/Item_enemies_per_level"]
-margin_left = 325.0
-margin_right = 345.0
-margin_bottom = 20.0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-text = "+"
-align = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Item_earn_gold" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer"]
-margin_left = 63.0
+[node name="Item_earn_gold" parent="Control/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer" instance=ExtResource( 2 )]
+margin_left = 0.0
 margin_top = 24.0
-margin_right = 352.0
+margin_right = 88.0
 margin_bottom = 44.0
-size_flags_horizontal = 8
-__meta__ = {
-"_editor_description_": ""
-}
+color = Color( 0.243137, 1, 0, 1 )
+info = "zwiększenie ilości zdobywanego złota:"
 
-[node name="Info" type="Label" parent="Control/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/Item_earn_gold"]
-margin_top = 3.0
-margin_right = 226.0
-margin_bottom = 17.0
-text = "zwiększenie ilości zdobywanego złota:"
-align = 2
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Count" type="Label" parent="Control/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/Item_earn_gold"]
-margin_left = 230.0
-margin_right = 265.0
-margin_bottom = 20.0
-rect_min_size = Vector2( 35, 0 )
-size_flags_vertical = 1
-custom_colors/font_color = Color( 0.243137, 1, 0, 1 )
-text = "x1.2"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false,
-"_editor_description_": ""
-}
-
-[node name="Button" type="Button" parent="Control/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/Item_earn_gold"]
-margin_left = 269.0
-margin_right = 289.0
-margin_bottom = 20.0
-size_flags_horizontal = 8
-size_flags_vertical = 0
-text = "+"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Item_earn_xp" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer"]
-margin_left = 4.0
+[node name="Item_earn_xp" parent="Control/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer" instance=ExtResource( 2 )]
+margin_left = 0.0
 margin_top = 48.0
-margin_right = 352.0
+margin_right = 88.0
 margin_bottom = 68.0
-size_flags_horizontal = 8
-__meta__ = {
-"_editor_description_": ""
-}
+color = Color( 0.243137, 1, 0, 1 )
+info = "zwiększenie ilości zdobywanego doświadczenia:"
 
-[node name="Info" type="Label" parent="Control/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/Item_earn_xp"]
-margin_top = 3.0
-margin_right = 285.0
-margin_bottom = 17.0
-text = "zwiększenie ilości zdobywanego doświadczenia:"
-align = 2
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Count" type="Label" parent="Control/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/Item_earn_xp"]
-margin_left = 289.0
-margin_right = 324.0
-margin_bottom = 20.0
-rect_min_size = Vector2( 35, 0 )
-size_flags_horizontal = 0
-size_flags_vertical = 1
-custom_colors/font_color = Color( 0.243137, 1, 0, 1 )
-text = "x1.1"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false,
-"_editor_description_": ""
-}
-
-[node name="Button" type="Button" parent="Control/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/Item_earn_xp"]
-margin_left = 328.0
-margin_right = 348.0
-margin_bottom = 20.0
-text = "+"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Item_time_to_kill_boss" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer"]
-margin_left = 94.0
+[node name="Item_time_to_kill_boss" parent="Control/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer" instance=ExtResource( 2 )]
+margin_left = 0.0
 margin_top = 72.0
-margin_right = 352.0
+margin_right = 88.0
 margin_bottom = 92.0
-size_flags_horizontal = 8
+color = Color( 0.996078, 0.0117647, 0.0117647, 1 )
+info = "zwiększenie timera na bossach:"
 
-[node name="Info" type="Label" parent="Control/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/Item_time_to_kill_boss"]
-margin_top = 3.0
-margin_right = 195.0
-margin_bottom = 17.0
-text = "zwiększenie timera na bossach:"
-align = 2
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Count" type="Label" parent="Control/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/Item_time_to_kill_boss"]
-margin_left = 199.0
-margin_top = 3.0
-margin_right = 234.0
-margin_bottom = 17.0
-rect_min_size = Vector2( 35, 0 )
-custom_colors/font_color = Color( 1, 0, 0, 1 )
-text = "30s"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Button" type="Button" parent="Control/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/Item_time_to_kill_boss"]
-margin_left = 238.0
-margin_right = 258.0
-margin_bottom = 20.0
-text = "+"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Item_silver_moon_probability" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer"]
-margin_left = 45.0
+[node name="Item_silver_moon_probability" parent="Control/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer" instance=ExtResource( 2 )]
+margin_left = 0.0
 margin_top = 96.0
-margin_right = 352.0
+margin_right = 88.0
 margin_bottom = 116.0
-size_flags_horizontal = 8
-__meta__ = {
-"_editor_description_": ""
-}
+color = Color( 1, 0.937255, 0, 1 )
+info = "szanse zdobycia srebrnych ksiezyców:"
 
-[node name="Info" type="Label" parent="Control/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/Item_silver_moon_probability"]
-margin_top = 3.0
-margin_right = 244.0
-margin_bottom = 17.0
-text = "szanse zdobycia srebrnych ksiezyców:"
-align = 2
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Count" type="Label" parent="Control/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/Item_silver_moon_probability"]
-margin_left = 248.0
-margin_right = 283.0
-margin_bottom = 20.0
-rect_min_size = Vector2( 35, 0 )
-size_flags_vertical = 1
-custom_colors/font_color = Color( 1, 0.945098, 0, 1 )
-text = "15%"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Button" type="Button" parent="Control/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/Item_silver_moon_probability"]
-margin_left = 287.0
-margin_right = 307.0
-margin_bottom = 20.0
-text = "+"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Item_basic_start_level" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer"]
-margin_left = 72.0
+[node name="Item_basic_start_level" parent="Control/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer" instance=ExtResource( 2 )]
+margin_left = 0.0
 margin_top = 120.0
-margin_right = 352.0
+margin_right = 88.0
 margin_bottom = 140.0
-size_flags_horizontal = 8
+color = Color( 0.243137, 1, 0, 1 )
+info = "rozpoczęcie rozgrywki od poziomu:"
 
-[node name="Info" type="Label" parent="Control/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/Item_basic_start_level"]
-margin_top = 3.0
-margin_right = 217.0
-margin_bottom = 17.0
-text = "rozpoczęcie rozgrywki od poziomu:"
-align = 2
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Count" type="Label" parent="Control/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/Item_basic_start_level"]
-margin_left = 221.0
-margin_right = 256.0
-margin_bottom = 20.0
-rect_min_size = Vector2( 35, 0 )
-size_flags_vertical = 1
-custom_colors/font_color = Color( 0.0588235, 1, 0, 1 )
-text = "0"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Button" type="Button" parent="Control/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/Item_basic_start_level"]
-margin_left = 260.0
-margin_right = 280.0
-margin_bottom = 20.0
-text = "+"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Item_basic_damage" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer"]
-margin_left = 134.0
+[node name="Item_basic_damage" parent="Control/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer" instance=ExtResource( 2 )]
+margin_left = 0.0
 margin_top = 144.0
-margin_right = 352.0
+margin_right = 88.0
 margin_bottom = 164.0
-size_flags_horizontal = 8
-__meta__ = {
-"_editor_description_": ""
-}
+color = Color( 0.243137, 1, 0, 1 )
+info = "bazowe obrażenia gracza:"
 
-[node name="Info" type="Label" parent="Control/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/Item_basic_damage"]
-margin_top = 3.0
-margin_right = 155.0
-margin_bottom = 17.0
-text = "bazowe obrażenia gracza:"
-align = 2
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Count" type="Label" parent="Control/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/Item_basic_damage"]
-margin_left = 159.0
-margin_right = 194.0
-margin_bottom = 20.0
-rect_min_size = Vector2( 35, 0 )
-size_flags_vertical = 1
-custom_colors/font_color = Color( 0.0588235, 1, 0, 1 )
-text = "0"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Button" type="Button" parent="Control/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/Item_basic_damage"]
-margin_left = 198.0
-margin_right = 218.0
-margin_bottom = 20.0
-text = "+"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Item_basic_hp" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer"]
-margin_left = 177.0
+[node name="Item_basic_hp" parent="Control/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer" instance=ExtResource( 2 )]
+margin_left = 0.0
 margin_top = 168.0
-margin_right = 352.0
+margin_right = 88.0
 margin_bottom = 188.0
-size_flags_horizontal = 8
-__meta__ = {
-"_editor_description_": ""
-}
+color = Color( 0.243137, 1, 0, 1 )
+info = "bazowe hp gracza"
 
-[node name="Info" type="Label" parent="Control/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/Item_basic_hp"]
-margin_top = 3.0
-margin_right = 112.0
-margin_bottom = 17.0
-text = "bazowe hp gracza"
-align = 2
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Count" type="Label" parent="Control/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/Item_basic_hp"]
-margin_left = 116.0
-margin_right = 151.0
-margin_bottom = 20.0
-rect_min_size = Vector2( 35, 0 )
-size_flags_vertical = 1
-custom_colors/font_color = Color( 0.0588235, 1, 0, 1 )
-text = "0"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Button" type="Button" parent="Control/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/Item_basic_hp"]
-margin_left = 155.0
-margin_right = 175.0
-margin_bottom = 20.0
-text = "+"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Item_items_price" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer"]
+[node name="Item_items_price" parent="Control/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer" instance=ExtResource( 2 )]
+margin_left = 0.0
 margin_top = 192.0
-margin_right = 352.0
+margin_right = 88.0
 margin_bottom = 212.0
+color = Color( 1, 0.937255, 0, 1 )
+info = "zmniejszenie kosztu przedmiotów u kupca o:"
 
-[node name="Info" type="Label" parent="Control/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/Item_items_price"]
-margin_top = 3.0
-margin_right = 289.0
-margin_bottom = 17.0
-text = "zmniejszenie kosztu przedmiotów u kupca o:"
-align = 2
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Count" type="Label" parent="Control/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/Item_items_price"]
-margin_left = 293.0
-margin_right = 328.0
-margin_bottom = 20.0
-rect_min_size = Vector2( 35, 0 )
-size_flags_vertical = 1
-custom_colors/font_color = Color( 1, 0.937255, 0, 1 )
-text = "10%"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Button" type="Button" parent="Control/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/Item_items_price"]
-margin_left = 332.0
-margin_right = 352.0
-margin_bottom = 20.0
-text = "+"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Button" type="Button" parent="Control/MarginContainer/VBoxContainer"]
-margin_left = 240.0
-margin_top = 275.0
-margin_right = 300.0
+[node name="Button" parent="Control/MarginContainer/VBoxContainer" instance=ExtResource( 3 )]
+margin_left = 214.0
+margin_top = 267.0
+margin_right = 326.0
 margin_bottom = 295.0
-rect_min_size = Vector2( 60, 0 )
 size_flags_horizontal = 4
-text = "EXIT"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/Item_enemies_per_level/Button" to="." method="upgrade_enemies_per_level"]
-[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/Item_earn_gold/Button" to="." method="upgrade_earn_gold"]
-[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/Item_earn_xp/Button" to="." method="upgrade_earn_xp"]
-[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/Item_time_to_kill_boss/Button" to="." method="upgrade_time_to_kill_boss"]
-[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/Item_silver_moon_probability/Button" to="." method="upgrade_silver_moon_probability"]
-[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/Item_basic_start_level/Button" to="." method="upgrade_basic_start_level"]
-[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/Item_basic_damage/Button" to="." method="upgrade_basic_damage"]
-[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/Item_basic_hp/Button" to="." method="upgrade_basic_hp"]
-[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/Item_items_price/Button" to="." method="upgrade_items_price"]
+button_label = "EXIT"
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/Button" to="." method="exit"]
