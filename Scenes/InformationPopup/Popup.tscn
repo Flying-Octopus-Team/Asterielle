@@ -27,6 +27,9 @@ margin_top = 6.0
 margin_right = -6.0
 margin_bottom = -6.0
 grow_vertical = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Label" type="Label" parent="MarginContainer"]
 margin_right = 103.0

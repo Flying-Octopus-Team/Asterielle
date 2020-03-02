@@ -5,6 +5,9 @@
 [node name="Stat" type="HBoxContainer"]
 margin_right = 40.0
 margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Name" type="Label" parent="."]
 margin_top = 10.0

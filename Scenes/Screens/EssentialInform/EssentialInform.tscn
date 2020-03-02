@@ -11,7 +11,7 @@
 resource_name = "FadedIn"
 length = 5.0
 tracks/0/type = "value"
-tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/path = NodePath("ColorRect:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -23,7 +23,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("CanvasLayer/TopText:custom_colors/font_color")
+tracks/1/path = NodePath("Control/MarginContainer/VBoxContainer/TopText:custom_colors/font_color")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -35,46 +35,46 @@ tracks/1/keys = {
 "values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("CanvasLayer/CenterText:custom_colors/font_color")
+tracks/2/path = NodePath("Sprite:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 2, 4 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("CanvasLayer/Sprite:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
 "times": PoolRealArray( 0, 3.1, 5 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
-tracks/4/type = "value"
-tracks/4/path = NodePath("CanvasLayer/ColorRect:modulate")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
+tracks/3/type = "value"
+tracks/3/path = NodePath("ColorRect:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("Control/MarginContainer/VBoxContainer/CenterText:custom_colors/font_color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
 
 [sub_resource type="Animation" id=2]
 resource_name = "FadedOut"
 tracks/0/type = "value"
-tracks/0/path = NodePath("CanvasLayer/Sprite:modulate")
+tracks/0/path = NodePath("Sprite:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -86,7 +86,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("CanvasLayer/CenterText:custom_colors/font_color")
+tracks/1/path = NodePath("Control/MarginContainer/VBoxContainer/TopText:custom_colors/font_color")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -98,7 +98,7 @@ tracks/1/keys = {
 "values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("CanvasLayer/TopText:custom_colors/font_color")
+tracks/2/path = NodePath("ColorRect:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -107,10 +107,10 @@ tracks/2/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("CanvasLayer/ColorRect:modulate")
+tracks/3/path = NodePath("Control/MarginContainer/VBoxContainer/CenterText:custom_colors/font_color")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -119,7 +119,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
 }
 
 [sub_resource type="SpriteFrames" id=3]
@@ -135,11 +135,8 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="EssentialInformScreen" type="Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -1.05261
-margin_right = -1.05261
+[node name="EssentialInformScreen" type="CanvasLayer"]
+layer = 62
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -149,55 +146,86 @@ __meta__ = {
 anims/FadedIn = SubResource( 1 )
 anims/FadedOut = SubResource( 2 )
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = 46
-offset = Vector2( 0, -174.02 )
-transform = Transform2D( 1, 0, 0, 1, 0, -174.02 )
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 174.0
-margin_bottom = 174.0
+margin_top = -1.108
+margin_bottom = -1.108
+color = Color( 1, 1, 1, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="TopText" type="Label" parent="CanvasLayer"]
-anchor_right = 1.0
-margin_top = 190.391
-margin_bottom = 222.391
-custom_fonts/font = ExtResource( 2 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Top Text"
-align = 1
-
-[node name="CenterText" type="Label" parent="CanvasLayer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -31.723
-margin_top = 261.5
-margin_right = 29.277
-margin_bottom = 58.4999
-custom_fonts/font = ExtResource( 3 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Center Text Center Text Center Text Center Text Center Text Center Text Center Text Center Text 
-Center Text Center Text Center Text Center Text Center Text Center Text Center Text Center Text 
-Center Text Center Text Center Text Center Text Center Text Center Text Center Text Center Text Center Text 
-Center Text Center Text Center Text Center Text Center Text Center Text Center Text Center Text Center Text 
-Center Text Center Text Center Text "
-align = 1
-
-[node name="Sprite" type="AnimatedSprite" parent="CanvasLayer"]
+[node name="Sprite" type="AnimatedSprite" parent="."]
 visible = false
-position = Vector2( 286.47, 308.228 )
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 331.896, 370.842 )
 rotation = -0.00411392
 scale = Vector2( 0.357688, 0.357688 )
 frames = SubResource( 3 )
 animation = "skull"
 
-[node name="ExitButton" parent="CanvasLayer" instance=ExtResource( 6 )]
-margin_left = 232.572
-margin_top = 435.407
-margin_right = 344.572
-margin_bottom = 463.407
+[node name="Control" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
+margin_right = 540.0
+margin_bottom = 295.0
+rect_clip_content = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TopText" type="Label" parent="Control/MarginContainer/VBoxContainer"]
+margin_right = 540.0
+margin_bottom = 32.0
+rect_clip_content = true
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 0 )
+text = "Top Text"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterText" type="Label" parent="Control/MarginContainer/VBoxContainer"]
+margin_top = 36.0
+margin_right = 540.0
+margin_bottom = 263.0
+size_flags_vertical = 7
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 0 )
+text = "Center Text"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="ExitButton" parent="Control/MarginContainer/VBoxContainer" instance=ExtResource( 6 )]
+margin_left = 214.0
+margin_top = 267.0
+margin_right = 326.0
+margin_bottom = 295.0
+grow_horizontal = 0
+rect_clip_content = true
+size_flags_horizontal = 4
 button_label = "OK"
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
-[connection signal="pressed" from="CanvasLayer/ExitButton" to="." method="_on_ExitButton_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/ExitButton" to="." method="_on_ExitButton_pressed"]

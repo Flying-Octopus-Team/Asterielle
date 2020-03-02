@@ -1,7 +1,7 @@
-extends Control
+extends CanvasLayer
 
-onready var top_text_label = get_node("CanvasLayer/TopText")
-onready var center_text_label = get_node("CanvasLayer/CenterText")
+onready var top_text_label = get_node("Control/VBoxContainer/TopText")
+onready var center_text_label = get_node("Control/VBoxContainer/CenterText")
 
 var top_text: String = ""
 var center_text: String = ""

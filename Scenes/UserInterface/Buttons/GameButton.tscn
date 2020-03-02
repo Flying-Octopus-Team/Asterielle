@@ -7,19 +7,26 @@
 [ext_resource path="res://Fonts/SHPinsher_16.tres" type="DynamicFont" id=5]
 
 [node name="GameButton" type="TextureButton"]
-margin_right = 77.0
-margin_bottom = 23.0
+margin_right = 112.0
+margin_bottom = 28.0
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 1 )
 texture_pressed = ExtResource( 2 )
 texture_disabled = ExtResource( 3 )
 script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Label" type="Label" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
+margin_right = 111.0
+margin_bottom = 27.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 5 )
 text = "Button"
 align = 1
 valign = 1
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

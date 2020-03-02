@@ -1,6 +1,8 @@
 extends Node2D
 class_name SpawnerSystem
 
+const TRACK_HEIGHT = 280
+
 signal object_spawned
 
 func create_object(ObjectScene, parent_node:Node2D = self):

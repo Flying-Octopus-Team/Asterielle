@@ -31,6 +31,9 @@ mouse_default_cursor_shape = 2
 custom_icons/off = SubResource( 1 )
 custom_icons/on = SubResource( 2 )
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )

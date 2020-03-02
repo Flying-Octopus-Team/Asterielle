@@ -71,6 +71,7 @@ func revive():
 	GameData.last_revival_level = level_manager.current_level
 	show_revival_screen()
 	
+	
 func _on_RevivalShop_exited() -> void:
 	emit_signal("revive")
 	
