@@ -25,7 +25,7 @@ func set_active_revival_btn():
 	var level_manager = world.find_node("LevelManager")
 	var ui_container = world.find_node("UIContainer")
 	
-	if level_manager.current_level > 50:
+	if level_manager.current_level < 50:
 		ui_container.hide_revival_button()
 		GameData.connect("get_first_silver_moon", ui_container, "show_revival_button")
 	else:
