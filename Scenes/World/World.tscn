@@ -24,6 +24,7 @@ __meta__ = {
 }
 
 [node name="WorldBackground" parent="." instance=ExtResource( 2 )]
+position = Vector2( 0.814514, 0 )
 
 [node name="MainObjectsLayer" type="CanvasLayer" parent="."]
 layer = 5
@@ -44,12 +45,16 @@ position = Vector2( 620, 270 )
 z_index = 12
 
 [node name="UIContainer" parent="." instance=ExtResource( 5 )]
-layer = 22
+layer = 31
+
+[node name="EventManager" parent="." instance=ExtResource( 12 )]
+process_priority = 15
 
 [node name="DevilSpawner" parent="." instance=ExtResource( 7 )]
 position = Vector2( 620, 270 )
 
 [node name="Ground" type="Area2D" parent="."]
+visible = false
 position = Vector2( 387.044, 274.607 )
 monitoring = false
 collision_layer = 32
@@ -69,7 +74,5 @@ layer = 62
 [node name="LevelManager" parent="." instance=ExtResource( 10 )]
 
 [node name="Revival" parent="." instance=ExtResource( 11 )]
-
-[node name="EventManager" parent="." instance=ExtResource( 12 )]
 
 [node name="GameSaver" parent="." instance=ExtResource( 13 )]

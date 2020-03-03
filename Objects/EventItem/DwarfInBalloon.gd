@@ -12,3 +12,19 @@ func _process(delta):
 func _on_Item_pressed():
 	event_manager.dwarf_in_ballon = false
 	._on_Item_pressed()
+
+
+func _on_DwarfInBalloon_mouse_entered():
+	print("skrt")
+
+
+func _on_DwarfInBalloon_input_event(viewport, event, shape_idx):
+	print("Balllon")
+
+
+func _on_DwarfInBalloon_pressed():
+	print("Balllon22")
+
+
+func _on_Button_pressed():
+	print("aufbi")

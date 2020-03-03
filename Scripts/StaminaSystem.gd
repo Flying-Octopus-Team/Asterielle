@@ -12,9 +12,9 @@ func _ready():
 	current_stamina = max_stamina
 	set_process_input(true)
 
-func _input(event):
+"""func _input(event):
 	if Input.is_action_just_pressed("increasing_stamina"):
-		increasing_stamina()
+		increasing_stamina()"""
 
 func increasing_stamina():
 	current_stamina = min(current_stamina + 1, max_stamina)

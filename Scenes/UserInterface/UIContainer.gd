@@ -61,3 +61,7 @@ func _on_Tavern_exited() -> void:
 	
 func _on_RevivalShop_exited() -> void:
 	revival_enter_btn.set_pressed(false)
+
+
+func _on_Control_gui_input(event):
+	print("lol")

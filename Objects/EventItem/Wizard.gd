@@ -37,3 +37,13 @@ func _on_Item_pressed():
 func hide_item():
 	$texture.visible = false
 	$button.disabled = true
+
+
+
+func _on_Wizard_input_event(viewport, event, shape_idx):
+	print(event)
+	print("shrw")
+
+
+func _on_Button_pressed():
+	print("shrw")

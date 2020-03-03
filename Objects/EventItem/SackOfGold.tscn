@@ -18,4 +18,7 @@ margin_left = -35.5423
 margin_top = -55.2712
 margin_right = 33.4577
 margin_bottom = 9.72883
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="Item" to="." method="_on_Item_pressed"]
