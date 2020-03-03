@@ -5,18 +5,13 @@
 
 [node name="Wizard" type="Node2D"]
 position = Vector2( 590.001, 268.421 )
+z_index = 5
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="button" type="Button" parent="."]
-modulate = Color( 1, 1, 1, 0 )
-margin_left = -49.0
-margin_top = -115.0
-margin_right = 91.0
-margin_bottom = 17.0
-text = "Krasnolud w balonie"
-
-[node name="texture" type="Sprite" parent="."]
-position = Vector2( 20.1515, -49.4436 )
-z_index = 1
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -0.606079, -0.708496 )
+z_index = 10
 texture = ExtResource( 2 )
-[connection signal="pressed" from="button" to="." method="_on_Item_pressed"]
