@@ -9,3 +9,4 @@ func _process(delta):
 func _on_Item_pressed():
 	get_reward()
 	queue_free()
+
