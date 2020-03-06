@@ -9,10 +9,10 @@ var Boss = load("res://Objects/Dwarves/Boss/Boss.tscn")
 
 onready var default_dwarf_hp = dwarf_max_hp
 onready var default_dwarf_damage = dwarf_damage
-onready var WPHK = 0.0305
-onready var WPDK = 0.01894
-onready var BOSS_DAMAGE_MULTIPLAY = 1.5
-onready var BOSS_HP_MULTIPLAY = 1.75
+onready var HP_INCREASE_RATION = 0.0305
+onready var DAMAGE_INCREASE_RATIO = 0.01894
+onready var BOSS_DAMAGE_MULTIPLY = 1.5
+onready var BOSS_HP_MULTIPLY = 1.75
 
 
 onready var world = get_node("/root/World")
@@ -38,8 +38,8 @@ func spawn_dwarf():
 	
 func spawn_boss():
 	if spawn:
-		var boss_damage = dwarf_damage * BOSS_DAMAGE_MULTIPLAY
-		var boss_hp = dwarf_max_hp * BOSS_HP_MULTIPLAY
+		var boss_damage = dwarf_damage * BOSS_DAMAGE_MULTIPLY
+		var boss_hp = dwarf_max_hp * BOSS_HP_MULTIPLY
 		var boss = create_dwarf(Boss, boss_damage, boss_hp, "on_Boss_died")
 		boss.connect("boss_kill_timeout", level_manager, "on_Boss_kill_timeout")
 	
@@ -57,8 +57,8 @@ func create_dwarf(DwarfScene, damage:float, hp:float, on_died_func:String):
 	return dwarf
 	
 func on_next_level(level : int):
-	dwarf_max_hp = default_dwarf_hp * pow((WPHK + 1),level-1)
-	dwarf_damage = default_dwarf_damage * pow((WPDK + 1),level-1)
+	dwarf_max_hp = default_dwarf_hp * pow((HP_INCREASE_RATION + 1),level-1)
+	dwarf_damage = default_dwarf_damage * pow((DAMAGE_INCREASE_RATIO + 1),level-1)
 
 func reset_to_default() -> void:
 	dwarf_max_hp = default_dwarf_hp
