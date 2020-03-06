@@ -7,15 +7,11 @@ onready var cam_pos = get_node("/root/World").find_node("Camera2D").position
 
 func _ready():
 	var value = randi()%800+160
-	set_start_position(value,293)
+	set_start_position(value, TRACK_HEIGHT)
 
 func set_start_position(x, y):
-	if "DwarfInBalloon" in self.get_name(): #other position for DwarfInBallon
-		position.x = cam_pos.x + x
-		position.y = y
-	else:
-		position.x = cam_pos.x + x
-		position.y = TRACK_HEIGHT
+	position.x = cam_pos.x + x
+	position.y = y
 
 func get_reward():
 	GameData.gold += gold_reward
