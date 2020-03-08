@@ -9,6 +9,9 @@ func _ready():
 	var value = randi()%800+160
 	set_start_position(value, TRACK_HEIGHT)
 
+func _process(delta):
+	position.x += move_speed * delta
+
 func set_start_position(x, y):
 	position.x = cam_pos.x + x
 	position.y = y

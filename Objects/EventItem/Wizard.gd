@@ -32,6 +32,7 @@ func _on_timer_timeout():
 	
 func _on_Item_pressed():
 	get_reward()
+	hide_item()
 
 func hide_item():
 	$Sprite.visible = false
