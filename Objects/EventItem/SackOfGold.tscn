@@ -4,18 +4,14 @@
 [ext_resource path="res://Objects/EventItem/goldsack.png" type="Texture" id=2]
 
 [node name="SackOfFold" type="Node2D"]
+position = Vector2( 670.528, 258.948 )
 z_index = 3
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+move_speed = 0.0
 
-[node name="goldsack" type="Sprite" parent="."]
-position = Vector2( -2.68245, -22.4331 )
+[node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 0.614738, 0.614738 )
 texture = ExtResource( 2 )
-
-[node name="Item" type="Button" parent="."]
-modulate = Color( 1, 1, 1, 0 )
-margin_left = -35.5423
-margin_top = -55.2712
-margin_right = 33.4577
-margin_bottom = 9.72883
-[connection signal="pressed" from="Item" to="." method="_on_Item_pressed"]
