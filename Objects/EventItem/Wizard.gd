@@ -33,6 +33,7 @@ func _on_timer_timeout():
 func _on_Item_pressed():
 	get_reward()
 	hide_item()
+	set_process_input(false)
 
 func hide_item():
 	$Sprite.visible = false
