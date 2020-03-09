@@ -11,6 +11,7 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+button_sign = "+"
 
 [node name="Info" type="Label" parent="."]
 margin_right = 25.0
@@ -47,3 +48,4 @@ text = "+"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
