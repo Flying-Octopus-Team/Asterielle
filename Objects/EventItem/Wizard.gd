@@ -29,10 +29,11 @@ func _on_timer_timeout():
 	damage_stat.calculate_changed_value()
 	
 	queue_free()
-
+	
 func _on_Item_pressed():
 	get_reward()
 	hide_item()
+	set_process_input(false)
 
 func hide_item():
 	$Sprite.visible = false
