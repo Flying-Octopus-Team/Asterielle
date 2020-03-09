@@ -23,4 +23,5 @@ shape = SubResource( 1 )
 
 [node name="Destroy_timer" type="Timer" parent="."]
 wait_time = 3.0
+autostart = true
 [connection signal="timeout" from="Destroy_timer" to="." method="_on_Destroy_timer_timeout"]

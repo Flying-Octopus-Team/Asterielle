@@ -8,7 +8,6 @@ var damage : float
 
 func _ready():
 	add_to_group("IArrow")
-	$Destroy_timer.start(3)
 
 func _physics_process(delta):
 	velocity.y += gravity * delta
