@@ -35,5 +35,4 @@ func _on_Item_pressed():
 	hide_item()
 
 func hide_item():
-	$texture.visible = false
-	$button.disabled = true
+	$Sprite.visible = false

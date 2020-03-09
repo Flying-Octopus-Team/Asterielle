@@ -23,3 +23,9 @@ func get_reward():
 func _on_Item_pressed():
 	get_reward()
 	queue_free()
+
+func _input(event):
+	if (event is InputEventMouseButton) and event.pressed:
+		var evLocal = make_input_local(event)
+		if $Sprite.get_rect().has_point(evLocal.position):
+			_on_Item_pressed()
