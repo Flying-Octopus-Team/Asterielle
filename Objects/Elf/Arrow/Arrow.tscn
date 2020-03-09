@@ -9,7 +9,7 @@ extents = Vector2( 18, 3 )
 [node name="Arrow" type="Area2D"]
 z_index = 1
 collision_layer = 4
-collision_mask = 32
+collision_mask = 0
 script = ExtResource( 1 )
 damping = 1.0
 
@@ -20,4 +20,8 @@ texture = ExtResource( 2 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -1, 0 )
 shape = SubResource( 1 )
-[connection signal="area_entered" from="." to="." method="_on_Arrow_area_entered"]
+
+[node name="Destroy_timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+[connection signal="timeout" from="Destroy_timer" to="." method="_on_Destroy_timer_timeout"]
