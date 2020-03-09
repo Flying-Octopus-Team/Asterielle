@@ -16,27 +16,6 @@ const BASIC_DAMAGE_PRCE = 0
 const BASIC_HP_PRCE = 0
 const BASIC_ITEMS_PRCE = 0
 
-"""
-onready var enemies_per_level_count = find_node("Item_enemies_per_level").find_node("Count")
-onready var earn_gold_count = find_node("Item_earn_gold").find_node("Count")
-onready var earn_xp_count = find_node("Item_earn_xp").find_node("Count")
-onready var time_to_kill_boss_count = find_node("Item_time_to_kill_boss").find_node("Count")
-onready var silver_moon_probability_count = find_node("Item_silver_moon_probability").find_node("Count")
-onready var basic_start_level_count = find_node("Item_basic_start_level").find_node("Count")
-onready var basic_damage_count = find_node("Item_basic_damage").find_node("Count")
-onready var basic_hp_count = find_node("Item_basic_hp").find_node("Count")
-onready var items_price_count = find_node("Item_items_price").find_node("Count")
-
-onready var enemies_per_level_button = find_node("Item_enemies_per_level").find_node("Button")
-onready var earn_gold_button = find_node("Item_earn_gold").find_node("Button")
-onready var earn_xp_button = find_node("Item_earn_xp").find_node("Button")
-onready var time_to_kill_boss_button = find_node("Item_time_to_kill_boss").find_node("Button")
-onready var silver_moon_probability_button = find_node("Item_silver_moon_probability").find_node("Button")
-onready var basic_start_level_button = find_node("Item_basic_start_level").find_node("Button")
-onready var basic_damage_button = find_node("Item_basic_damage").find_node("Button")
-onready var basic_hp_button = find_node("Item_basic_hp").find_node("Button")
-onready var items_price_button = find_node("Item_items_price").find_node("Button")"""
-
 onready var level_manager = get_parent().find_node("LevelManager")
 
 func _ready():
@@ -56,17 +35,6 @@ func exit():
 	game_manager.resume_gameplay()
 	emit_signal("revival_shop_exit")
 	queue_free()
-"""
-func connect_buttons_signals():
-	enemies_per_level_button.connect("pressed", self, "upgrade_enemies_per_level")
-	earn_gold_button.connect("pressed", self, "upgrade_earn_gold")
-	earn_xp_button.connect("pressed", self, "upgrade_earn_xp")
-	time_to_kill_boss_button.connect("pressed", self, "upgrade_time_to_kill_boss")
-	silver_moon_probability_button.connect("pressed", self, "upgrade_silver_moon_probability")
-	basic_start_level_button.connect("pressed", self, "upgrade_basic_start_level")
-	basic_damage_button.connect("pressed", self, "upgrade_basic_damage")
-	basic_hp_button.connect("pressed", self, "upgrade_basic_hp")
-	items_price_button.connect("pressed", self, "upgrade_items_price")"""
 	
 func send_count_text(item_name, text):
 	find_node(item_name).set_count_string(String(text))
