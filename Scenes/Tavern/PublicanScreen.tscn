@@ -61,5 +61,8 @@ margin_top = 107.0
 margin_right = 207.0
 margin_bottom = 310.0
 custom_fonts/font = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="bought" from="VBoxContainer/Shop/VineBtn" to="VBoxContainer/Shop" method="_on_VineBtn_bought"]
 [connection signal="bought" from="VBoxContainer/Shop/HealthPotionBtn" to="VBoxContainer/Shop" method="_on_HealthPotionBtn_bought"]

@@ -1,16 +1,11 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Objects/EventItem/Chicken.gd" type="Script" id=1]
+[ext_resource path="res://Objects/EventItem/EventItem.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/EventItem/chicken.png" type="Texture" id=2]
 
-[node name="Chicken" type="Node2D"]
-position = Vector2( 614.151, 253.873 )
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
+[node name="Chicken" instance=ExtResource( 1 )]
+position = Vector2( 611.344, 265.966 )
+scale = Vector2( 1.5, 1.5 )
 
-[node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 1.46763, 1.46763 )
-z_index = 1
+[node name="Sprite" parent="." index="0"]
 texture = ExtResource( 2 )
