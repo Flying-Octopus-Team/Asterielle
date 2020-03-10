@@ -8,7 +8,7 @@ func _on_BuyBtn_pressed():
 	generate_random()
 	
 func generate_random():
-	item.generate_random(ElfStats.get_stat_value("lucky"))
+	item.generate_random()
 	set_price_gold(item.price * GameData.tradesman_item_price_multipler)
 	generate_popup_title()
 	

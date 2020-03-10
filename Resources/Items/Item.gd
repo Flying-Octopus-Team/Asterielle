@@ -41,7 +41,7 @@ func fill_quality_array() -> void:
 		load("res://Resources/Items/ItemQuality/TypeLegendary.tres")
 	]
 	
-func generate_random(lucky:float) -> void:
+func generate_random() -> void:
 	if QUALITY.empty():
 		fill_quality_array()
 		
