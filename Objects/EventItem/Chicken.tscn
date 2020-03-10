@@ -4,8 +4,7 @@
 [ext_resource path="res://Objects/EventItem/chicken.png" type="Texture" id=2]
 
 [node name="Chicken" instance=ExtResource( 1 )]
-position = Vector2( 611.344, 265.966 )
-scale = Vector2( 1.5, 1.5 )
 
 [node name="Sprite" parent="." index="0"]
+scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 2 )
