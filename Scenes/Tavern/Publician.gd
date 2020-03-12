@@ -33,8 +33,6 @@ func load_quests():
 	for index in data.keys():
 		if data[index]["type"] == QuestType.kill_dwarver:
 			quests.append(QuestKill.new(data[index]["count"]))
-		elif data[index]["type"] == QuestType.spend_xp:
-			quests.append(QuestSpendXp.new(data[index]["count"]))
 		elif data[index]["type"] == QuestType.spend_gold:
 			quests.append(QuestSpendGold.new(data[index]["count"]))
 	
@@ -55,14 +53,10 @@ func create_default_quests():
 	add_kill_dwarves_quest()
 	add_spend_gold_quest()
 	add_kill_dwarves_quest()
-	add_spend_xp_quest()
-	add_spend_xp_quest()
 	add_spend_gold_quest()
 	add_kill_dwarves_quest()
 	add_spend_gold_quest()
 	add_kill_dwarves_quest()
-	add_spend_xp_quest()
-	add_spend_xp_quest()
 	add_spend_gold_quest()
 
 func clear_items():
@@ -95,15 +89,6 @@ class QuestKill extends BaseQuest:
 		data["xp_reward"] = stepify(Count * (randf()*6+1),2)
 		data["type"] =  QuestType.kill_dwarver
 
-class QuestSpendXp extends BaseQuest:
-	
-	func _init(Count):
-		data["count"] = Count
-		data["title"] = "Wydaj "+String(Count)+" punktow doswiadczenia"
-		data["gold_reward"] =  Count
-		data["xp_reward"] = Count*5
-		data["type"] =  QuestType.spend_xp
-
 class QuestSpendGold extends BaseQuest:
 	
 	func _init(Count):
@@ -114,15 +99,6 @@ class QuestSpendGold extends BaseQuest:
 		data["type"] =  QuestType.spend_gold
 
 ##TODO: Ten kod się strasznie powtarza!!!!
-func on_spend_xp(spent_xp):
-	for index in quests.size():
-		if index == selected_quest:
-			if quests[index].data["type"] == QuestType.spend_xp:
-				quests[index].data["amount"] += spent_xp
-				if quests[index].data["amount"] >= quests[index].data["count"]:
-					give_reward(quests[index].data["gold_reward"], quests[index].data["xp_reward"], index)
-					delete_quest(index)
-					add_spend_xp_quest()
 
 func on_kill_dwarver():
 	for index in quests.size():
@@ -146,26 +122,18 @@ func on_spend_gold(spent_gold):
 
 enum QuestType{
 	kill_dwarver,
-	spend_xp,
 	spend_gold
 }
 
 func give_reward(gold, xp, index):
 	var nis = NegligibleInformScreen.instance()
 	var header: String = "Wykonales zadanie: " + String(quests[index].data["title"])
-	var desc: String = "nagroda: "+String(gold)+"golda i "+String(xp)+" expa"
+	var desc: String = "nagroda: "+String(gold)+" golda"
 	nis.init(3,header,desc)
 	get_parent().call_deferred("add_child", nis)
 	
 	GameData.add_gold(gold)
 	GameData.add_xp(xp)
-
-func add_spend_xp_quest():
-	var xp_to_spend = stepify((GameData.xp + (randi()%5+1)) * (randi()%5+1),2)
-	
-	quests.append(QuestSpendXp.new(xp_to_spend))
-	
-	item_list.add_item(String(quests[quests.size()-1].data["title"]),dwarver_cion)
 
 func add_spend_gold_quest():
 	var gold_to_spend = stepify((GameData.gold + (randi()%5+1)) * (randi()%5+1),2)

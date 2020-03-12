@@ -14,7 +14,6 @@ func _process(delta):
 	update_label()
 	
 func on_arrow_hit(arrow):
-	arrow.damage += ElfStats.get_stat_value("sensinitive_points")
 	.on_arrow_hit(arrow)
 	
 func update_label():
