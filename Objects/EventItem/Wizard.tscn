@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=2]
 
 [ext_resource path="res://Objects/EventItem/Wizard.gd" type="Script" id=1]
-[ext_resource path="res://Objects/EventItem/EventItem.tscn" type="PackedScene" id=2]
 
-[node name="Wizard" instance=ExtResource( 2 )]
+[node name="Wizard" type="Node2D"]
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="."]
