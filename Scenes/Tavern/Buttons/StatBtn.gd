@@ -1,7 +1,5 @@
 extends TavernBtn
 
-#delete node sensinitive points
-
 export(String) var stat_name
 export(float) var add_to_stat = 0.0
 export(float) var multiply_stat = 1.0
