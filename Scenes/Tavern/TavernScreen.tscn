@@ -29,6 +29,31 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 2 )
 
+[node name="VBoxContainer" type="VBoxContainer" parent="MainHall"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -89.0
+margin_bottom = 51.0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RevivalEnterBtn" parent="MainHall/VBoxContainer" instance=ExtResource( 13 )]
+margin_left = 8.0
+margin_right = 89.0
+size_flags_horizontal = 8
+
+[node name="RevivalEnterLabel" type="Label" parent="MainHall/VBoxContainer"]
+margin_top = 31.0
+margin_right = 89.0
+margin_bottom = 51.0
+size_flags_horizontal = 5
+custom_fonts/font = ExtResource( 10 )
+text = "Przywolaj diabla"
+align = 2
+
 [node name="ExitDoorBtn" parent="MainHall" instance=ExtResource( 3 )]
 margin_left = 26.3486
 margin_top = 251.654
@@ -135,5 +160,6 @@ margin_left = 360.525
 margin_top = 168.461
 margin_right = 360.525
 margin_bottom = 168.461
+[connection signal="pressed" from="MainHall/VBoxContainer/RevivalEnterBtn" to="." method="_on_RevivalEnterBtn_pressed"]
 [connection signal="pressed" from="MainHall/ExitDoorBtn" to="." method="_on_ExitDoorBtn_pressed"]
 [connection signal="pressed" from="MainHall/RevivalEnterBtn" to="." method="_on_RevivalEnterBtn_pressed"]
