@@ -1,13 +1,13 @@
 extends Node2D
 
-const SPAWN_HEIGHT = 260
-const SPAWN_WIDTH = 800
+const SPAWN_Y = 260
+const SPAWN_X = 800
 export(int) var gold_reward = 65
 export(float) var move_speed = -100
 onready var cam_pos = get_node("/root/World").find_node("Camera2D").position
 
 func _ready():
-	set_start_position(SPAWN_WIDTH, SPAWN_HEIGHT)
+	set_start_position(SPAWN_X, SPAWN_Y)
 
 func _process(delta):
 	position.x += move_speed * delta
