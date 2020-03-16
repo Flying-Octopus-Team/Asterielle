@@ -15,8 +15,6 @@ var elf
 var publican
 
 func setup() -> void:
-	for child in get_parent().get_children():
-		print(child.get_name())
 	level_manager = get_parent().get_node("World").get_node("LevelManager")
 	elf = get_parent().get_node("World").find_node("Elf")
 	publican = get_parent().get_node("World").find_node("Publican")

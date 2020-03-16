@@ -86,6 +86,7 @@ BackgroundData="*res://Objects/Background/BackgroundData.gd"
 ElfStats="*res://Scripts/ElfStats.gd"
 GameData="*res://Scripts/GameData.gd"
 GameLoader="*res://Scripts/GameLoader.gd"
+GameSaver="*res://Scripts/GameSaver.gd"
 
 [display]
 
