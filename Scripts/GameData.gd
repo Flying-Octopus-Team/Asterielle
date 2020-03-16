@@ -33,7 +33,6 @@ const REVIVAL_SILVER_MOON_REWARD : int = 1
 
 var world
 var level_manager
-var game_saver 
 var ui
 
 func setup() -> void:
@@ -41,7 +40,6 @@ func setup() -> void:
 	
 	world = get_node("/root/World")
 	level_manager = world.get_node("LevelManager")
-	game_saver = world.get_node("GameSaver")
 	ui = world.find_node("UIContainer")
 	
 	level_manager.connect("dwarf_died", self, "on_Dwarf_died")
