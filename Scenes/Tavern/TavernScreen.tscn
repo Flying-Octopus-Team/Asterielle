@@ -94,23 +94,6 @@ margin_bottom = 73.3357
 button_label = "Karczmarka"
 screen_name = "PublicanScreen"
 
-[node name="RevivalEnterBtn" parent="MainHall" instance=ExtResource( 13 )]
-margin_left = 471.958
-margin_top = 10.0238
-margin_right = 552.958
-margin_bottom = 37.0238
-size_flags_horizontal = 8
-
-[node name="RevivalEnterLabel" type="Label" parent="MainHall"]
-margin_left = 462.526
-margin_top = 41.3197
-margin_right = 551.526
-margin_bottom = 61.3197
-size_flags_horizontal = 0
-custom_fonts/font = ExtResource( 10 )
-text = "Przywolaj diabla"
-align = 2
-
 [node name="RoomScreen" parent="." instance=ExtResource( 5 )]
 visible = false
 
@@ -162,4 +145,3 @@ margin_right = 360.525
 margin_bottom = 168.461
 [connection signal="pressed" from="MainHall/VBoxContainer/RevivalEnterBtn" to="." method="_on_RevivalEnterBtn_pressed"]
 [connection signal="pressed" from="MainHall/ExitDoorBtn" to="." method="_on_ExitDoorBtn_pressed"]
-[connection signal="pressed" from="MainHall/RevivalEnterBtn" to="." method="_on_RevivalEnterBtn_pressed"]
