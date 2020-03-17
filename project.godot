@@ -85,6 +85,8 @@ config/icon="res://icon.png"
 BackgroundData="*res://Objects/Background/BackgroundData.gd"
 ElfStats="*res://Scripts/ElfStats.gd"
 GameData="*res://Scripts/GameData.gd"
+GameLoader="*res://Scripts/GameLoader.gd"
+GameSaver="*res://Scripts/GameSaver.gd"
 
 [display]
 
@@ -137,7 +139,6 @@ pointing/emulate_touch_from_mouse=true
 2d_physics/layer_3="arrows"
 2d_physics/layer_4="elf"
 2d_physics/layer_5="dwarves_space"
-2d_physics/layer_6="ground"
 2d_physics/layer_7="tavern"
 
 [network]
@@ -147,4 +148,5 @@ limits/debugger_stdout/max_errors_per_frame=120
 
 [rendering]
 
+quality/driver/driver_name="GLES2"
 vram_compression/import_etc=true
