@@ -1,0 +1,65 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Tavern/ItemsPanel/ItemValuesRow.gd" type="Script" id=1]
+[ext_resource path="res://Fonts/SHPinsher_16.tres" type="DynamicFont" id=2]
+
+[node name="ItemValuesRow" type="HBoxContainer"]
+margin_right = 560.0
+margin_bottom = 14.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Item" type="Label" parent="."]
+margin_right = 90.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 2 )
+text = "BLANK"
+align = 1
+
+[node name="Bows" type="Label" parent="."]
+margin_left = 94.0
+margin_right = 184.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 2 )
+text = "0"
+align = 1
+
+[node name="Vitality" type="Label" parent="."]
+margin_left = 188.0
+margin_right = 278.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 2 )
+text = "0"
+align = 1
+
+[node name="Charisma" type="Label" parent="."]
+margin_left = 282.0
+margin_right = 372.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 2 )
+text = "0"
+align = 1
+
+[node name="Crit" type="Label" parent="."]
+margin_left = 376.0
+margin_right = 466.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 2 )
+text = "0"
+align = 1
+
+[node name="Stamina" type="Label" parent="."]
+margin_left = 470.0
+margin_right = 560.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 2 )
+text = "0"
+align = 1

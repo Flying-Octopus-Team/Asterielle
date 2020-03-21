@@ -1,0 +1,95 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Tavern/ItemsPanel/ItemsPanel.gd" type="Script" id=1]
+[ext_resource path="res://Fonts/SHPinsher_16.tres" type="DynamicFont" id=2]
+
+[node name="ItemsPanel" type="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 556.0
+margin_bottom = 311.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemsTable" type="VBoxContainer" parent="MarginContainer"]
+margin_right = 552.0
+margin_bottom = 307.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Headers" type="HBoxContainer" parent="MarginContainer/ItemsTable"]
+margin_right = 552.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Item" type="Label" parent="MarginContainer/ItemsTable/Headers"]
+margin_right = 88.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 2 )
+text = "Item"
+align = 1
+
+[node name="BowsKnowledge" type="Label" parent="MarginContainer/ItemsTable/Headers"]
+margin_left = 92.0
+margin_right = 180.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 2 )
+text = "BK"
+align = 1
+
+[node name="Vitality" type="Label" parent="MarginContainer/ItemsTable/Headers"]
+margin_left = 184.0
+margin_right = 272.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 2 )
+text = "Vi"
+align = 1
+
+[node name="Charisma" type="Label" parent="MarginContainer/ItemsTable/Headers"]
+margin_left = 276.0
+margin_right = 364.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 2 )
+text = "Ch"
+align = 1
+
+[node name="Crit" type="Label" parent="MarginContainer/ItemsTable/Headers"]
+margin_left = 368.0
+margin_right = 456.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 2 )
+text = "Crt"
+align = 1
+
+[node name="Stamina" type="Label" parent="MarginContainer/ItemsTable/Headers"]
+margin_left = 460.0
+margin_right = 552.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 2 )
+text = "St"
+align = 1
+
+[node name="Values" type="VBoxContainer" parent="MarginContainer/ItemsTable"]
+margin_top = 24.0
+margin_right = 552.0
+margin_bottom = 307.0
+size_flags_vertical = 3

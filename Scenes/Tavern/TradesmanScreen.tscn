@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scenes/Tavern/OneTavernScreen.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Tavern/TradesmanScreen.gd" type="Script" id=2]
@@ -11,6 +11,8 @@
 [ext_resource path="res://Resources/Items/Armor.tres" type="Resource" id=9]
 [ext_resource path="res://Resources/Items/Gloves.tres" type="Resource" id=10]
 [ext_resource path="res://Resources/Items/Boots.tres" type="Resource" id=11]
+[ext_resource path="res://Scenes/Tavern/ItemsPanel/ItemsPanel.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Fonts/SHPinsher_24.tres" type="DynamicFont" id=13]
 
 [node name="TradesmanScreen" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
@@ -18,62 +20,101 @@ script = ExtResource( 2 )
 [node name="NameLabel" parent="VBoxContainer" index="0"]
 text = "Handlarz"
 
-[node name="Shop" parent="VBoxContainer" index="1"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" index="1"]
+margin_top = 37.0
+margin_right = 560.0
 margin_bottom = 243.0
+alignment = 1
+
+[node name="Shop" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" index="0"]
+margin_right = 560.0
+margin_bottom = 206.0
+grow_horizontal = 0
+size_flags_horizontal = 3
 script = ExtResource( 3 )
 
-[node name="BowBtn" parent="VBoxContainer/Shop" index="0" instance=ExtResource( 4 )]
+[node name="BowBtn" parent="VBoxContainer/HBoxContainer/Shop" index="0" instance=ExtResource( 4 )]
 margin_right = 560.0
 margin_bottom = 26.0
 item_name = "Luk"
 item = ExtResource( 5 )
 
-[node name="LeftRingBtn" parent="VBoxContainer/Shop" index="1" instance=ExtResource( 4 )]
+[node name="LeftRingBtn" parent="VBoxContainer/HBoxContainer/Shop" index="1" instance=ExtResource( 4 )]
 margin_top = 30.0
 margin_right = 560.0
 margin_bottom = 56.0
 item_name = "Lewy pierscien"
 item = ExtResource( 6 )
 
-[node name="RightRingBtn" parent="VBoxContainer/Shop" index="2" instance=ExtResource( 4 )]
+[node name="RightRingBtn" parent="VBoxContainer/HBoxContainer/Shop" index="2" instance=ExtResource( 4 )]
 margin_top = 60.0
 margin_right = 560.0
 margin_bottom = 86.0
 item_name = "Prawy pierscien"
 item = ExtResource( 7 )
 
-[node name="HelmetBtn" parent="VBoxContainer/Shop" index="3" instance=ExtResource( 4 )]
+[node name="HelmetBtn" parent="VBoxContainer/HBoxContainer/Shop" index="3" instance=ExtResource( 4 )]
 margin_top = 90.0
 margin_right = 560.0
 margin_bottom = 116.0
 item_name = "Helm"
 item = ExtResource( 8 )
 
-[node name="ArmorBtn" parent="VBoxContainer/Shop" index="4" instance=ExtResource( 4 )]
+[node name="ArmorBtn" parent="VBoxContainer/HBoxContainer/Shop" index="4" instance=ExtResource( 4 )]
 margin_top = 120.0
 margin_right = 560.0
 margin_bottom = 146.0
 item_name = "Zbroja"
 item = ExtResource( 9 )
 
-[node name="GlovesBtn" parent="VBoxContainer/Shop" index="5" instance=ExtResource( 4 )]
+[node name="GlovesBtn" parent="VBoxContainer/HBoxContainer/Shop" index="5" instance=ExtResource( 4 )]
 margin_top = 150.0
 margin_right = 560.0
 margin_bottom = 176.0
 item_name = "Rekawice"
 item = ExtResource( 10 )
 
-[node name="BootsBtn" parent="VBoxContainer/Shop" index="6" instance=ExtResource( 4 )]
+[node name="BootsBtn" parent="VBoxContainer/HBoxContainer/Shop" index="6" instance=ExtResource( 4 )]
 margin_top = 180.0
 margin_right = 560.0
 margin_bottom = 206.0
 item_name = "Buty"
 item = ExtResource( 11 )
 
-[node name="CenterContainer" parent="VBoxContainer" index="2"]
+[node name="Shop" parent="VBoxContainer" index="2"]
 margin_top = 248.0
-margin_bottom = 276.0
+margin_bottom = 248.0
+
+[node name="CenterContainer" parent="VBoxContainer" index="3"]
+margin_top = 253.0
+margin_bottom = 281.0
 
 [node name="ResetItemsTimer" type="Timer" parent="." index="1"]
 wait_time = 300.0
+
+[node name="ItemsPanel" parent="." index="2" instance=ExtResource( 12 )]
+margin_top = 30.0
+margin_bottom = -69.0
+
+[node name="HoverInventory" type="Panel" parent="." index="3"]
+margin_left = 3.715
+margin_top = 270.475
+margin_right = 176.715
+margin_bottom = 310.475
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="HoverInventory" index="0"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 13 )
+text = "Ekwipunek"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="timeout" from="ResetItemsTimer" to="." method="_on_ResetItemsTimer_timeout"]
+[connection signal="mouse_entered" from="HoverInventory" to="." method="_on_HoverInventory_mouse_entered"]
+[connection signal="mouse_exited" from="HoverInventory" to="." method="_on_HoverInventory_mouse_exited"]

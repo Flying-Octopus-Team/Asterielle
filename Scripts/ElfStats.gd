@@ -188,6 +188,9 @@ static func restore_to_default() -> void:
 		
 static func get_stats() -> Array:
 	return ElfStats._stats
+
+static func get_items() -> Array:
+	return ElfStats._items.values()
 		
 static func get_stat(stat_name:String) -> Stat:
 	for s in ElfStats._stats:
