@@ -70,18 +70,20 @@ text = "Przywolaj diabla"
 align = 2
 
 [node name="ExitDoorBtn" parent="MainHall" instance=ExtResource( 3 )]
-margin_left = 26.3486
-margin_top = 251.654
-margin_right = 138.349
-margin_bottom = 279.654
+margin_left = 16.2895
+margin_top = 273.32
+margin_right = 128.29
+margin_bottom = 301.32
 button_label = "Wyjdz"
 
 [node name="EnterWizardBtn" parent="MainHall" instance=ExtResource( 4 )]
-margin_left = 234.892
-margin_top = 203.443
-margin_right = 346.892
-margin_bottom = 231.443
-button_label = "Mag"
+margin_left = 401.0
+margin_top = 177.0
+margin_right = 497.0
+margin_bottom = 303.0
+texture_normal = null
+texture_pressed = null
+button_label = ""
 screen_name = "WizardScreen"
 
 [node name="EnterRoomBtn" parent="MainHall" instance=ExtResource( 4 )]
@@ -159,6 +161,7 @@ custom_fonts/font = ExtResource( 10 )
 text = "Doswiadczenie: 100"
 
 [node name="StatsPanel" parent="." instance=ExtResource( 11 )]
+visible = false
 margin_left = 360.525
 margin_top = 168.461
 margin_right = 360.525
