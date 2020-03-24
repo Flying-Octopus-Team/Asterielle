@@ -19,15 +19,15 @@ you can play in EvD for free:
 ## Screenshots
 
 <p align="center">
-  <img src="https://github.com/Ajver/EvD/blob/master/obraz.png" />
+  <img src="https://github.com/Ajver/EvD/blob/master/screen_1.png" />
 </p>
 
 <p align="center">
-  <img src="https://github.com/Ajver/EvD/blob/master/obraz (1).png" />
+  <img src="https://github.com/Ajver/EvD/blob/master/screen_2.png" />
 </p>
 
 <p align="center">
-  <img src="https://github.com/Ajver/EvD/blob/master/obraz (2).png" />
+  <img src="https://github.com/Ajver/EvD/blob/master/screen_3.png" />
 </p>
 
 ## Credits
