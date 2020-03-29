@@ -301,7 +301,6 @@ align = 1
 valign = 1
 
 [node name="WorldBackground" parent="." instance=ExtResource( 7 )]
-position = Vector2( 0.663391, 0 )
 [connection signal="pressed" from="Canvas/Home/MarginContainer/VBoxContainer/CenterContainer/Menu/NewGameBtn" to="." method="_on_NewGameBtn_pressed"]
 [connection signal="pressed" from="Canvas/Home/MarginContainer/VBoxContainer/CenterContainer/Menu/ContinueBtn" to="." method="_on_ContinueBtn_pressed"]
 [connection signal="pressed" from="Canvas/Home/MarginContainer/VBoxContainer/CenterContainer/Menu/OptionsBtn" to="." method="_on_OptionsBtn_pressed"]
