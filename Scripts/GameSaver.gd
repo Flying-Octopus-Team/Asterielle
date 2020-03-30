@@ -3,7 +3,7 @@ extends Node
 const SAVE_PATH = "res://save.json"
 var timer
 
-func _ready():
+func setup():
 	timer = Timer.new()
 	add_child(timer)
 	timer.start(1)

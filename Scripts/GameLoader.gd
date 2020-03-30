@@ -115,7 +115,7 @@ func load_elf_stats(elf_stats):
 	elf.reset_to_base()
 
 func load_helth_potion(helth_potion):
-	get_parent().find_node("HealthPotion").set_amount(helth_potion)
+	get_tree().get_root().get_node("World").find_node("HealthPotion").set_amount(helth_potion)
 
 func load_price(price):
 	var items = get_parent().find_node("Items") 
