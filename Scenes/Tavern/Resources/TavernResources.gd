@@ -16,7 +16,7 @@ func _on_Xp_changed():
 	update_xp_label()
 	
 func update_gold_label():
-	gold_label.text = str("Zloto: ", stepify(GameData.gold,0.01)) 
+	gold_label.text = str(stepify(GameData.gold,0.01)) 
 	
 func update_xp_label():
 	xp_label.text = str("Doswiadczenie: ", stepify(GameData.xp,0.01))
