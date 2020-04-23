@@ -15,7 +15,8 @@ func _ready():
 	set_active_revival_btn()
 	GameLoader.connect("save_data_was_loaded", self, "set_active_revival_btn")
 	
-	GameData.connect("get_first_silver_moon", self, "show_silver_moon_screen")
+	if GameData.silver_moon == 0:
+		GameData.connect("get_first_silver_moon", self, "show_silver_moon_screen")
 	connect("revive", tavern_screen, "reset_to_default")
 	connect("revive", dwarves_manager, "reset_to_default")
 	connect("revive", GameLoader, "revival_reset")
@@ -58,7 +59,9 @@ func show_revival_shop():
 
 func revive():
 	var level_manager = world.find_node("LevelManager")
+	var ui_container = world.find_node("UIContainer")
 	
+	ui_container.hide_revival_button()
 	if level_manager.current_level < GameData.FIRST_REVIVAL_LEVEL:
 		return
 	if GameData.last_revival_level == GameData.MY_FIRST_REVIVAL_LEVEL:
@@ -69,7 +72,6 @@ func revive():
 		GameData.all_silver_moon += level_manager.current_level - GameData.last_revival_level
 	GameData.last_revival_level = level_manager.current_level
 	show_revival_screen()
-	
 	
 func _on_RevivalShop_exited() -> void:
 	emit_signal("revive")
