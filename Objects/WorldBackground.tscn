@@ -109,9 +109,9 @@ script = ExtResource( 1 )
 layer = -1
 
 [node name="Planet" type="Sprite" parent="PlanetLayer"]
-position = Vector2( 552.122, 52.0863 )
+position = Vector2( -50, 80 )
 z_index = -4
-texture = ExtResource( 7 )
+texture = ExtResource( 3 )
 __meta__ = {
 "_editor_description_": ""
 }
@@ -120,8 +120,8 @@ __meta__ = {
 layer = -7
 
 [node name="Stars" parent="StarsLayer" instance=ExtResource( 2 )]
-modulate = Color( 1, 1, 1, 0.53865 )
-rotation = 3.15826
+modulate = Color( 1, 1, 1, 0.431373 )
+rotation = 3.14159
 
 [node name="SkyBackground" parent="." instance=ExtResource( 5 )]
 
