@@ -23,7 +23,6 @@ z_index = 1
 texture = ExtResource( 2 )
 vframes = 4
 hframes = 4
-frame = 10
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
 pause_mode = 2

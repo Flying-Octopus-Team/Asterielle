@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://Scenes/UserInterface/UIContainer.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/UserInterface/GoldTextures/1.png" type="Texture" id=2]
@@ -31,7 +31,6 @@
 [ext_resource path="res://Scenes/UserInterface/SilverMoonTextures/11.png" type="Texture" id=29]
 [ext_resource path="res://Scenes/UserInterface/SilverMoonTextures/12.png" type="Texture" id=30]
 [ext_resource path="res://Fonts/SHPinsher_16.tres" type="DynamicFont" id=31]
-[ext_resource path="res://Scripts/StaminaSystem.gd" type="Script" id=32]
 [ext_resource path="res://Scenes/UserInterface/AnimatedCheckButton.tscn" type="PackedScene" id=33]
 [ext_resource path="res://Scenes/UserInterface/BottomBar/Skills/ActiveSpellsManager.gd" type="Script" id=34]
 [ext_resource path="res://Scenes/UserInterface/BottomBar/Skills/SpeedupBtn.tscn" type="PackedScene" id=35]
@@ -95,6 +94,9 @@ script = ExtResource( 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = -1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="MarginContainer" type="MarginContainer" parent="Control"]
 anchor_right = 1.0
@@ -213,18 +215,6 @@ margin_right = 103.0
 margin_bottom = 20.0
 custom_fonts/font = ExtResource( 31 )
 text = "1 / 5"
-
-[node name="StaminaLab" type="Label" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer"]
-margin_top = 48.0
-margin_right = 177.0
-margin_bottom = 78.0
-size_flags_horizontal = 3
-custom_fonts/font = ExtResource( 14 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "9.9s / 10s"
-align = 1
-valign = 1
-script = ExtResource( 32 )
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2"]
 margin_left = 362.0
