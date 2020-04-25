@@ -34,10 +34,11 @@ func show_silver_moon_screen():
 	if GameData.silver_moon == 0:
 		var eis = EssentialInformScreen.instance()
 		eis.init(3,
-		"Otrzymałeś 1 Srebrny Ksiezyc!",
-		"Srebrne Ksiezyce beda dodatkowa waluta wykorzystywana podczas odrodzenia \n" + 
-		"do zakupu dodatkowych i stalych ( nie znikających po odrodzeniu ) ulepszen.\n" + 
-		"Czym jest odrozenie?\n Odrozenie pozwala elfce rozpoczac swoja przygode prawie calkowice od nowa",
+		"Otrzymales 1 Srebrny Ksiezyc!",
+		"Srebrne Ksiezyce sa dodatkowa waluta wykorzystywana podczas odrodzenia \n" + 
+		"do zakupu dodatkowych i stalych ( nie znikajacych po odrodzeniu ) ulepszen. \n" + 
+		"Czym jest odrodzenie? \n" + 
+		"Odrozenie pozwala elfce rozpoczac swoja przygode prawie calkowice od nowa",
 		"moon")
 		get_parent().call_deferred("add_child", eis)
 
@@ -47,8 +48,8 @@ func active_revival_button():
 func show_revival_screen():
 	var eis = EssentialInformScreen.instance()
 	eis.init(3,
-	"Odrodzilas sie!",
-	"Znowu zaczynasz rozgrywke od nowa lecz posiadasz wiedze",
+	"Elfka sie odrodza!",
+	"Zaczynasz gre od nowa ale mozesz nabyc stale ulepszenia",
 	"skull", false)
 	eis.connect("timeout", self, "show_revival_shop")
 	get_parent().call_deferred("add_child", eis)
