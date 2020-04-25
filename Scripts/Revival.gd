@@ -15,8 +15,7 @@ func _ready():
 	set_active_revival_btn()
 	GameLoader.connect("save_data_was_loaded", self, "set_active_revival_btn")
 	
-	if GameData.silver_moon == 0:
-		GameData.connect("get_first_silver_moon", self, "show_silver_moon_screen")
+	GameData.connect("get_first_silver_moon", self, "show_silver_moon_screen")
 	connect("revive", tavern_screen, "reset_to_default")
 	connect("revive", dwarves_manager, "reset_to_default")
 	connect("revive", GameLoader, "revival_reset")
@@ -32,12 +31,15 @@ func set_active_revival_btn():
 		ui_container.show_revival_button()
 
 func show_silver_moon_screen():
-	var eis = EssentialInformScreen.instance()
-	eis.init(3,
-	"Otrzymałeś 1 Srebrny Ksiezyc!",
-	"Srebrne Ksiezyce beda dodatkowa waluta wykorzystywana podczas odrodzenia \n do zakupu dodatkowych i stalych ( nie znikających po odrodzeniu ) ulepszen.\n Czym jest odrozenie?\n Odrozenie pozwala elfce rozpoczac swoja przygode prawie calkowice od nowa",
-	"moon")
-	get_parent().call_deferred("add_child", eis)
+	if GameData.silver_moon == 0:
+		var eis = EssentialInformScreen.instance()
+		eis.init(3,
+		"Otrzymałeś 1 Srebrny Ksiezyc!",
+		"Srebrne Ksiezyce beda dodatkowa waluta wykorzystywana podczas odrodzenia \n" + 
+		"do zakupu dodatkowych i stalych ( nie znikających po odrodzeniu ) ulepszen.\n" + 
+		"Czym jest odrozenie?\n Odrozenie pozwala elfce rozpoczac swoja przygode prawie calkowice od nowa",
+		"moon")
+		get_parent().call_deferred("add_child", eis)
 
 func active_revival_button():
 	world.find_node("UIContainer").show_revival_button()
