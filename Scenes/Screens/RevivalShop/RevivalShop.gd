@@ -39,6 +39,8 @@ onready var items_price_button = find_node("Item_items_price").find_node("Button
 
 onready var level_manager = get_parent().find_node("LevelManager")
 
+
+
 func _ready():
 	connect_buttons_signals()
 
@@ -67,6 +69,9 @@ func exit():
 	emit_signal("revival_shop_exit")
 	queue_free()
 
+func pay(price):
+	GameData.silver_moon -= price
+
 func connect_buttons_signals():
 	enemies_per_level_button.connect("pressed", self, "upgrade_enemies_per_level")
 	earn_gold_button.connect("pressed", self, "upgrade_earn_gold")
@@ -93,7 +98,7 @@ func set_enemies_per_level_count():
 func upgrade_enemies_per_level():
 	level_manager.dwarves_per_level -= 1
 	get_parent().find_node("UIContainer").set_killed_dwarves_label(level_manager.killed_dwarves, level_manager.dwarves_per_level)
-
+	pay(ENEMIES_PER_LEVEL_PRICE)
 
 func set_earn_gold_button():
 	earn_gold_button.disabled = return_earn_gold_access();
@@ -107,6 +112,7 @@ func set_earn_gold_count():
 
 func upgrade_earn_gold():
 	GameData.additional_gold_multipler += 0.1
+	pay(EARN_GOLD_PRICE)
 
 
 #func set_earn_xp_button():
@@ -135,6 +141,7 @@ func set_time_to_kill_boss_count():
 
 func upgrade_time_to_kill_boss():
 	GameData.time_to_kill_boss += 5
+	pay(TIME_TO_KILL_BOSS_PRICE)
 
 
 func set_silver_moon_probability_button():
@@ -151,6 +158,7 @@ func set_silver_moon_probability_count():
 
 func upgrade_silver_moon_probability():
 	GameData.probability_to_get_silver_moon_in_percent += 5
+	pay(SILVER_MOON_PROBABILITY_PRICE)
 
 
 func set_basic_start_level_button():
@@ -166,6 +174,7 @@ func set_basic_start_level_count():
 func upgrade_basic_start_level():
 	level_manager.basic_start_level += 5
 	level_manager.current_level = level_manager.basic_start_level
+	pay(BASIC_START_LEVEL_PRCE)
 
 
 func set_basic_damage_button():
@@ -180,6 +189,7 @@ func set_basic_damage_count():
 
 func upgrade_basic_damage():
 	ElfStats.damage_multiplier += 0.1
+	pay(BASIC_DAMAGE_PRCE)
 
 func set_basic_hp_button():
 	basic_hp_button.disabled = return_basic_hp_access();
@@ -193,6 +203,7 @@ func set_basic_hp_count():
 
 func upgrade_basic_hp():
 	ElfStats.health_multiplier += 0.1
+	pay(BASIC_HP_PRCE)
 
 
 func set_items_price_button():
@@ -207,3 +218,4 @@ func set_items_price_count():
 	
 func upgrade_items_price():
 	GameData.tradesman_item_price_multipler += 0.1
+	pay(BASIC_ITEMS_PRCE)
