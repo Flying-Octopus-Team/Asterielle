@@ -7,16 +7,18 @@ onready var ui = get_parent().find_node("UI")
 
 #TODO: Dać nazwy z przerdostkiem pri (od price)
 const ENEMIES_PER_LEVEL_PRICE = 20
-const EARN_GOLD_PRICE = 5
+const EARN_GOLD_PRICE = 10
 #const EARN_XP_PRICE = 3
 const TIME_TO_KILL_BOSS_PRICE = 5
 const SILVER_MOON_PROBABILITY_PRICE = 5
-const BASIC_START_LEVEL_PRCE = 1
+const BASIC_START_LEVEL_PRCE = 3
 const BASIC_DAMAGE_PRCE = 2
-const BASIC_HP_PRCE = 2
+const BASIC_HP_PRCE = 1
 const BASIC_ITEMS_PRCE = 10
 
+onready var silver_moon_label = find_node("SilverMoonLabel")
 
+#TODO: refactor
 onready var enemies_per_level_count = find_node("Item_enemies_per_level").find_node("Count")
 onready var earn_gold_count = find_node("Item_earn_gold").find_node("Count")
 #onready var earn_xp_count = find_node("Item_earn_xp").find_node("Count")
@@ -45,6 +47,8 @@ func _ready():
 	connect_buttons_signals()
 
 func _process(delta):
+	set_silver_moon_label(GameData.silver_moon)
+	
 	set_enemies_per_level_button()
 	set_enemies_per_level_count()
 	set_earn_gold_button()
@@ -68,6 +72,9 @@ func exit():
 	game_manager.resume_gameplay()
 	emit_signal("revival_shop_exit")
 	queue_free()
+
+func set_silver_moon_label(silver_moon):
+	silver_moon_label.text = str(silver_moon)
 
 func pay(price):
 	GameData.silver_moon -= price
