@@ -17,7 +17,6 @@ onready var world = get_node("/root/World")
 onready var dwarves_manager = world.find_node("DwarvesManager") 
 onready var tavern_spawner = world.find_node("TavernSpawner") 
 onready var devil_spawner = world.find_node("DevilSpawner") 
-onready var game_saver = world.find_node("GameSaver") 
 onready var tavern_enter_btn = world.find_node("TavernEnterBtn")
 onready var revival_enter_btn = world.find_node("RevivalEnterBtn")
 onready var tavern_screen = world.find_node("TavernScreen")
@@ -61,7 +60,7 @@ func _ready():
 	connect("reset_to_base", dwarves_manager, "reset_to_base")
 	connect("reset_to_base", elf, "reset_to_base")
 	connect("reset_to_base", GameData, "on_game_over")
-	game_saver.connect("save_data_was_loaded", self, "show_offline_screen")
+	GameLoader.connect("save_data_was_loaded", self, "show_offline_screen")
 
 func increase_level():
 	current_level += 1

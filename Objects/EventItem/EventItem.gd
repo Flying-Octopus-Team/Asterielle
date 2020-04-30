@@ -1,13 +1,13 @@
 extends Node2D
 
-const TRACK_HEIGHT = 260
+const SPAWN_Y = 260
+const SPAWN_X = 800
 export(int) var gold_reward = 65
 export(float) var move_speed = -100
 onready var cam_pos = get_node("/root/World").find_node("Camera2D").position
 
 func _ready():
-	var value = randi()%800+160
-	set_start_position(value, TRACK_HEIGHT)
+	set_start_position(SPAWN_X, SPAWN_Y)
 
 func _process(delta):
 	position.x += move_speed * delta
@@ -29,4 +29,5 @@ func _input(event):
 		if $Sprite.get_rect().has_point(evLocal.position):
 			_on_Item_pressed()
 
-
+func _on_screen_exited():
+	queue_free()

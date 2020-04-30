@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scenes/World/World.gd" type="Script" id=1]
 [ext_resource path="res://Objects/WorldBackground.tscn" type="PackedScene" id=2]
@@ -12,10 +12,6 @@
 [ext_resource path="res://Scenes/World/LevelManager.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/World/Revival.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Objects/EventItem/EventManager.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Scenes/World/GameSaver.tscn" type="PackedScene" id=13]
-
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 537.558, 30.0002 )
 
 [node name="World" type="Node2D"]
 script = ExtResource( 1 )
@@ -49,18 +45,6 @@ layer = 22
 [node name="DevilSpawner" parent="." instance=ExtResource( 7 )]
 position = Vector2( 620, 270 )
 
-[node name="Ground" type="Area2D" parent="."]
-position = Vector2( 387.044, 274.607 )
-monitoring = false
-collision_layer = 32
-collision_mask = 0
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
-shape = SubResource( 1 )
-
 [node name="TavernScreen" parent="." instance=ExtResource( 8 )]
 layer = 62
 
@@ -71,5 +55,3 @@ layer = 62
 [node name="Revival" parent="." instance=ExtResource( 11 )]
 
 [node name="EventManager" parent="." instance=ExtResource( 12 )]
-
-[node name="GameSaver" parent="." instance=ExtResource( 13 )]

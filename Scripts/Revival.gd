@@ -10,16 +10,15 @@ onready var world = get_node("/root/World")
 func _ready():
 	var tavern_screen = world.find_node("TavernScreen")
 	var dwarves_manager = world.find_node("DwarvesManager")
-	var game_saver = world.find_node("GameSaver")
 	var level_manager = world.find_node("LevelManager")
 	
 	set_active_revival_btn()
-	game_saver.connect("save_data_was_loaded", self, "set_active_revival_btn")
+	GameLoader.connect("save_data_was_loaded", self, "set_active_revival_btn")
 	
 	GameData.connect("get_first_silver_moon", self, "show_silver_moon_screen")
 	connect("revive", tavern_screen, "reset_to_default")
 	connect("revive", dwarves_manager, "reset_to_default")
-	connect("revive", game_saver, "revival_reset")
+	connect("revive", GameLoader, "revival_reset")
 
 func set_active_revival_btn():
 	var level_manager = world.find_node("LevelManager")
