@@ -19,10 +19,9 @@ const BASIC_ITEMS_PRCE = 0
 onready var level_manager = get_parent().find_node("LevelManager")
 
 func _ready():
-	#connect_buttons_signals()
 	send_count_text("Item_enemies_per_level", get_parent().find_node("LevelManager").dwarves_per_level)
 	send_count_text("Item_earn_gold", 'x' + String(GameData.additional_gold_multipler))
-	send_count_text("Item_earn_xp", 'x' + String(GameData.additional_xp_multipler))
+	#send_count_text("Item_earn_xp", 'x' + String(GameData.additional_xp_multipler))
 	send_count_text("Item_time_to_kill_boss", String(GameData.time_to_kill_boss) + 's')
 	send_count_text("Item_silver_moon_probability", String(GameData.probability_to_get_silver_moon_in_percent) + '%')
 	send_count_text("Item_basic_start_level", level_manager.basic_start_level)

@@ -12,15 +12,15 @@ func _ready():
 	$Info.set_text(info)
 	$Count.set("custom_colors/font_color", color)
 	
-func update():
+func refresh():
 	$Button.disabled = get_owner().call(return_func)
 	$Button.text = button_sign
 	$Count.text = String(count_text)
 	
 func set_count_string(s):
 	count_text = String(s)
-	update()
+	refresh()
 
 func _on_Button_pressed():
 	get_owner().call(upgrade_func)
-	update()
+	refresh()
