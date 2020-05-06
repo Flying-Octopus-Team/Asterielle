@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/baloon.png-737f47640d2c2d2a78b682878a206c5a.stex"
+path="res://.import/balloon.png-07c77146f8c388f864a056802f6c3127.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Objects/EventItem/baloon.png"
-dest_files=[ "res://.import/baloon.png-737f47640d2c2d2a78b682878a206c5a.stex" ]
+source_file="res://Objects/EventItem/balloon.png"
+dest_files=[ "res://.import/balloon.png-07c77146f8c388f864a056802f6c3127.stex" ]
 
 [params]
 
