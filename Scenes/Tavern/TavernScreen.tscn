@@ -131,12 +131,12 @@ visible = false
 visible = false
 
 [node name="Resources" type="Control" parent="."]
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 12 )
 
 [node name="MarginContainer" type="MarginContainer" parent="Resources"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_constants/margin_right = 47
