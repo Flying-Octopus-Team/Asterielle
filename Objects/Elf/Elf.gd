@@ -4,15 +4,12 @@ signal game_over
 
 export(float) var arrow_speed = 700
 export(float) var arrow_gravity = 500
-export(float) var next_arrow_wait_time = 1.0
 
 var Arrow = load("res://Objects/Elf/Arrow/Arrow.tscn")
-var next_arrow_timer : float
 var next_arrow_velocity : Vector2
 
 var hp : float setget set_current_hp
 
-onready var stamina_system = get_parent().get_parent().find_node("StaminaLab")
 onready var fire_point = find_node("FirePoint")
 onready var hp_bar = find_node("HPBar")
 onready var hp_label = find_node("HPLabel")
@@ -22,32 +19,25 @@ func _ready():
 	ElfStats.create_default_items()
 	ElfStats.get_stat("vitality").connect("value_changed", self, "_on_vitality_change")
 	add_to_group('IHaveSthToSave')
-	restart_arrow_timer()
 	reset_to_base()
+	animation_player.play("PrepareArrow")
 	
 func _process(delta):
-	next_arrow_timer -= delta
 	
-	if next_arrow_timer > 0:
+	if animation_player.is_playing():
 		return
 		
 	if not $DwarfRayCast.is_colliding():
 		animation_player.stop()
 		return
-	
-	shot_arrow()
+		
+	if Input.is_action_just_pressed("shoot"):
+		shot_arrow()
 
 func shot_arrow():
-	if stamina_system.auto_atack:
-		restart_arrow_timer()
 		animation_player.play("Shot")
-	else:
-		animation_player.stop()
 	
 func spawn_arrow():
-	if !stamina_system.auto_atack:
-		return
-		
 	var dwarf = $DwarfRayCast.get_collider()
 	
 	if not dwarf:
@@ -65,6 +55,8 @@ func spawn_arrow():
 	arrow.gravity = arrow_gravity
 	arrow.velocity = arrow_velocity
 	arrow.damage = ElfStats.get_stat_value("bows_knowledge")
+	
+	animation_player.play("PrepareArrow")
 	
 func on_dwarf_hit(dmg) -> bool:
 #	if randf() < ElfStats.get_stat_value("agility"):
@@ -91,9 +83,6 @@ func reset_to_base():
 	hp_bar.max_value = hp
 	hp_bar.value = hp
 	update_hp_label()
-
-func restart_arrow_timer():
-	next_arrow_timer = next_arrow_wait_time
 	
 func set_current_hp(new_hp):
 	hp = new_hp

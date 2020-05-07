@@ -130,7 +130,6 @@ var _stats = [
 	#Stat.new("strength", 1),
 	#Stat.new("magic", 0),
 	#Stat.new("lucky", 0),
-	Stat.new("stamina", 10)
 ]
 
 var _items = {}
