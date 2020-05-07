@@ -79,8 +79,8 @@ button_label = "Wyjdz"
 
 [node name="EnterWizardBtn" parent="MainHall" instance=ExtResource( 7 )]
 margin_left = 401.0
-margin_top = 177.0
-margin_right = 497.0
+margin_top = 187.0
+margin_right = 475.0
 margin_bottom = 303.0
 texture_normal = null
 texture_pressed = null
@@ -88,15 +88,16 @@ button_label = ""
 screen_name = "WizardScreen"
 
 [node name="EnterRoomBtn" parent="MainHall" instance=ExtResource( 7 )]
-visible = false
-margin_left = 388.712
-margin_top = 117.873
-margin_right = 500.712
-margin_bottom = 145.873
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 424.0
+margin_top = 81.0
+margin_right = 536.0
+margin_bottom = 185.0
 button_label = "Pokoj"
 screen_name = "RoomScreen"
 
 [node name="EnterTradesmanBtn" parent="MainHall" instance=ExtResource( 7 )]
+visible = false
 margin_left = 28.0
 margin_top = 158.0
 margin_right = 90.0
