@@ -22,7 +22,6 @@ margin_right = 560.0
 margin_bottom = 26.0
 item_name = "Znajomosc lukow"
 price_gold = 3.0
-price_xp = 3.0
 price_xp_mod = 1.1
 popup_title = "Zadawaj wieksze obrazenia"
 should_save_price = true
