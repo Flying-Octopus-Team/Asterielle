@@ -31,8 +31,6 @@ func _on_BuyBtn_pressed():
 	if price_xp:
 		GameData.add_xp(-price_xp)
 		set_price_xp(price_xp * price_xp_mod)
-		publican.on_spend_xp(price_xp)
-	
 	emit_signal("bought")
 
 func set_price_gold(new_price:float):

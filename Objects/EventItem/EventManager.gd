@@ -7,7 +7,7 @@ var event_items : Array = [
 	load("res://Objects/EventItem/SackOfGold.tscn"),
 	load("res://Objects/EventItem/DwarfInBalloon.tscn"),
 	load("res://Objects/EventItem/Chicken.tscn"),
-	load("res://Objects/EventItem/Wizard.tscn")
+	#load("res://Objects/EventItem/Wizard.tscn")
 ]
 
 func _ready():
