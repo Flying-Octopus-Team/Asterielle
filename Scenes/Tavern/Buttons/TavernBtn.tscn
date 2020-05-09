@@ -11,6 +11,9 @@ margin_right = 300.0
 margin_bottom = 20.0
 alignment = 1
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Name" type="Label" parent="."]
 margin_left = 104.0
@@ -27,15 +30,6 @@ margin_right = 163.0
 margin_bottom = 23.0
 custom_fonts/font = ExtResource( 2 )
 text = "10 zl"
-
-[node name="PriceXp" type="Label" parent="."]
-visible = false
-margin_left = 150.0
-margin_top = 3.0
-margin_right = 180.0
-margin_bottom = 23.0
-custom_fonts/font = ExtResource( 2 )
-text = "10 xp"
 
 [node name="BuyBtn" type="TextureButton" parent="."]
 margin_left = 167.0
