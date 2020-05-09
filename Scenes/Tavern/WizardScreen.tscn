@@ -18,9 +18,7 @@ margin_right = 560.0
 margin_bottom = 26.0
 item_name = "Przyspieszenie"
 price_gold = 15.0
-price_xp = 200.0
 price_gold_mod = 1.5
-price_xp_mod = 1.8
 popup_title = "Zwieksz czas trwania"
 should_save_price = true
 

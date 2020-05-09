@@ -143,7 +143,7 @@ func show_offline_screen():
 	var nis = NegligibleInformScreen.instance()
 	var offline_screen = OffineScreen.new()
 	var offine_text = offline_screen.offline_text(stepify(GameData.offline_time,0.01))
-	var offline_gold_reward = offline_screen.reward_text(round(GameData.offline_gold_reward), round(GameData.offline_xp_reward))
+	var offline_gold_reward = offline_screen.reward_text(round(GameData.offline_gold_reward))
 	
 	nis.init(3,offine_text,offline_gold_reward)
 	

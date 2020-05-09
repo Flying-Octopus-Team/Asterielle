@@ -9,7 +9,6 @@ onready var elf = root_node.find_node("Elf")
 
 func _ready():
 	GameData.connect("gold_changed", self, "disable_valid_buttons")
-	GameData.connect("xp_changed", self, "disable_valid_buttons")
 	
 	for btn in get_children():
 		btn.connect("bought", self, "disable_valid_buttons")

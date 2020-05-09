@@ -3,9 +3,6 @@ extends CanvasLayer
 onready var gold_icon = find_node("GoldIcon")
 onready var gold_label = find_node("GoldLabel")
 
-onready var xp_icon = find_node("XpIcon")
-onready var xp_label = find_node("XpLabel")
-
 onready var silver_moon_row = find_node("SilverMoonRow")
 onready var silver_moon_icon = find_node("SilverMoonIcon")
 onready var silver_moon_label = find_node("SilverMoonLabel")
@@ -24,10 +21,6 @@ func set_gold_label(gold: float):
 	gold_icon.get_node("AnimationPlayer").play("gold_reached")
 	gold_label.text = str(round(gold))
 	
-func set_xp_label(xp):
-	xp_icon.get_node("AnimationPlayer").play("xp_reached")
-	xp_label.text = str(round(xp))
-
 func set_silver_moon_label(silver_moon):
 	if silver_moon > 0:
 		silver_moon_row.show()
