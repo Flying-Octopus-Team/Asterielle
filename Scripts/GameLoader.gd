@@ -8,7 +8,6 @@ const OFFLINE_LIMIT : bool = false
 const OFFLINE_LIMIT_TIME : int = 7200 
 
 const OFFINE_BONUS_GOLD_RATIO : float = 0.3 
-const OFFINE_BONUS_XP_RATIO : float = 0.2
 
 var level_manager
 var elf
@@ -43,12 +42,8 @@ func load_game():
 					load_offline_time(int(node_data['__time']))
 				"_golds_on_second":
 					load_golds_on_second(float(node_data['_golds_on_second']))
-				"_xp_on_second":
-					load_xp_on_second(float(node_data['_xp_on_second']))
 				"_gold":
 					load_gold_and_reward(float(node_data['_gold']), float(node_data['_golds_on_second']))
-				"_xp":
-					load_xp_and_reward(float(node_data['_xp']), float(node_data['_xp_on_second']))
 				"_silver_moon":
 					load_silver_moon(int(node_data['_silver_moon']))
 				"_hp":
@@ -65,8 +60,6 @@ func load_game():
 					load_dwarves_per_level(int(node_data['_dwarves_per_level']))
 				"_additional_gold_multipler":
 					load_additional_gold_multipler(float(node_data['_additional_gold_multipler']))
-				"_additional_xp_multipler":
-					load_additional_xp_multipler(float(node_data['_additional_xp_multipler']))
 				"_time_to_kill_boss":
 					load_time_to_kill_boss(int(node_data['_time_to_kill_boss']))
 				"_probability_to_get_silver_moon_in_percent":
@@ -90,16 +83,9 @@ func load_offline_time(time):
 func load_golds_on_second(gold_on_second):
 	GameData.golds_on_second = gold_on_second
 
-func load_xp_on_second(xp_on_second):
-	GameData.xp_on_second = xp_on_second
-
 func load_gold_and_reward(gold, gold_on_second):
 	GameData.offline_gold_reward = gold_on_second * OFFINE_BONUS_GOLD_RATIO * GameData.offline_time
 	GameData.gold = gold + GameData.offline_gold_reward
-
-func load_xp_and_reward(xp, xp_on_second):
-	GameData.offline_xp_reward = xp_on_second * OFFINE_BONUS_XP_RATIO * GameData.offline_time
-	GameData.xp = xp + GameData.offline_xp_reward
 
 func load_silver_moon(silver_moon):
 	GameData.silver_moon = silver_moon
@@ -133,9 +119,6 @@ func load_dwarves_per_level(count):
 func load_additional_gold_multipler(value):
 	GameData.additional_gold_multipler = value
 
-func load_additional_xp_multipler(value):
-	GameData.additional_xp_multipler = value
-
 func load_time_to_kill_boss(time):
 	GameData.time_to_kill_boss = time
 
@@ -153,9 +136,6 @@ func load_quest(value):
 func load_gold(gold):
 	GameData.gold = gold
 
-func load_xp(xp):
-	GameData.xp = xp
-	
 func load_tavern_data(data) -> void:
 	var tavern = get_parent().get_node("World").find_node("TavernScreen")
 	tavern.load_data(data)
@@ -164,9 +144,7 @@ func revival_reset():
 	ElfStats.restore_to_default()
 	load_offline_time(0)
 	load_golds_on_second(0.0)
-	load_xp_on_second(0.0)
 	load_gold(0.0)
-	load_xp(0.0)
 	load_hp(ElfStats.get_stat_value("vitality"))
 	load_level(1)
 	load_helth_potion(0)
