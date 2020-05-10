@@ -280,8 +280,11 @@ align = 2
 margin_top = 248.0
 margin_right = 539.0
 margin_bottom = 280.0
+alignment = 1
 
 [node name="ActiveSpells" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/BottomBar"]
+editor/display_folded = true
+visible = false
 margin_right = 177.0
 margin_bottom = 32.0
 size_flags_horizontal = 3
@@ -291,24 +294,28 @@ script = ExtResource( 34 )
 margin_right = 29.0
 margin_bottom = 32.0
 
-[node name="Potions" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/BottomBar"]
-margin_left = 181.0
-margin_right = 358.0
+[node name="CenterContainer" type="CenterContainer" parent="Control/MarginContainer/VBoxContainer/BottomBar"]
+margin_left = 253.0
+margin_right = 285.0
+margin_bottom = 32.0
+
+[node name="Potions" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/BottomBar/CenterContainer"]
+margin_right = 32.0
 margin_bottom = 32.0
 size_flags_horizontal = 3
 alignment = 1
 
-[node name="HealthPotion" parent="Control/MarginContainer/VBoxContainer/BottomBar/Potions" instance=ExtResource( 36 )]
+[node name="HealthPotion" parent="Control/MarginContainer/VBoxContainer/BottomBar/CenterContainer/Potions" instance=ExtResource( 36 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 72.0
-margin_right = 104.0
+margin_right = 32.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 0, 0 )
 rect_scale = Vector2( 1, 1 )
 
 [node name="Margin" type="Control" parent="Control/MarginContainer/VBoxContainer/BottomBar"]
-margin_left = 362.0
+visible = false
+margin_left = 271.0
 margin_right = 539.0
 margin_bottom = 32.0
 size_flags_horizontal = 3
