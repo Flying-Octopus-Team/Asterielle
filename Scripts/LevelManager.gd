@@ -29,7 +29,7 @@ onready var active_spells = world.find_node("ActiveSpells")
 var NegligibleInformScreen = preload("res://Scenes/Screens/NegligibleInform/NegligibleInform.tscn")
 var EssentialInformScreen = preload("res://Scenes/Screens/EssentialInform/EssentialInform.tscn")
 
-const OffineScreen = preload("res://Scenes/Screens/OfflineScreen/OfflineScreen.gd")
+const OfflineScreen = preload("res://Scenes/Screens/OfflineScreen/OfflineScreen.gd")
 
 func set_level(value):
 	var level_diff : int = value - current_level
@@ -141,11 +141,11 @@ func show_offline_screen():
 		pass
 	
 	var nis = NegligibleInformScreen.instance()
-	var offline_screen = OffineScreen.new()
-	var offine_text = offline_screen.offline_text(stepify(GameData.offline_time,0.01))
+	var offline_screen = OfflineScreen.new()
+	var offline_text = offline_screen.offline_text(stepify(GameData.offline_time,0.01))
 	var offline_gold_reward = offline_screen.reward_text(round(GameData.offline_gold_reward))
 	
-	nis.init(3,offine_text,offline_gold_reward)
+	nis.init(3,offline_text,offline_gold_reward)
 	
 	world.call_deferred("add_child", nis)
 

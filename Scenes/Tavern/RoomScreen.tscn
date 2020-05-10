@@ -57,14 +57,14 @@ should_save_price = true
 stat_name = "charisma"
 add_to_stat = 1.0
 
-[node name="SensinitivePoints" parent="VBoxContainer/Shop" index="4" instance=ExtResource( 2 )]
+[node name="SensitivePoints" parent="VBoxContainer/Shop" index="4" instance=ExtResource( 2 )]
 margin_top = 96.0
 margin_right = 560.0
 margin_bottom = 122.0
 item_name = "Czule punkty"
 popup_title = "Znajdz czule punkty bossow"
 should_save_price = true
-stat_name = "sensinitive_points"
+stat_name = "sensitive_points"
 add_to_stat = 1.0
 
 [node name="EagleEye" parent="VBoxContainer/Shop" index="5" instance=ExtResource( 2 )]
