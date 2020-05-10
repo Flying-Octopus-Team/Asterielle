@@ -123,7 +123,6 @@ var _stats = [
 	Stat.new("bows_knowledge", 1),
 	#Stat.new("agility", 0.1),
 	Stat.new("vitality", 10),
-	Stat.new("charisma", 0),
 	#Stat.new("sensitive_points", 0),
 	#Stat.new("eagle_eye", 0.1),
 	Stat.new("critical_shot", 0.1),

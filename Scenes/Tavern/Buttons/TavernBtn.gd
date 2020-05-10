@@ -16,32 +16,23 @@ onready var publican = get_node("/root/World").find_node("Publican")
 var popup = null
 
 func _ready():
-	ElfStats.get_stat("charisma").connect("value_changed", self, "_on_Charisma_value_changed")
 	$Name.text = item_name
 	update_price_label()
 
 func _on_BuyBtn_pressed():
 	if price_gold:
-		GameData.add_gold(-get_lower_price_gold())
+		GameData.add_gold(-price_gold)
 		set_price_gold(price_gold * price_gold_mod)
-		publican.on_spend_gold(get_lower_price_gold())
+		publican.on_spend_gold(price_gold)
 	emit_signal("bought")
 
 func set_price_gold(new_price:float):
 	price_gold = new_price
 	update_price_label()
 	
-func _on_Charisma_value_changed(charisma_stat) -> void:
-	update_price_label()
-
-func get_lower_price_gold() -> float:
-	var charisma = ElfStats.get_stat_value("charisma")
-	var half_price_gold = price_gold * 0.5
-	return max(price_gold - charisma, half_price_gold)
-
 func update_price_label():
 	if price_gold:
-		$PriceGold.text = str(stepify(get_lower_price_gold(),0.01)) + " zl"
+		$PriceGold.text = str(stepify(price_gold,0.01)) + " zl"
 	else:
 		$PriceGold.text = ""
 		
