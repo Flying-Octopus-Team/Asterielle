@@ -78,6 +78,7 @@ margin_bottom = 301.32
 button_label = "Wyjdz"
 
 [node name="EnterWizardBtn" parent="MainHall" instance=ExtResource( 7 )]
+visible = false
 margin_left = 401.0
 margin_top = 187.0
 margin_right = 475.0
@@ -90,9 +91,9 @@ screen_name = "WizardScreen"
 [node name="EnterRoomBtn" parent="MainHall" instance=ExtResource( 7 )]
 modulate = Color( 1, 1, 1, 0 )
 margin_left = 424.0
-margin_top = 81.0
+margin_top = 109.0
 margin_right = 536.0
-margin_bottom = 185.0
+margin_bottom = 229.0
 button_label = "Pokoj"
 screen_name = "RoomScreen"
 
