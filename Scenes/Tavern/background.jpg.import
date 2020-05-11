@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/evd2.png-62def739667d87e6475ada54cdfa99c1.stex"
+path="res://.import/background.jpg-d99fc9a90071668a87c465ec97d7e2ad.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://evd2.png"
-dest_files=[ "res://.import/evd2.png-62def739667d87e6475ada54cdfa99c1.stex" ]
+source_file="res://Scenes/Tavern/background.jpg"
+dest_files=[ "res://.import/background.jpg-d99fc9a90071668a87c465ec97d7e2ad.stex" ]
 
 [params]
 

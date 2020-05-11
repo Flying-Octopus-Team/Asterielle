@@ -71,7 +71,6 @@ class BaseQuest:
 	var data = {
 		title = "Base Title",
 		gold_reward = 100.0,
-		xp_reward = 40.0,
 		count = 4,
 		amount = 0,
 		type = QuestType.kill_dwarver
@@ -86,7 +85,6 @@ class QuestKill extends BaseQuest:
 		data["count"] = Count
 		data["title"] = "Zabij krasnale: "+String(Count)	
 		data["gold_reward"] =  stepify(float(Count) * float(Count) * randf()*2,2)
-		data["xp_reward"] = stepify(Count * (randf()*6+1),2)
 		data["type"] =  QuestType.kill_dwarver
 
 class QuestSpendGold extends BaseQuest:
@@ -95,7 +93,6 @@ class QuestSpendGold extends BaseQuest:
 		data["count"] = Count
 		data["title"] = "Wydaj "+String(Count)+" golda"
 		data["gold_reward"] =  Count
-		data["xp_reward"] = Count*5
 		data["type"] =  QuestType.spend_gold
 
 ##TODO: Ten kod się strasznie powtarza!!!!
@@ -106,7 +103,7 @@ func on_kill_dwarver():
 			if quests[index].data["type"] == QuestType.kill_dwarver:
 				quests[index].data["amount"] += 1
 				if quests[index].data["amount"] >= quests[index].data["count"]:
-					give_reward(quests[index].data["gold_reward"], quests[index].data["xp_reward"], index)
+					give_reward(quests[index].data["gold_reward"], index)
 					delete_quest(index)
 					add_kill_dwarves_quest()
 
@@ -116,7 +113,7 @@ func on_spend_gold(spent_gold):
 			if quests[index].data["type"] == QuestType.spend_gold:
 				quests[index].data["amount"] += spent_gold
 				if quests[index].data["amount"] >= quests[index].data["count"]:
-					give_reward(quests[index].data["gold_reward"], quests[index].data["xp_reward"], index)
+					give_reward(quests[index].data["gold_reward"], index)
 					delete_quest(index)
 					add_spend_gold_quest()
 
@@ -125,7 +122,7 @@ enum QuestType{
 	spend_gold
 }
 
-func give_reward(gold, xp, index):
+func give_reward(gold, index):
 	var nis = NegligibleInformScreen.instance()
 	var header: String = "Wykonales zadanie: " + String(quests[index].data["title"])
 	var desc: String = "nagroda: "+String(gold)+" golda"
@@ -133,7 +130,6 @@ func give_reward(gold, xp, index):
 	get_parent().call_deferred("add_child", nis)
 	
 	GameData.add_gold(gold)
-	GameData.add_xp(xp)
 
 func add_spend_gold_quest():
 	var gold_to_spend = stepify((GameData.gold + (randi()%5+1)) * (randi()%5+1),2)

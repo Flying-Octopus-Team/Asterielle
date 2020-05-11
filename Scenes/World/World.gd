@@ -3,6 +3,7 @@ extends Node2D
 func _ready() -> void:
 	GameData.setup()
 	GameLoader.setup()
+	GameSaver.setup()
 
 #warning-ignore:unused_argument
 func _input(event):

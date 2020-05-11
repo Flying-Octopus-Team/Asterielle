@@ -57,7 +57,7 @@ func _ready():
 	var elf = world.get_node("MainObjectsLayer/Elf")
 	elf.connect("game_over", self, "on_Game_Over")
 	connect("next_level", dwarves_manager, "on_next_level")
-	connect("reset_to_base", dwarves_manager, "reset_to_base")
+	connect("reset_to_base", dwarves_manager, "reset_to_default")
 	connect("reset_to_base", elf, "reset_to_base")
 	connect("reset_to_base", GameData, "on_game_over")
 	GameLoader.connect("save_data_was_loaded", self, "show_offline_screen")
@@ -143,7 +143,7 @@ func show_offline_screen():
 	var nis = NegligibleInformScreen.instance()
 	var offline_screen = OffineScreen.new()
 	var offine_text = offline_screen.offline_text(stepify(GameData.offline_time,0.01))
-	var offline_gold_reward = offline_screen.reward_text(round(GameData.offline_gold_reward), round(GameData.offline_xp_reward))
+	var offline_gold_reward = offline_screen.reward_text(round(GameData.offline_gold_reward))
 	
 	nis.init(3,offine_text,offline_gold_reward)
 	

@@ -4,8 +4,8 @@
 [ext_resource path="res://Objects/WorldBackground.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Objects/Elf/Elf.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Objects/Spawners/DwarvesManager/DwarvesManager.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/UserInterface/UIContainer.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Objects/Spawners/TavernSpawner/TavernSpawner.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Objects/Spawners/TavernSpawner/TavernSpawner.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/UserInterface/UIContainer.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Objects/Spawners/DevilSpawner/DevilSpawner.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Tavern/TavernScreen.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/World/GameManager.tscn" type="PackedScene" id=9]
@@ -35,11 +35,11 @@ priority = 1.0
 position = Vector2( 620, 280 )
 z_index = 1
 
-[node name="TavernSpawner" parent="MainObjectsLayer" instance=ExtResource( 6 )]
+[node name="TavernSpawner" parent="MainObjectsLayer" instance=ExtResource( 5 )]
 position = Vector2( 620, 270 )
 z_index = 12
 
-[node name="UIContainer" parent="." instance=ExtResource( 5 )]
+[node name="UIContainer" parent="." instance=ExtResource( 6 )]
 layer = 22
 
 [node name="DevilSpawner" parent="." instance=ExtResource( 7 )]

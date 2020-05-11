@@ -1,12 +1,16 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Objects/EventItem/DwarfInBalloon.gd" type="Script" id=1]
-[ext_resource path="res://Objects/EventItem/Krasnal_balon.png" type="Texture" id=2]
+[ext_resource path="res://Objects/EventItem/balloon.png" type="Texture" id=2]
 [ext_resource path="res://Objects/EventItem/EventItem.tscn" type="PackedScene" id=3]
 
 [node name="DwarfInBalloon" instance=ExtResource( 3 )]
+position = Vector2( 559.559, 3.32411 )
 script = ExtResource( 1 )
-move_speed = -50.0
+move_speed = 0.0
 
-[node name="Sprite" parent="." index="0"]
+[node name="Tween" type="Tween" parent="." index="0"]
+
+[node name="Sprite" parent="." index="1"]
 texture = ExtResource( 2 )
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
