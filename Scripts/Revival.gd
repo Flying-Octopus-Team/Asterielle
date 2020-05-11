@@ -31,12 +31,16 @@ func set_active_revival_btn():
 		ui_container.show_revival_button()
 
 func show_silver_moon_screen():
-	var eis = EssentialInformScreen.instance()
-	eis.init(3,
-	"Otrzymałeś 1 Srebrny Ksiezyc!",
-	"Srebrne Ksiezyce beda dodatkowa waluta wykorzystywana podczas odrodzenia \n do zakupu dodatkowych i stalych ( nie znikających po odrodzeniu ) ulepszen.\n Czym jest odrozenie?\n Odrozenie pozwala elfce rozpoczac swoja przygode prawie calkowice od nowa",
-	"moon")
-	get_parent().call_deferred("add_child", eis)
+	if GameData.silver_moon == 0:
+		var eis = EssentialInformScreen.instance()
+		eis.init(3,
+		"Otrzymales 1 Srebrny Ksiezyc!",
+		"Srebrne Ksiezyce sa dodatkowa waluta wykorzystywana podczas odrodzenia \n" + 
+		"do zakupu dodatkowych i stalych ( nie znikajacych po odrodzeniu ) ulepszen. \n" + 
+		"Czym jest odrodzenie? \n" + 
+		"Odrozenie pozwala elfce rozpoczac swoja przygode prawie calkowice od nowa",
+		"moon")
+		get_parent().call_deferred("add_child", eis)
 
 func active_revival_button():
 	world.find_node("UIContainer").show_revival_button()
@@ -44,8 +48,8 @@ func active_revival_button():
 func show_revival_screen():
 	var eis = EssentialInformScreen.instance()
 	eis.init(3,
-	"Odrodzilas sie!",
-	"Znowu zaczynasz rozgrywke od nowa lecz posiadasz wiedze",
+	"Elfka sie odrodza!",
+	"Zaczynasz gre od nowa ale mozesz nabyc stale ulepszenia",
 	"skull", false)
 	eis.connect("timeout", self, "show_revival_shop")
 	get_parent().call_deferred("add_child", eis)
@@ -58,7 +62,9 @@ func show_revival_shop():
 
 func revive():
 	var level_manager = world.find_node("LevelManager")
+	var ui_container = world.find_node("UIContainer")
 	
+	ui_container.hide_revival_button()
 	if level_manager.current_level < GameData.FIRST_REVIVAL_LEVEL:
 		return
 	if GameData.last_revival_level == GameData.MY_FIRST_REVIVAL_LEVEL:
@@ -69,7 +75,6 @@ func revive():
 		GameData.all_silver_moon += level_manager.current_level - GameData.last_revival_level
 	GameData.last_revival_level = level_manager.current_level
 	show_revival_screen()
-	
 	
 func _on_RevivalShop_exited() -> void:
 	emit_signal("revive")

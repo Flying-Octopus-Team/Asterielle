@@ -1,18 +1,19 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scenes/Tavern/TavernScreen.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/Tavern/MainHall.gd" type="Script" id=2]
-[ext_resource path="res://Scenes/UserInterface/Buttons/GameButton.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/Tavern/Buttons/EnterScreenBtn.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/Tavern/RoomScreen.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/Tavern/WizardScreen.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/Tavern/TradesmanScreen.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenes/Tavern/PublicanScreen.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Scenes/Tavern/Resources/TavernResources.gd" type="Script" id=9]
-[ext_resource path="res://Fonts/SHPinsher_16.tres" type="DynamicFont" id=10]
-[ext_resource path="res://Objects/StatsPanel/StatsPanel.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Scenes/Tavern/background.jpg" type="Texture" id=12]
-[ext_resource path="res://Scenes/UserInterface/AnimatedCheckButton.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scenes/Tavern/background.jpg" type="Texture" id=2]
+[ext_resource path="res://Scenes/Tavern/MainHall.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/UserInterface/AnimatedCheckButton.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Fonts/SHPinsher_16.tres" type="DynamicFont" id=5]
+[ext_resource path="res://Scenes/UserInterface/Buttons/GameButton.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Tavern/Buttons/EnterScreenBtn.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Tavern/RoomScreen.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Tavern/WizardScreen.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Tavern/TradesmanScreen.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/Tavern/PublicanScreen.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/Tavern/Resources/TavernResources.gd" type="Script" id=12]
+[ext_resource path="res://Scenes/UserInterface/GoldTextures/1.png" type="Texture" id=13]
+[ext_resource path="res://Objects/StatsPanel/StatsPanel.tscn" type="PackedScene" id=14]
 
 [node name="TavernScreen" type="CanvasLayer"]
 layer = 14
@@ -22,7 +23,7 @@ script = ExtResource( 1 )
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = ExtResource( 12 )
+texture = ExtResource( 2 )
 expand = true
 stretch_mode = 1
 __meta__ = {
@@ -42,7 +43,7 @@ __meta__ = {
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 2 )
+script = ExtResource( 3 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MainHall"]
 anchor_left = 1.0
@@ -55,7 +56,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="RevivalEnterBtn" parent="MainHall/VBoxContainer" instance=ExtResource( 13 )]
+[node name="RevivalEnterBtn" parent="MainHall/VBoxContainer" instance=ExtResource( 4 )]
 margin_left = 8.0
 margin_right = 89.0
 size_flags_horizontal = 8
@@ -65,18 +66,18 @@ margin_top = 31.0
 margin_right = 89.0
 margin_bottom = 51.0
 size_flags_horizontal = 5
-custom_fonts/font = ExtResource( 10 )
+custom_fonts/font = ExtResource( 5 )
 text = "Przywolaj diabla"
 align = 2
 
-[node name="ExitDoorBtn" parent="MainHall" instance=ExtResource( 3 )]
+[node name="ExitDoorBtn" parent="MainHall" instance=ExtResource( 6 )]
 margin_left = 16.2895
 margin_top = 273.32
 margin_right = 128.29
 margin_bottom = 301.32
 button_label = "Wyjdz"
 
-[node name="EnterWizardBtn" parent="MainHall" instance=ExtResource( 4 )]
+[node name="EnterWizardBtn" parent="MainHall" instance=ExtResource( 7 )]
 margin_left = 401.0
 margin_top = 177.0
 margin_right = 497.0
@@ -86,7 +87,7 @@ texture_pressed = null
 button_label = ""
 screen_name = "WizardScreen"
 
-[node name="EnterRoomBtn" parent="MainHall" instance=ExtResource( 4 )]
+[node name="EnterRoomBtn" parent="MainHall" instance=ExtResource( 7 )]
 visible = false
 margin_left = 388.712
 margin_top = 117.873
@@ -95,7 +96,7 @@ margin_bottom = 145.873
 button_label = "Pokoj"
 screen_name = "RoomScreen"
 
-[node name="EnterTradesmanBtn" parent="MainHall" instance=ExtResource( 4 )]
+[node name="EnterTradesmanBtn" parent="MainHall" instance=ExtResource( 7 )]
 margin_left = 28.0
 margin_top = 158.0
 margin_right = 90.0
@@ -106,7 +107,7 @@ expand = true
 button_label = ""
 screen_name = "TradesmanScreen"
 
-[node name="EnterPublicanBtn" parent="MainHall" instance=ExtResource( 4 )]
+[node name="EnterPublicanBtn" parent="MainHall" instance=ExtResource( 7 )]
 margin_left = 192.0
 margin_top = 144.0
 margin_right = 243.0
@@ -116,51 +117,50 @@ texture_pressed = null
 button_label = ""
 screen_name = "PublicanScreen"
 
-[node name="RoomScreen" parent="." instance=ExtResource( 5 )]
+[node name="RoomScreen" parent="." instance=ExtResource( 8 )]
 visible = false
 
-[node name="WizardScreen" parent="." instance=ExtResource( 6 )]
+[node name="WizardScreen" parent="." instance=ExtResource( 9 )]
 visible = false
 
-[node name="TradesmanScreen" parent="." instance=ExtResource( 7 )]
+[node name="TradesmanScreen" parent="." instance=ExtResource( 10 )]
 visible = false
 
-[node name="PublicanScreen" parent="." instance=ExtResource( 8 )]
+[node name="PublicanScreen" parent="." instance=ExtResource( 11 )]
 visible = false
 
 [node name="Resources" type="Control" parent="."]
-visible = false
 margin_right = 40.0
 margin_bottom = 40.0
-script = ExtResource( 9 )
+script = ExtResource( 12 )
 
 [node name="MarginContainer" type="MarginContainer" parent="Resources"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
+custom_constants/margin_right = 47
 custom_constants/margin_top = 10
 custom_constants/margin_left = 10
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Resources/MarginContainer"]
 margin_left = 10.0
 margin_top = 10.0
-margin_right = 66.0
+margin_right = 10.0
 margin_bottom = 40.0
 
-[node name="GoldLabel" type="Label" parent="Resources/MarginContainer/VBoxContainer"]
-margin_right = 56.0
-margin_bottom = 20.0
-custom_fonts/font = ExtResource( 10 )
-text = "Zloto: 100"
+[node name="GoldIcon" type="Sprite" parent="Resources/MarginContainer/VBoxContainer"]
+position = Vector2( 14.0777, 13.9949 )
+texture = ExtResource( 13 )
 
-[node name="XpLabel" type="Label" parent="Resources/MarginContainer/VBoxContainer"]
-visible = false
-margin_top = 24.0
-margin_right = 107.0
-margin_bottom = 44.0
-custom_fonts/font = ExtResource( 10 )
-text = "Doswiadczenie: 100"
+[node name="GoldLabel" type="Label" parent="Resources/MarginContainer/VBoxContainer/GoldIcon"]
+margin_left = 19.7499
+margin_top = -10.2591
+margin_right = 96.7499
+margin_bottom = 9.7409
+custom_fonts/font = ExtResource( 5 )
+text = "100"
 
-[node name="StatsPanel" parent="." instance=ExtResource( 11 )]
+[node name="StatsPanel" parent="." instance=ExtResource( 14 )]
 visible = false
 margin_left = 360.525
 margin_top = 168.461

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Objects/EventItem/DwarfInBalloon.gd" type="Script" id=1]
-[ext_resource path="res://Objects/EventItem/Krasnal_balon.png" type="Texture" id=2]
+[ext_resource path="res://Objects/EventItem/balloon.png" type="Texture" id=2]
 [ext_resource path="res://Objects/EventItem/EventItem.tscn" type="PackedScene" id=3]
 
 [node name="DwarfInBalloon" instance=ExtResource( 3 )]
