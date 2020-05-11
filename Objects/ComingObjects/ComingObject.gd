@@ -2,13 +2,11 @@ extends Sprite
 class_name ComingObject
 signal timeout
 
-export var wait_time = 2
+export (float) var wait_time = 2
 
 func _ready():
 	connect("timeout",self,"_on_timeout")
-	
-	var cam_pos = get_node("/root/World").find_node("Camera2D").position
-	var diff = get_viewport_rect().size.x
+
 	$ComingTimer.wait_time = wait_time
 	$ComingTimer.start()
 
