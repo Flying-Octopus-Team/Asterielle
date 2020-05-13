@@ -12,7 +12,7 @@ export (int) var price
 func _ready():
 	$Info.set_text(info)
 	$Count.set("custom_colors/font_color", color)
-  $Price.set_text("Cena: "+ String(price))
+	$Price.set_text("Cena: "+ String(price))
 
 func refresh():
 	$Button.disabled = get_owner().call(return_func)

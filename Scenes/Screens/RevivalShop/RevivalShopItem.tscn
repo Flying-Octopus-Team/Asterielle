@@ -49,9 +49,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
-
-
 [node name="Price" type="Label" parent="."]
 modulate = Color( 0.729412, 0.729412, 0.729412, 1 )
 margin_left = 92.0
@@ -59,4 +56,4 @@ margin_top = 3.0
 margin_right = 131.0
 margin_bottom = 17.0
 text = "Cena: "
-
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

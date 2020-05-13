@@ -30,6 +30,7 @@ func _ready():
 	send_count_text("Item_basic_damage", 'x' + String(ElfStats.damage_multiplier))
 	send_count_text("Item_basic_hp", 'x' + String(ElfStats.health_multiplier))
 	send_count_text("Item_items_price", 'x' + String(GameData.tradesman_item_price_multipler))
+	set_silver_moon_label(GameData.silver_moon)
 
 func exit():
 	game_manager.resume_gameplay()
@@ -44,19 +45,6 @@ func set_silver_moon_label(silver_moon):
 
 func pay(price):
 	GameData.silver_moon -= price
-
-func connect_buttons_signals():
-	enemies_per_level_button.connect("pressed", self, "upgrade_enemies_per_level")
-	earn_gold_button.connect("pressed", self, "upgrade_earn_gold")
-	time_to_kill_boss_button.connect("pressed", self, "upgrade_time_to_kill_boss")
-	silver_moon_probability_button.connect("pressed", self, "upgrade_silver_moon_probability")
-	basic_start_level_button.connect("pressed", self, "upgrade_basic_start_level")
-	basic_damage_button.connect("pressed", self, "upgrade_basic_damage")
-	basic_hp_button.connect("pressed", self, "upgrade_basic_hp")
-	items_price_button.connect("pressed", self, "upgrade_items_price")
-
-func set_enemies_per_level_button():
-	enemies_per_level_button.disabled = return_enemies_per_level_access();
 
 func return_enemies_per_level_access() -> bool:
 	if get_parent().find_node("LevelManager").dwarves_per_level <= 1:
