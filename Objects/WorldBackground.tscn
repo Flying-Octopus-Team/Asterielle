@@ -109,9 +109,9 @@ script = ExtResource( 3 )
 layer = -1
 
 [node name="Planet" type="Sprite" parent="PlanetLayer"]
-position = Vector2( 552.122, 52.0863 )
+position = Vector2( -50, 80 )
 z_index = -4
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 __meta__ = {
 "_editor_description_": ""
 }
