@@ -45,7 +45,7 @@ func update_enabled() -> void:
 	var should_be_enabled = true
 	
 	if price_gold:
-		should_be_enabled = gold > price_gold
+		should_be_enabled = gold >= price_gold
 	
 	set_enabled(should_be_enabled)
 	
