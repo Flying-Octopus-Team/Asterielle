@@ -16,6 +16,9 @@ func _ready() -> void:
 
 func _on_AnimatedCheckButton_toggled(button_pressed) -> void:
 	animate(button_pressed)
+	
+	if Settings.sounds_on:
+		$ToggleSound.play()
 
 
 func set_pressed_without_animation(value:bool) -> void:
