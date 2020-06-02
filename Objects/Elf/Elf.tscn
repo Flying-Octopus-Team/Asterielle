@@ -92,6 +92,10 @@ custom_fonts/font = ExtResource( 7 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "10"
 align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="ShotSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
+volume_db = -5.0
