@@ -49,6 +49,7 @@ func _on_music_on_changed(on:bool) -> void:
 		if not playing:
 			play()
 	else:
+		tween.stop_all()
 		stop()
 
 
