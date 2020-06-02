@@ -87,7 +87,9 @@ func _on_Dwarf_area_entered(area):
 	on_arrow_hit(area)
 
 func death():
-	die_sound.play()
+	if Settings.sounds_on:
+		die_sound.play()
+	
 	next_attack_timer.stop()
 	
 	# Disable arrow collision
