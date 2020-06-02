@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Objects/Dwarves/Dwarf/Dwarf.gd" type="Script" id=1]
 [ext_resource path="res://Objects/Dwarves/Dwarf/dwarf.png" type="Texture" id=2]
 [ext_resource path="res://OnePixel.png" type="Texture" id=3]
 [ext_resource path="res://Fonts/SHPinsher_16.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Sounds/enemy_kill.wav" type="AudioStream" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 20, 31 )
@@ -62,5 +63,8 @@ text = "10"
 align = 1
 
 [node name="NextAttackTimer" type="Timer" parent="."]
+
+[node name="DieSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
 [connection signal="area_entered" from="." to="." method="_on_Dwarf_area_entered"]
 [connection signal="timeout" from="NextAttackTimer" to="." method="_on_NextAttackTimer_timeout"]

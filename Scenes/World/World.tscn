@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scenes/World/World.gd" type="Script" id=1]
 [ext_resource path="res://Objects/WorldBackground.tscn" type="PackedScene" id=2]
@@ -12,6 +12,8 @@
 [ext_resource path="res://Scenes/World/LevelManager.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/World/Revival.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Objects/EventItem/EventManager.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Music/MusicPlayer.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Music/game_music.wav" type="AudioStream" id=14]
 
 [node name="World" type="Node2D"]
 script = ExtResource( 1 )
@@ -55,3 +57,9 @@ layer = 62
 [node name="Revival" parent="." instance=ExtResource( 11 )]
 
 [node name="EventManager" parent="." instance=ExtResource( 12 )]
+
+[node name="Music" parent="." instance=ExtResource( 13 )]
+stream = ExtResource( 14 )
+fade_in_time = 3.0
+fade_out_time = 5.0
+replay_delay = 5.0
