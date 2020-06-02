@@ -7,7 +7,7 @@ const SAVE_PATH = "res://save.json"
 const OFFLINE_LIMIT : bool = false
 const OFFLINE_LIMIT_TIME : int = 7200 
 
-const OFFINE_BONUS_GOLD_RATIO : float = 0.3 
+const OFFLINE_BONUS_GOLD_RATIO : float = 0.3 
 
 var level_manager
 var elf
@@ -85,7 +85,7 @@ func load_golds_on_second(gold_on_second):
 	GameData.golds_on_second = gold_on_second
 
 func load_gold_and_reward(gold, gold_on_second):
-	GameData.offline_gold_reward = gold_on_second * OFFINE_BONUS_GOLD_RATIO * GameData.offline_time
+	GameData.offline_gold_reward = gold_on_second * OFFLINE_BONUS_GOLD_RATIO * GameData.offline_time
 	GameData.gold = gold + GameData.offline_gold_reward
 
 func load_silver_moon(silver_moon):
