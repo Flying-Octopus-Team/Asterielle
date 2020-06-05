@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/bow_shot.wav-40581aeadcf00e196f127c9b58500697.sample"
+
+[deps]
+
+source_file="res://Sounds/bow_shot.wav"
+dest_files=[ "res://.import/bow_shot.wav-40581aeadcf00e196f127c9b58500697.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -87,6 +87,7 @@ ElfStats="*res://Scripts/ElfStats.gd"
 GameData="*res://Scripts/GameData.gd"
 GameLoader="*res://Scripts/GameLoader.gd"
 GameSaver="*res://Scripts/GameSaver.gd"
+Settings="*res://Scripts/Settings.gd"
 
 [display]
 

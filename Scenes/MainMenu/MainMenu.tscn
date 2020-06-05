@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scenes/MainMenu/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://Fonts/frikativ_32.tres" type="DynamicFont" id=2]
@@ -7,6 +7,9 @@
 [ext_resource path="res://Fonts/SHPinsher_24.tres" type="DynamicFont" id=5]
 [ext_resource path="res://Scenes/UserInterface/AnimatedCheckButton.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Objects/WorldBackground.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Music/MusicPlayer.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Music/menu_music.wav" type="AudioStream" id=9]
+[ext_resource path="res://Scenes/MainMenu/Options.gd" type="Script" id=10]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource( 1 )
@@ -85,15 +88,15 @@ margin_bottom = 295.0
 
 [node name="VersionLabel" type="Label" parent="Canvas/Home/MarginContainer/VBoxContainer/HBoxContainer"]
 margin_top = 10.0
-margin_right = 83.0
+margin_right = 79.0
 margin_bottom = 30.0
 size_flags_vertical = 8
 custom_fonts/font = ExtResource( 4 )
-text = "Version 0.14.14"
+text = "Version 0.15.0"
 valign = 1
 
 [node name="FlyingOctopusLabel" type="Label" parent="Canvas/Home/MarginContainer/VBoxContainer/HBoxContainer"]
-margin_left = 87.0
+margin_left = 83.0
 margin_right = 540.0
 margin_bottom = 30.0
 size_flags_horizontal = 3
@@ -106,6 +109,7 @@ valign = 1
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 10 )
 
 [node name="MarginContainer" type="MarginContainer" parent="Canvas/Options"]
 anchor_right = 1.0
@@ -160,7 +164,7 @@ custom_fonts/font = ExtResource( 4 )
 text = "Music"
 valign = 1
 
-[node name="AnimatedCheckButton" parent="Canvas/Options/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 6 )]
+[node name="MusicOnBtn" parent="Canvas/Options/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 6 )]
 margin_left = 40.0
 margin_right = 121.0
 
@@ -178,7 +182,7 @@ custom_fonts/font = ExtResource( 4 )
 text = "Sounds"
 valign = 1
 
-[node name="AnimatedCheckButton2" parent="Canvas/Options/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/HBoxContainer2" instance=ExtResource( 6 )]
+[node name="SoundsOnBtn" parent="Canvas/Options/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/HBoxContainer2" instance=ExtResource( 6 )]
 margin_left = 40.0
 margin_right = 121.0
 
@@ -301,6 +305,12 @@ align = 1
 valign = 1
 
 [node name="WorldBackground" parent="." instance=ExtResource( 7 )]
+
+[node name="MusicPlayer" parent="." instance=ExtResource( 8 )]
+stream = ExtResource( 9 )
+fade_in_time = 3.0
+fade_out_time = 4.0
+replay_delay = 5.0
 [connection signal="pressed" from="Canvas/Home/MarginContainer/VBoxContainer/CenterContainer/Menu/NewGameBtn" to="." method="_on_NewGameBtn_pressed"]
 [connection signal="pressed" from="Canvas/Home/MarginContainer/VBoxContainer/CenterContainer/Menu/ContinueBtn" to="." method="_on_ContinueBtn_pressed"]
 [connection signal="pressed" from="Canvas/Home/MarginContainer/VBoxContainer/CenterContainer/Menu/OptionsBtn" to="." method="_on_OptionsBtn_pressed"]

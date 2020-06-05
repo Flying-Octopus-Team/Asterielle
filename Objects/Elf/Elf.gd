@@ -35,7 +35,10 @@ func _process(delta):
 		shot_arrow()
 
 func shot_arrow():
-		animation_player.play("Shot")
+	animation_player.play("Shot")
+	
+	if Settings.sounds_on:
+		$ShotSound.play()
 	
 func spawn_arrow():
 	var dwarf = $DwarfRayCast.get_collider()

@@ -16,15 +16,16 @@ var DWARVES_TEXTURES = [
 	load("res://Objects/Dwarves/Dwarf/ubogikrasnolud.png")
 ]
 
-
-
-
 var velocity : Vector2
 var hp : float
 var damage : float
 
 onready var hp_bar
 onready var hp_label
+
+onready var next_attack_timer : Timer = $NextAttackTimer
+onready var die_sound : AudioStreamPlayer = $DieSound
+
 
 func _ready():
 	add_to_group("IDwarf")
@@ -53,7 +54,7 @@ func _physics_process(delta):
 		
 	if $ElfRayCast.is_colliding():
 		velocity = Vector2.ZERO
-		$NextAttackTimer.start()
+		next_attack_timer.start()
 		set_physics_process(false)
 		
 func on_arrow_hit(arrow):
@@ -86,5 +87,23 @@ func _on_Dwarf_area_entered(area):
 	on_arrow_hit(area)
 
 func death():
+	if Settings.sounds_on:
+		die_sound.play()
+	
+	next_attack_timer.stop()
+	
+	# Disable arrow collision
+	collision_layer = 0
+	collision_mask = 0
+	
+	# Stop moving
+	set_physics_process(false)
+	
+	# Placeholder (animation in future)
+	hide()
+	
 	emit_signal("died")
+	
+	yield(die_sound, "finished")
+	
 	queue_free()

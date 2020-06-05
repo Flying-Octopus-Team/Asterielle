@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/UserInterface/AnimatedCheckButton.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/UserInterface/ui_icons.png" type="Texture" id=2]
+[ext_resource path="res://Sounds/button_click.wav" type="AudioStream" id=3]
 
 [sub_resource type="ImageTexture" id=1]
 
@@ -43,3 +44,7 @@ region_rect = Rect2( 61, 187, 81, 27 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/check_button_on = SubResource( 3 )
+
+[node name="ToggleSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -20.0
