@@ -5,8 +5,6 @@ signal revival_shop_exit
 onready var game_manager = get_parent().get_node("GameManager")
 onready var ui = get_parent().find_node("UI")
 
-#TODO: Dać nazwy z przerdostkiem pri (od price)
-
 const ENEMIES_PER_LEVEL_PRICE = 20
 const EARN_GOLD_PRICE = 10
 const TIME_TO_KILL_BOSS_PRICE = 5
