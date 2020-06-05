@@ -100,9 +100,9 @@ size_flags_vertical = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer/CenterContainer"]
 margin_left = 204.0
-margin_top = 23.0
+margin_top = 35.0
 margin_right = 335.0
-margin_bottom = 187.0
+margin_bottom = 175.0
 size_flags_vertical = 3
 
 [node name="Item_enemies_per_level" parent="Control/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer" instance=ExtResource( 15 )]
@@ -183,6 +183,7 @@ upgrade_func = "upgrade_basic_hp"
 price = 1
 
 [node name="Item_items_price" parent="Control/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer" instance=ExtResource( 15 )]
+visible = false
 margin_left = 0.0
 margin_top = 144.0
 margin_right = 131.0

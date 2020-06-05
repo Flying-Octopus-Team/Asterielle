@@ -106,7 +106,7 @@ func add_silver_moon():
 	if rand_range(1,100) > probability_to_get_silver_moon_in_percent:
 		return
 	
-	silver_moon += reward
+	set_silver_moon(silver_moon + reward)
 	
 func on_game_over():
 	gold *= 0.4
