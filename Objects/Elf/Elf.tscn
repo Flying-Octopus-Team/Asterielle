@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Objects/Elf/Elf.gd" type="Script" id=1]
 [ext_resource path="res://Objects/Elf/efl_shot.png" type="Texture" id=2]
@@ -7,8 +7,9 @@
 [ext_resource path="res://Objects/Elf/HP/HPBar_bar.png" type="Texture" id=5]
 [ext_resource path="res://Objects/Elf/HP/HPBar_Over.png" type="Texture" id=6]
 [ext_resource path="res://Fonts/SHPinsher_16.tres" type="DynamicFont" id=7]
+[ext_resource path="res://Sounds/bow_shot.wav" type="AudioStream" id=8]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "PrepareArrow"
 length = 0.7
 tracks/0/type = "value"
@@ -24,7 +25,7 @@ tracks/0/keys = {
 "values": [ 0, 5 ]
 }
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 62, 42 )
 
 [node name="Elf" type="Area2D"]
@@ -43,12 +44,12 @@ frame = 13
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
 pause_mode = 2
-anims/PrepareArrow = SubResource( 2 )
+anims/PrepareArrow = SubResource( 1 )
 anims/Shot = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -38 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="FirePoint" type="Position2D" parent="."]
 position = Vector2( 34, -59 )
@@ -91,3 +92,10 @@ custom_fonts/font = ExtResource( 7 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "10"
 align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ShotSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = -5.0

@@ -74,11 +74,11 @@ _global_script_class_icons={
 
 [application]
 
-config/name="EvD"
+config/name="Asterielle Slayer of Dwarves"
 run/main_scene="res://Scenes/MainMenu/MainMenu.tscn"
 boot_splash/image="res://flying-octopus-logo.png"
 boot_splash/bg_color=Color( 1, 1, 1, 1 )
-config/icon="res://icon.png"
+config/icon="res://asterielle_logo.png"
 
 [autoload]
 
@@ -87,6 +87,7 @@ ElfStats="*res://Scripts/ElfStats.gd"
 GameData="*res://Scripts/GameData.gd"
 GameLoader="*res://Scripts/GameLoader.gd"
 GameSaver="*res://Scripts/GameSaver.gd"
+Settings="*res://Scripts/Settings.gd"
 
 [display]
 

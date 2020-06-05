@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scenes/Screens/RevivalShop/RevivalShopItem.gd" type="Script" id=1]
+[ext_resource path="res://Sounds/button_click.wav" type="AudioStream" id=2]
 
 [node name="Item" type="HBoxContainer"]
 margin_left = 7.0
@@ -56,4 +57,8 @@ margin_top = 3.0
 margin_right = 131.0
 margin_bottom = 17.0
 text = "Cena: "
+
+[node name="ClickSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+volume_db = -20.0
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

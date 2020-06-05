@@ -24,6 +24,7 @@ func load_player_data():
 	var nodes_to_save = get_tree().get_nodes_in_group('IHaveSthToSave')
 	for node in nodes_to_save:
 		save_dict[node.get_path()] = node.save()
+	
 	return save_dict
 
 func load_game():
