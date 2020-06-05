@@ -26,7 +26,6 @@ func set_count_string(s):
 func _on_Button_pressed():
 	get_owner().call(upgrade_func)
 	refresh()
-
-func _on_Button_pressed():
+	
 	if Settings.sounds_on:
 		$ClickSound.play()
