@@ -100,9 +100,9 @@ size_flags_vertical = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer/CenterContainer"]
 margin_left = 204.0
-margin_top = 23.0
+margin_top = 35.0
 margin_right = 335.0
-margin_bottom = 187.0
+margin_bottom = 175.0
 size_flags_vertical = 3
 
 [node name="Item_enemies_per_level" parent="Control/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer" instance=ExtResource( 15 )]
@@ -110,6 +110,9 @@ margin_left = 0.0
 margin_right = 131.0
 color = Color( 0.243137, 1, 0, 1 )
 info = "zmniejszenie ilości przeciwników na poziom:"
+return_func = "return_enemies_per_level_access"
+upgrade_func = "upgrade_enemies_per_level"
+button_sign = "-"
 price = 20
 
 [node name="Item_earn_gold" parent="Control/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer" instance=ExtResource( 15 )]
@@ -119,6 +122,8 @@ margin_right = 131.0
 margin_bottom = 44.0
 color = Color( 0.243137, 1, 0, 1 )
 info = "zwiększenie ilości zdobywanego złota:"
+return_func = "return_earn_gold_access"
+upgrade_func = "upgrade_earn_gold"
 price = 10
 
 [node name="Item_time_to_kill_boss" parent="Control/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer" instance=ExtResource( 15 )]
@@ -128,6 +133,8 @@ margin_right = 131.0
 margin_bottom = 68.0
 color = Color( 0.996078, 0.0117647, 0.0117647, 1 )
 info = "zwiększenie timera na bossach:"
+return_func = "return_time_to_kill_boss_access"
+upgrade_func = "upgrade_time_to_kill_boss"
 price = 5
 
 [node name="Item_silver_moon_probability" parent="Control/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer" instance=ExtResource( 15 )]
@@ -137,16 +144,20 @@ margin_right = 131.0
 margin_bottom = 92.0
 color = Color( 1, 0.937255, 0, 1 )
 info = "szanse zdobycia srebrnych ksiezyców:"
+return_func = "return_silver_moon_probability_access"
+upgrade_func = "upgrade_silver_moon_probability"
 price = 5
 
 [node name="Item_basic_start_level" parent="Control/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer" instance=ExtResource( 15 )]
 visible = false
 margin_left = 0.0
 margin_top = 96.0
-margin_right = 131.0
+margin_right = 88.0
 margin_bottom = 116.0
 color = Color( 0.243137, 1, 0, 1 )
 info = "rozpoczęcie rozgrywki od poziomu:"
+return_func = "return_basic_start_level_access"
+upgrade_func = "upgrade_basic_start_level"
 price = 3
 
 [node name="Item_basic_damage" parent="Control/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer" instance=ExtResource( 15 )]
@@ -156,6 +167,8 @@ margin_right = 131.0
 margin_bottom = 116.0
 color = Color( 0.243137, 1, 0, 1 )
 info = "bazowe obrażenia gracza:"
+return_func = "return_basic_damage_access"
+upgrade_func = "upgrade_basic_damage"
 price = 2
 
 [node name="Item_basic_hp" parent="Control/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer" instance=ExtResource( 15 )]
@@ -165,15 +178,20 @@ margin_right = 131.0
 margin_bottom = 140.0
 color = Color( 0.243137, 1, 0, 1 )
 info = "bazowe hp gracza"
+return_func = "return_basic_hp_access"
+upgrade_func = "upgrade_basic_hp"
 price = 1
 
 [node name="Item_items_price" parent="Control/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer" instance=ExtResource( 15 )]
+visible = false
 margin_left = 0.0
 margin_top = 144.0
 margin_right = 131.0
 margin_bottom = 164.0
 color = Color( 1, 0.937255, 0, 1 )
 info = "zmniejszenie kosztu przedmiotów u kupca o:"
+return_func = "return_items_price_access"
+upgrade_func = "upgrade_items_price"
 price = 10
 
 [node name="Button" parent="Control/MarginContainer/VBoxContainer" instance=ExtResource( 16 )]

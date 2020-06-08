@@ -40,7 +40,7 @@ func _on_Item_pressed():
 	yield($PrizeSound, "finished")
 	
 	queue_free()
-	
+
 func _input(event):
 	if (event is InputEventMouseButton) and event.pressed:
 		var evLocal = make_input_local(event)

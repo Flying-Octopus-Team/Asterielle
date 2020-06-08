@@ -44,6 +44,9 @@ margin_left = -1.0
 margin_top = 69.0
 margin_right = 213.0
 margin_bottom = 323.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="questsLabel" type="Label" parent="Publican" index="1"]
 margin_left = 28.9036
