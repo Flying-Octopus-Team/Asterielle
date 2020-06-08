@@ -12,10 +12,15 @@ onready var about = get_node("Canvas/About")
 
 func _ready():
 	setup_continue_btn_visible()
+	setup_exit_btn_visible()
 
 func setup_continue_btn_visible():
 	if !Directory.new().file_exists(PATH_TO_SAVE_FILE):
 		home.find_node("ContinueBtn").visible = false
+		
+func setup_exit_btn_visible():
+	if OS.get_name() == "HTML5":
+		home.find_node("ExitBtn").visible = false
 
 func switch_panel(menu_panel):
 	hide_all_panel()
