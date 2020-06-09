@@ -56,6 +56,7 @@ func _physics_process(delta):
 		velocity = Vector2.ZERO
 		next_attack_timer.start()
 		set_physics_process(false)
+		BackgroundData.move_speed = 0
 		
 func on_arrow_hit(arrow):
 	if randf() < ElfStats.get_stat_value("critical_shot"):
