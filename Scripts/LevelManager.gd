@@ -77,6 +77,8 @@ func on_Dwarf_died():
 	
 	ui.set_killed_dwarves_label(killed_dwarves, dwarves_per_level)
 	
+	BackgroundData.move_speed = BackgroundData.default_move_speed
+	
 func after_dwarf_died():
 	if tavern_enter_btn.pressed:
 		tavern_spawner.spawn_tavern()
@@ -116,6 +118,8 @@ func on_Boss_died():
 		increase_level()
 		after_dwarf_died()
 	
+	BackgroundData.move_speed = BackgroundData.default_move_speed
+	
 	emit_signal("boss_died")
 	
 func jump_to_next_boss_level() -> void:
@@ -134,6 +138,7 @@ func on_Game_Over():
 	eis.init(3,"Game Over","Straciles przytomnosc\n Zostaniesz przeniesiony z pola walki do tawerny ","skull",false)
 	eis.connect("timeout", self, "reset_to_base")
 	world.call_deferred("add_child", eis)
+	BackgroundData.move_speed = BackgroundData.default_move_speed
 
 func show_offline_screen():
 	if GameData.offline_time == 0:
