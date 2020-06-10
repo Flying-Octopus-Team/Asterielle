@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/dwarf_attack3.wav-e24cc8b8c4fb41400cbe7656bb268bc3.sample"
+
+[deps]
+
+source_file="res://Sounds/dwarf_attack3.wav"
+dest_files=[ "res://.import/dwarf_attack3.wav-e24cc8b8c4fb41400cbe7656bb268bc3.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

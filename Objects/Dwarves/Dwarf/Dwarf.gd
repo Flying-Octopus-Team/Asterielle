@@ -25,7 +25,7 @@ onready var hp_label
 
 onready var next_attack_timer : Timer = $NextAttackTimer
 onready var die_sound : AudioStreamPlayer = $DieSound
-
+onready var attack_sound : AudioStreamPlayer = $AttackSound
 
 func _ready():
 	add_to_group("IDwarf")
@@ -53,11 +53,12 @@ func _physics_process(delta):
 	position += velocity * delta
 		
 	if $ElfRayCast.is_colliding():
-		velocity = Vector2.ZERO
 		next_attack_timer.start()
+		_play_attack_sound()
+		velocity = Vector2.ZERO
 		set_physics_process(false)
 		BackgroundData.move_speed = 0
-		
+	
 func on_arrow_hit(arrow):
 	if randf() < ElfStats.get_stat_value("critical_shot"):
 		arrow.damage *= 2
@@ -71,12 +72,13 @@ func on_arrow_hit(arrow):
 		hp_bar.value = hp
 		
 	hp_label.text = str(stepify(hp,0.01))
-		
+	
 func go_forward():
 	velocity = Vector2(-move_speed_mod * BackgroundData.move_speed, 0)
 	
 func _on_NextAttackTimer_timeout():
 	attack()
+	_play_attack_sound()
 	
 func attack():
 	var elf = $ElfRayCast.get_collider()
@@ -87,9 +89,14 @@ func _on_Dwarf_area_entered(area):
 	# Because of collision masks this area is Arrow
 	on_arrow_hit(area)
 
+func _play_attack_sound() -> void:
+	if Settings.sounds_on:
+		attack_sound.play()
+
 func death():
 	if Settings.sounds_on:
 		die_sound.play()
+		attack_sound.stop()
 	
 	next_attack_timer.stop()
 	
