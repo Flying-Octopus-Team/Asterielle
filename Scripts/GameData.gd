@@ -99,8 +99,8 @@ func add_silver_moon():
 		return
 	
 	if lvl == 51:
-		set_silver_moon(silver_moon + 1)
 		emit_signal("get_first_silver_moon")
+		set_silver_moon(silver_moon + 1)
 		return
 	
 	if rand_range(1,100) > probability_to_get_silver_moon_in_percent:

@@ -26,7 +26,6 @@ func set_active_revival_btn():
 	
 	if level_manager.current_level < 50:
 		ui_container.hide_revival_button()
-		GameData.connect("get_first_silver_moon", ui_container, "show_revival_button")
 	else:
 		ui_container.show_revival_button()
 
@@ -38,9 +37,12 @@ func show_silver_moon_screen():
 		"Srebrne Ksiezyce sa dodatkowa waluta wykorzystywana podczas odrodzenia \n" + 
 		"do zakupu dodatkowych i stalych ( nie znikajacych po odrodzeniu ) ulepszen. \n" + 
 		"Czym jest odrodzenie? \n" + 
-		"Odrozenie pozwala elfce rozpoczac swoja przygode prawie calkowice od nowa",
+		"Odrodzenie pozwala elfce rozpoczac swoja przygode prawie calkowice od nowa",
 		"moon")
 		get_parent().call_deferred("add_child", eis)
+	var ui_container = world.find_node("UIContainer")
+
+	ui_container.show_revival_button()
 
 func active_revival_button():
 	world.find_node("UIContainer").show_revival_button()
