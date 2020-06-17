@@ -40,9 +40,7 @@ func show_silver_moon_screen():
 		"Odrodzenie pozwala elfce rozpoczac swoja przygode prawie calkowice od nowa",
 		"moon")
 		get_parent().call_deferred("add_child", eis)
-	var ui_container = world.find_node("UIContainer")
-
-	ui_container.show_revival_button()
+	world.find_node("UIContainer").show_revival_button()
 
 func active_revival_button():
 	world.find_node("UIContainer").show_revival_button()
