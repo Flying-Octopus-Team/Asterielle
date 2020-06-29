@@ -65,15 +65,12 @@ func revive():
 	var ui_container = world.find_node("UIContainer")
 	
 	ui_container.hide_revival_button()
-	if level_manager.current_level < GameData.FIRST_REVIVAL_LEVEL:
-		return
-	if GameData.last_revival_level == GameData.MY_FIRST_REVIVAL_LEVEL:
+	if GameData.last_revival_level == 0:
 		GameData.silver_moon += GameData.REVIVAL_SILVER_MOON_REWARD
-		GameData.all_silver_moon += GameData.REVIVAL_SILVER_MOON_REWARD
+		GameData.last_revival_level = level_manager.current_level
+
 	else:
-		GameData.silver_moon += level_manager.current_level - GameData.last_revival_level
-		GameData.all_silver_moon += level_manager.current_level - GameData.last_revival_level
-	GameData.last_revival_level = level_manager.current_level
+		GameData.silver_moon += level_manager.current_level - GameData.FIRST_REVIVAL_LEVEL
 	show_revival_screen()
 	
 func _on_RevivalShop_exited() -> void:
