@@ -15,7 +15,7 @@ onready var replay_timer : Timer = $ReplayTimer
 onready var tween : Tween = $FadeTween
 
 const MIN_VOLUME : float = -80.0
-const NORMAL_VOLUME : float = 0.0
+const NORMAL_VOLUME : float = -17.5
 
 
 func _init() -> void:
