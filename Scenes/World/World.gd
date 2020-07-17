@@ -9,7 +9,7 @@ func _ready() -> void:
 
 #warning-ignore:unused_argument
 func _input(event):
-	if Input.is_key_pressed(KEY_ESCAPE):
+	if Input.is_key_pressed(KEY_ESCAPE) && OS.get_name() != "HTML5":
 		get_tree().quit()
 
 
