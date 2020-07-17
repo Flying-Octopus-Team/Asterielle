@@ -107,8 +107,7 @@ func add_silver_moon():
 	set_silver_moon(silver_moon + reward)
 	
 func on_game_over():
-	gold *= 0.4
-	emit_signal("gold_changed")
+	set_gold(gold * 0.4)
 
 func save():
 	var time = OS.get_unix_time()

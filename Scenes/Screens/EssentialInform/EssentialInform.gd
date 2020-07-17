@@ -33,7 +33,7 @@ func _ready():
 
 func _on_ExitButton_pressed():
 	anim.play("FadedOut")
-	#get_node("/root/World")
+	emit_signal("timeout")
 	get_parent().find_node("TavernScreen").enter_tavern()
 
 func _on_AnimationPlayer_animation_finished(anim_name):
@@ -43,5 +43,4 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		exit()
 
 func exit():
-	emit_signal("timeout")
 	queue_free()
