@@ -5,7 +5,6 @@ signal get_first_silver_moon
 
 var gold : float = 0.0 setget set_gold
 var silver_moon : int = 0 setget set_silver_moon
-var all_silver_moon : int = 0
 var last_revival_level : int = 0
 var probability_to_get_silver_moon_in_percent: int = 15
 
@@ -22,7 +21,6 @@ var next_wait_time = 1.0
 var next_timer : float
 
 const FIRST_REVIVAL_LEVEL : int = 50
-const MY_FIRST_REVIVAL_LEVEL : int = 0
 const REVIVAL_SILVER_MOON_REWARD : int = 1
 
 var world
@@ -99,8 +97,8 @@ func add_silver_moon():
 		return
 	
 	if lvl == 51:
-		set_silver_moon(silver_moon + 1)
 		emit_signal("get_first_silver_moon")
+		set_silver_moon(silver_moon + 1)
 		return
 	
 	if rand_range(1,100) > probability_to_get_silver_moon_in_percent:
