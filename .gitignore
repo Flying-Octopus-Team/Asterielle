@@ -4,6 +4,10 @@
 *EvD.csproj
 *EvD.sln
 
+Export/
+export/
+build/
+Build/
 
 //For bozia
 *opengit.bat
