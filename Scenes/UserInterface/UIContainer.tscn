@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://Scenes/UserInterface/UIContainer.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/UserInterface/GoldTextures/1.png" type="Texture" id=2]
@@ -14,6 +14,10 @@
 [ext_resource path="res://Scenes/UserInterface/GoldTextures/11.png" type="Texture" id=12]
 [ext_resource path="res://Scenes/UserInterface/GoldTextures/12.png" type="Texture" id=13]
 [ext_resource path="res://Fonts/SHPinsher_24.tres" type="DynamicFont" id=14]
+[ext_resource path="res://Scenes/UserInterface/Buttons/GameButton.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Scenes/UserInterface/Buttons/hamburger_btn/btn_hamburger.png" type="Texture" id=16]
+[ext_resource path="res://Scenes/UserInterface/Buttons/hamburger_btn/btn_hamburger_pressed.png" type="Texture" id=17]
+[ext_resource path="res://Scenes/UserInterface/Buttons/hamburger_btn/btn_hamburger_disabled.png" type="Texture" id=18]
 [ext_resource path="res://Scenes/UserInterface/SilverMoonTextures/1.png" type="Texture" id=19]
 [ext_resource path="res://Scenes/UserInterface/SilverMoonTextures/2.png" type="Texture" id=20]
 [ext_resource path="res://Scenes/UserInterface/SilverMoonTextures/3.png" type="Texture" id=21]
@@ -85,6 +89,9 @@ custom_constants/margin_right = 10
 custom_constants/margin_top = 10
 custom_constants/margin_left = 10
 custom_constants/margin_bottom = 25
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
 margin_left = 10.0
@@ -174,26 +181,33 @@ margin_bottom = 20.0
 custom_fonts/font = ExtResource( 31 )
 text = "1 / 5"
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2"]
 margin_left = 362.0
 margin_right = 539.0
-margin_bottom = 238.0
+margin_bottom = 104.0
 size_flags_horizontal = 3
+size_flags_vertical = 0
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer"]
+margin_left = 21.0
+margin_right = 115.0
+margin_bottom = 104.0
+size_flags_horizontal = 6
+size_flags_vertical = 0
 custom_constants/separation = 10
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer3"]
-margin_left = 83.0
-margin_right = 177.0
+[node name="VBoxContainer2" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer/VBoxContainer3"]
+margin_right = 94.0
 margin_bottom = 47.0
 size_flags_horizontal = 8
 custom_constants/separation = 0
 
-[node name="TavernEnterBtn" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer3/VBoxContainer2" instance=ExtResource( 33 )]
+[node name="TavernEnterBtn" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer/VBoxContainer3/VBoxContainer2" instance=ExtResource( 33 )]
 margin_left = 13.0
 margin_right = 94.0
 size_flags_horizontal = 8
 
-[node name="TavernLabel" type="Label" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer3/VBoxContainer2"]
+[node name="TavernLabel" type="Label" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer/VBoxContainer3/VBoxContainer2"]
 margin_top = 27.0
 margin_right = 94.0
 margin_bottom = 47.0
@@ -202,20 +216,20 @@ custom_fonts/font = ExtResource( 31 )
 text = "Wejdz do tawerny"
 align = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer3"]
-margin_left = 88.0
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer/VBoxContainer3"]
+margin_left = 5.0
 margin_top = 57.0
-margin_right = 177.0
+margin_right = 94.0
 margin_bottom = 104.0
 size_flags_horizontal = 8
 custom_constants/separation = 0
 
-[node name="RevivalEnterBtn" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer3/VBoxContainer" instance=ExtResource( 33 )]
+[node name="RevivalEnterBtn" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer/VBoxContainer3/VBoxContainer" instance=ExtResource( 33 )]
 margin_left = 8.0
 margin_right = 89.0
 size_flags_horizontal = 8
 
-[node name="RevivalEnterLabel" type="Label" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer3/VBoxContainer"]
+[node name="RevivalEnterLabel" type="Label" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer/VBoxContainer3/VBoxContainer"]
 margin_top = 27.0
 margin_right = 89.0
 margin_bottom = 47.0
@@ -224,6 +238,14 @@ custom_fonts/font = ExtResource( 31 )
 text = "Przywolaj diabla"
 align = 2
 
+[node name="MenuBtn" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer" instance=ExtResource( 15 )]
+margin_left = 141.0
+margin_right = 177.0
+margin_bottom = 104.0
+texture_normal = ExtResource( 16 )
+texture_pressed = ExtResource( 17 )
+texture_disabled = ExtResource( 18 )
+
 [node name="BottomBar" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
 margin_top = 248.0
 margin_right = 539.0
@@ -231,7 +253,6 @@ margin_bottom = 280.0
 alignment = 1
 
 [node name="ActiveSpells" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/BottomBar"]
-editor/display_folded = true
 visible = false
 margin_right = 177.0
 margin_bottom = 32.0
@@ -267,5 +288,6 @@ margin_left = 271.0
 margin_right = 539.0
 margin_bottom = 32.0
 size_flags_horizontal = 3
-[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer3/VBoxContainer2/TavernEnterBtn" to="." method="_on_TavernEnterBtn_pressed"]
-[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer3/VBoxContainer/RevivalEnterBtn" to="." method="_on_RevivalEnterBtn_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer/VBoxContainer3/VBoxContainer2/TavernEnterBtn" to="." method="_on_TavernEnterBtn_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer/VBoxContainer3/VBoxContainer/RevivalEnterBtn" to="." method="_on_RevivalEnterBtn_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer/MenuBtn" to="." method="_on_MenuBtn_pressed"]

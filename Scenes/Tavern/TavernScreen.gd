@@ -4,12 +4,15 @@ signal tavern_entered
 signal tavern_exited
 signal room_exited
 
+const MENU_PATH = "res://Scenes/MainMenu/MainMenu.tscn"
+
 onready var game_manager = get_parent().find_node("GameManager")
 onready var dwarves_manager = get_parent().find_node("DwarvesManager")
 onready var devil_spawner = get_node("/root/World").find_node("DevilSpawner")
 onready var world = get_parent()
 onready var main_hall = $MainHall
 onready var resources = $Resources
+onready var button_container = $ButtonContainer
 
 onready var screens := [
 	$RoomScreen,
@@ -28,6 +31,9 @@ func _ready():
 	connect_node("MainHall")
 	connect_node("Resources")
 	
+	if OS.get_name() == "HTML5":
+		find_node("MenuBtn").visible = false
+	
 func connect_node(node_name):
 	var node = world.find_node(node_name)
 	connect("tavern_entered", node, "_on_Tavern_entered")
@@ -35,6 +41,7 @@ func connect_node(node_name):
 	
 func enter_tavern():
 	$Background.visible = true
+	button_container.visible = true
 	emit_signal("tavern_entered")
 	
 func set_active_revival_btn():
@@ -55,7 +62,11 @@ func hide_revival_button():
 	find_node("RevivalEnterLabel").visible = false
 
 func _on_ExitDoorBtn_pressed():
+	exit_tavern()
+
+func exit_tavern():
 	$Background.visible = false
+	button_container.visible = false
 	dwarves_manager.spawn = true
 	emit_signal("tavern_exited")
 
@@ -87,3 +98,8 @@ func _on_RevivalEnterBtn_pressed():
 	dwarves_manager.spawn = false
 	emit_signal("tavern_exited")
 	devil_spawner.spawn_devil()
+
+func _on_MenuBtn_pressed():
+	GameSaver.stop_timer()
+	GameSaver.save_game()
+	get_tree().change_scene(MENU_PATH)
