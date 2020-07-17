@@ -33,6 +33,8 @@ func _ready():
 
 func _on_ExitButton_pressed():
 	anim.play("FadedOut")
+	#get_node("/root/World")
+	get_parent().find_node("TavernScreen").enter_tavern()
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "FadedOut":

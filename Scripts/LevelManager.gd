@@ -159,8 +159,6 @@ func reset_to_base():
 	ui.set_level_label(current_level)
 	ui.set_killed_dwarves_label(killed_dwarves, dwarves_per_level)
 	emit_signal("reset_to_base")
-	
-	tavern_screen.enter_tavern()
 
 func save():
 	var save_dict = {
