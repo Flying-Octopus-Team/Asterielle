@@ -23,7 +23,7 @@ func _process(delta):
 func load_quests():
 	var save_file = File.new()
 	if not save_file.file_exists(SAVE_PATH):
-		print("Nie znaleziono pliku!!!")
+		print("Nie znaleziono pliku: " + SAVE_PATH)
 		create_default_quests()
 		return
 	

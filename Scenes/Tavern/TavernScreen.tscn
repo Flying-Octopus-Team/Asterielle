@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Scenes/Tavern/TavernScreen.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Tavern/background.jpg" type="Texture" id=2]
@@ -14,6 +14,9 @@
 [ext_resource path="res://Scenes/Tavern/Resources/TavernResources.gd" type="Script" id=12]
 [ext_resource path="res://Scenes/UserInterface/GoldTextures/1.png" type="Texture" id=13]
 [ext_resource path="res://Objects/StatsPanel/StatsPanel.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Scenes/UserInterface/Buttons/hamburger_btn/btn_hamburger.png" type="Texture" id=15]
+[ext_resource path="res://Scenes/UserInterface/Buttons/hamburger_btn/btn_hamburger_disabled.png" type="Texture" id=16]
+[ext_resource path="res://Scenes/UserInterface/Buttons/hamburger_btn/btn_hamburger_pressed.png" type="Texture" id=17]
 
 [node name="TavernScreen" type="CanvasLayer"]
 layer = 14
@@ -44,31 +47,6 @@ visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 3 )
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MainHall"]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -89.0
-margin_bottom = 51.0
-size_flags_horizontal = 8
-size_flags_vertical = 0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="RevivalEnterBtn" parent="MainHall/VBoxContainer" instance=ExtResource( 4 )]
-margin_left = 8.0
-margin_right = 89.0
-size_flags_horizontal = 8
-
-[node name="RevivalEnterLabel" type="Label" parent="MainHall/VBoxContainer"]
-margin_top = 31.0
-margin_right = 89.0
-margin_bottom = 51.0
-size_flags_horizontal = 5
-custom_fonts/font = ExtResource( 5 )
-text = "Przywolaj diabla"
-align = 2
 
 [node name="ExitDoorBtn" parent="MainHall" instance=ExtResource( 6 )]
 margin_left = 16.2895
@@ -119,6 +97,60 @@ texture_pressed = null
 button_label = ""
 screen_name = "PublicanScreen"
 
+[node name="ButtonContainer" type="MarginContainer" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 409.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -230.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ButtonContainer"]
+margin_right = 141.0
+margin_bottom = 75.0
+rect_pivot_offset = Vector2( -304.526, -0.00510025 )
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ButtonContainer/HBoxContainer"]
+margin_right = 89.0
+margin_bottom = 51.0
+size_flags_horizontal = 10
+size_flags_vertical = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RevivalEnterBtn" parent="ButtonContainer/HBoxContainer/VBoxContainer" instance=ExtResource( 4 )]
+margin_left = 8.0
+margin_right = 89.0
+size_flags_horizontal = 8
+
+[node name="RevivalEnterLabel" type="Label" parent="ButtonContainer/HBoxContainer/VBoxContainer"]
+margin_top = 31.0
+margin_right = 89.0
+margin_bottom = 51.0
+size_flags_horizontal = 5
+custom_fonts/font = ExtResource( 5 )
+text = "Przywolaj diabla"
+align = 2
+
+[node name="MenuBtn" parent="ButtonContainer/HBoxContainer" instance=ExtResource( 6 )]
+margin_left = 105.0
+margin_right = 141.0
+margin_bottom = 36.0
+size_flags_horizontal = 10
+size_flags_vertical = 2
+texture_normal = ExtResource( 15 )
+texture_pressed = ExtResource( 17 )
+texture_disabled = ExtResource( 16 )
+
 [node name="RoomScreen" parent="." instance=ExtResource( 8 )]
 visible = false
 
@@ -168,5 +200,6 @@ margin_left = 360.525
 margin_top = 168.461
 margin_right = 360.525
 margin_bottom = 168.461
-[connection signal="pressed" from="MainHall/VBoxContainer/RevivalEnterBtn" to="." method="_on_RevivalEnterBtn_pressed"]
 [connection signal="pressed" from="MainHall/ExitDoorBtn" to="." method="_on_ExitDoorBtn_pressed"]
+[connection signal="pressed" from="ButtonContainer/HBoxContainer/VBoxContainer/RevivalEnterBtn" to="." method="_on_RevivalEnterBtn_pressed"]
+[connection signal="pressed" from="ButtonContainer/HBoxContainer/MenuBtn" to="." method="_on_MenuBtn_pressed"]

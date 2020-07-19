@@ -8,6 +8,7 @@ func _ready():
 func enter_screen(screen_name : String):
 	visible = false
 	var screen = get_parent().find_node(screen_name)
+	get_parent().button_container.visible = false
 	screen.on_enter()
 	
 func _on_Room_exited():
