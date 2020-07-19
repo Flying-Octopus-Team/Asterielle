@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Scenes/World/World.gd" type="Script" id=1]
 [ext_resource path="res://Objects/WorldBackground.tscn" type="PackedScene" id=2]
@@ -12,9 +12,11 @@
 [ext_resource path="res://Scenes/World/LevelManager.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/World/Revival.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Objects/EventItem/EventManager.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Music/MusicPlayer.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Music/Asterielle Tawerna.wav" type="AudioStream" id=13]
 [ext_resource path="res://Music/game_music.wav" type="AudioStream" id=14]
 [ext_resource path="res://Sounds/game_over.wav" type="AudioStream" id=15]
+[ext_resource path="res://Music/MusicManager.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Music/menu_music.wav" type="AudioStream" id=17]
 
 [node name="World" type="Node2D"]
 script = ExtResource( 1 )
@@ -59,12 +61,11 @@ layer = 62
 
 [node name="EventManager" parent="." instance=ExtResource( 12 )]
 
-[node name="Music" parent="." instance=ExtResource( 13 )]
-stream = ExtResource( 14 )
-fade_in_time = 3.0
-fade_out_time = 5.0
-replay_delay = 5.0
-
 [node name="GameOverSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 15 )
 volume_db = -5.0
+
+[node name="MusicManager" parent="." instance=ExtResource( 16 )]
+main_menu_music = ExtResource( 17 )
+tavern_music = ExtResource( 13 )
+gameplay_music = ExtResource( 14 )

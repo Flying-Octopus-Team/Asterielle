@@ -15,6 +15,8 @@ onready var tavern_enter_btn = find_node("TavernEnterBtn")
 onready var revival_enter_btn = find_node("RevivalEnterBtn")
 onready var revival_enter_label = find_node("RevivalEnterLabel")
 
+onready var music_manager = get_parent().find_node("MusicManager")
+
 
 
 func set_gold_label(gold: float):
@@ -48,6 +50,7 @@ func _on_RevivalEnterBtn_pressed():
 
 func _on_TavernEnterBtn_pressed():
 	revival_enter_btn.set_pressed(false)
+	music_manager.play_music(music_manager.Musics.TAVERN_MUSIC)
 	
 func _on_Tavern_exited() -> void:
 	tavern_enter_btn.set_pressed(false)

@@ -231,7 +231,6 @@ margin_bottom = 280.0
 alignment = 1
 
 [node name="ActiveSpells" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/BottomBar"]
-editor/display_folded = true
 visible = false
 margin_right = 177.0
 margin_bottom = 32.0
