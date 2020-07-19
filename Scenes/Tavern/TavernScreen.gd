@@ -71,6 +71,7 @@ func exit_tavern():
 	emit_signal("tavern_exited")
 
 func _on_Room_exited():
+	button_container.visible = true
 	emit_signal("room_exited")
 
 func reset_to_default() -> void:
