@@ -1,12 +1,24 @@
 [gd_resource type="SpriteFrames" load_steps=31 format=2]
 
-[ext_resource path="res://Objects/Dwarves/Dwarf/Presets/Kamikaze/krasnal_kamikaze_chodzenie.png" type="Texture" id=1]
-[ext_resource path="res://Objects/Dwarves/Dwarf/Presets/Shooter/strzelec.png" type="Texture" id=2]
-[ext_resource path="res://Objects/Dwarves/Dwarf/Presets/Mage/krasnolud_mag.png" type="Texture" id=3]
-[ext_resource path="res://Objects/Dwarves/Dwarf/Presets/Poor/biedny_krasnal_chodzenie.png" type="Texture" id=4]
-[ext_resource path="res://Objects/Dwarves/Dwarf/Presets/Shield/tarcza.png" type="Texture" id=5]
-[ext_resource path="res://Objects/Dwarves/Dwarf/Presets/Pickaxe/krasnal_kilof_chodzenie.png" type="Texture" id=6]
-[ext_resource path="res://Objects/Dwarves/Dwarf/Presets/Basic/krasnoludpix2-animacja.png" type="Texture" id=7]
+[ext_resource path="res://Objects/Dwarves/Dwarf/Sprites/Kamikaze/dwarf-kamikaze-walking.png" type="Texture" id=1]
+[ext_resource path="res://Objects/Dwarves/Dwarf/Sprites/Shooter/dwarf-shooter-walking.png" type="Texture" id=2]
+[ext_resource path="res://Objects/Dwarves/Dwarf/Sprites/Mage/dwarf-mage-walking.png" type="Texture" id=3]
+[ext_resource path="res://Objects/Dwarves/Dwarf/Sprites/Poor/dwarf-poor-walking.png" type="Texture" id=4]
+[ext_resource path="res://Objects/Dwarves/Dwarf/Sprites/Shield/dwarf-shield-walking.png" type="Texture" id=5]
+[ext_resource path="res://Objects/Dwarves/Dwarf/Sprites/Pickaxe/dwarf-pickaxe-walking.png" type="Texture" id=6]
+[ext_resource path="res://Objects/Dwarves/Dwarf/Sprites/Basic/dwarf-basic-walking.png" type="Texture" id=7]
+
+
+
+
+
+
+
+
+
+
+
+
 
 [sub_resource type="AtlasTexture" id=19]
 atlas = ExtResource( 7 )
