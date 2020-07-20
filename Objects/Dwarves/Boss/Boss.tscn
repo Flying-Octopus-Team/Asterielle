@@ -10,11 +10,7 @@ extents = Vector2( 36, 59 )
 [node name="Boss" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
-[node name="Sprite" parent="." index="0"]
-position = Vector2( -1, -48 )
-scale = Vector2( 2.5, 2.5 )
-
-[node name="CollisionShape2D" parent="." index="1"]
+[node name="CollisionShape2D" parent="." index="0"]
 visible = false
 position = Vector2( 12, -66 )
 disabled = true
@@ -23,7 +19,7 @@ disabled = true
 position = Vector2( 13, -63 )
 shape = SubResource( 1 )
 
-[node name="HP" parent="." index="4"]
+[node name="HP" parent="." index="3"]
 position = Vector2( 0, -103 )
 
 [node name="Background" parent="HP" index="0"]
@@ -35,7 +31,7 @@ margin_left = -70.0
 margin_right = -69.0
 rect_scale = Vector2( 140, 8 )
 
-[node name="NextAttackTimer" parent="." index="5"]
+[node name="NextAttackTimer" parent="." index="4"]
 wait_time = 3.0
 
 [node name="TimeToKill" type="Timer" parent="." index="6"]
@@ -43,4 +39,8 @@ wait_time = 30.0
 one_shot = true
 
 [node name="CanvasLayer" parent="." index="7" instance=ExtResource( 3 )]
+
+[node name="AnimatedSprite" parent="." index="9"]
+position = Vector2( 0, -64 )
+scale = Vector2( 2.5, 2.5 )
 [connection signal="timeout" from="TimeToKill" to="." method="_on_TimeToKill_timeout"]

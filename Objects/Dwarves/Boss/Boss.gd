@@ -9,6 +9,7 @@ func _ready():
 	$TimeToKill.wait_time = float(GameData.time_to_kill_boss) 
 	$TimeToKill.start()
 	update_label()
+	$AnimatedSprite.position.y -= 35
 	
 func _process(delta):
 	update_label()
