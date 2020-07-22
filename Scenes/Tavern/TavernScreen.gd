@@ -71,6 +71,7 @@ func exit_tavern():
 	emit_signal("tavern_exited")
 
 func _on_Room_exited():
+	get_node("StatsPanel").visible = false
 	button_container.visible = true
 	emit_signal("room_exited")
 
@@ -104,3 +105,7 @@ func _on_MenuBtn_pressed():
 	GameSaver.stop_timer()
 	GameSaver.save_game()
 	get_tree().change_scene(MENU_PATH)
+
+
+func _on_EnterRoomBtn_pressed():
+	get_node("StatsPanel").visible = true
