@@ -7,7 +7,7 @@ signal died
 export(float) var move_speed_mod = 1
 
 const POSITION_KEY : String = "POSITION"
-const WALKING_ANIM_KEY : String = "WALKING_ANIMATION_KEY"
+const ANIMATION_KEY : String = "ANIMATION"
 
 enum DwarfType {
 	DEFAULT,
@@ -21,34 +21,31 @@ enum DwarfType {
 
 var walking_spritesheets = preload("res://Objects/Dwarves/Dwarf/Sprites/walking_spriteframes.tres")
 var DWARVES_WALKING_PRESETS = {
-	DwarfType.DEFAULT: 	{ POSITION_KEY: Vector2(0, -23), WALKING_ANIM_KEY: "default"},
-	DwarfType.KAMIKAZE: { POSITION_KEY: Vector2(0, -25), WALKING_ANIM_KEY: "kamikaze"},
-	DwarfType.SHIELD: 	{ POSITION_KEY: Vector2(0, -23), WALKING_ANIM_KEY: "shield"},
-	DwarfType.MAGE: 	{ POSITION_KEY: Vector2(0, -25), WALKING_ANIM_KEY: "mage"},
-	DwarfType.PICKAXE: 	{ POSITION_KEY: Vector2(0, -31), WALKING_ANIM_KEY: "pickaxe"},
-	DwarfType.SHOOTER: 	{ POSITION_KEY: Vector2(0, -31), WALKING_ANIM_KEY: "shooter"},
-	DwarfType.POOR: 	{ POSITION_KEY: Vector2(0, -24), WALKING_ANIM_KEY: "poor"}
+	DwarfType.DEFAULT: 	{ POSITION_KEY: Vector2(0, -23), ANIMATION_KEY: "default"},
+	DwarfType.KAMIKAZE: { POSITION_KEY: Vector2(0, -25), ANIMATION_KEY: "kamikaze"},
+	DwarfType.SHIELD: 	{ POSITION_KEY: Vector2(0, -23), ANIMATION_KEY: "shield"},
+	DwarfType.MAGE: 	{ POSITION_KEY: Vector2(0, -25), ANIMATION_KEY: "mage"},
+	DwarfType.PICKAXE: 	{ POSITION_KEY: Vector2(0, -31), ANIMATION_KEY: "pickaxe"},
+	DwarfType.SHOOTER: 	{ POSITION_KEY: Vector2(0, -31), ANIMATION_KEY: "shooter"},
+	DwarfType.POOR: 	{ POSITION_KEY: Vector2(0, -24), ANIMATION_KEY: "poor"}
 }
 var dwarf_walking_preset
 
 var attacking_spritesheets = preload("res://Objects/Dwarves/Dwarf/Sprites/attack_spriteframes.tres")
 var DWARVES_ATTACKING_PRESETS = {
-	DwarfType.DEFAULT: 	{ POSITION_KEY: Vector2(4, -36), WALKING_ANIM_KEY: "default"},
-	DwarfType.KAMIKAZE: { POSITION_KEY: Vector2(-7, -30), WALKING_ANIM_KEY: "kamikaze"},
-	DwarfType.SHIELD: 	{ POSITION_KEY: Vector2(-9, -35), WALKING_ANIM_KEY: "shield"},
-	DwarfType.MAGE: 	{ POSITION_KEY: Vector2(-5, -29), WALKING_ANIM_KEY: "mage"},
-	DwarfType.PICKAXE: 	{ POSITION_KEY: Vector2(4, -32), WALKING_ANIM_KEY: "pickaxe"},
-	DwarfType.SHOOTER: 	{ POSITION_KEY: Vector2(-7, -39), WALKING_ANIM_KEY: "shooter"},
-	DwarfType.POOR: 	{ POSITION_KEY: Vector2(-17, -27), WALKING_ANIM_KEY: "poor"}
+	DwarfType.DEFAULT: 	{ POSITION_KEY: Vector2(4, -36), 	ANIMATION_KEY: "default"},
+	DwarfType.KAMIKAZE: { POSITION_KEY: Vector2(-7, -30), 	ANIMATION_KEY: "kamikaze"},
+	DwarfType.SHIELD: 	{ POSITION_KEY: Vector2(-9, -35), 	ANIMATION_KEY: "shield"},
+	DwarfType.MAGE: 	{ POSITION_KEY: Vector2(-5, -29), 	ANIMATION_KEY: "mage"},
+	DwarfType.PICKAXE: 	{ POSITION_KEY: Vector2(4, -32),	ANIMATION_KEY: "pickaxe"},
+	DwarfType.SHOOTER: 	{ POSITION_KEY: Vector2(-7, -39), 	ANIMATION_KEY: "shooter"},
+	DwarfType.POOR: 	{ POSITION_KEY: Vector2(-17, -27), 	ANIMATION_KEY: "poor"}
 }
 var dwarf_attacking_preset
 
 var velocity : Vector2
 var hp : float
 var damage : float
-
-#should one of dwarf presets
-
 
 onready var hp_bar
 onready var hp_label
@@ -117,7 +114,7 @@ func on_arrow_hit(arrow):
 	
 func go_forward():
 	velocity = Vector2(-move_speed_mod * BackgroundData.move_speed, 0)
-	animated_sprite.play(dwarf_walking_preset[WALKING_ANIM_KEY])
+	animated_sprite.play(dwarf_walking_preset[ANIMATION_KEY])
 	
 func _on_NextAttackTimer_timeout():
 	attack()
@@ -139,7 +136,7 @@ func _play_attack_sound() -> void:
 
 func _play_attack_animation() -> void:
 	animated_sprite.frame = 0
-	animated_sprite.play(dwarf_attacking_preset[WALKING_ANIM_KEY])
+	animated_sprite.play(dwarf_attacking_preset[ANIMATION_KEY])
 
 func death():
 	if Settings.sounds_on:
