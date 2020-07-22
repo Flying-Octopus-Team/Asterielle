@@ -43,7 +43,7 @@ margin_right = 320.0
 margin_bottom = 56.0
 item_name = "Mikstura zycia"
 price_gold = 3.0
-popup_title = "Kup miksture zycia na poznie (leczy 4 hp)"
+popup_title = "Kup miksture zycia na pozniej (leczy 4 hp)"
 
 [node name="Publican" parent="ShopContainer" index="2" instance=ExtResource( 2 )]
 anchor_right = 0.0
