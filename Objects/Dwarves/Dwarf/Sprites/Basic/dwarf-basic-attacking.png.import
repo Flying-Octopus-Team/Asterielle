@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/dawrf-basic-attacking.png-64098085ec9ee87a533acff98455c6cd.stex"
+path="res://.import/dwarf-basic-attacking.png-f5e6621ec98ea029b4e2d333a7410115.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Objects/Dwarves/Dwarf/Sprites/Basic/dawrf-basic-attacking.png"
-dest_files=[ "res://.import/dawrf-basic-attacking.png-64098085ec9ee87a533acff98455c6cd.stex" ]
+source_file="res://Objects/Dwarves/Dwarf/Sprites/Basic/dwarf-basic-attacking.png"
+dest_files=[ "res://.import/dwarf-basic-attacking.png-f5e6621ec98ea029b4e2d333a7410115.stex" ]
 
 [params]
 

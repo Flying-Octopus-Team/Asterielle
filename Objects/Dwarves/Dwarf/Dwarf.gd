@@ -37,7 +37,7 @@ var DWARVES_ATTACKING_PRESETS = {
 	DwarfType.KAMIKAZE: { POSITION_KEY: Vector2(-7, -30), WALKING_ANIM_KEY: "kamikaze"},
 	DwarfType.SHIELD: 	{ POSITION_KEY: Vector2(-9, -35), WALKING_ANIM_KEY: "shield"},
 	DwarfType.MAGE: 	{ POSITION_KEY: Vector2(-5, -29), WALKING_ANIM_KEY: "mage"},
-	DwarfType.PICKAXE: 	{ POSITION_KEY: Vector2(4, 32), WALKING_ANIM_KEY: "pickaxe"},
+	DwarfType.PICKAXE: 	{ POSITION_KEY: Vector2(4, -32), WALKING_ANIM_KEY: "pickaxe"},
 	DwarfType.SHOOTER: 	{ POSITION_KEY: Vector2(-7, -39), WALKING_ANIM_KEY: "shooter"},
 	DwarfType.POOR: 	{ POSITION_KEY: Vector2(-17, -27), WALKING_ANIM_KEY: "poor"}
 }

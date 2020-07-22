@@ -1,12 +1,13 @@
 [gd_resource type="SpriteFrames" load_steps=42 format=2]
 
-[ext_resource path="res://Objects/Dwarves/Dwarf/Sprites/Basic/dawrf-basic-attacking.png" type="Texture" id=1]
+[ext_resource path="res://Objects/Dwarves/Dwarf/Sprites/Basic/dwarf-basic-attacking.png" type="Texture" id=1]
 [ext_resource path="res://Objects/Dwarves/Dwarf/Sprites/Kamikaze/dwarf-kamikaze-attacking.png" type="Texture" id=2]
 [ext_resource path="res://Objects/Dwarves/Dwarf/Sprites/Mage/dwarf-mage-attacking.png" type="Texture" id=3]
 [ext_resource path="res://Objects/Dwarves/Dwarf/Sprites/Pickaxe/dwarf-pickaxe-attacking.png" type="Texture" id=4]
 [ext_resource path="res://Objects/Dwarves/Dwarf/Sprites/Shield/dwarf-shield-attacking.png" type="Texture" id=5]
 [ext_resource path="res://Objects/Dwarves/Dwarf/Sprites/Poor/dwarf-poor-attacking.png" type="Texture" id=6]
 [ext_resource path="res://Objects/Dwarves/Dwarf/Sprites/Shooter/dwarf-shooter-attacking.png" type="Texture" id=7]
+
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 1 )
