@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/Tavern/NewTavernRooms/Inkeeper/Publician.gd" type="Script" id=1]
+[ext_resource path="res://Fonts/SHPinsher_16.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Fonts/frikativ_24.tres" type="DynamicFont" id=3]
+
+
+
+[node name="Publican" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="questsLabel" type="Label" parent="VBoxContainer"]
+margin_right = 560.0
+margin_bottom = 24.0
+custom_fonts/font = ExtResource( 3 )
+text = "Zadania:"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemList" type="ItemList" parent="VBoxContainer"]
+margin_top = 28.0
+margin_right = 560.0
+margin_bottom = 315.0
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

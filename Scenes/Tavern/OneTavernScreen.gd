@@ -11,13 +11,11 @@ func _ready():
 func on_enter():
 	visible = true
 	get_parent().get_node("ShopsBackground").visible = true
-	get_parent().get_node("StatsPanel").visible = true
 	emit_signal("room_entered")
 	
 func _on_ExitBtn_pressed():
 	visible = false
 	get_parent().get_node("ShopsBackground").visible = false
-	get_parent().get_node("StatsPanel").visible = false
 	emit_signal("room_exited")
 	
 func reset_to_default() -> void:
@@ -28,4 +26,4 @@ func save() -> Dictionary:
 	
 func load_data(data) -> void:
 	shop.load_data(data["shop"])
-	
+
