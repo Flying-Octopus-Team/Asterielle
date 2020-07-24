@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Objects/Dwarves/Dwarf/Dwarf.gd" type="Script" id=1]
+[ext_resource path="res://Objects/Dwarves/Dwarf/Sprites/walking_spriteframes.tres" type="SpriteFrames" id=2]
 [ext_resource path="res://OnePixel.png" type="Texture" id=3]
 [ext_resource path="res://Fonts/SHPinsher_16.tres" type="DynamicFont" id=4]
 [ext_resource path="res://Sounds/enemy_kill.wav" type="AudioStream" id=5]
 [ext_resource path="res://Sounds/dwarf_attack3.wav" type="AudioStream" id=6]
-[ext_resource path="res://Objects/Dwarves/Dwarf/walking_spriteframes.tres" type="SpriteFrames" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 20, 31 )
@@ -66,10 +66,8 @@ stream = ExtResource( 5 )
 stream = ExtResource( 6 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 0, -41 )
+position = Vector2( -7, -39 )
 scale = Vector2( 1.28, 1.28 )
-frames = ExtResource( 7 )
-animation = "shooter"
-frame = 1
+frames = ExtResource( 2 )
 [connection signal="area_entered" from="." to="." method="_on_Dwarf_area_entered"]
 [connection signal="timeout" from="NextAttackTimer" to="." method="_on_NextAttackTimer_timeout"]
