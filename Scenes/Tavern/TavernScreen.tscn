@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Scenes/Tavern/TavernScreen.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Tavern/background.jpg" type="Texture" id=2]
@@ -7,16 +7,17 @@
 [ext_resource path="res://Fonts/SHPinsher_16.tres" type="DynamicFont" id=5]
 [ext_resource path="res://Scenes/UserInterface/Buttons/GameButton.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Tavern/Buttons/EnterScreenBtn.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenes/Tavern/RoomScreen.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Tavern/NewTavernRooms/AsteriellesRoom/AsteriellesRoom.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Tavern/WizardScreen.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Tavern/TradesmanScreen.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Scenes/Tavern/PublicanScreen.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/Tavern/NewTavernRooms/Inkeeper/InkeeperScreen.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scenes/Tavern/Resources/TavernResources.gd" type="Script" id=12]
 [ext_resource path="res://Scenes/UserInterface/GoldTextures/1.png" type="Texture" id=13]
 [ext_resource path="res://Objects/StatsPanel/StatsPanel.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Scenes/UserInterface/Buttons/hamburger_btn/btn_hamburger.png" type="Texture" id=15]
 [ext_resource path="res://Scenes/UserInterface/Buttons/hamburger_btn/btn_hamburger_disabled.png" type="Texture" id=16]
 [ext_resource path="res://Scenes/UserInterface/Buttons/hamburger_btn/btn_hamburger_pressed.png" type="Texture" id=17]
+[ext_resource path="res://Scenes/Tavern/NewTavernRooms/background.jpg" type="Texture" id=18]
 
 [node name="TavernScreen" type="CanvasLayer"]
 layer = 14
@@ -33,11 +34,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ShopsBackground" type="ColorRect" parent="."]
+[node name="ShopsBackground" type="TextureRect" parent="."]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0.309804, 0.235294, 0.235294, 1 )
+texture = ExtResource( 18 )
+expand = true
+stretch_mode = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -196,10 +199,11 @@ text = "100"
 
 [node name="StatsPanel" parent="." instance=ExtResource( 14 )]
 visible = false
-margin_left = 360.525
-margin_top = 168.461
-margin_right = 360.525
-margin_bottom = 168.461
+anchor_left = 1.0
+anchor_top = 1.0
+margin_left = -194.0
+margin_top = -79.0
 [connection signal="pressed" from="MainHall/ExitDoorBtn" to="." method="_on_ExitDoorBtn_pressed"]
+[connection signal="pressed" from="MainHall/EnterRoomBtn" to="." method="_on_EnterRoomBtn_pressed"]
 [connection signal="pressed" from="ButtonContainer/HBoxContainer/VBoxContainer/RevivalEnterBtn" to="." method="_on_RevivalEnterBtn_pressed"]
 [connection signal="pressed" from="ButtonContainer/HBoxContainer/MenuBtn" to="." method="_on_MenuBtn_pressed"]

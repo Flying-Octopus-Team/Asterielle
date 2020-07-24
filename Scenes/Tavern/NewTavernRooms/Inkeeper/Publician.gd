@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 onready var item_list = get_parent().find_node("ItemList")
 onready var dwarver_cion = load("res://Scenes/Tavern/dwarver_icon.png")
@@ -155,6 +155,3 @@ func save():
 		_selected_quest = selected_quest
 		}
 	return dict
-
-
-
