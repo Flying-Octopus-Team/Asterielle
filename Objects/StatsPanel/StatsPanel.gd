@@ -12,9 +12,9 @@ func create_stat_panel():
 		var row = Stat.instance()
 		s.connect("value_changed", self, "update_stat_value")
 		row.name = s.name
-		row.get_node("Name").text = s.name
-		row.get_node("Value").text = str(stepify(s.value,0.01))
+		row.find_node("Name").text = s.visible_name
+		row.find_node("Value").value = stepify(s.value, 0.01) / s.max_value
 		panel.add_child(row)
 
 func update_stat_value(stat):
-	panel.get_node(stat.name).get_node("Value").text = str(stepify(stat.value,0.01))
+	panel.get_node(stat.name).get_node("Value").value = stepify(stat.value, 0.01) / stat.max_value
