@@ -10,7 +10,7 @@ extents = Vector2( 36, 59 )
 [node name="Boss" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
-[node name="CollisionShape2D" parent="." index="1"]
+[node name="CollisionShape2D" parent="." index="0"]
 position = Vector2( 13, -63 )
 shape = SubResource( 1 )
 
@@ -38,4 +38,5 @@ one_shot = true
 [node name="AnimatedSprite" parent="." index="8"]
 position = Vector2( 0, -64 )
 scale = Vector2( 2.5, 2.5 )
+[connection signal="pre_attack" from="." to="." method="_on_Boss_pre_attack"]
 [connection signal="timeout" from="TimeToKill" to="." method="_on_TimeToKill_timeout"]

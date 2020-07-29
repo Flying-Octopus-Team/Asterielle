@@ -27,4 +27,7 @@ func _on_TimeToKill_timeout():
 
 func _on_NextAttackTimer_timeout():
 	attack()
-	
+
+
+func _on_Boss_pre_attack():
+	$AnimatedSprite.position.y -= 35
