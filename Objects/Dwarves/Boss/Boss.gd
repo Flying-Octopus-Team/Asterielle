@@ -16,6 +16,7 @@ func _process(delta):
 	
 func on_arrow_hit(arrow):
 	.on_arrow_hit(arrow)
+	queue_free()
 	
 func update_label():
 	timeToKillLabel.text = str("Do zabicia bossa pozostalo ", ceil($TimeToKill.time_left), " sekund")
