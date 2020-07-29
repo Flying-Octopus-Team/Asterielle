@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/MainMenu/Logo/octopus_pictorial_transparent.png" type="Texture" id=1]
+
+
+[node name="TextureButton" type="TextureButton"]
+margin_right = 60.0
+margin_bottom = 35.0
+rect_min_size = Vector2( 60, 35 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource( 1 )
+expand = true
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
