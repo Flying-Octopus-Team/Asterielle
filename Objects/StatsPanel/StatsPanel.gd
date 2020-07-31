@@ -6,7 +6,7 @@ var Stat = load("res://Objects/StatsPanel/Stat.tscn")
 
 func _ready():
 	call_deferred("create_stat_panel")
-		
+
 func create_stat_panel():
 	for s in ElfStats.get_stats():
 		var row = Stat.instance()
@@ -17,4 +17,4 @@ func create_stat_panel():
 		panel.add_child(row)
 
 func update_stat_value(stat):
-	panel.get_node(stat.name).get_node("Value").value = stepify(stat.value, 0.01) / stat.max_value
+	panel.get_node(stat.name + "/Container/Value").value = stepify(stat.value, 0.01) / stat.max_value
