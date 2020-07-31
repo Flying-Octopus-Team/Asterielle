@@ -3,6 +3,7 @@ extends Area2D
 class_name Dwarf
 
 signal died
+signal pre_attack
 
 export(float) var move_speed_mod = 1
 
@@ -91,6 +92,7 @@ func pre_attack():
 	velocity = Vector2.ZERO
 	set_physics_process(false)
 	BackgroundData.move_speed = 0
+	emit_signal("pre_attack")
 	
 func _prepare_attack_animation():
 	animated_sprite.frames = attacking_spritesheets
