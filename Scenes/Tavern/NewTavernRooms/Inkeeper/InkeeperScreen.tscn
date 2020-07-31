@@ -36,12 +36,13 @@ script = ExtResource( 6 )
 [node name="VineBtn" parent="ShopContainer/Shop" index="0" instance=ExtResource( 4 )]
 margin_right = 320.0
 margin_bottom = 26.0
+item_name = "Leczące wino"
 
 [node name="TavernBtn" parent="ShopContainer/Shop" index="1" instance=ExtResource( 5 )]
 margin_top = 30.0
 margin_right = 320.0
 margin_bottom = 56.0
-item_name = "Mikstura zycia"
+item_name = "Mikstura życia"
 price_gold = 3.0
 popup_title = "Kup miksture zycia na pozniej (leczy 4 hp)"
 

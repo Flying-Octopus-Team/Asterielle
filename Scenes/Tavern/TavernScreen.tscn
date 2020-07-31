@@ -201,8 +201,12 @@ text = "100"
 visible = false
 anchor_left = 1.0
 anchor_top = 1.0
-margin_left = -194.0
-margin_top = -79.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -225.0
+margin_top = -124.0
+margin_right = -5.0
+margin_bottom = -5.0
 [connection signal="pressed" from="MainHall/ExitDoorBtn" to="." method="_on_ExitDoorBtn_pressed"]
 [connection signal="pressed" from="MainHall/EnterRoomBtn" to="." method="_on_EnterRoomBtn_pressed"]
 [connection signal="pressed" from="ButtonContainer/HBoxContainer/VBoxContainer/RevivalEnterBtn" to="." method="_on_RevivalEnterBtn_pressed"]
