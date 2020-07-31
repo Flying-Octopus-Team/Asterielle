@@ -43,9 +43,13 @@ enum MENU_PANEL{
 	ABOUT
 }
 
-func _on_NewGameBtn_pressed():
+func start_new_game():
 	Directory.new().remove(PATH_TO_SAVE_FILE)
 	get_tree().change_scene(WORLD_PATH)
+
+func _on_NewGameBtn_pressed():
+	var slides = $Canvas/StorySlides
+	slides.visible = true
 	
 func _on_ContinueBtn_pressed():
 	get_tree().change_scene(WORLD_PATH)

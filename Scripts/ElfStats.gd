@@ -9,8 +9,14 @@ class Stat:
 	var changed_value : float = value
 	var changers : Array = []
 	
-	func _init(n:String, dv:float=0, v:float=0):
+	# Used to represent max value on progress bar, just visual
+	var max_value : float = 100
+	var visible_name : String = "STAT"
+	
+	func _init(n:String, dv:float=0, max_v: float = 100, visible_n: String = "STAT", v:float=0):
 		name = n
+		max_value = max_v
+		visible_name = visible_n
 		setup(dv, v)
 	
 	func setup(dv:float, v:float):
@@ -120,12 +126,12 @@ var damage_multiplier: float = 1.0 setget set_damage_multiplier
 var health_multiplier: float = 1.0 setget set_health_multiplier
 
 var _stats = [
-	Stat.new("bows_knowledge", 1),
+	Stat.new("bows_knowledge", 1, 1000, "Znajomość Łuków"),
 	#Stat.new("agility", 0.1),
-	Stat.new("vitality", 10),
+	Stat.new("vitality", 10, 1000, "Witalność"),
 	#Stat.new("sensitive_points", 0),
 	#Stat.new("eagle_eye", 0.1),
-	Stat.new("critical_shot", 0.1),
+	Stat.new("critical_shot", 0.1, 1, "Uderzenie Krytyczne"),
 	#Stat.new("strength", 1),
 	#Stat.new("magic", 0),
 	#Stat.new("lucky", 0),

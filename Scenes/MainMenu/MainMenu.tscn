@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scenes/MainMenu/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://Fonts/frikativ_32.tres" type="DynamicFont" id=2]
@@ -11,6 +11,8 @@
 [ext_resource path="res://Music/menu_music.wav" type="AudioStream" id=9]
 [ext_resource path="res://Scenes/MainMenu/Options.gd" type="Script" id=10]
 [ext_resource path="res://Scenes/MainMenu/Logo/LogoButton.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/Tavern/NewTavernRooms/background.jpg" type="Texture" id=12]
+[ext_resource path="res://Scenes/MainMenu/StorySlides.gd" type="Script" id=13]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource( 1 )
@@ -312,6 +314,80 @@ każdy z nas chce coś osiągnąć w przyszłości, a kilka w pełni zrealizowan
 align = 1
 valign = 1
 
+[node name="StorySlides" type="Control" parent="Canvas"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+slides = [ NodePath("Slide-1"), NodePath("Slide-2"), NodePath("Slide-3") ]
+main_menu = NodePath("../..")
+
+[node name="TextureRect" type="TextureRect" parent="Canvas/StorySlides"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slide-1" type="Label" parent="Canvas/StorySlides"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
+custom_fonts/font = ExtResource( 5 )
+text = "Dawno, dawno temu dwanaście elfich rodów toczyło ze sobą nieustanne walki o władzę nad Świętym Lasem. Na konflikcie skorzystały chciwe krasnoludy, napadając na podzielony elfi naród. Gdy klęska wydawała się bliska, pojawił się bohater, który zjednoczył wszystkie rody i wygnał krasnali do ich podziemi."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slide-2" type="Label" parent="Canvas/StorySlides"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
+custom_fonts/font = ExtResource( 5 )
+text = "Zapanował pokój, przypieczętowany ślubem wybawcy z dwunastką pięknych księżniczek – córek elfickich władców. Odtąd bohater wiódł szczęśliwe życie pełne hulanek i zabaw, jednak krasnoludy szykowały się do zemsty."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slide-3" type="Label" parent="Canvas/StorySlides"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
+custom_fonts/font = ExtResource( 5 )
+text = "Złoczyńcy porwali wszystkie żony bohatera, po czym zaczęły atak na las. Teraz dumna Asterielle, która przed laty obroniła Święty Las i poślubiła dwunastkę elfich księżniczek, musi ponownie stawić czoła gniewnym krasnoludom."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameButton" parent="Canvas/StorySlides" instance=ExtResource( 3 )]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -122.0
+margin_top = -38.0
+margin_right = 0.0
+margin_bottom = 0.0
+button_label = "Dalej"
+
 [node name="WorldBackground" parent="." instance=ExtResource( 7 )]
 
 [node name="MusicPlayer" parent="." instance=ExtResource( 8 )]
@@ -327,3 +403,4 @@ replay_delay = 5.0
 [connection signal="pressed" from="Canvas/Options/MarginContainer/VBoxContainer/BackBtn" to="." method="_on_BackBtn_pressed"]
 [connection signal="pressed" from="Canvas/About/MarginContainer2/VBoxContainer/BackBtn" to="." method="_on_BackBtn_pressed"]
 [connection signal="pressed" from="Canvas/About/MarginContainer2/VBoxContainer/ScrollContainer/VBoxContainer/VBoxContainer2/CenterContainer/LinkBtn" to="." method="_on_LinkBtn_pressed"]
+[connection signal="pressed" from="Canvas/StorySlides/GameButton" to="Canvas/StorySlides" method="_on_GameButton_pressed"]

@@ -28,7 +28,7 @@ margin_bottom = 123.0
 [node name="BowsKnowledge" parent="ShopContainer/Shop" index="0" instance=ExtResource( 2 )]
 margin_right = 358.0
 margin_bottom = 26.0
-item_name = "Znajomosc lukow"
+item_name = "Znajomość łuków"
 price_gold = 3.0
 popup_title = "Zadawaj wieksze obrazenia"
 should_save_price = true
@@ -39,7 +39,7 @@ multiply_stat = 1.2
 margin_top = 30.0
 margin_right = 358.0
 margin_bottom = 56.0
-item_name = "Witalnosc"
+item_name = "Witalność"
 price_gold = 1.0
 popup_title = "Wytrzymaj wiecej ran"
 should_save_price = true
