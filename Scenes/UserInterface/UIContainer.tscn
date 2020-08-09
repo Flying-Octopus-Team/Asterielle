@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://Scenes/UserInterface/UIContainer.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/UserInterface/GoldTextures/1.png" type="Texture" id=2]
@@ -15,9 +15,8 @@
 [ext_resource path="res://Scenes/UserInterface/GoldTextures/12.png" type="Texture" id=13]
 [ext_resource path="res://Fonts/SHPinsher_24.tres" type="DynamicFont" id=14]
 [ext_resource path="res://Scenes/UserInterface/Buttons/GameButton.tscn" type="PackedScene" id=15]
-[ext_resource path="res://Scenes/UserInterface/Buttons/hamburger_btn/btn_hamburger.png" type="Texture" id=16]
-[ext_resource path="res://Scenes/UserInterface/Buttons/hamburger_btn/btn_hamburger_pressed.png" type="Texture" id=17]
-[ext_resource path="res://Scenes/UserInterface/Buttons/hamburger_btn/btn_hamburger_disabled.png" type="Texture" id=18]
+[ext_resource path="res://Scenes/UserInterface/Buttons/hamburger_btn/menu_btn.png" type="Texture" id=16]
+[ext_resource path="res://Scenes/UserInterface/Buttons/hamburger_btn/menu_btn_pressed.png" type="Texture" id=17]
 [ext_resource path="res://Scenes/UserInterface/SilverMoonTextures/1.png" type="Texture" id=19]
 [ext_resource path="res://Scenes/UserInterface/SilverMoonTextures/2.png" type="Texture" id=20]
 [ext_resource path="res://Scenes/UserInterface/SilverMoonTextures/3.png" type="Texture" id=21]
@@ -189,8 +188,8 @@ size_flags_horizontal = 3
 size_flags_vertical = 0
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer"]
-margin_left = 21.0
-margin_right = 115.0
+margin_left = 25.0
+margin_right = 119.0
 margin_bottom = 104.0
 size_flags_horizontal = 6
 size_flags_vertical = 0
@@ -239,12 +238,12 @@ text = "Przywolaj diabla"
 align = 2
 
 [node name="MenuBtn" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer" instance=ExtResource( 15 )]
-margin_left = 141.0
+margin_left = 149.0
 margin_right = 177.0
 margin_bottom = 104.0
 texture_normal = ExtResource( 16 )
 texture_pressed = ExtResource( 17 )
-texture_disabled = ExtResource( 18 )
+texture_disabled = null
 
 [node name="BottomBar" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
 margin_top = 248.0

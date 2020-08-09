@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Scenes/Tavern/TavernScreen.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Tavern/background.jpg" type="Texture" id=2]
@@ -14,9 +14,8 @@
 [ext_resource path="res://Scenes/Tavern/Resources/TavernResources.gd" type="Script" id=12]
 [ext_resource path="res://Scenes/UserInterface/GoldTextures/1.png" type="Texture" id=13]
 [ext_resource path="res://Objects/StatsPanel/StatsPanel.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Scenes/UserInterface/Buttons/hamburger_btn/btn_hamburger.png" type="Texture" id=15]
-[ext_resource path="res://Scenes/UserInterface/Buttons/hamburger_btn/btn_hamburger_disabled.png" type="Texture" id=16]
-[ext_resource path="res://Scenes/UserInterface/Buttons/hamburger_btn/btn_hamburger_pressed.png" type="Texture" id=17]
+[ext_resource path="res://Scenes/UserInterface/Buttons/hamburger_btn/menu_btn.png" type="Texture" id=15]
+[ext_resource path="res://Scenes/UserInterface/Buttons/hamburger_btn/menu_btn_pressed.png" type="Texture" id=16]
 [ext_resource path="res://Scenes/Tavern/NewTavernRooms/background.jpg" type="Texture" id=18]
 
 [node name="TavernScreen" type="CanvasLayer"]
@@ -151,8 +150,8 @@ margin_bottom = 36.0
 size_flags_horizontal = 10
 size_flags_vertical = 2
 texture_normal = ExtResource( 15 )
-texture_pressed = ExtResource( 17 )
-texture_disabled = ExtResource( 16 )
+texture_pressed = ExtResource( 16 )
+texture_disabled = null
 
 [node name="RoomScreen" parent="." instance=ExtResource( 8 )]
 visible = false
