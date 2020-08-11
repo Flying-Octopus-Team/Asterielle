@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://Scenes/UserInterface/UIContainer.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/UserInterface/GoldTextures/1.png" type="Texture" id=2]
@@ -14,9 +14,7 @@
 [ext_resource path="res://Scenes/UserInterface/GoldTextures/11.png" type="Texture" id=12]
 [ext_resource path="res://Scenes/UserInterface/GoldTextures/12.png" type="Texture" id=13]
 [ext_resource path="res://Fonts/SHPinsher_24.tres" type="DynamicFont" id=14]
-[ext_resource path="res://Scenes/UserInterface/Buttons/GameButton.tscn" type="PackedScene" id=15]
-[ext_resource path="res://Scenes/UserInterface/Buttons/hamburger_btn/menu_btn.png" type="Texture" id=16]
-[ext_resource path="res://Scenes/UserInterface/Buttons/hamburger_btn/menu_btn_pressed.png" type="Texture" id=17]
+[ext_resource path="res://Scenes/UserInterface/Buttons/MenuBtn/MenuBtn.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Scenes/UserInterface/SilverMoonTextures/1.png" type="Texture" id=19]
 [ext_resource path="res://Scenes/UserInterface/SilverMoonTextures/2.png" type="Texture" id=20]
 [ext_resource path="res://Scenes/UserInterface/SilverMoonTextures/3.png" type="Texture" id=21]
@@ -241,9 +239,6 @@ align = 2
 margin_left = 149.0
 margin_right = 177.0
 margin_bottom = 104.0
-texture_normal = ExtResource( 16 )
-texture_pressed = ExtResource( 17 )
-texture_disabled = null
 
 [node name="BottomBar" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
 margin_top = 248.0

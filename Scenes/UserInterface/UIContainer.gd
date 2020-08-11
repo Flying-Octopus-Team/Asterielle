@@ -18,10 +18,6 @@ onready var revival_enter_btn = find_node("RevivalEnterBtn")
 onready var revival_enter_label = find_node("RevivalEnterLabel")
 
 
-func _ready():
-	if OS.get_name() == "HTML5":
-		find_node("MenuBtn").visible = false
-
 func set_gold_label(gold: float):
 	gold_icon.get_node("AnimationPlayer").play("gold_reached")
 	gold_label.text = str(round(gold))
