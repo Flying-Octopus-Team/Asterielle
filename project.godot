@@ -42,7 +42,7 @@ _global_script_classes=[ {
 "base": "Reference",
 "class": "OfflineRewardCalculator",
 "language": "GDScript",
-"path": "res://Scenes/Screens/OfflineScreen/OfflineRewardCalculator.gd"
+"path": "res://Scripts/OfflineRewardCalculator.gd"
 }, {
 "base": "TextureButton",
 "class": "SkillBtn",
