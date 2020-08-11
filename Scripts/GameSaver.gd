@@ -1,6 +1,6 @@
 extends Node
 
-const SAVE_PATH = "res://save.json"
+const SAVE_PATH = "user://save.json"
 var timer
 
 func setup():

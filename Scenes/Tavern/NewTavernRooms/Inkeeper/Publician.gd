@@ -4,7 +4,7 @@ onready var item_list = get_parent().find_node("ItemList")
 onready var dwarver_cion = load("res://Scenes/Tavern/dwarver_icon.png")
 var NegligibleInformScreen = load("res://Scenes/Screens/NegligibleInform/NegligibleInform.tscn")
 
-const SAVE_PATH = "res://quests.json"
+const QUESTS_FILE_PATH = "user://quests.json"
 
 var quests: Array = []
 var selected_quest: int = 0
@@ -22,12 +22,12 @@ func _process(delta):
 	
 func load_quests():
 	var save_file = File.new()
-	if not save_file.file_exists(SAVE_PATH):
-		print("Nie znaleziono pliku: " + SAVE_PATH)
+	if not save_file.file_exists(QUESTS_FILE_PATH):
+		print("Nie znaleziono pliku: " + QUESTS_FILE_PATH)
 		create_default_quests()
 		return
 	
-	save_file.open(SAVE_PATH, File.READ)
+	save_file.open(QUESTS_FILE_PATH, File.READ)
 	var data = JSON.parse(save_file.get_as_text()).result;
 
 	for index in data.keys():
@@ -44,7 +44,7 @@ func save_quests():
 		save_dict[quests.find(quest)] = quest.data
 	
 	var save_file = File.new()
-	save_file.open(SAVE_PATH, File.WRITE)
+	save_file.open(QUESTS_FILE_PATH, File.WRITE)
 	save_file.store_line(to_json(save_dict))
 	save_file.close()
 

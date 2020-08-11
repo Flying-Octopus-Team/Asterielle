@@ -30,10 +30,7 @@ func _ready():
 	connect("room_exited", main_hall, "_on_Room_exited")
 	connect_node("MainHall")
 	connect_node("Resources")
-	
-	if OS.get_name() == "HTML5":
-		find_node("MenuBtn").visible = false
-	
+
 func connect_node(node_name):
 	var node = world.find_node(node_name)
 	connect("tavern_entered", node, "_on_Tavern_entered")
