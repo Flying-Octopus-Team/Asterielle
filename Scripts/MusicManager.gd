@@ -5,10 +5,6 @@ export var tavern_music : AudioStream
 export var gameplay_music : AudioStream
 
 
-func _ready():
-	main_menu_music = ResourceLoader.load("res://Music/menu_music.wav")
-	tavern_music = ResourceLoader.load("res://Music/Asterielle Tawerna.wav")
-	gameplay_music = ResourceLoader.load("res://Music/game_music.wav")
 
 enum Musics {
 	MAIN_MENU_MUSIC = 1,
@@ -21,6 +17,11 @@ enum FadedSpeed{
 	NORMAL = 500,
 	SLOW = 1000
 }
+
+func _ready():
+	main_menu_music = ResourceLoader.load("res://Music/menu_music.wav")
+	tavern_music = ResourceLoader.load("res://Music/Asterielle Tawerna.wav")
+	gameplay_music = ResourceLoader.load("res://Music/game_music.wav")
 
 func switch_music(music):
 	match music:

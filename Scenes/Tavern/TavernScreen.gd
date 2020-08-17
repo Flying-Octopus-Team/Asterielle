@@ -57,8 +57,8 @@ func hide_revival_button():
 func _on_ExitDoorBtn_pressed():
 	$Background.visible = false
 	dwarves_manager.spawn = true
+	MusicManager.switch_music(MusicManager.Musics.GAMEPLAY_MUSIC)
 	emit_signal("tavern_exited")
-	MusicManager.play_music(MusicManager.Musics.GAMEPLAY_MUSIC)
 
 func _on_Room_exited():
 	emit_signal("room_exited")
