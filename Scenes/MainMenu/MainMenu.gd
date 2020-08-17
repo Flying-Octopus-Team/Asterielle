@@ -9,10 +9,10 @@ onready var options = get_node("Canvas/Options")
 onready var about = get_node("Canvas/About")
 
 
-
 func _ready():
 	setup_continue_btn_visible()
 	setup_exit_btn_visible()
+	MusicManager.switch_music(MusicManager.Musics.MAIN_MENU_MUSIC)
 
 func setup_continue_btn_visible():
 	if !Directory.new().file_exists(PATH_TO_SAVE_FILE):

@@ -5,6 +5,7 @@ func _ready() -> void:
 	GameLoader.setup()
 	GameSaver.setup()
 	
+	MusicManager.switch_music(MusicManager.Musics.GAMEPLAY_MUSIC)
 	$MainObjectsLayer/Elf.connect("game_over", self, "_on_game_over")
 
 #warning-ignore:unused_argument

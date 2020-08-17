@@ -7,7 +7,6 @@ signal room_exited
 onready var game_manager = get_parent().find_node("GameManager")
 onready var dwarves_manager = get_parent().find_node("DwarvesManager")
 onready var devil_spawner = get_node("/root/World").find_node("DevilSpawner")
-onready var music_manager = get_parent().find_node("MusicManager")
 onready var world = get_parent()
 onready var main_hall = $MainHall
 onready var resources = $Resources
@@ -59,7 +58,7 @@ func _on_ExitDoorBtn_pressed():
 	$Background.visible = false
 	dwarves_manager.spawn = true
 	emit_signal("tavern_exited")
-	music_manager.play_music(music_manager.Musics.GAMEPLAY_MUSIC)
+	MusicManager.play_music(MusicManager.Musics.GAMEPLAY_MUSIC)
 
 func _on_Room_exited():
 	emit_signal("room_exited")
