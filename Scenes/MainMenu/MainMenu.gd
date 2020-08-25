@@ -44,6 +44,8 @@ enum MENU_PANEL{
 
 func start_new_game():
 	Directory.new().remove(GameSaver.SAVE_PATH)
+	ElfStats.restore_to_default()
+	GameData.reset()
 	get_tree().change_scene_to(WORLD_SCENE)
 
 func _on_NewGameBtn_pressed():
