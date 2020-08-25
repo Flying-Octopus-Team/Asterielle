@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Scenes/Tavern/TavernScreen.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/Tavern/background.jpg" type="Texture" id=2]
+[ext_resource path="res://Scenes/Tavern/Karczma2.0.jpg" type="Texture" id=2]
 [ext_resource path="res://Scenes/Tavern/MainHall.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/UserInterface/AnimatedCheckButton.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Fonts/SHPinsher_16.tres" type="DynamicFont" id=5]
@@ -143,6 +143,7 @@ text = "Przywolaj diabla"
 align = 2
 
 [node name="MenuBtn" parent="ButtonContainer/HBoxContainer" instance=ExtResource( 15 )]
+button_label = ""
 
 [node name="RoomScreen" parent="." instance=ExtResource( 8 )]
 visible = false
