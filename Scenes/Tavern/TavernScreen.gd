@@ -39,6 +39,7 @@ func connect_node(node_name):
 func enter_tavern():
 	$Background.visible = true
 	button_container.visible = true
+	MusicManager.switch_music(MusicManager.Musics.TAVERN_MUSIC, 1, 2)
 	emit_signal("tavern_entered")
 	
 func set_active_revival_btn():

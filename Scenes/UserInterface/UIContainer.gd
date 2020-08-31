@@ -49,7 +49,6 @@ func _on_RevivalEnterBtn_pressed():
 
 func _on_TavernEnterBtn_pressed():
 	revival_enter_btn.set_pressed(false)
-	MusicManager.switch_music(MusicManager.Musics.TAVERN_MUSIC)
 	
 func _on_Tavern_exited() -> void:
 	tavern_enter_btn.set_pressed(false)

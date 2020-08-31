@@ -32,7 +32,7 @@ func set_music(music):
 			$MusicPlayer.stream = gameplay_music
 
 
-func switch_music(new_music, fade_out_time : float = 4.0, fade_in_time : float = 3.0):
+func switch_music(new_music, fade_out_time : float = 3.0, fade_in_time : float = 2.0):
 	$MusicPlayer.fade_out_time = fade_out_time
 	$MusicPlayer.fade_in_time = fade_in_time
 	$MusicPlayer.fade_out()
