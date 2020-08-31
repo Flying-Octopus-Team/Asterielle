@@ -9,4 +9,8 @@ script = ExtResource( 1 )
 [node name="ReplayTimer" type="Timer" parent="."]
 one_shot = true
 
-[node name="FadeTween" type="Tween" parent="."]
+[node name="FadeTweenOut" type="Tween" parent="."]
+
+[node name="FadeTweenIn" type="Tween" parent="."]
+[connection signal="tween_completed" from="FadeTweenOut" to="." method="_on_FadeTweenOut_tween_completed"]
+[connection signal="tween_completed" from="FadeTweenIn" to="." method="_on_FadeTweenIn_tween_completed"]

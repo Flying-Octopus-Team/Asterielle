@@ -6,7 +6,7 @@
 [ext_resource path="res://Music/MusicPlayer.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Music/Asterielle Tawerna.wav" type="AudioStream" id=5]
 
-[node name="MusicManager" type="Node2D"]
+[node name="MusicManager" type="Node"]
 script = ExtResource( 3 )
 main_menu_music = ExtResource( 2 )
 tavern_music = ExtResource( 5 )
@@ -14,6 +14,6 @@ gameplay_music = ExtResource( 1 )
 
 [node name="MusicPlayer" parent="." instance=ExtResource( 4 )]
 stream = ExtResource( 2 )
-fade_in_time = 3.0
-fade_out_time = 4.0
+autoplay = false
 replay_delay = 5.0
+[connection signal="fade_out_completed" from="MusicPlayer" to="." method="_on_MusicPlayer_fade_out_completed"]
