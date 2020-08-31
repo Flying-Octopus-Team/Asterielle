@@ -1,13 +1,22 @@
 extends Node
 
-const SAVE_PATH = "res://save.json"
+const SAVE_PATH = "user://save.json"
 var timer
 
 func setup():
+	if(timer != null):
+		timer.start(1)
+		return
+		
 	timer = Timer.new()
 	add_child(timer)
 	timer.start(1)
 	timer.connect("timeout", self, "_on_NextSaveTimer_timeout")
+
+func stop_timer():
+	if(timer != null):
+		timer.stop()
+		return
 
 func save_game():
 	var save_dict = GameLoader.load_player_data()

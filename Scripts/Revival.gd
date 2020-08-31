@@ -5,6 +5,8 @@ signal revive
 var EssentialInformScreen = load("res://Scenes/Screens/EssentialInform/EssentialInform.tscn")
 var RevivalShop = load("res://Scenes/Screens/RevivalShop/RevivalShop.tscn")
 
+var is_first_silver_moon_connected: bool = false
+
 onready var world = get_node("/root/World")
 
 func _ready():
@@ -28,6 +30,13 @@ func set_active_revival_btn():
 		ui_container.hide_revival_button()
 	else:
 		ui_container.show_revival_button()
+
+func hide_revival_button_when_under_leveled(var ui_container) -> void:
+	if is_first_silver_moon_connected:
+		return
+	ui_container.hide_revival_button()
+	GameData.connect("get_first_silver_moon", ui_container, "show_revival_button")
+	is_first_silver_moon_connected = true
 
 func show_silver_moon_screen():
 	if GameData.silver_moon == 0:

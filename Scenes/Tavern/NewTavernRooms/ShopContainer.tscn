@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scenes/UserInterface/Buttons/GameButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Tavern/Shop/BasicShop.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/UserInterface/Buttons/GameButton.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/UserInterface/Buttons/btn_background_pressed.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/UserInterface/Buttons/btn_background.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/UserInterface/Buttons/btn_background_disabled.png" type="Texture" id=6]
+[ext_resource path="res://Fonts/frikativ_32.tres" type="DynamicFont" id=7]
+
+[node name="VBoxContainer" type="VBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NameLabel" type="Label" parent="."]
+margin_right = 560.0
+margin_bottom = 32.0
+custom_fonts/font = ExtResource( 7 )
+text = "Ekran"
+align = 1
+
+[node name="Shop" type="VBoxContainer" parent="."]
+margin_top = 37.0
+margin_right = 560.0
+margin_bottom = 37.0
+script = ExtResource( 2 )
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+margin_top = 42.0
+margin_right = 560.0
+margin_bottom = 70.0
+
+[node name="ExitBtn" type="TextureButton" parent="CenterContainer" instance=ExtResource( 1 )]
+margin_left = 224.0
+margin_right = 336.0
+margin_bottom = 28.0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 4 )
+texture_disabled = ExtResource( 6 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+button_label = "Wroc"

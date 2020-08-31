@@ -1,8 +1,7 @@
 extends Node2D
 
 const WEBSITE_ADDRESS = "http://elf-vs-dwarves.pl"
-const PATH_TO_SAVE_FILE = "save.json"
-const WORLD_PATH = "res://Scenes/World/World.tscn"
+const WORLD_SCENE = preload("res://Scenes/World/World.tscn")
 
 onready var home = get_node("Canvas/Home")
 onready var options = get_node("Canvas/Options")
@@ -15,7 +14,7 @@ func _ready():
 	MusicManager.switch_music(MusicManager.Musics.MAIN_MENU_MUSIC, 0.0)
 
 func setup_continue_btn_visible():
-	if !Directory.new().file_exists(PATH_TO_SAVE_FILE):
+	if !Directory.new().file_exists(GameSaver.SAVE_PATH):
 		home.find_node("ContinueBtn").visible = false
 		
 func setup_exit_btn_visible():
@@ -43,12 +42,18 @@ enum MENU_PANEL{
 	ABOUT
 }
 
+func start_new_game():
+	Directory.new().remove(GameSaver.SAVE_PATH)
+	ElfStats.restore_to_default()
+	GameData.reset()
+	get_tree().change_scene_to(WORLD_SCENE)
+
 func _on_NewGameBtn_pressed():
-	Directory.new().remove(PATH_TO_SAVE_FILE)
-	get_tree().change_scene(WORLD_PATH)
+	var slides = $Canvas/StorySlides
+	slides.visible = true
 	
 func _on_ContinueBtn_pressed():
-	get_tree().change_scene(WORLD_PATH)
+	get_tree().change_scene_to(WORLD_SCENE)
 
 func _on_OptionsBtn_pressed():
 	switch_panel(MENU_PANEL.OPTIONS)

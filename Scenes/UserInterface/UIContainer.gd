@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+const MENU_PATH = "res://Scenes/MainMenu/MainMenu.tscn"
+
 onready var gold_icon = find_node("GoldIcon")
 onready var gold_label = find_node("GoldLabel")
 
@@ -14,7 +16,6 @@ onready var game_data = get_node("/root/World").find_node("GameData")
 onready var tavern_enter_btn = find_node("TavernEnterBtn")
 onready var revival_enter_btn = find_node("RevivalEnterBtn")
 onready var revival_enter_label = find_node("RevivalEnterLabel")
-
 
 
 func set_gold_label(gold: float):
@@ -55,3 +56,10 @@ func _on_Tavern_exited() -> void:
 	
 func _on_RevivalShop_exited() -> void:
 	revival_enter_btn.set_pressed(false)
+
+
+func _on_MenuBtn_pressed():
+	GameSaver.stop_timer()
+	GameSaver.save_game()
+	BackgroundData.move_speed = BackgroundData.default_move_speed
+	get_tree().change_scene(MENU_PATH)

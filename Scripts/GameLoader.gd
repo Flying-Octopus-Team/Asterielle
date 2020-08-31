@@ -2,8 +2,6 @@ extends Node
 
 signal save_data_was_loaded
 
-const SAVE_PATH = "res://save.json"
-
 const OFFLINE_LIMIT : bool = false
 const OFFLINE_LIMIT_TIME : int = 7200 
 
@@ -29,16 +27,16 @@ func load_player_data():
 
 func load_game():
 	var save_file = File.new()
-	if not save_file.file_exists(SAVE_PATH):
+	if not save_file.file_exists(GameSaver.SAVE_PATH):
 		return
 
-	save_file.open(SAVE_PATH, File.READ)
+	save_file.open(GameSaver.SAVE_PATH, File.READ)
 	var data = JSON.parse(save_file.get_as_text()).result;
 	
 	for node_path in data.keys():
 		var node_data = data[node_path]
-		for attribure in node_data:
-			match attribure:	#Odczytywane są w kolejności alfabetycznej
+		for attribute in node_data:
+			match attribute:	#Odczytywane są w kolejności alfabetycznej
 				"__time":
 					load_offline_time(int(node_data['__time']))
 				"_golds_on_second":
@@ -50,7 +48,8 @@ func load_game():
 				"_hp":
 					load_hp(float(node_data['_hp']))
 				"_current_level":
-					load_level(int(node_data['_current_level']))
+					var current_level = int(node_data['_current_level'])
+					load_level(current_level)
 				"_elf_stats":
 					load_elf_stats(node_data["_elf_stats"])
 				"_amount":
