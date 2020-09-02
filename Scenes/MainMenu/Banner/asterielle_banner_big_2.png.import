@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/menu_btn_pressed.png-41a9f8e1d92d9a33d611bf3fb8c57e21.stex"
+path="res://.import/asterielle_banner_big_2.png-4bea66f98c050b4dd8748d6713f2aa7c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/UserInterface/Buttons/hamburger_btn/menu_btn_pressed.png"
-dest_files=[ "res://.import/menu_btn_pressed.png-41a9f8e1d92d9a33d611bf3fb8c57e21.stex" ]
+source_file="res://Scenes/MainMenu/Banner/asterielle_banner_big_2.png"
+dest_files=[ "res://.import/asterielle_banner_big_2.png-4bea66f98c050b4dd8748d6713f2aa7c.stex" ]
 
 [params]
 

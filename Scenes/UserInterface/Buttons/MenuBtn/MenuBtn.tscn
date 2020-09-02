@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/UserInterface/Buttons/GameButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/UserInterface/Buttons/MenuBtn/menu_btn_pressed.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/UserInterface/Buttons/MenuBtn/menu_btn.png" type="Texture" id=3]
+
+[node name="MenuBtn" instance=ExtResource( 1 )]
+size_flags_vertical = 0
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 2 )
+texture_disabled = null

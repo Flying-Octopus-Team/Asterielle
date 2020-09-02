@@ -122,3 +122,19 @@ func save():
 		_tradesman_item_price_multipler = tradesman_item_price_multipler
 	}
 	return save_dict
+
+func reset():
+	gold = 0.0
+	silver_moon = 0
+	last_revival_level = 0
+	probability_to_get_silver_moon_in_percent = 15
+	golds_on_second = 0.0
+	additional_gold_multipler = 1.0
+	last_golds = [0.0,0.0]
+	tradesman_item_price_multipler = 1.0
+	time_to_kill_boss = 30
+	next_wait_time = 1.0
+	
+	next_timer = 0.0
+	offline_time = 0
+	offline_gold_reward = 0.0
