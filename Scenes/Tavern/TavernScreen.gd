@@ -47,7 +47,7 @@ func enter_tavern():
 func set_active_revival_btn():
 	var level_manager = world.find_node("LevelManager")
 	
-	if level_manager.current_level < 50:
+	if level_manager.current_level < GameData.FIRST_REVIVAL_LEVEL:
 		hide_revival_button()
 		GameData.connect("get_first_silver_moon", self, "show_revival_button")
 	else:

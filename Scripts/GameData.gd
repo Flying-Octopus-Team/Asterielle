@@ -11,7 +11,7 @@ var probability_to_get_silver_moon_in_percent: int = 15
 var golds_on_second : float = 0.0
 var additional_gold_multipler : float = 1.0
 var last_golds : Array = [0.0,0.0]
-var tradesman_item_price_multipler : float = 1.0
+var tradesman_item_price_multipler : float = 1.1
 
 var offline_time : int
 var offline_gold_reward : float
@@ -93,10 +93,10 @@ func add_gold(additional_gold):
 func add_silver_moon():
 	var lvl = level_manager.current_level
 	var reward = lvl / 100 + 1
-	if lvl < 50:
+	if lvl < GameData.FIRST_REVIVAL_LEVEL:
 		return
 	
-	if lvl == 51:
+	if lvl == GameData.FIRST_REVIVAL_LEVEL+1:
 		emit_signal("get_first_silver_moon")
 		set_silver_moon(silver_moon + 1)
 		return
