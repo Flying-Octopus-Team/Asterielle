@@ -9,10 +9,10 @@ const ENEMIES_PER_LEVEL_PRICE = 20
 const EARN_GOLD_PRICE = 10
 const TIME_TO_KILL_BOSS_PRICE = 5
 const SILVER_MOON_PROBABILITY_PRICE = 5
-const BASIC_START_LEVEL_PRCE = 3
-const BASIC_DAMAGE_PRCE = 2
-const BASIC_HP_PRCE = 1
-#const BASIC_ITEMS_PRCE = 10
+const BASIC_START_LEVEL_PRICE = 3
+const BASIC_DAMAGE_PRICE = 2
+const BASIC_HP_PRICE = 1
+#const BASIC_ITEMS_PRICE = 10
 
 const ITEM_ENEMIES_PER_LEVEL = "Item_enemies_per_level"
 const ITEM_EARN_GOLD = "Item_earn_gold"
@@ -97,41 +97,41 @@ func upgrade_silver_moon_probability():
 
 
 func return_basic_start_level_access() -> bool:
-	var result: bool = GameData.silver_moon < BASIC_START_LEVEL_PRCE
+	var result: bool = GameData.silver_moon < BASIC_START_LEVEL_PRICE
 	return result
 
 func upgrade_basic_start_level():
 	level_manager.basic_start_level += 5
 	level_manager.current_level = level_manager.basic_start_level
 	send_count_text(ITEM_START_LEVEL, level_manager.basic_start_level)
-	pay(BASIC_START_LEVEL_PRCE)
+	pay(BASIC_START_LEVEL_PRICE)
 
 
 func return_basic_damage_access() -> bool:
-	var result: bool = GameData.silver_moon < BASIC_DAMAGE_PRCE
+	var result: bool = GameData.silver_moon < BASIC_DAMAGE_PRICE
 	return result
 
 func upgrade_basic_damage():
 	ElfStats.damage_multiplier += 0.1
 	send_count_text(ITEM_BASIC_DAMAGE, 'x' + String(ElfStats.damage_multiplier))
-	pay(BASIC_DAMAGE_PRCE)
+	pay(BASIC_DAMAGE_PRICE)
 
 
 func return_basic_hp_access() -> bool:
-	var result: bool = GameData.silver_moon < BASIC_HP_PRCE
+	var result: bool = GameData.silver_moon < BASIC_HP_PRICE
 	return result
 
 func upgrade_basic_hp():
 	ElfStats.health_multiplier += 0.1
 	send_count_text(ITEM_BASIC_HP, 'x' + String(ElfStats.health_multiplier))
-	pay(BASIC_HP_PRCE)
+	pay(BASIC_HP_PRICE)
 
 
 #func return_items_price_access() -> bool:
-#	var result: bool = GameData.silver_moon < BASIC_ITEMS_PRCE
+#	var result: bool = GameData.silver_moon < BASIC_ITEMS_PRICE
 #	return result
 
 #func upgrade_items_price():
 #	GameData.tradesman_item_price_multipler += 0.1
 #	send_count_text(IPR, 'x' + String(GameData.tradesman_item_price_multipler))
-#	pay(BASIC_ITEMS_PRCE)
+#	pay(BASIC_ITEMS_PRICE)
