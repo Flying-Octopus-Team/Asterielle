@@ -57,9 +57,10 @@ func create_dwarf(DwarfScene, damage:float, hp:float, on_died_func:String):
 	return dwarf
 	
 func on_next_level(level : int):
-	dwarf_max_hp = default_dwarf_hp * pow((HP_INCREASE_RATION + 1),level-1)
-	dwarf_damage = default_dwarf_damage * pow((DAMAGE_INCREASE_RATIO + 1),level-1)
+	dwarf_max_hp = default_dwarf_hp * pow((HP_INCREASE_RATION + 1), level - 1)
+	dwarf_damage = default_dwarf_damage * pow((DAMAGE_INCREASE_RATIO + 1), level - 1)
 
+# Should be used only after revival
 func reset_to_default() -> void:
 	dwarf_max_hp = default_dwarf_hp
 	dwarf_damage = default_dwarf_damage
