@@ -38,5 +38,6 @@ one_shot = true
 [node name="AnimatedSprite" parent="." index="8"]
 position = Vector2( 0, -64 )
 scale = Vector2( 2.5, 2.5 )
+[connection signal="died" from="." to="." method="_on_Boss_died"]
 [connection signal="pre_attack" from="." to="." method="_on_Boss_pre_attack"]
 [connection signal="timeout" from="TimeToKill" to="." method="_on_TimeToKill_timeout"]
