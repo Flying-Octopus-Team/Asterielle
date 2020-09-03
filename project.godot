@@ -94,6 +94,7 @@ GameData="*res://Scripts/GameData.gd"
 GameLoader="*res://Scripts/GameLoader.gd"
 GameSaver="*res://Scripts/GameSaver.gd"
 Settings="*res://Scripts/Settings.gd"
+MusicManager="*res://Music/MusicManager.tscn"
 
 [display]
 

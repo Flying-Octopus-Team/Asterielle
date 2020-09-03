@@ -39,6 +39,7 @@ func connect_node(node_name):
 func enter_tavern():
 	$Background.visible = true
 	button_container.visible = true
+	MusicManager.switch_music(MusicManager.Musics.TAVERN_MUSIC, 1, 2)
 	emit_signal("tavern_entered")
 	
 func set_active_revival_btn():
@@ -65,6 +66,7 @@ func exit_tavern():
 	$Background.visible = false
 	button_container.visible = false
 	dwarves_manager.spawn = true
+	MusicManager.switch_music(MusicManager.Musics.GAMEPLAY_MUSIC)
 	emit_signal("tavern_exited")
 
 func _on_Room_exited():

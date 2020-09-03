@@ -56,7 +56,6 @@ func _ready():
 	var elf = world.get_node("MainObjectsLayer/Elf")
 	elf.connect("game_over", self, "on_Game_Over")
 	connect("next_level", dwarves_manager, "on_next_level")
-	connect("reset_to_base", dwarves_manager, "reset_to_default")
 	connect("reset_to_base", elf, "reset_to_base")
 	connect("reset_to_base", GameData, "on_game_over")
 	GameLoader.connect("save_data_was_loaded", self, "show_offline_screen")
