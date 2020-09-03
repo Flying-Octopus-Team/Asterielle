@@ -1,28 +1,27 @@
 extends AudioStreamPlayer
 
-export var fade_in := true
-export var fade_out := true
-
-export var fade_in_time := 0.5
-export var fade_out_time := 0.5
-
 export var looped := true
 
 # How many seconds wait until rep lay on loop
 export var replay_delay := 0.0
 
+var fade_in_time := 0.5
+var fade_out_time := 0.5
+
 onready var replay_timer : Timer = $ReplayTimer
-onready var tween : Tween = $FadeTween
+onready var tween_out : Tween = $FadeTweenOut
+onready var tween_in : Tween = $FadeTweenIn
 
 const MIN_VOLUME : float = -80.0
 const NORMAL_VOLUME : float = -17.5
 
+signal fade_out_completed
+signal fade_in_completed
 
 func _init() -> void:
 	if not Settings.music_on:
 		stop()
 		autoplay = false
-
 
 func _ready() -> void:
 	Settings.connect("music_on_changed", self, "_on_music_on_changed")
@@ -32,40 +31,15 @@ func _ready() -> void:
 	if not Settings.music_on:
 		stop()
 		return
-	
-	_prepare_tween()
-
-
-func _prepare_tween() -> void:
-	if fade_in:
-		fade_in()
-	
-	if fade_out:
-		fade_out()
-
 
 func _on_music_on_changed(on:bool) -> void:
 	if on:
 		if not playing:
 			play()
 	else:
-		tween.stop_all()
+		tween_out.stop_all()
+		tween_in.stop_all()
 		stop()
-
-
-func fade_in() -> void:
-	_fade_volume(MIN_VOLUME, NORMAL_VOLUME, Tween.TRANS_EXPO, fade_in_time)
-
-
-func fade_out() -> void:
-	var delay : float = stream.get_length() - fade_out_time 
-	_fade_volume(NORMAL_VOLUME, MIN_VOLUME, fade_out_time, Tween.TRANS_LINEAR, delay)
-
-
-func _fade_volume(from:float, to:float, duration:float, trans_type:int, delay:float=0.0) -> void:
-	tween.interpolate_property(self, "volume_db", from, to, duration, trans_type, Tween.EASE_OUT, delay)
-	tween.start()
-
 
 func _on_music_finished() -> void:
 	if not Settings.music_on:
@@ -74,15 +48,26 @@ func _on_music_finished() -> void:
 	if looped:
 		replay_timer.start(replay_delay)
 
-
 func _on_replay_timer_timeout() -> void:
 	if looped:
 		play()
 
-
 func play(from_position:float=0.0) -> void:
 	if not Settings.music_on:
 		return
-	
-	_prepare_tween()
 	.play()
+
+func _on_FadeTweenOut_tween_completed(object, key):
+	emit_signal("fade_out_completed")
+
+func _on_FadeTweenIn_tween_completed(object, key):
+	emit_signal("fade_in_completed")
+
+func fade_out():
+	tween_out.interpolate_property(self, "volume_db", NORMAL_VOLUME, MIN_VOLUME, fade_out_time, Tween.TRANS_SINE, Tween.EASE_IN, 0)
+	tween_out.start()
+	
+func fade_in():
+	tween_in.interpolate_property(self, "volume_db", MIN_VOLUME, NORMAL_VOLUME, fade_in_time, Tween.TRANS_SINE, Tween.EASE_IN, 0)
+	tween_in.start()
+	
