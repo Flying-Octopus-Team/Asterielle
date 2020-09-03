@@ -1,9 +1,5 @@
 extends TextureRect
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
 
 func _on_EnterPublicanBtn_mouse_entered():
 	$InkeeperHighlight.visible = true
@@ -13,3 +9,12 @@ func _on_EnterPublicanBtn_mouse_exited():
 
 func _on_EnterPublicanBtn_pressed():
 	$InkeeperHighlight.visible = false
+
+func _on_EnterRoomBtn_mouse_entered():
+	$DoorHighlight.visible = true
+
+func _on_EnterRoomBtn_mouse_exited():
+	$DoorHighlight.visible = false
+
+func _on_EnterRoomBtn_pressed():
+	$DoorHighlight.visible = false
