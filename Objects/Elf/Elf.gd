@@ -11,6 +11,7 @@ var next_arrow_velocity : Vector2
 var hp : float setget set_current_hp
 
 var is_walking : bool
+var is_shooting : bool
 
 onready var fire_point = find_node("FirePoint")
 onready var hp_bar = find_node("HPBar")
@@ -24,11 +25,16 @@ func _ready():
 	reset_to_base()
 	animation_player.play("ElfWalkAnimation")
 	is_walking = true
+	is_shooting = false
 	
+
 func _process(delta):
-	
-	if Input.is_action_just_pressed("shoot"):
-		shoot_arrow()
+	if Input.is_action_just_pressed("shoot") && !is_walking:
+		animation_player.play("ElfShootStandingAnimation")
+		play_arrow_sound()
+	elif Input.is_action_just_pressed("shoot") && is_walking:
+		animation_player.play("ElfWalkingAndShooting")
+		play_arrow_sound()
 	elif BackgroundData.move_speed == 0 && is_walking:
 		animation_player.play("ElfIdle")
 		is_walking = false
@@ -36,9 +42,7 @@ func _process(delta):
 		animation_player.play("ElfWalkAnimation")
 		is_walking = true
 
-func shoot_arrow():
-	animation_player.play("ElfShootStandingAnimation")
-	
+func play_arrow_sound():
 	if Settings.sounds_on:
 		$ElfShootStandingAnimationSound.play()
 	
