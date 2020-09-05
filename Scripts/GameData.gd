@@ -22,6 +22,8 @@ var next_timer : float
 
 const FIRST_REVIVAL_LEVEL : int = 50
 const REVIVAL_SILVER_MOON_REWARD : int = 1
+const BASE_INCOME = 5
+const GOLD_GROWTH_RATE: float = 1.012
 
 var world
 var level_manager
@@ -82,10 +84,10 @@ func on_Boss_died():
 	
 func get_gold_to_add():
 	var lvl = level_manager.current_level
-	if level_manager.dwarves_per_level == 0:
-		return lvl     #Dont divide by 0
-	var dwarf_mod = level_manager.killed_dwarves / level_manager.dwarves_per_level
-	return lvl + dwarf_mod
+	var ratio = GOLD_GROWTH_RATE
+	var base = BASE_INCOME
+
+	return base*pow(ratio,lvl-1)
 
 func add_gold(additional_gold):
 	set_gold(gold + additional_gold * additional_gold_multipler )
