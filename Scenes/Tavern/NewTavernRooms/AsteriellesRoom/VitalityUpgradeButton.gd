@@ -18,12 +18,12 @@ func _on_BuyBtn_pressed():
 func save() -> Dictionary:
 	var save_dict = {
 		_price_gold = price_gold,
-		_count = count
+		_vitality_upgrade_count = count
 	}
 	return save_dict
 
 func load_data(data):
 	set_price_gold(data["_price_gold"])
-	count = data["_count"]
+	count = data["_vitality_upgrade_count"]
 
 
