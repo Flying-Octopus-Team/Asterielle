@@ -1,7 +1,7 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Scenes/Tavern/TavernScreen.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/Tavern/background.jpg" type="Texture" id=2]
+[ext_resource path="res://Scenes/Tavern/Textures/InnBackground.jpg" type="Texture" id=2]
 [ext_resource path="res://Scenes/Tavern/MainHall.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/UserInterface/AnimatedCheckButton.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Fonts/SHPinsher_16.tres" type="DynamicFont" id=5]
@@ -15,7 +15,10 @@
 [ext_resource path="res://Scenes/UserInterface/GoldTextures/1.png" type="Texture" id=13]
 [ext_resource path="res://Objects/StatsPanel/StatsPanel.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Scenes/UserInterface/Buttons/MenuBtn/MenuBtn.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Scenes/Tavern/TavernBackground.gd" type="Script" id=16]
+[ext_resource path="res://Scenes/Tavern/Textures/InkeeperHighlight.png" type="Texture" id=17]
 [ext_resource path="res://Scenes/Tavern/NewTavernRooms/background.jpg" type="Texture" id=18]
+[ext_resource path="res://Scenes/Tavern/Textures/DoorHighlight.png" type="Texture" id=19]
 
 [node name="TavernScreen" type="CanvasLayer"]
 layer = 14
@@ -26,6 +29,29 @@ visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 2 )
+expand = true
+stretch_mode = 1
+script = ExtResource( 16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InkeeperHighlight" type="TextureRect" parent="Background"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 17 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DoorHighlight" type="TextureRect" parent="Background"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 19 )
 expand = true
 stretch_mode = 1
 __meta__ = {
@@ -47,6 +73,8 @@ __meta__ = {
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = -0.353561
+margin_bottom = -0.353577
 script = ExtResource( 3 )
 
 [node name="ExitDoorBtn" parent="MainHall" instance=ExtResource( 6 )]
@@ -69,10 +97,14 @@ screen_name = "WizardScreen"
 
 [node name="EnterRoomBtn" parent="MainHall" instance=ExtResource( 7 )]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 424.0
-margin_top = 109.0
-margin_right = 536.0
-margin_bottom = 229.0
+margin_left = 345.0
+margin_top = 103.0
+margin_right = 412.0
+margin_bottom = 218.0
+texture_normal = null
+texture_pressed = null
+texture_disabled = null
+expand = true
 button_label = "Pokoj"
 screen_name = "RoomScreen"
 
@@ -89,10 +121,10 @@ button_label = ""
 screen_name = "TradesmanScreen"
 
 [node name="EnterPublicanBtn" parent="MainHall" instance=ExtResource( 7 )]
-margin_left = 192.0
-margin_top = 144.0
-margin_right = 243.0
-margin_bottom = 199.0
+margin_left = 202.253
+margin_top = 123.847
+margin_right = 253.253
+margin_bottom = 178.847
 texture_normal = null
 texture_pressed = null
 button_label = ""
@@ -143,6 +175,7 @@ text = "Przywolaj diabla"
 align = 2
 
 [node name="MenuBtn" parent="ButtonContainer/HBoxContainer" instance=ExtResource( 15 )]
+button_label = ""
 
 [node name="RoomScreen" parent="." instance=ExtResource( 8 )]
 visible = false
@@ -198,6 +231,12 @@ margin_top = -124.0
 margin_right = -5.0
 margin_bottom = -5.0
 [connection signal="pressed" from="MainHall/ExitDoorBtn" to="." method="_on_ExitDoorBtn_pressed"]
+[connection signal="mouse_entered" from="MainHall/EnterRoomBtn" to="Background" method="_on_EnterRoomBtn_mouse_entered"]
+[connection signal="mouse_exited" from="MainHall/EnterRoomBtn" to="Background" method="_on_EnterRoomBtn_mouse_exited"]
+[connection signal="pressed" from="MainHall/EnterRoomBtn" to="Background" method="_on_EnterRoomBtn_pressed"]
 [connection signal="pressed" from="MainHall/EnterRoomBtn" to="." method="_on_EnterRoomBtn_pressed"]
+[connection signal="mouse_entered" from="MainHall/EnterPublicanBtn" to="Background" method="_on_EnterPublicanBtn_mouse_entered"]
+[connection signal="mouse_exited" from="MainHall/EnterPublicanBtn" to="Background" method="_on_EnterPublicanBtn_mouse_exited"]
+[connection signal="pressed" from="MainHall/EnterPublicanBtn" to="Background" method="_on_EnterPublicanBtn_pressed"]
 [connection signal="pressed" from="ButtonContainer/HBoxContainer/VBoxContainer/RevivalEnterBtn" to="." method="_on_RevivalEnterBtn_pressed"]
 [connection signal="pressed" from="ButtonContainer/HBoxContainer/MenuBtn" to="." method="_on_MenuBtn_pressed"]

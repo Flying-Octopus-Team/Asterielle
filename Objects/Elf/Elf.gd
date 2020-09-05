@@ -10,6 +10,9 @@ var next_arrow_velocity : Vector2
 
 var hp : float setget set_current_hp
 
+var is_walking : bool
+var is_shooting : bool
+
 onready var fire_point = find_node("FirePoint")
 onready var hp_bar = find_node("HPBar")
 onready var hp_label = find_node("HPLabel")
@@ -20,25 +23,28 @@ func _ready():
 	ElfStats.get_stat("vitality").connect("value_changed", self, "_on_vitality_change")
 	add_to_group('IHaveSthToSave')
 	reset_to_base()
-	animation_player.play("PrepareArrow")
+	animation_player.play("ElfWalkAnimation")
+	is_walking = true
+	is_shooting = false
 	
-func _process(delta):
-	
-	if animation_player.is_playing():
-		return
-		
-	if not $DwarfRayCast.is_colliding():
-		animation_player.stop()
-		return
-		
-	if Input.is_action_just_pressed("shoot"):
-		shot_arrow()
 
-func shot_arrow():
-	animation_player.play("Shot")
-	
+func _process(delta):
+	if Input.is_action_just_pressed("shoot") && !is_walking:
+		animation_player.play("ElfShootStandingAnimation")
+		play_arrow_sound()
+	elif Input.is_action_just_pressed("shoot") && is_walking:
+		animation_player.play("ElfWalkingAndShooting")
+		play_arrow_sound()
+	elif BackgroundData.move_speed == 0 && is_walking:
+		animation_player.play("ElfIdle")
+		is_walking = false
+	elif BackgroundData.move_speed > 0 && !is_walking:
+		animation_player.play("ElfWalkAnimation")
+		is_walking = true
+
+func play_arrow_sound():
 	if Settings.sounds_on:
-		$ShotSound.play()
+		$ElfShootStandingAnimationSound.play()
 	
 func spawn_arrow():
 	var dwarf = $DwarfRayCast.get_collider()
@@ -59,7 +65,9 @@ func spawn_arrow():
 	arrow.velocity = arrow_velocity
 	arrow.damage = ElfStats.get_stat_value("bows_knowledge")
 	
-	animation_player.play("PrepareArrow")
+func arrow_reloaded():
+	animation_player.play("ElfWalkAnimation")
+	is_walking = true
 	
 func on_dwarf_hit(dmg) -> bool:
 #	if randf() < ElfStats.get_stat_value("agility"):
