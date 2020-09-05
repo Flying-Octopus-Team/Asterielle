@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scenes/Tavern/NewTavernRooms/NewRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Tavern/Buttons/StatBtn.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Tavern/NewTavernRooms/AsteriellesRoom/VitalityUpgradeButton.gd" type="Script" id=3]
 
 [node name="Control" instance=ExtResource( 1 )]
 
@@ -29,22 +30,23 @@ margin_bottom = 123.0
 margin_right = 358.0
 margin_bottom = 26.0
 item_name = "Znajomość łuków"
-price_gold = 3.0
+price_gold = 4.0
+price_gold_mod = 2.05
 popup_title = "Zadawaj wieksze obrazenia"
 should_save_price = true
 stat_name = "bows_knowledge"
-multiply_stat = 1.2
+multiply_stat = 1.07
 
 [node name="Vitality" parent="ShopContainer/Shop" index="1" instance=ExtResource( 2 )]
 margin_top = 30.0
 margin_right = 358.0
 margin_bottom = 56.0
+script = ExtResource( 3 )
 item_name = "Witalność"
-price_gold = 1.0
-popup_title = "Wytrzymaj wiecej ran"
+price_gold = 12.0
+price_gold_mod = 1.9
+popup_title = "Wytrzymaj więcej ran"
 should_save_price = true
-stat_name = "vitality"
-add_to_stat = 1.0
 
 [node name="CriticalShot" parent="ShopContainer/Shop" index="2" instance=ExtResource( 2 )]
 margin_top = 60.0
@@ -52,10 +54,12 @@ margin_right = 358.0
 margin_bottom = 86.0
 item_name = "Uderzenie krytyczne"
 price_gold = 5.0
+price_gold_mod = 1.85
 popup_title = "Wykorzystaj czule punkty przeciwnika"
 should_save_price = true
 stat_name = "critical_shot"
-add_to_stat = 0.05
+add_to_stat = 0.1
+multiply_stat = 0.0
 
 [node name="CenterContainer" parent="ShopContainer" index="2"]
 margin_top = 128.0

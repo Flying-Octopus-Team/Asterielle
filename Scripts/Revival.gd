@@ -26,7 +26,7 @@ func set_active_revival_btn():
 	var level_manager = world.find_node("LevelManager")
 	var ui_container = world.find_node("UIContainer")
 	
-	if level_manager.current_level < 50:
+	if level_manager.current_level < GameData.FIRST_REVIVAL_LEVEL:
 		ui_container.hide_revival_button()
 	else:
 		ui_container.show_revival_button()

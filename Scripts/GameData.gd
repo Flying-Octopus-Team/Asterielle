@@ -11,7 +11,7 @@ var probability_to_get_silver_moon_in_percent: int = 15
 var golds_on_second : float = 0.0
 var additional_gold_multipler : float = 1.0
 var last_golds : Array = [0.0,0.0]
-var tradesman_item_price_multipler : float = 1.0
+var tradesman_item_price_multipler : float = 1.1
 
 var offline_time : int
 var offline_gold_reward : float
@@ -22,6 +22,8 @@ var next_timer : float
 
 const FIRST_REVIVAL_LEVEL : int = 50
 const REVIVAL_SILVER_MOON_REWARD : int = 1
+const BASE_INCOME = 5
+const GOLD_GROWTH_RATE: float = 1.012
 
 var world
 var level_manager
@@ -82,10 +84,10 @@ func on_Boss_died():
 	
 func get_gold_to_add():
 	var lvl = level_manager.current_level
-	if level_manager.dwarves_per_level == 0:
-		return lvl     #Dont divide by 0
-	var dwarf_mod = level_manager.killed_dwarves / level_manager.dwarves_per_level
-	return lvl + dwarf_mod
+	var ratio = GOLD_GROWTH_RATE
+	var base = BASE_INCOME
+
+	return base*pow(ratio,lvl-1)
 
 func add_gold(additional_gold):
 	set_gold(gold + additional_gold * additional_gold_multipler )
@@ -93,10 +95,10 @@ func add_gold(additional_gold):
 func add_silver_moon():
 	var lvl = level_manager.current_level
 	var reward = lvl / 100 + 1
-	if lvl < 50:
+	if lvl < GameData.FIRST_REVIVAL_LEVEL:
 		return
 	
-	if lvl == 51:
+	if lvl == GameData.FIRST_REVIVAL_LEVEL+1:
 		emit_signal("get_first_silver_moon")
 		set_silver_moon(silver_moon + 1)
 		return
