@@ -1,14 +1,13 @@
 extends Control
 
 onready var item_list = get_parent().find_node("ItemList")
-onready var dwarver_cion = load("res://Scenes/Tavern/dwarver_icon.png")
+onready var dwarver_cion = load("res://Scenes/Tavern/Textures/dwarver_icon.png")
 var NegligibleInformScreen = load("res://Scenes/Screens/NegligibleInform/NegligibleInform.tscn")
 
 const QUESTS_FILE_PATH = "user://quests.json"
 
 var quests: Array = []
 var selected_quest: int = 0
-
 
 
 func _ready():
