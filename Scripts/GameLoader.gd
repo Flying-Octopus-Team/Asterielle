@@ -53,7 +53,7 @@ func load_game():
 				"_elf_stats":
 					load_elf_stats(node_data["_elf_stats"])
 				"_amount":
-					load_helth_potion(node_data['_amount'])
+					load_health_potion(node_data['_amount'])
 				"_price":
 					load_price(float(node_data['_price']))
 				"_dwarves_per_level":
@@ -100,8 +100,8 @@ func load_elf_stats(elf_stats):
 	ElfStats.load_data(elf_stats)
 	elf.reset_to_base()
 
-func load_helth_potion(helth_potion):
-	get_tree().get_root().get_node("World").find_node("HealthPotion").set_amount(helth_potion)
+func load_health_potion(health_potion):
+	get_tree().get_root().get_node("World").find_node("HealthPotion").set_amount(health_potion)
 
 func load_price(price):
 	var items = get_parent().find_node("Items") 
@@ -147,5 +147,5 @@ func revival_reset():
 	load_gold(0.0)
 	load_hp(ElfStats.get_stat_value("vitality"))
 	load_level(1)
-	load_helth_potion(0)
+	load_health_potion(0)
 	publican.create_default_quests()
