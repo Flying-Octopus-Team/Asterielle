@@ -16,7 +16,7 @@ func _ready():
 
 func _process(delta):
 	save_quests()
-	if item_list.get_selected_items().size()>0:
+	if item_list.get_selected_items().size() > 0:
 		selected_quest = item_list.get_selected_items()[0]
 	
 func load_quests():

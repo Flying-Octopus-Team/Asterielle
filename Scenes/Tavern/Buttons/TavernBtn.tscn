@@ -9,6 +9,7 @@
 [node name="TavernBtn" type="HBoxContainer"]
 margin_right = 300.0
 margin_bottom = 20.0
+mouse_filter = 2
 alignment = 1
 script = ExtResource( 1 )
 __meta__ = {
@@ -39,6 +40,6 @@ mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 4 )
 texture_disabled = ExtResource( 5 )
-[connection signal="mouse_entered" from="." to="." method="_on_TavernBtn_mouse_entered"]
-[connection signal="mouse_exited" from="." to="." method="_on_TavernBtn_mouse_exited"]
+[connection signal="mouse_entered" from="BuyBtn" to="." method="_on_BuyBtn_mouse_entered"]
+[connection signal="mouse_exited" from="BuyBtn" to="." method="_on_BuyBtn_mouse_exited"]
 [connection signal="pressed" from="BuyBtn" to="." method="_on_BuyBtn_pressed"]

@@ -16,8 +16,6 @@ onready var button_container = $ButtonContainer
 
 onready var screens := [
 	$RoomScreen,
-	$WizardScreen,
-	$TradesmanScreen,
 	$PublicanScreen
 ]
 
