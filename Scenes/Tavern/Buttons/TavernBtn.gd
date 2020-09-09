@@ -22,8 +22,8 @@ func _ready():
 func _on_BuyBtn_pressed():
 	if price_gold:
 		GameData.add_gold(-price_gold)
-		set_price_gold(price_gold * price_gold_mod)
 		publican.on_spend_gold(price_gold)
+		set_price_gold(price_gold * price_gold_mod)
 	emit_signal("bought")
 
 func set_price_gold(new_price:float):
