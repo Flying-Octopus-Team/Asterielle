@@ -98,7 +98,7 @@ margin_bottom = 35.0
 size_flags_horizontal = 3
 size_flags_vertical = 8
 custom_fonts/font = ExtResource( 4 )
-text = "Version 0.15.0"
+text = "Version 1.0.0"
 valign = 1
 
 [node name="FlyingOctopusLabel" type="Label" parent="Canvas/Home/MarginContainer/VBoxContainer/HBoxContainer"]
