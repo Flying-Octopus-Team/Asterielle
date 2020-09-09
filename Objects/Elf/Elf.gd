@@ -31,22 +31,20 @@ func _ready():
 func _process(delta):
 	if Input.is_action_just_pressed("shoot") && !is_walking:
 		animation_player.play("ElfShootStandingAnimation")
-		play_arrow_sound()
 	elif Input.is_action_just_pressed("shoot") && is_walking:
 		animation_player.play("ElfWalkingAndShooting")
-		play_arrow_sound()
 	elif BackgroundData.move_speed == 0 && is_walking:
 		animation_player.play("ElfIdle")
 		is_walking = false
 	elif BackgroundData.move_speed > 0 && !is_walking:
 		animation_player.play("ElfWalkAnimation")
 		is_walking = true
-
-func play_arrow_sound():
-	if Settings.sounds_on:
-		$ElfShootStandingAnimationSound.play()
+		
 	
 func spawn_arrow():
+	
+	$ShotSound.play()
+	
 	var dwarf = $DwarfRayCast.get_collider()
 	
 	if not dwarf:
