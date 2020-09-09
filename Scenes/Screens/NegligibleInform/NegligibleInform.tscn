@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/Screens/NegligibleInform/NegligibleInform.gd" type="Script" id=1]
-[ext_resource path="res://Fonts/frikativ_24.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Fonts/SHPinsher_24.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Fonts/SHPinsher_16.tres" type="DynamicFont" id=3]
 [ext_resource path="res://Scenes/UserInterface/Buttons/GameButton.tscn" type="PackedScene" id=4]
 
@@ -41,15 +41,15 @@ __meta__ = {
 
 [node name="TopText" type="Label" parent="Control/VBoxContainer"]
 margin_right = 560.0
-margin_bottom = 24.0
+margin_bottom = 30.0
 custom_fonts/font = ExtResource( 2 )
 text = "First text"
 align = 1
 
 [node name="CenterText" type="Label" parent="Control/VBoxContainer"]
-margin_top = 28.0
+margin_top = 34.0
 margin_right = 560.0
-margin_bottom = 48.0
+margin_bottom = 54.0
 custom_fonts/font = ExtResource( 3 )
 text = "Second text"
 align = 1
@@ -59,9 +59,9 @@ __meta__ = {
 
 [node name="GameButton" parent="Control/VBoxContainer" instance=ExtResource( 4 )]
 margin_left = 224.0
-margin_top = 52.0
+margin_top = 58.0
 margin_right = 336.0
-margin_bottom = 80.0
+margin_bottom = 86.0
 size_flags_horizontal = 4
 button_label = "OK"
 [connection signal="pressed" from="Control/VBoxContainer/GameButton" to="." method="exit"]

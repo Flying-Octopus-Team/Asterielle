@@ -133,7 +133,7 @@ func on_Boss_kill_timeout():
 	
 func on_Game_Over():
 	var eis = EssentialInformScreen.instance()
-	eis.init(3,"Game Over","Straciles przytomnosc\n Zostaniesz przeniesiony z pola walki do tawerny ","skull",false)
+	eis.init(3,"Game Over","Straciłaś przytomność\n Zostaniesz przeniesiona z pola walki do tawerny ","skull",false)
 	eis.connect("timeout", self, "reset_to_base")
 	world.call_deferred("add_child", eis)
 	BackgroundData.move_speed = BackgroundData.default_move_speed
@@ -141,14 +141,13 @@ func on_Game_Over():
 func show_offline_screen():
 	if GameData.offline_time == 0:
 		queue_free()
-		pass
 	
 	var nis = NegligibleInformScreen.instance()
 	var calculator = OfflineRewardCalculator.new()
 	var offline_text = calculator.offline_time_text(GameData.offline_time)
 	var offline_gold_reward = calculator.reward_text(round(GameData.offline_gold_reward))
 	
-	nis.init(3,offline_text,offline_gold_reward)
+	nis.init(3, offline_text, offline_gold_reward)
 	
 	world.call_deferred("add_child", nis)
 

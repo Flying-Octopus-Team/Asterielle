@@ -90,7 +90,7 @@ class QuestSpendGold extends BaseQuest:
 	
 	func _init(Count):
 		data["count"] = Count
-		data["title"] = "Wydaj "+String(Count)+" golda"
+		data["title"] = "Wydaj "+String(Count)+" złota"
 		data["gold_reward"] =  Count
 		data["type"] =  QuestType.spend_gold
 
@@ -123,7 +123,7 @@ enum QuestType{
 
 func give_reward(gold, index):
 	var nis = NegligibleInformScreen.instance()
-	var header: String = "Wykonales zadanie: " + String(quests[index].data["title"])
+	var header: String = "Wykonałaś zadanie: " + String(quests[index].data["title"])
 	var desc: String = "nagroda: "+String(gold)+" golda"
 	nis.init(3,header,desc)
 	get_parent().call_deferred("add_child", nis)
