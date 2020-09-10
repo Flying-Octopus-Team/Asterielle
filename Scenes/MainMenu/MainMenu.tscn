@@ -125,6 +125,7 @@ valign = 2
 [node name="TextureButton" parent="Canvas/Home/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 11 )]
 margin_left = 480.0
 margin_right = 540.0
+mouse_default_cursor_shape = 2
 
 [node name="Options" type="Control" parent="Canvas"]
 visible = false
@@ -399,6 +400,7 @@ button_label = "Dalej"
 [connection signal="pressed" from="Canvas/Home/MarginContainer/VBoxContainer/CenterContainer/Menu/OptionsBtn" to="." method="_on_OptionsBtn_pressed"]
 [connection signal="pressed" from="Canvas/Home/MarginContainer/VBoxContainer/CenterContainer/Menu/AboutBtn" to="." method="_on_AboutBtn_pressed"]
 [connection signal="pressed" from="Canvas/Home/MarginContainer/VBoxContainer/CenterContainer/Menu/ExitBtn" to="." method="_on_ExitBtn_pressed"]
+[connection signal="pressed" from="Canvas/Home/MarginContainer/VBoxContainer/HBoxContainer/TextureButton" to="." method="_on_TextureButton_pressed"]
 [connection signal="pressed" from="Canvas/Options/MarginContainer/VBoxContainer/BackBtn" to="." method="_on_BackBtn_pressed"]
 [connection signal="pressed" from="Canvas/About/BackBtn" to="." method="_on_BackBtn_pressed"]
 [connection signal="pressed" from="Canvas/About/FacebookButton" to="." method="_on_FacebookButton_pressed"]

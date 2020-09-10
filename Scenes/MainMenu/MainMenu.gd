@@ -53,7 +53,7 @@ func start_new_game():
 func _on_NewGameBtn_pressed():
 	var slides = $Canvas/StorySlides
 	slides.visible = true
-	
+
 func _on_ContinueBtn_pressed():
 	get_tree().change_scene_to(WORLD_SCENE)
 
@@ -74,3 +74,6 @@ func _on_FacebookButton_pressed():
 
 func _on_DiscordButton_pressed():
 	OS.shell_open(DISCORD_ADDRESS)
+
+func _on_TextureButton_pressed():
+	OS.shell_open(FACEBOOK_ADDRESS)
