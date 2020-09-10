@@ -9,6 +9,7 @@ const MENU_PATH = "res://Scenes/MainMenu/MainMenu.tscn"
 onready var game_manager = get_parent().find_node("GameManager")
 onready var dwarves_manager = get_parent().find_node("DwarvesManager")
 onready var devil_spawner = get_node("/root/World").find_node("DevilSpawner")
+onready var elf = get_node("/root/World/MainObjectsLayer/Elf")
 onready var world = get_parent()
 onready var main_hall = $MainHall
 onready var resources = $Resources
@@ -38,6 +39,7 @@ func enter_tavern():
 	$Background.visible = true
 	button_container.visible = true
 	MusicManager.switch_music(MusicManager.Musics.TAVERN_MUSIC, 1, 2)
+	elf.is_in_tavern = true;
 	emit_signal("tavern_entered")
 	
 func set_active_revival_btn():
@@ -65,6 +67,7 @@ func exit_tavern():
 	button_container.visible = false
 	dwarves_manager.spawn = true
 	MusicManager.switch_music(MusicManager.Musics.GAMEPLAY_MUSIC)
+	elf.is_in_tavern = false;
 	emit_signal("tavern_exited")
 
 func _on_Room_exited():
