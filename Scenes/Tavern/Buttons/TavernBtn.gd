@@ -48,15 +48,6 @@ func update_enabled() -> void:
 		should_be_enabled = gold >= price_gold
 	
 	set_enabled(should_be_enabled)
-	
-func _on_TavernBtn_mouse_entered():
-	if popup_title != "":
-		create_popup()
-	
-func _on_TavernBtn_mouse_exited():
-	if popup:
-		popup.queue_free()
-		popup = null
 
 func create_popup():
 	var game_manager = get_node("/root/World").find_node("GameManager")
@@ -75,3 +66,14 @@ func save() -> Dictionary:
 	
 func load_data(data) -> void:
 	set_price_gold(data["_price_gold"])
+
+
+func _on_BuyBtn_mouse_entered():
+	if popup_title != "":
+		create_popup()
+
+
+func _on_BuyBtn_mouse_exited():
+	if popup:
+		popup.queue_free()
+		popup = null

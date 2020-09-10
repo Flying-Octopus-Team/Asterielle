@@ -38,14 +38,23 @@ func _on_Item_pressed():
 	hide()
 	
 	yield($PrizeSound, "finished")
-	
+	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
 	queue_free()
-
-func _input(event):
-	if (event is InputEventMouseButton) and event.pressed:
-		var evLocal = make_input_local(event)
-		if $Sprite.get_rect().has_point(evLocal.position):
-			_on_Item_pressed()
 
 func _on_screen_exited():
+	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
 	queue_free()
+
+func _on_Area2D_mouse_entered():
+	$Highlight.visible = true
+	Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
+
+
+func _on_Area2D_mouse_exited():
+	$Highlight.visible = false
+	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
+	
+
+func _on_Area2D_input_event(viewport, event, shape_idx):
+	if (event is InputEventMouseButton) and event.pressed:
+		_on_Item_pressed()
