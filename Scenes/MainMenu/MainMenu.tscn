@@ -69,7 +69,7 @@ button_label = "Nowa Gra"
 [node name="ContinueBtn" parent="Canvas/Home/MarginContainer/VBoxContainer/CenterContainer/Menu" instance=ExtResource( 3 )]
 margin_top = 32.0
 margin_bottom = 60.0
-button_label = "Kontynuj"
+button_label = "Kontynuuj"
 
 [node name="OptionsBtn" parent="Canvas/Home/MarginContainer/VBoxContainer/CenterContainer/Menu" instance=ExtResource( 3 )]
 margin_top = 64.0

@@ -43,10 +43,10 @@ func show_silver_moon_screen():
 		var eis = EssentialInformScreen.instance()
 		eis.init(3,
 		"Otrzymałaś 1 Srebrny Księżyc!",
-		"Srebrne Księżyce są dodatkową walutą wykorzystywaną podczas odrodzenia \n" + 
-		"do zakupu dodatkowych i stałych ( nie znikających po odrodzeniu ) ulepszeń. \n" + 
+		"Srebrne Księżyce są dodatkową walutą, wykorzystywaną podczas odrodzenia \n" + 
+		"do zakupu dodatkowych i stałych (nie znikających po odrodzeniu) ulepszeń. \n" + 
 		"Czym jest odrodzenie? \n" + 
-		"Odrodzenie pozwala elfce rozpocząć swoją przygode prawie całkowicie od nowa",
+		"Odrodzenie pozwala elfce rozpocząć swoją przygode prawie całkowicie od nowa.",
 		"moon")
 		get_parent().call_deferred("add_child", eis)
 	world.find_node("UIContainer").show_revival_button()
@@ -58,7 +58,7 @@ func show_revival_screen():
 	var eis = EssentialInformScreen.instance()
 	eis.init(3,
 	"Elfka sie odrodza!",
-	"Zaczynasz gre od nowa ale możesz nabyć stałe ulepszenia",
+	"Zaczynasz grę od nowa, ale możesz nabyć stałe ulepszenia",
 	"skull", false)
 	eis.connect("timeout", self, "show_revival_shop")
 	get_parent().call_deferred("add_child", eis)

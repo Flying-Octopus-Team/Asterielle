@@ -133,7 +133,7 @@ func on_Boss_kill_timeout():
 	
 func on_Game_Over():
 	var eis = EssentialInformScreen.instance()
-	eis.init(3,"Game Over","Straciłaś przytomność\n Zostaniesz przeniesiona z pola walki do tawerny ","skull",false)
+	eis.init(3,"Koniec Gry","Straciłaś przytomność\n Zostaniesz przeniesiona z pola walki do tawerny ","skull",false)
 	eis.connect("timeout", self, "reset_to_base")
 	world.call_deferred("add_child", eis)
 	BackgroundData.move_speed = BackgroundData.default_move_speed
