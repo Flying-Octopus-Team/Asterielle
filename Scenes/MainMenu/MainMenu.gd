@@ -1,6 +1,8 @@
 extends Node2D
 
-const WEBSITE_ADDRESS = "http://elf-vs-dwarves.pl"
+const FACEBOOK_ADDRESS = "https://www.facebook.com/Flying-Octopus-112122830515376/"
+const DISCORD_ADDRESS = "https://discord.gg/hcNPYc6"
+
 const WORLD_SCENE = preload("res://Scenes/World/World.tscn")
 
 onready var home = get_node("Canvas/Home")
@@ -67,5 +69,8 @@ func _on_ExitBtn_pressed():
 func _on_BackBtn_pressed():
 	switch_panel(MENU_PANEL.HOME)
 
-func _on_LinkBtn_pressed():
-	OS.shell_open(WEBSITE_ADDRESS) 
+func _on_FacebookButton_pressed():
+	OS.shell_open(FACEBOOK_ADDRESS)
+
+func _on_DiscordButton_pressed():
+	OS.shell_open(DISCORD_ADDRESS)

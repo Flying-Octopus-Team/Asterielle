@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Scenes/MainMenu/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://Fonts/frikativ_32.tres" type="DynamicFont" id=2]
@@ -7,11 +7,20 @@
 [ext_resource path="res://Fonts/SHPinsher_24.tres" type="DynamicFont" id=5]
 [ext_resource path="res://Scenes/UserInterface/AnimatedCheckButton.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Objects/WorldBackground.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Fonts/SHPinscher-Regular.otf" type="DynamicFontData" id=8]
+[ext_resource path="res://Scenes/UserInterface/Buttons/DiscordBtn/discord_btn.png" type="Texture" id=9]
 [ext_resource path="res://Scenes/MainMenu/Options.gd" type="Script" id=10]
 [ext_resource path="res://Scenes/MainMenu/Logo/LogoButton.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scenes/Tavern/NewTavernRooms/background.jpg" type="Texture" id=12]
 [ext_resource path="res://Scenes/MainMenu/StorySlides.gd" type="Script" id=13]
 [ext_resource path="res://Scenes/MainMenu/Banner/asterielle_banner_big_2.png" type="Texture" id=14]
+[ext_resource path="res://Scenes/UserInterface/Buttons/FacebookBtn/facebook_btn.png" type="Texture" id=15]
+[ext_resource path="res://Scenes/UserInterface/Buttons/FacebookBtn/facebook_pressed_btn.png" type="Texture" id=16]
+[ext_resource path="res://Scenes/UserInterface/Buttons/DiscordBtn/discord_pressed_btn.png" type="Texture" id=17]
+
+[sub_resource type="DynamicFont" id=1]
+extra_spacing_bottom = -7
+font_data = ExtResource( 8 )
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource( 1 )
@@ -202,119 +211,113 @@ margin_right = 121.0
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="MarginContainer2" type="MarginContainer" parent="Canvas/About"]
+[node name="Background" type="TextureRect" parent="Canvas/About"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_constants/margin_right = 10
-custom_constants/margin_top = 10
-custom_constants/margin_left = 10
-custom_constants/margin_bottom = 10
+mouse_filter = 2
+texture = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Canvas/About/MarginContainer2"]
-margin_left = 10.0
-margin_top = 10.0
-margin_right = 550.0
-margin_bottom = 305.0
-custom_constants/separation = 20
-
-[node name="BackBtn" parent="Canvas/About/MarginContainer2/VBoxContainer" instance=ExtResource( 3 )]
+[node name="BackBtn" parent="Canvas/About" instance=ExtResource( 3 )]
+margin_left = 15.0
+margin_top = 270.0
+margin_right = 127.0
+margin_bottom = 298.0
 size_flags_horizontal = 0
 button_label = "Back"
 
-[node name="Label" type="Label" parent="Canvas/About/MarginContainer2/VBoxContainer"]
-margin_top = 48.0
-margin_right = 540.0
-margin_bottom = 80.0
-custom_fonts/font = ExtResource( 2 )
-text = "About"
-align = 1
-valign = 1
+[node name="FacebookButton" parent="Canvas/About" instance=ExtResource( 3 )]
+margin_left = 165.0
+margin_top = 270.0
+margin_right = 194.0
+margin_bottom = 298.0
+texture_normal = ExtResource( 15 )
+texture_pressed = ExtResource( 16 )
+texture_disabled = null
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Canvas/About/MarginContainer2/VBoxContainer"]
-margin_top = 100.0
-margin_right = 540.0
-margin_bottom = 295.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-scroll_horizontal_enabled = false
+[node name="DiscordButton" parent="Canvas/About" instance=ExtResource( 3 )]
+margin_left = 210.0
+margin_top = 270.0
+margin_right = 239.0
+margin_bottom = 298.0
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 17 )
+texture_disabled = null
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Canvas/About/MarginContainer2/VBoxContainer/ScrollContainer"]
-margin_right = 540.0
-margin_bottom = 546.0
-size_flags_horizontal = 3
-custom_constants/separation = 20
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="Canvas/About/MarginContainer2/VBoxContainer/ScrollContainer/VBoxContainer"]
-margin_right = 528.0
-margin_bottom = 144.0
-custom_constants/separation = 10
-
-[node name="Label" type="Label" parent="Canvas/About/MarginContainer2/VBoxContainer/ScrollContainer/VBoxContainer/VBoxContainer2"]
-margin_right = 528.0
-margin_bottom = 30.0
+[node name="AboutTitle" type="Label" parent="Canvas/About"]
+margin_left = 15.0
+margin_top = 15.0
+margin_right = 275.0
+margin_bottom = 55.0
 custom_fonts/font = ExtResource( 5 )
-text = "Kim jestesmy ?"
+text = "O nas"
 align = 1
-valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Label2" type="Label" parent="Canvas/About/MarginContainer2/VBoxContainer/ScrollContainer/VBoxContainer/VBoxContainer2"]
-margin_top = 40.0
-margin_right = 528.0
-margin_bottom = 106.0
+[node name="AboutContent" type="Label" parent="Canvas/About"]
+margin_left = 15.0
+margin_top = 45.0
+margin_right = 285.0
+margin_bottom = 157.0
 custom_fonts/font = ExtResource( 4 )
-text = "Jestesmy malym i ciagle rozwijajacym sie zespolem, który wspolnie probuje stworzyc
-cos fajnego. A czym to cos jest, hmmm jakby na to nie patrzec gra. 
-Wiekszosc informacji o nas znajdziesz na naszej stronie internetowej:"
+text = "Jesteśmy kolektywem artystycznym, który składa się z kilkunastu osób pragnących rozwijać swoje umiejętności w zakresie tworzenia gier komputerowych oraz wspólnie pracować nad kilkoma kreatywnymi projektami."
 align = 1
-valign = 1
+valign = 3
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="CenterContainer" type="CenterContainer" parent="Canvas/About/MarginContainer2/VBoxContainer/ScrollContainer/VBoxContainer/VBoxContainer2"]
-margin_top = 116.0
-margin_right = 528.0
-margin_bottom = 144.0
-
-[node name="LinkBtn" parent="Canvas/About/MarginContainer2/VBoxContainer/ScrollContainer/VBoxContainer/VBoxContainer2/CenterContainer" instance=ExtResource( 3 )]
-margin_left = 208.0
-margin_right = 320.0
-button_label = "elf-vs-dwarves.pl"
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Canvas/About/MarginContainer2/VBoxContainer/ScrollContainer/VBoxContainer"]
-margin_top = 164.0
-margin_right = 528.0
-margin_bottom = 546.0
-custom_constants/separation = 10
-
-[node name="Label4" type="Label" parent="Canvas/About/MarginContainer2/VBoxContainer/ScrollContainer/VBoxContainer/VBoxContainer"]
-margin_right = 528.0
-margin_bottom = 30.0
+[node name="CreditsTitle" type="Label" parent="Canvas/About"]
+margin_left = 300.0
+margin_right = 560.0
+margin_bottom = 40.0
 custom_fonts/font = ExtResource( 5 )
-text = "Dlaczego stworzylismy zespol ?"
+text = "Twórcy"
 align = 1
-valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Label3" type="Label" parent="Canvas/About/MarginContainer2/VBoxContainer/ScrollContainer/VBoxContainer/VBoxContainer"]
-margin_top = 40.0
-margin_right = 528.0
-margin_bottom = 382.0
-custom_fonts/font = ExtResource( 4 )
-text = "Oczywiście każdy z nas, ma swoje powody, które skłoniły go do dołączenia, 
-jednak jest również kilka wspólnych o których tutaj napiszę, a mianowicie:
-realizujemy swoje marzenia - tak, każdy z nas chciał kiedyś stworzyć własną grę, 
-z mniejszymi bądź większymi sukcesami brnęliśmy do przodu,
-los jednak chciał, że jako mniej doświadczone osoby zaczęliśmy 
-szukać pomocy u innych i tak oto wszyscy trafiliśmy tutaj
-motywacja - nie ma co ukrywać, dużo lepiej pracuje się nad czymkolwiek jak ma się kogoś 
-z kim na ten temat można porozmawiać. 
-Krótko mówiąc, jeśli samomotywacja nie wystarcza, 
-zawsze znajdzie się tutaj ktoś kto pchnie Cię do dalszego działania.
-całe życie się uczymy - chęć rozwoju i zdobycia wiedzy jest bardzo przydatna, 
-a człowiek najlepiej się uczy od innych, to też wspólnie praktykujemy.
-budujemy własne portfolio - nie czarujmy się, 
-każdy z nas chce coś osiągnąć w przyszłości, a kilka w pełni zrealizowanych projektów,
- którymi można się pochwalić na pewno to ułatwi"
+[node name="CreditsContent" type="Label" parent="Canvas/About"]
+margin_left = 300.0
+margin_top = 33.5
+margin_right = 560.0
+margin_bottom = 313.5
+custom_fonts/font = SubResource( 1 )
+text = "Alicja Zawada
+Adrian Pezda
+Bartłomiej Świstak Piotrowski
+Dominik Zawlocki
+Kacper Mazela
+Kuba Bozia Główczyk
+Maciej Grabowski
+Maciej Wierzchowski
+Marek Koszczyński
+Mateusz Komar Klimarowski
+Michał Biernacki
+Michał Cembrowski
+Misuzu Faraday
+Piotr Daniszewski
+Piotr 'dyedMagenta' Frankiewicz
+Przemek 'SLASHLogin' Frankiewicz
+Wojciech Sadlik"
 align = 1
-valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="StorySlides" type="Control" parent="Canvas"]
 visible = false
@@ -397,6 +400,7 @@ button_label = "Dalej"
 [connection signal="pressed" from="Canvas/Home/MarginContainer/VBoxContainer/CenterContainer/Menu/AboutBtn" to="." method="_on_AboutBtn_pressed"]
 [connection signal="pressed" from="Canvas/Home/MarginContainer/VBoxContainer/CenterContainer/Menu/ExitBtn" to="." method="_on_ExitBtn_pressed"]
 [connection signal="pressed" from="Canvas/Options/MarginContainer/VBoxContainer/BackBtn" to="." method="_on_BackBtn_pressed"]
-[connection signal="pressed" from="Canvas/About/MarginContainer2/VBoxContainer/BackBtn" to="." method="_on_BackBtn_pressed"]
-[connection signal="pressed" from="Canvas/About/MarginContainer2/VBoxContainer/ScrollContainer/VBoxContainer/VBoxContainer2/CenterContainer/LinkBtn" to="." method="_on_LinkBtn_pressed"]
+[connection signal="pressed" from="Canvas/About/BackBtn" to="." method="_on_BackBtn_pressed"]
+[connection signal="pressed" from="Canvas/About/FacebookButton" to="." method="_on_FacebookButton_pressed"]
+[connection signal="pressed" from="Canvas/About/DiscordButton" to="." method="_on_DiscordButton_pressed"]
 [connection signal="pressed" from="Canvas/StorySlides/GameButton" to="Canvas/StorySlides" method="_on_GameButton_pressed"]
