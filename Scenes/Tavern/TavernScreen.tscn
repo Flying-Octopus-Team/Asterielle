@@ -181,7 +181,6 @@ text = "Przywolaj diabla"
 align = 2
 
 [node name="MenuBtn" parent="ButtonContainer/HBoxContainer" instance=ExtResource( 15 )]
-button_label = ""
 
 [node name="RoomScreen" parent="." instance=ExtResource( 8 )]
 visible = false
@@ -238,8 +237,8 @@ margin_bottom = -5.0
 [connection signal="pressed" from="MainHall/ExitDoorBtn" to="." method="_on_ExitDoorBtn_pressed"]
 [connection signal="mouse_entered" from="MainHall/EnterRoomBtn" to="Background" method="_on_EnterRoomBtn_mouse_entered"]
 [connection signal="mouse_exited" from="MainHall/EnterRoomBtn" to="Background" method="_on_EnterRoomBtn_mouse_exited"]
-[connection signal="pressed" from="MainHall/EnterRoomBtn" to="." method="_on_EnterRoomBtn_pressed"]
 [connection signal="pressed" from="MainHall/EnterRoomBtn" to="Background" method="_on_EnterRoomBtn_pressed"]
+[connection signal="pressed" from="MainHall/EnterRoomBtn" to="." method="_on_EnterRoomBtn_pressed"]
 [connection signal="mouse_entered" from="MainHall/EnterPublicanBtn" to="Background" method="_on_EnterPublicanBtn_mouse_entered"]
 [connection signal="mouse_exited" from="MainHall/EnterPublicanBtn" to="Background" method="_on_EnterPublicanBtn_mouse_exited"]
 [connection signal="pressed" from="MainHall/EnterPublicanBtn" to="Background" method="_on_EnterPublicanBtn_pressed"]

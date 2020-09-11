@@ -25,6 +25,7 @@ func _ready():
 	set_active_revival_btn()
 	connect("tavern_exited", world.find_node("LevelManager"), "_on_Tavern_exited")
 	connect("tavern_exited", world.find_node("UIContainer"), "_on_Tavern_exited")
+	connect("tavern_entered", world.find_node("UIContainer"), "_on_Tavern_entered")
 	connect("room_exited", main_hall, "_on_Room_exited")
 	connect_node("MainHall")
 	connect_node("Resources")
