@@ -1,6 +1,6 @@
 class_name OfflineRewardCalculator
 
-const TIME_TEXT := "Elfka w tajemnicy strzelala przez "
+const TIME_TEXT := "Elfka w tajemnicy strzelała przez "
 const REWARD_TEXT := "Otrzymujesz "
 const REWARD_SUFFIX := " złota"
  

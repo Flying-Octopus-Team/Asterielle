@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/Tavern/NewTavernRooms/NewRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Tavern/NewTavernRooms/Inkeeper/PublicanPanel.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Scenes/Tavern/Buttons/VineBtn.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Tavern/Buttons/TavernBtn.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Tavern/Shop/PublicanShop.gd" type="Script" id=6]
+[ext_resource path="res://Fonts/SHPinsher_24.tres" type="DynamicFont" id=7]
 
 [node name="Control" instance=ExtResource( 1 )]
 mouse_filter = 2
@@ -29,12 +30,15 @@ margin_bottom = -15.0
 
 [node name="NameLabel" parent="ShopContainer" index="0"]
 margin_right = 320.0
+margin_bottom = 30.0
+custom_fonts/font = ExtResource( 7 )
 text = "Karczmarka"
 mouse_filter = 2
 
 [node name="Shop" parent="ShopContainer" index="1"]
+margin_top = 35.0
 margin_right = 320.0
-margin_bottom = 93.0
+margin_bottom = 91.0
 mouse_filter = 2
 script = ExtResource( 6 )
 
@@ -42,6 +46,7 @@ script = ExtResource( 6 )
 margin_right = 320.0
 margin_bottom = 26.0
 item_name = "Leczące wino"
+popup_title = "Ulecz się do końca"
 
 [node name="TavernBtn" parent="ShopContainer/Shop" index="1" instance=ExtResource( 5 )]
 margin_top = 30.0
@@ -49,12 +54,12 @@ margin_right = 320.0
 margin_bottom = 56.0
 item_name = "Mikstura życia"
 price_gold = 3.0
-popup_title = "Kup miksture zycia na pozniej (leczy 4 hp)"
+popup_title = "Kup miksturę życia na później (leczy 4 hp)"
 
 [node name="Publican" parent="ShopContainer" index="2" instance=ExtResource( 2 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 98.0
+margin_top = 96.0
 margin_right = 320.0
 margin_bottom = 252.0
 mouse_filter = 2
@@ -67,8 +72,8 @@ align = 0
 
 [node name="ItemList" parent="ShopContainer/Publican/VBoxContainer" index="1"]
 margin_right = 320.0
+margin_bottom = 156.0
 mouse_filter = 2
-margin_bottom = 154.0
 
 [node name="CenterContainer" parent="ShopContainer" index="3"]
 margin_top = 257.0

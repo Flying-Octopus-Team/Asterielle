@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scenes/Screens/EssentialInform/EssentialInform.gd" type="Script" id=1]
-[ext_resource path="res://Fonts/frikativ_32.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Fonts/SHPinsher_24.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Fonts/SHPinsher_16.tres" type="DynamicFont" id=3]
 [ext_resource path="res://Scenes/Screens/EssentialInform/SilverMoon.png" type="Texture" id=4]
 [ext_resource path="res://Scenes/Screens/EssentialInform/Skull.png" type="Texture" id=5]
@@ -124,14 +124,14 @@ tracks/3/keys = {
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ ExtResource( 4 ) ],
-"loop": true,
-"name": "moon",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 5 ) ],
 "loop": true,
 "name": "skull",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "moon",
 "speed": 5.0
 } ]
 
@@ -196,7 +196,7 @@ __meta__ = {
 
 [node name="TopText" type="Label" parent="Control/MarginContainer/VBoxContainer"]
 margin_right = 540.0
-margin_bottom = 32.0
+margin_bottom = 30.0
 rect_clip_content = true
 custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 0 )
@@ -207,7 +207,7 @@ __meta__ = {
 }
 
 [node name="CenterText" type="Label" parent="Control/MarginContainer/VBoxContainer"]
-margin_top = 36.0
+margin_top = 34.0
 margin_right = 540.0
 margin_bottom = 263.0
 size_flags_vertical = 7

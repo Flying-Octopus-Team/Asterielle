@@ -42,6 +42,7 @@ margin_right = 373.0
 [node name="ExitBtn" parent="ShopContainer/CenterContainer" index="0"]
 margin_left = 130.0
 margin_right = 242.0
+button_label = "Wróć"
 [connection signal="pressed" from="ShopContainer/CenterContainer/ExitBtn" to="." method="_on_ExitBtn_pressed"]
 
 [editable path="ShopContainer"]
