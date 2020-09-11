@@ -12,6 +12,7 @@ var hp : float setget set_current_hp
 
 var is_walking : bool
 var is_shooting : bool
+var is_in_tavern : bool
 
 onready var fire_point = find_node("FirePoint")
 onready var hp_bar = find_node("HPBar")
@@ -43,7 +44,8 @@ func _process(delta):
 	
 func spawn_arrow():
 	
-	$ShotSound.play()
+	if Settings.sounds_on && !is_in_tavern:
+		$ShotSound.play()
 	
 	var dwarf = $DwarfRayCast.get_collider()
 	
