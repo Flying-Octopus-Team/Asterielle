@@ -27,6 +27,7 @@ onready var active_spells = world.find_node("ActiveSpells")
 
 var NegligibleInformScreen = preload("res://Scenes/Screens/NegligibleInform/NegligibleInform.tscn")
 var EssentialInformScreen = preload("res://Scenes/Screens/EssentialInform/EssentialInform.tscn")
+var game_over_scene = preload("res://Scenes/Screens/GameOver/GameOverScreen.tscn")
 
 
 func set_level(value):
@@ -130,10 +131,10 @@ func on_Boss_kill_timeout():
 	ui.set_killed_dwarves_label(killed_dwarves, dwarves_per_level)
 	
 func on_Game_Over():
-	var eis = EssentialInformScreen.instance()
-	eis.init(3,"Koniec Gry","Straciłaś przytomność\n Zostaniesz przeniesiona z pola walki do tawerny ","skull",false)
-	eis.connect("timeout", self, "reset_to_base")
-	world.call_deferred("add_child", eis)
+	var game_over_screen = game_over_scene.instance()
+	game_over_screen.init(3, "Koniec Gry", "Straciłaś przytomność\n Zostaniesz przeniesiona z pola walki do tawerny ", "skull", false)
+	game_over_screen.connect("timeout", self, "reset_to_base")
+	world.call_deferred("add_child", game_over_screen)
 	BackgroundData.move_speed = BackgroundData.default_move_speed
 
 func show_offline_screen():
