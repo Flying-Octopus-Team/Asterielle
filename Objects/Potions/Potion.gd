@@ -31,9 +31,7 @@ func _on_potion_used():
 	
 func save():
 	var save_dict = {
-			_health_potion = {
-				_amount = amount
-			}
+			_health_potion = amount
 	}
 	return save_dict
 

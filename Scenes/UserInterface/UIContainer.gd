@@ -17,6 +17,7 @@ onready var tavern_enter_btn = find_node("TavernEnterBtn")
 onready var revival_enter_btn = find_node("RevivalEnterBtn")
 onready var revival_enter_label = find_node("RevivalEnterLabel")
 
+onready var potions = find_node("HealthPotion")
 
 func set_gold_label(gold: float):
 	gold_icon.get_node("AnimationPlayer").play("gold_reached")
@@ -52,10 +53,14 @@ func _on_TavernEnterBtn_pressed():
 	
 func _on_Tavern_exited() -> void:
 	tavern_enter_btn.set_pressed(false)
+	if(potions.amount > 0):
+		potions.show()
+		
+func _on_Tavern_entered() -> void:
+	potions.hide()
 	
 func _on_RevivalShop_exited() -> void:
 	revival_enter_btn.set_pressed(false)
-
 
 func _on_MenuBtn_pressed():
 	GameSaver.stop_timer()

@@ -52,8 +52,8 @@ func load_game():
 					load_level(current_level)
 				"_elf_stats":
 					load_elf_stats(node_data["_elf_stats"])
-				"_amount":
-					load_health_potion(node_data['_amount'])
+				"_health_potion":
+					load_health_potion(node_data[attribute])
 				"_price":
 					load_price(float(node_data['_price']))
 				"_dwarves_per_level":
@@ -101,7 +101,12 @@ func load_elf_stats(elf_stats):
 	elf.reset_to_base()
 
 func load_health_potion(health_potion):
-	get_tree().get_root().get_node("World").find_node("HealthPotion").set_amount(health_potion)
+	var potions = get_tree().get_root().get_node("World").find_node("HealthPotion")
+	potions.set_amount(health_potion)
+	if(potions.amount <= 0):
+		potions.hide()
+	else:
+		potions.show()
 
 func load_price(price):
 	var items = get_parent().find_node("Items") 

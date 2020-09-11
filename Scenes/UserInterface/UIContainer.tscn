@@ -109,19 +109,19 @@ size_flags_vertical = 3
 [node name="VBoxContainer2" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2"]
 margin_right = 177.0
 margin_bottom = 238.0
-size_flags_horizontal = 3
 mouse_filter = 2
+size_flags_horizontal = 3
 custom_constants/separation = -15
 
 [node name="GoldRow" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer2"]
 margin_right = 177.0
-mouse_filter = 2
 margin_bottom = 48.0
+mouse_filter = 2
 
 [node name="GoldIcon" type="TextureRect" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer2/GoldRow"]
 margin_right = 48.0
-mouse_filter = 2
 margin_bottom = 48.0
+mouse_filter = 2
 texture = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer2/GoldRow/GoldIcon"]
@@ -132,15 +132,15 @@ margin_left = 52.0
 margin_top = 9.0
 margin_right = 62.0
 margin_bottom = 39.0
-mouse_filter = 2
 custom_fonts/font = ExtResource( 14 )
 text = "0"
 
 [node name="SilverMoonRow" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer2"]
+visible = false
 margin_top = 33.0
 margin_right = 177.0
-mouse_filter = 2
 margin_bottom = 81.0
+mouse_filter = 2
 
 [node name="SilverMoonIcon" type="TextureRect" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer2/SilverMoonRow"]
 margin_right = 48.0
@@ -156,7 +156,6 @@ margin_left = 52.0
 margin_top = 9.0
 margin_right = 62.0
 margin_bottom = 39.0
-mouse_filter = 2
 custom_fonts/font = ExtResource( 14 )
 text = "0"
 
@@ -169,13 +168,12 @@ size_flags_horizontal = 3
 
 [node name="CenterContainer" type="CenterContainer" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer"]
 margin_right = 177.0
-mouse_filter = 2
 margin_bottom = 20.0
+mouse_filter = 2
 
 [node name="LevelLabel" type="Label" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer/CenterContainer"]
 margin_left = 61.0
 margin_right = 116.0
-mouse_filter = 2
 margin_bottom = 20.0
 custom_fonts/font = ExtResource( 31 )
 text = "Poziom 10"
@@ -183,13 +181,12 @@ text = "Poziom 10"
 [node name="CenterContainer2" type="CenterContainer" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer"]
 margin_top = 24.0
 margin_right = 177.0
-mouse_filter = 2
 margin_bottom = 44.0
+mouse_filter = 2
 
 [node name="KilledDwarvesLabel" type="Label" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer/CenterContainer2"]
 margin_left = 74.0
 margin_right = 103.0
-mouse_filter = 2
 margin_bottom = 20.0
 custom_fonts/font = ExtResource( 31 )
 text = "1 / 5"
@@ -206,16 +203,16 @@ size_flags_vertical = 0
 margin_left = 25.0
 margin_right = 119.0
 margin_bottom = 104.0
+mouse_filter = 2
 size_flags_horizontal = 6
 size_flags_vertical = 0
-mouse_filter = 2
 custom_constants/separation = 10
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer/VBoxContainer3"]
 margin_right = 94.0
 margin_bottom = 47.0
-size_flags_horizontal = 8
 mouse_filter = 2
+size_flags_horizontal = 8
 custom_constants/separation = 0
 
 [node name="TavernEnterBtn" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer/VBoxContainer3/VBoxContainer2" instance=ExtResource( 33 )]
@@ -228,7 +225,6 @@ margin_top = 27.0
 margin_right = 94.0
 margin_bottom = 47.0
 size_flags_horizontal = 0
-mouse_filter = 2
 custom_fonts/font = ExtResource( 31 )
 text = "Wejdź do tawerny"
 align = 2
@@ -238,8 +234,8 @@ margin_left = 3.0
 margin_top = 57.0
 margin_right = 94.0
 margin_bottom = 104.0
-size_flags_horizontal = 8
 mouse_filter = 2
+size_flags_horizontal = 8
 custom_constants/separation = 0
 
 [node name="RevivalEnterBtn" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer/VBoxContainer3/VBoxContainer" instance=ExtResource( 33 )]
@@ -252,7 +248,6 @@ margin_top = 27.0
 margin_right = 91.0
 margin_bottom = 47.0
 size_flags_horizontal = 0
-mouse_filter = 2
 custom_fonts/font = ExtResource( 31 )
 text = "Przywołaj diabła"
 align = 2
@@ -260,7 +255,6 @@ align = 2
 [node name="MenuBtn" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer" instance=ExtResource( 15 )]
 margin_left = 149.0
 margin_right = 177.0
-button_label = ""
 
 [node name="BottomBar" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
 margin_top = 248.0
@@ -273,8 +267,8 @@ alignment = 1
 visible = false
 margin_right = 177.0
 margin_bottom = 32.0
-size_flags_horizontal = 3
 mouse_filter = 2
+size_flags_horizontal = 3
 script = ExtResource( 34 )
 
 [node name="SpeedupBtn" parent="Control/MarginContainer/VBoxContainer/BottomBar/ActiveSpells" instance=ExtResource( 35 )]
@@ -284,8 +278,8 @@ margin_bottom = 32.0
 [node name="CenterContainer" type="CenterContainer" parent="Control/MarginContainer/VBoxContainer/BottomBar"]
 margin_left = 253.0
 margin_right = 285.0
-mouse_filter = 2
 margin_bottom = 32.0
+mouse_filter = 2
 
 [node name="Potions" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/BottomBar/CenterContainer"]
 margin_right = 32.0
@@ -306,8 +300,8 @@ rect_scale = Vector2( 1, 1 )
 visible = false
 margin_left = 271.0
 margin_right = 539.0
-mouse_filter = 2
 margin_bottom = 32.0
+mouse_filter = 2
 size_flags_horizontal = 3
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer/VBoxContainer3/VBoxContainer2/TavernEnterBtn" to="." method="_on_TavernEnterBtn_pressed"]
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer/VBoxContainer3/VBoxContainer/RevivalEnterBtn" to="." method="_on_RevivalEnterBtn_pressed"]
