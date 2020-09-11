@@ -68,8 +68,6 @@ func arrow_reloaded():
 	is_walking = true
 	
 func on_dwarf_hit(dmg) -> bool:
-#	if randf() < ElfStats.get_stat_value("agility"):
-#		return true
 	if dmg > hp:
 		hp = 0
 	else:

@@ -6,9 +6,6 @@ var Popup = load("res://Scenes/InformationPopup/Popup.tscn")
 
 func stop_gameplay():
 	dwarves_manager.spawn = false
-	#TODO: zabić wszystkie boty 
-	#var dwarf = find_node("Dwarf")
-	#dwarf.death()
 
 func resume_gameplay():
 	dwarves_manager.spawn = true
