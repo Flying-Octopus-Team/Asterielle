@@ -23,7 +23,6 @@ onready var tavern_screen = world.find_node("TavernScreen")
 onready var ui = world.find_node("UIContainer")
 onready var publician = world.find_node("Publician")
 onready var speedup_skill = world.find_node("SpeedupBtn")
-onready var publican = world.find_node("Publican")
 onready var active_spells = world.find_node("ActiveSpells")
 
 var NegligibleInformScreen = preload("res://Scenes/Screens/NegligibleInform/NegligibleInform.tscn")
@@ -68,7 +67,6 @@ func increase_level():
 	
 func on_Dwarf_died():
 	killed_dwarves += 1
-	publican.on_kill_dwarver()
 	emit_signal("dwarf_died")
 	
 	after_dwarf_died()
