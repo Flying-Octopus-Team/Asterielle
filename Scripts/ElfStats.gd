@@ -13,7 +13,7 @@ class Stat:
 	var max_value : float = 100
 	var visible_name : String = "STAT"
 	
-	func _init(n:String, dv:float=0, max_v: float = 100, visible_n: String = "STAT", v:float=0):
+	func _init(n: String, dv: float = 0, max_v: float = 100, visible_n: String = "STAT", v: float = 0):
 		name = n
 		max_value = max_v
 		visible_name = visible_n
@@ -126,19 +126,12 @@ var damage_multiplier: float = 1.0 setget set_damage_multiplier
 var health_multiplier: float = 1.0 setget set_health_multiplier
 
 var _stats = [
-	Stat.new("bows_knowledge", 1, 1000, "Znajomość Łuków"),
-	#Stat.new("agility", 0.1),
-	Stat.new("vitality", 13, 1000, "Witalność"),
-	#Stat.new("sensitive_points", 0),
-	#Stat.new("eagle_eye", 0.1),
-	Stat.new("critical_shot", 0.1, 1, "Uderzenie Krytyczne"),
-	#Stat.new("strength", 1),
-	#Stat.new("magic", 0),
-	#Stat.new("lucky", 0),
+	Stat.new("bows_knowledge", 1, 10, "Znajomość Łuków"),
+	Stat.new("vitality", 13, 250, "Witalność"),
+	Stat.new("critical_shot", 0.1, 1, "Uderzenie Krytyczne")
 ]
 
 var _items = {}
-
 
 func _ready():
 	add_to_group("IHaveSthToSave")
