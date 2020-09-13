@@ -1,7 +1,6 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/Tavern/NewTavernRooms/NewRoom.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Scenes/Tavern/NewTavernRooms/Inkeeper/PublicanPanel.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Tavern/NewTavernRooms/Inkeeper/innkeeper.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/Tavern/Buttons/VineBtn.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Tavern/Buttons/TavernBtn.tscn" type="PackedScene" id=5]
@@ -9,13 +8,11 @@
 [ext_resource path="res://Fonts/SHPinsher_24.tres" type="DynamicFont" id=7]
 
 [node name="Control" instance=ExtResource( 1 )]
-mouse_filter = 2
 
 [node name="CharacterSprite" parent="." index="0"]
 margin_left = -70.8385
 margin_top = 6.5038
 margin_right = 2409.16
-mouse_filter = 2
 margin_bottom = 3514.5
 rect_scale = Vector2( 0.15, 0.15 )
 texture = ExtResource( 3 )
@@ -24,7 +21,6 @@ texture = ExtResource( 3 )
 anchor_left = 1.0
 margin_left = -335.0
 margin_top = 15.0
-mouse_filter = 2
 margin_right = -15.0
 margin_bottom = -15.0
 
@@ -33,13 +29,11 @@ margin_right = 320.0
 margin_bottom = 30.0
 custom_fonts/font = ExtResource( 7 )
 text = "Karczmarka"
-mouse_filter = 2
 
 [node name="Shop" parent="ShopContainer" index="1"]
 margin_top = 35.0
 margin_right = 320.0
 margin_bottom = 91.0
-mouse_filter = 2
 script = ExtResource( 6 )
 
 [node name="VineBtn" parent="ShopContainer/Shop" index="0" instance=ExtResource( 4 )]
@@ -56,30 +50,10 @@ item_name = "Mikstura życia"
 price_gold = 3.0
 popup_title = "Kup miksturę życia na później (leczy 4 hp)"
 
-[node name="Publican" parent="ShopContainer" index="2" instance=ExtResource( 2 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="CenterContainer" parent="ShopContainer" index="2"]
 margin_top = 96.0
 margin_right = 320.0
-margin_bottom = 252.0
-mouse_filter = 2
-size_flags_vertical = 3
-
-[node name="questsLabel" parent="ShopContainer/Publican/VBoxContainer" index="0"]
-margin_right = 320.0
-mouse_filter = 2
-align = 0
-
-[node name="ItemList" parent="ShopContainer/Publican/VBoxContainer" index="1"]
-margin_right = 320.0
-margin_bottom = 156.0
-mouse_filter = 2
-
-[node name="CenterContainer" parent="ShopContainer" index="3"]
-margin_top = 257.0
-margin_right = 320.0
-mouse_filter = 2
-margin_bottom = 285.0
+margin_bottom = 124.0
 
 [node name="ExitBtn" parent="ShopContainer/CenterContainer" index="0"]
 margin_left = 104.0
@@ -88,5 +62,3 @@ margin_right = 216.0
 [connection signal="bought" from="ShopContainer/Shop/TavernBtn" to="ShopContainer/Shop" method="_on_HealthPotionBtn_bought"]
 
 [editable path="ShopContainer"]
-
-[editable path="ShopContainer/Publican"]

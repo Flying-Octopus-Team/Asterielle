@@ -9,12 +9,10 @@ const OFFLINE_BONUS_GOLD_RATIO : float = 0.3
 
 var level_manager
 var elf
-var publican
 
 func setup() -> void:
 	level_manager = get_parent().get_node("World").get_node("LevelManager")
 	elf = get_parent().get_node("World").find_node("Elf")
-	publican = get_parent().get_node("World").find_node("Publican")
 	load_game()
 
 func load_player_data():
@@ -66,8 +64,6 @@ func load_game():
 					load_probability_to_get_silver_moon_in_percent(int(node_data['_probability_to_get_silver_moon_in_percent']))
 				"_tradesman_item_price_multipler":
 					load_tradesman_item_price_multipler(float(node_data['_tradesman_item_price_multipler']))
-				"_selected_quest":
-					load_quest(int(node_data['_selected_quest']))
 				"tavern_screen":
 					load_tavern_data(node_data["tavern_screen"])
 				
@@ -133,11 +129,6 @@ func load_probability_to_get_silver_moon_in_percent(value):
 func load_tradesman_item_price_multipler(value):
 	GameData.tradesman_item_price_multipler = value
 
-func load_quest(value):
-	var publican_screen = get_parent().get_node("World").find_node("Publican")
-	publican_screen.selected_quest = value
-	publican_screen.item_list.select(value)
-
 func load_gold(gold):
 	GameData.gold = gold
 
@@ -153,4 +144,3 @@ func revival_reset():
 	load_hp(ElfStats.get_stat_value("vitality"))
 	load_level(1)
 	load_health_potion(0)
-	publican.create_default_quests()

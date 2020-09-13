@@ -245,6 +245,7 @@ margin_bottom = 298.0
 texture_normal = ExtResource( 15 )
 texture_pressed = ExtResource( 16 )
 texture_disabled = null
+button_label = ""
 
 [node name="DiscordButton" parent="Canvas/About" instance=ExtResource( 3 )]
 margin_left = 210.0
@@ -254,6 +255,7 @@ margin_bottom = 298.0
 texture_normal = ExtResource( 9 )
 texture_pressed = ExtResource( 17 )
 texture_disabled = null
+button_label = ""
 
 [node name="AboutTitle" type="Label" parent="Canvas/About"]
 margin_left = 15.0

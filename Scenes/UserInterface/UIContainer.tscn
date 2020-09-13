@@ -255,6 +255,7 @@ align = 2
 [node name="MenuBtn" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer" instance=ExtResource( 15 )]
 margin_left = 149.0
 margin_right = 177.0
+button_label = ""
 
 [node name="BottomBar" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
 margin_top = 248.0

@@ -12,7 +12,6 @@ export(bool) var should_save_price = false
 
 onready var default_price_gold : float = price_gold
 
-onready var publican = get_node("/root/World").find_node("Publican")
 var popup = null
 
 func _ready():
@@ -22,7 +21,6 @@ func _ready():
 func _on_BuyBtn_pressed():
 	if price_gold:
 		GameData.add_gold(-price_gold)
-		publican.on_spend_gold(price_gold)
 		set_price_gold(price_gold * price_gold_mod)
 	emit_signal("bought")
 
