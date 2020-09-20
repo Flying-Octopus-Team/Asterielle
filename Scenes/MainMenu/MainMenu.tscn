@@ -213,6 +213,7 @@ margin_left = 46.0
 margin_right = 127.0
 
 [node name="About" type="Control" parent="Canvas"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
