@@ -1,7 +1,8 @@
 extends Node2D
 
-const FACEBOOK_ADDRESS = "https://www.facebook.com/Flying-Octopus-112122830515376/"
-const DISCORD_ADDRESS = "https://discord.gg/hcNPYc6"
+const FACEBOOK_ADDRESS = "https://www.facebook.com/FO.flyingoctopus/"
+const DISCORD_ADDRESS = "https://discord.gg/Q2DuSNY"
+const SONIC_ADDRESS = "https://sonicidols.com/aboutus/"
 
 const WORLD_SCENE = preload("res://Scenes/World/World.tscn")
 
@@ -77,3 +78,6 @@ func _on_DiscordButton_pressed():
 
 func _on_TextureButton_pressed():
 	OS.shell_open(FACEBOOK_ADDRESS)
+
+func _on_SonicIdolsButton_pressed():
+	OS.shell_open(SONIC_ADDRESS)

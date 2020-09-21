@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Scenes/MainMenu/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://Fonts/frikativ_32.tres" type="DynamicFont" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://Scenes/UserInterface/Buttons/FacebookBtn/facebook_btn.png" type="Texture" id=15]
 [ext_resource path="res://Scenes/UserInterface/Buttons/FacebookBtn/facebook_pressed_btn.png" type="Texture" id=16]
 [ext_resource path="res://Scenes/UserInterface/Buttons/DiscordBtn/discord_pressed_btn.png" type="Texture" id=17]
+[ext_resource path="res://Scenes/MainMenu/Logo/sonic idols logo.png" type="Texture" id=18]
 
 [sub_resource type="DynamicFont" id=1]
 extra_spacing_bottom = -7
@@ -107,7 +108,7 @@ margin_bottom = 35.0
 size_flags_horizontal = 3
 size_flags_vertical = 8
 custom_fonts/font = ExtResource( 4 )
-text = "Wersja 1.0.0"
+text = "Wersja 1.0.1"
 valign = 1
 
 [node name="FlyingOctopusLabel" type="Label" parent="Canvas/Home/MarginContainer/VBoxContainer/HBoxContainer"]
@@ -254,6 +255,17 @@ margin_right = 239.0
 margin_bottom = 298.0
 texture_normal = ExtResource( 9 )
 texture_pressed = ExtResource( 17 )
+texture_disabled = null
+button_label = ""
+
+[node name="SonicIdolsButton" parent="Canvas/About" instance=ExtResource( 3 )]
+margin_left = 240.0
+margin_top = 247.921
+margin_right = 2676.0
+margin_bottom = 1617.92
+rect_scale = Vector2( 0.04, 0.04 )
+texture_normal = ExtResource( 18 )
+texture_pressed = ExtResource( 18 )
 texture_disabled = null
 button_label = ""
 
@@ -410,4 +422,5 @@ button_label = "Dalej"
 [connection signal="pressed" from="Canvas/About/BackBtn" to="." method="_on_BackBtn_pressed"]
 [connection signal="pressed" from="Canvas/About/FacebookButton" to="." method="_on_FacebookButton_pressed"]
 [connection signal="pressed" from="Canvas/About/DiscordButton" to="." method="_on_DiscordButton_pressed"]
+[connection signal="pressed" from="Canvas/About/SonicIdolsButton" to="." method="_on_SonicIdolsButton_pressed"]
 [connection signal="pressed" from="Canvas/StorySlides/GameButton" to="Canvas/StorySlides" method="_on_GameButton_pressed"]
