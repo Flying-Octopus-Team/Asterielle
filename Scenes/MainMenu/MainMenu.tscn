@@ -298,15 +298,16 @@ __meta__ = {
 
 [node name="CreditsContent" type="Label" parent="Canvas/About"]
 margin_left = 300.0
-margin_top = 33.5
+margin_top = 24.0
 margin_right = 560.0
-margin_bottom = 313.5
+margin_bottom = 318.0
 custom_fonts/font = SubResource( 1 )
-text = "Alicja Zawada
-Adrian Pezda
+text = "Adrian Pezda
+Alicja Zawada
 Bartłomiej Świstak Piotrowski
 Dominik Zawlocki
 Kacper Mazela
+Konrad Konopek
 Kuba Bozia Główczyk
 Maciej Grabowski
 Maciej Wierzchowski
@@ -315,8 +316,8 @@ Mateusz Komar Klimarowski
 Michał Biernacki
 Michał Cembrowski
 Misuzu Faraday
-Piotr Daniszewski
 Piotr 'dyedMagenta' Frankiewicz
+Piotr Daniszewski
 Przemek 'SLASHLogin' Frankiewicz
 Wojciech Sadlik"
 align = 1
