@@ -71,12 +71,12 @@ func is_modified_by_item(item_name: String) -> bool:
 func is_named(p_name: String) -> bool:
 	return name == p_name
 
-func calculate_modified_value_with_modifier(modifier:Resource) -> float:
-	var temp_modified_value : float = base_value+modifier.summation_modifier
-	var multiply_modifier : float = modifier.multiply_modifier
-	for M in modifiers:
-		temp_modified_value += M.summation_modifier
-		multiply_modifier *= M.multiply_modifier
+func calculate_modified_value_with_modifier(new_modifier:Resource) -> float:
+	var temp_modified_value : float = base_value+new_modifier.summation_modifier
+	var multiply_modifier : float = new_modifier.multiply_modifier
+	for modifier in modifiers:
+		temp_modified_value += modifier.summation_modifier
+		multiply_modifier *= modifier.multiply_modifier
 	temp_modified_value *= multiply_modifier
 	return temp_modified_value
 

@@ -90,14 +90,20 @@ static func add_item(item) -> void:
 	ElfStats._items[item.name] = item
 	
 	for s in ElfStats._stats:
-		for i in range(0, s.modifiers.size(), 1):
-			if s.modifiers[i].item_name == item.name:
-				s.remove_modifier(s.modifiers[i])
-				break
-		 
-		for c in item.stat_modifiers:
-			if s.is_named(c.stat_name):
-				s.add_modifier(c)
+		_remove_old_item_modifier(s, item)
+		
+		_add_new_item_modifier(s, item)
+				
+static func _remove_old_item_modifier(stat: Resource, item: Resource) -> void:
+	for i in range(0, stat.modifiers.size(), 1):
+		if stat.modifiers[i].item_name == item.name:
+			stat.remove_modifier(stat.modifiers[i])
+			return
+			
+static func _add_new_item_modifier(stat: Resource, item: Resource) -> void:
+	for modifier in item.stat_modifiers:
+		if stat.is_named(modifier.stat_name):
+			stat.add_changer(modifier)
 	
 static func save():
 	var save_dict = {
