@@ -13,7 +13,7 @@
 
 you can play in EvD for free:
 
-- [:fire: Play in your browser](http://elf-vs-dwarves.pl/newest/)
+- [:fire: Play in your browser](https://flyingoctopus.itch.io/asterielle)
 
 
 ## Screenshots
@@ -38,6 +38,6 @@ you can play in EvD for free:
 - Additional fonts: [SH Pinscher](https://www.fontsquirrel.com/fonts/sh-pinscher?fbclid=IwAR2uKGCNNk1PXLtZ9qftjSmsgUoIQg4uWsBa96PVIqZIGqu9BflBMb_0yQo) and [Fricativ](http://www.pentacom.jp/pentacom/bitfontmaker2/gallery/?id=550). See fonts Licenses: [LINK](https://github.com/Ajver/EvD/blob/dz_add_font_licenses/Fonts/README.md)
 
 ## Resources
-[:skull: Website](http://elf-vs-dwarves.com/)
+[:skull: Website](http://asterielle.pl/)
 
-[:ghost: Discord](https://discord.gg/D29mBe4)
+[:ghost: Discord](https://discord.gg/Q2DuSNY)
